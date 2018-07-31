@@ -41,8 +41,8 @@ The front-end of **problem1_solution.py** parses the input arguments, checks
 	their validity, and parses the input structural netlist for genetic
 	technology mapping.
 
-The genetic technology mapping engine consists of a (set of) solution(s) to
-	perform genetic technology mapping.
+The genetic technology mapping engine of **problem1_solution.py** consists of a
+	(set of) solution(s) to perform genetic technology mapping.
 	A solution is an implementation of a known/new algorithm/heuristic for
 		genetic technology mapping.
 
