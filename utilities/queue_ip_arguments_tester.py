@@ -90,9 +90,9 @@ from utilities.queue_ip_arguments import queue_ip_args
 	Test each static method of the "queue_ip_args" class.
 """
 class queue_ip_args_tester:
-    # =========================================================
+	# =========================================================
 	#	Method to test the O(1) methods that print information
-	#		to the standard output.
+	#		to the standard output, or are accessor methods.
 	#	@return - Nothing.
 	#	O(?) method.
 	@staticmethod
@@ -127,12 +127,16 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		prompt2 = "	Test: queue_ip_args.set_input_arguments(...)		{}"
 		statistical_analysis.increment_number_test_cases_used()
+		prompt3 = "	Test: queue_ip_args.get_name_of_current_script()	{}"
+		statistical_analysis.increment_number_test_cases_used()
 		#	List of input arguments.
 		list_ip_args = []
 		if queue_ip_args.get_2nd_input_argument() is not None:
 			print(prompt1 .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 			print(prompt2 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+			print(prompt3 .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt1 .format("FAIL!!!"))

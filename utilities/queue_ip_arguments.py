@@ -136,12 +136,13 @@ class queue_ip_args:
 	def get_number_of_input_arguments():
 		return len(queue_ip_args.set_of_input_arguments)
 	# ============================================================
-	#	Method to get the number of input arguments.
-	#	@return - Number of input arguments for the program.
+	#	Method to get the name of the current script that is
+	#		being executed.
+	#	@return - Name of the current script that is being executed.
 	#	O(1) method.
 	@staticmethod
-	def get_number_of_input_arguments():
-		return len(queue_ip_args.set_of_input_arguments)
+	def get_name_of_current_script():
+		return len(queue_ip_args.CURRENT_SCRIPT)
 	# ============================================================
 	#	Mutator methods.
 	# ============================================================
