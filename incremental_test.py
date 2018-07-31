@@ -114,7 +114,7 @@ class Incremental_Test_Automation:
 	# ============================================================
 	#	Other methods.
 	# ============================================================
-	#	Method to add BibTeX keys into a list, "set_of_BibTeX_keys".
+	##	Method to add BibTeX keys into a list, "set_of_BibTeX_keys".
 	#	O(n) method, where n is the number of BibTeX keys.
 	@staticmethod
 	def add_BibTeX_key(found_BibTeX_key):
@@ -124,13 +124,13 @@ class Incremental_Test_Automation:
 			raise Exception("Multiple instances of a BibTeX key")
 		Incremental_Test_Automation.set_of_BibTeX_keys.append(found_BibTeX_key)
 	# ============================================================
-	#	Method to sort BibTeX keys into a list, "set_of_BibTeX_keys".
+	##	Method to sort BibTeX keys into a list, "set_of_BibTeX_keys".
 	#	O(n*log(n)) method, where n is the number of BibTeX keys.
 	@staticmethod
 	def sort_BibTeX_keys():
 		Incremental_Test_Automation.set_of_BibTeX_keys = sorted(Incremental_Test_Automation.set_of_BibTeX_keys)
 	# ============================================================
-	#	Method to read each line of the input BibTeX file.
+	##	Method to read each line of the input BibTeX file.
 	#	O(n) method, where n is the number of lines of the BibTeX file.
 	@staticmethod
 	def read_input_BibTeX_file(ip_file_object,input_BibTeX_file):

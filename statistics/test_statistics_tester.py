@@ -87,7 +87,7 @@ from statistics.test_statistics import statistical_analysis
 """
 class statistical_analysis_tester:
 	# =========================================================
-	#	Method to test the methods that support software test
+	##	Method to test the methods that support software test
 	#		automation.
 	#	@return - Nothing.
 	#	O(1) method.

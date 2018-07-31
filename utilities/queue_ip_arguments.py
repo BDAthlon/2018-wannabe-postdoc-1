@@ -69,7 +69,7 @@ import warnings
 
 
 ###############################################################
-#	Module with methods that clean BibTeX files.
+##	Module with methods that clean BibTeX files.
 class queue_ip_args:
 	#	List of input arguments
 	set_of_input_arguments = []
@@ -87,7 +87,7 @@ class queue_ip_args:
 	# ============================================================
 	#	Accessor methods.
 	# ============================================================
-	#	Method to get the input arguments.
+	##	Method to get the input arguments.
 	#	@return - List of input arguments to the program.
 	#	O(1) method.
 	@staticmethod
@@ -99,7 +99,7 @@ class queue_ip_args:
 		"""
 		return queue_ip_args.set_of_input_arguments
 	# ============================================================
-	#	Method to print all the input arguments.
+	##	Method to print all the input arguments.
 	#	O(n) method, with respect to the number of input arguments.
 	@staticmethod
 	def print_all_input_arguments():
@@ -107,7 +107,7 @@ class queue_ip_args:
 		println += "=".join(str(x) for x in queue_ip_args.set_of_input_arguments)
 		print(println)
 	# ============================================================
-	#	Method to get the first input argument.
+	##	Method to get the first input argument.
 	#	@return - First input argument for the program.
 	#	O(1) method.
 	@staticmethod
@@ -118,7 +118,7 @@ class queue_ip_args:
 			warnings.warn("	1st input argument is missing!!!")
 			queue_ip_args.input_arguments_error()
 	# ============================================================
-	#	Method to get the second input argument.
+	##	Method to get the second input argument.
 	#	@return - Second input argument for the program.
 	#	O(1) method.
 	@staticmethod
@@ -129,14 +129,14 @@ class queue_ip_args:
 			warnings.warn("	2nd input argument is missing!!!")
 			queue_ip_args.input_arguments_error()
 	# ============================================================
-	#	Method to get the number of input arguments.
+	##	Method to get the number of input arguments.
 	#	@return - Number of input arguments for the program.
 	#	O(1) method.
 	@staticmethod
 	def get_number_of_input_arguments():
 		return len(queue_ip_args.set_of_input_arguments)
 	# ============================================================
-	#	Method to get the name of the current script that is
+	##	Method to get the name of the current script that is
 	#		being executed.
 	#	@return - Name of the current script that is being executed.
 	#	O(1) method.
@@ -146,7 +146,7 @@ class queue_ip_args:
 	# ============================================================
 	#	Mutator methods.
 	# ============================================================
-	#	Method to set the input arguments.
+	##	Method to set the input arguments.
 	#		And, remove the name of the script from the list of input
 	#		arguments, for easier processing.
 	#	@param list_of_ip_arguments - A list of input arguments to
@@ -162,7 +162,7 @@ class queue_ip_args:
 	# ============================================================
 	#	Other methods.
 	# ============================================================
-	#	Method to determine if the user wants help, and conequently
+	##	Method to determine if the user wants help, and conequently
 	#		display the user manual.
 	#	O(n) method, with respect to the number of input arguments.
 	@staticmethod
@@ -173,7 +173,7 @@ class queue_ip_args:
 			queue_ip_args.how_to_use_script()
 			sys.exit()
 	# ============================================================
-	#	Method to provide information on how to run this script.
+	##	Method to provide information on how to run this script.
 	#	O(1) method.
 	@staticmethod
 	def how_to_use_script():
@@ -196,7 +196,7 @@ class queue_ip_args:
 		queue_ip_args.print_help_option()
 		print("-------------------------------------------------")
 	# ============================================================
-	#	Method to provide information on the second input argument.
+	##	Method to provide information on the second input argument.
 	#	O(1) method.
 	@staticmethod
 	def print_2nd_argument():
@@ -208,7 +208,7 @@ class queue_ip_args:
 		print("")
 		print(second_input_argument)
 	# ============================================================
-	#	Method to print the help option to access the user manual.
+	##	Method to print the help option to access the user manual.
 	#	O(1) method.
 	@staticmethod
 	def print_help_option():
@@ -216,7 +216,7 @@ class queue_ip_args:
 		print("	to show the brief user manual and exit.")
 		print("")
 	# ============================================================
-	#	Method to indicate error wth input arguments.
+	##	Method to indicate error wth input arguments.
 	#	O(1) method.
 	@staticmethod
 	def input_arguments_error():
@@ -224,7 +224,7 @@ class queue_ip_args:
 		# Inform the user what went wrong.
 		raise Exception("Error with input arguments.")
 	# ============================================================
-	#	Method to process the first input argument.
+	##	Method to process the first input argument.
 	#	O(1) method.
 	@staticmethod
 	def process_1st_ip_arg():
@@ -255,7 +255,7 @@ class queue_ip_args:
 			raise Exception("1st input argument doesn't have JSON file extension!")
 		return ip_fname1
 	# ============================================================
-	#	Method to process the second input argument.
+	##	Method to process the second input argument.
 	#	@return the output filename, based on the second input argument
 	#	O(1) method.
 	@staticmethod
@@ -292,7 +292,7 @@ class queue_ip_args:
 			print("	New output filename is: {}" .format(ip_fname2))
 		return ip_fname2
 	# ============================================================
-	#	Method to handle missing second input argument.
+	##	Method to handle missing second input argument.
 	#	Replace the following substring "_netlist.json" in the input structural
 	#		netlist with "_mapping.json", and set the result as the second
 	#		input argument.

@@ -79,14 +79,22 @@ Input Parameters:
 
 ###	Documentation Generation
 
-To generate documentation for the incremental, automated regression test
-	suite (Python code), try:
+To use *Doxygen* to generate documentation for the Python software, try:
 
-	pydoc incremental_test.py
+	make doxygeninit
+	make doxygen
 
-To generate documentation for my software solution (Python code), try:
+The first statement **make doxygeninit** is optional, and is only used if
+	no *Doxygen*-generated documentation exists for this software in the working
+	directory.
 
-	pydoc problem1_solution.py
+To use *pydoc* to view or generate documentation for my software solution
+	(Python code), try:
+
+	pydoc [*Python* package/module/class]
+
+A *Python* package corresponds to a subdirectory of this repository, while a
+	*Python* module/class corresponds to a *Python* source file in a subdirectory.
 
 
 

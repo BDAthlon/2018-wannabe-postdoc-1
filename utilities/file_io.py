@@ -28,13 +28,13 @@
 	sys			Get access to any command-line arguments.
 	os			Use any operating system dependent functionality.
 	os.path		For pathname manipulations.
-	
+
 	subprocess -> call
 				To make system calls.
 	time		To measure elapsed time.
 	warnings	Raise warnings.
 	re			Use regular expressions.
-	filecmp		For file comparison. 
+	filecmp		For file comparison.
 """
 
 import sys
@@ -50,27 +50,27 @@ import filecmp
 #	Module with methods that perform file I/O operations.
 class file_io_operations:
 	# ============================================================
-	#	Method to open a file object for read/input operations.
+	##	Method to open a file object for read/input operations.
 	#	O(1) method.
 	@staticmethod
 	def open_file_object_read(filename):
 		ip_file_obj = open(filename, 'r')
 		return ip_file_obj
 	# ============================================================
-	#	Method to open a file object for write/output operations.
+	##	Method to open a file object for write/output operations.
 	#	O(1) method.
 	@staticmethod
 	def open_file_object_write(filename):
 		op_file_obj = open(filename, 'w')
 		return op_file_obj
 	# ============================================================
-	#	Method to close a file object.
+	##	Method to close a file object.
 	#	O(1) method.
 	@staticmethod
 	def close_file_object(file_obj):
 		file_obj.close()
 	# ============================================================
-	#	Method to determine if two files are equivalent.
+	##	Method to determine if two files are equivalent.
 	#	@param file1 - Path to a file.
 	#	@param file2 - Path to another file.
 	#	@return a boolean TRUE, if the files are equivalent. Else,
@@ -81,5 +81,3 @@ class file_io_operations:
 	@staticmethod
 	def file_comparison(file1, file2):
 		return filecmp.cmp(file1,file2,shallow=False)
-
-
