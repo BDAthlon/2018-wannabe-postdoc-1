@@ -8,7 +8,7 @@
 	This Python script is written by Zhiyang Ong to incrementally
 		test features for my software solution for genetic technology
 		mapping.
-	
+
 
 	Synopsis:
 	Perform incremental software testing automatically for my
@@ -18,9 +18,12 @@
 	./incremental_test.py [input JSON netlist] [output JSON technology mapping]
 
 	Parameters:
-	[input BibTeX file]:	A BibTeX file that may have duplicate
-								BibTeX entries.
-
+	[input JSON netlist]:				A JSON file that contains a structural
+											netlist for genetic technology
+											mapping.
+	[output JSON technology mapping]:	A JSON file that contains a genetic
+											technology mapping for the input
+											structural netlist.
 
 
 
@@ -51,7 +54,7 @@ __date__ = 'July 31, 2018'
 	sys			Get access to any command-line arguments.
 	os			Use any operating system dependent functionality.
 	os.path		For pathname manipulations.
-	
+
 	subprocess -> call
 				To make system calls.
 	time		To measure elapsed time.
@@ -104,7 +107,7 @@ from statistics.test_statistics import statistical_analysis
 	Module with methods that incrementally test scripts that
 		perform data analytics operations with my BibTeX database.
 	It tests the following:
-	+ Sort a set of (key,mode) pairs. 
+	+ Sort a set of (key,mode) pairs.
 	+ Check if a given BibTeX key is valid.
 	+ The class "entry" that represents a given BibTeX entry.
 	+ The Python-based database of BibTeX entries.
@@ -192,7 +195,7 @@ if __name__ == "__main__":
 	print("	script(s) for performing data analytics")
 	print("	operations on my BibTeX database.")
 	print("")
-	# Assign input arguments to "queue_ip_args" for processing. 
+	# Assign input arguments to "queue_ip_args" for processing.
 	queue_ip_args.set_input_arguments(sys.argv,queue_ip_args.INCREMENTAL_TEST)
 	# Check if user wants to read the brief user manual.
 	queue_ip_args.check_if_help_wanted()
@@ -228,5 +231,3 @@ if __name__ == "__main__":
 	# Close the file object for reading.
 	print("=	Close the file object for reading.")
 	file_io_operations.close_file_object(ip_file_obj)
-
-
