@@ -21,9 +21,11 @@
 	[input JSON netlist]:				A JSON file that contains a structural
 											netlist for genetic technology
 											mapping.
-	[output JSON technology mapping]:	A JSON file that contains a genetic
-											technology mapping for the input
-											structural netlist.
+	[output JSON technology mapping]:	A filename of an output JSON file that
+											contains a genetic technology
+											mapping for the input structural
+											netlist.
+
 
 
 

@@ -33,9 +33,31 @@ My solution for genetic technology mapping, **problem1_solution.py**, takes in
 The first input parameter **[input JSON netlist]** is a JSON file that contains
 	a structural netlist for genetic technology mapping.
 
-The other input parameter **[output JSON technology mapping]** is a JSON file
-	that contains a genetic technology mapping for the input structural netlist
-	(**[input JSON netlist]**).
+The other input parameter **[output JSON technology mapping]** is the filename
+	of an output JSON file that contains a genetic technology mapping for the
+	input structural netlist (**[input JSON netlist]**).
+
+The front-end of **problem1_solution.py** parses the input arguments, checks
+	their validity, and parses the input structural netlist for genetic
+	technology mapping.
+
+The genetic technology mapping engine consists of a (set of) solution(s) to
+	perform genetic technology mapping.
+	A solution is an implementation of a known/new algorithm/heuristic for
+		genetic technology mapping.
+
+
+Performs *brute force search* to explore different options for genetic
+	technology mapping.
+
+
+The back-end of **problem1_solution.py** generates an output file containing
+	the genetic technology mapping of the input genetic circuit, in JSON format.
+
+
+
+
+
 
 
 
@@ -51,9 +73,9 @@ Input Parameters:
 [input JSON netlist]:							A JSON file that contains a structural
 																		netlist for genetic technology mapping.
 
-[output JSON technology mapping]:	A JSON file that contains a genetic
-																		technology mapping for the input structural
-																		netlist.
+[output JSON technology mapping]:	A filename of an output JSON file that
+																		contains a genetic technology mapping for
+																		the input structural netlist.
 
 
 ###	Documentation Generation
