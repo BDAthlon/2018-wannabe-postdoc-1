@@ -90,7 +90,23 @@ To generate documentation for my software solution (Python code), try:
 
 
 
+#	References
 
+Citations/References that use the LaTeX/BibTeX notation are taken from my
+	BibTeX database (set of BibTeX entries).
+
+Additional references not found in the reference list shall be indicated below (TO BE UPDATED).
+
+
+@misc{Roehner2018,
+	Address = {Boston, {MA}},
+	Author = {Nicholas Roehner and Curtis Madsen},
+	Howpublished = {Self-published},
+	Month = {July 31},
+	Publisher = {Boston University},
+	School = {Boston University},
+	Title = {BDAthlon 2018},
+	Year = {2018}}
 
 
 

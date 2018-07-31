@@ -13,23 +13,26 @@
 
 
 	Notes/Assumptions:
-	
+	Warn the user when the 2nd parameter of the software matches the
+		filename of an existing file, and that its contents would be
+		overwritten.
+
 	Raise an exception when the user manual cannot be accessed
 		due to errors, or when errors occur in an input argument.
 	Raise an exception to notify user when they are trying to
 		overwrite a file.
 
 	Revision History:
-	April 14, 2017			Version 0.2, initial build.
+	July 31, 2018			Version 0.1, initial build.
 """
 
 __author__ = 'Zhiyang Ong'
 __version__ = '1.0'
-__date__ = 'Apr 14, 2017'
+__date__ = 'July 31, 2018'
 
 #	The MIT License (MIT)
 
-#	Copyright (c) <2014-2017> <Zhiyang Ong>
+#	Copyright (c) <2018> <Zhiyang Ong>
 
 #	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -77,37 +80,13 @@ class queue_ip_args:
 	first_input_argument = "First input argument."
 	#	Second input argument
 	second_input_argument = "Second input argument."
-	#	BibTeX file extension
-	bibtex_f_ext = ".bib"
-	# Set of BibTeX entry types.
-	BibTeX_entry_types = ["article", "book", "booklet", "inbook", "incollection", "inproceedings", "manual", "mastersthesis", "misc", "phdthesis", "proceedings", "techreport", "unpublished"]
-	# Set of BibTeX entry types, with metadata.
-#	BibTeX_entry_types = ["@article{", "@book{", "@booklet{", "@inbook{", "@incollection{", "@inproceedings{", "@manual{", "@mastersthesis{", "@misc{", "@phdthesis{", "@proceedings{", "@techreport{", "@unpublished{"]
-	# Set of BibTeX fields.
-#	set_of_std_BibTeX_fields = ["	Address = {", "	Author = {", "	Booktitle = {", "	Chapter = {", "	Crossref = {", "	Doi = {", "	Edition = {", "	Editor = {", "	Howpublished = {", "	Institution = {", "	Journal = {", "	Month = {", "	Note = {", "	Number = {", "	Organization = {", "	Pages = {", "	Publisher = {", "	School = {", "	Series = {", "	Title = {", "	Type = {", "	Url = {", "	Volume = {", "	Year = {"]
-	set_of_std_BibTeX_fields = ["	Annote = {", "	Address = {", "	Author = {", "	Booktitle = {", "	Chapter = {", "	Crossref = {", "	Doi = {", "	Edition = {", "	Editor = {", "	Howpublished = {", "	Institution = {", "	Journal = {", "	Month = {", "	Note = {", "	Number = {", "	Organization = {", "	Pages = {", "	Publisher = {", "	School = {", "	Series = {", "	Title = {", "	Type = {", "	Url = {", "	Volume = {", "	Year = {"]
-	# Set of non-standard BibTeX fields.
-#	non_standard_BibTeX_fields = ["	Annote = {", "	Date-Added = {", "	Date-Modified = {", "	Keywords = {", "	Rating = {", "	Read = {", "	Abstract = {", "	Bdsk-Url-", "	Bdsk-File-"]
-	non_standard_BibTeX_fields = ["	Date-Added = {", "	Date-Modified = {", "	Keywords = {", "	Rating = {", "	Read = {", "	Abstract = {", "	Bdsk-Url-", "	Bdsk-File-"]
+	#	File extension for JSON files.
+	json_f_ext = ".json"
 	# Index for the script that is currently executed.
 	CURRENT_SCRIPT = "No script is currently being executed."
 	# "Constant"s for navigating types of help in the "user manual".
 	INCREMENTAL_TEST = "incremental_test.py"
-	DUPLICATE_ENTRIES = "duplicate_BibTeX_entries.py"
-	EXTRACT_BIBTEX_KEYS = "extract_citations.py"
-	KEYWORDS_DISPLAY = "keywords_display.py"
-	PUBLISHERS_DISPLAY = "publishers.py"
-	REMOVE_METADATA = "rm_bibtex_metadata.py"
-	GET_SERIES = "tutti_series.py"
-	GET_JOURNAL = "journal_titles.py"
-	GET_ORGANIZATION = "organizations.py"
-	GET_INSTITUTION = "institutions.py"
-	GET_BOOKTITLES = "z_booktitles.py"
-	GET_EDITION = "editions.py"
-	STANDARDIZE_BIBTEX = "standardize_bibtex_entries.py"
-	UNCOMMENT_LATEX = "uncomment_latex_src_files.py"
-	UNDEFINED_REFERENCES = "not_defined_references.py"
-	VALIDATE_URL_DOI = "validate_url.py"
+	PROBLEM1_SOLUTION = "problem1_solution.py"
 	# ============================================================
 	#	Accessor methods.
 	# ============================================================
@@ -187,119 +166,19 @@ class queue_ip_args:
 	@staticmethod
 	def how_to_use_script():
 		print("-------------------------------------------------")
-		if(queue_ip_args.DUPLICATE_ENTRIES == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	This script determines if duplicate BibTeX entries")
-			print("	exist in my BibTeX database.")
-			print("	If they do, let the user know about them.")
+		if(queue_ip_args.INCREMENTAL_TEST == queue_ip_args.CURRENT_SCRIPT):
+			print("==>	This script performs incremental regression testing")
+			print("	of my solution for genetic technology mapping.")
 			print("")
 			print("This script can be executed as follows:")
-			print("./duplicate_BibTeX_entries.py [input BibTeX file] [-h]")
+			print("./incremental_test.py [input JSON netlist] [output JSON technology mapping] [-h]")
 			print("")
-		elif(queue_ip_args.INCREMENTAL_TEST == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	This script performs incremental software testing")
-			print("	automatically for my BibTeX analytics software.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./incremental_test.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.EXTRACT_BIBTEX_KEYS == queue_ip_args.CURRENT_SCRIPT):
-			println = "=	Get user manual of:"
-			println += queue_ip_args.EXTRACT_BIBTEX_KEYS
-			print(println)
-		elif(queue_ip_args.UNDEFINED_REFERENCES == queue_ip_args.CURRENT_SCRIPT):
-			println = "=	Get user manual of:"
-			println += queue_ip_args.UNDEFINED_REFERENCES
-			print(println)
-		elif(queue_ip_args.REMOVE_METADATA == queue_ip_args.CURRENT_SCRIPT):
-			"""
-			println = "=	Get user manual of:"
-			println += queue_ip_args.REMOVE_METADATA
-			print(println)
-			"""
-			print("==>	'Remove' BibTeX metadata from the input BibTeX database,")
-			print("	by copying data from the input BibTeX database to")
-			print("	the output BibTeX database without copying the")
-			print("	metedata.")
+		elif(queue_ip_args.PROBLEM1_SOLUTION == queue_ip_args.CURRENT_SCRIPT):
+			print("==>	This script performs genetic technology mapping.")
 			print("")
 			print("This script can be executed as follows:")
-			print("./rm_bibtex_metadata.py [input BibTeX file] [output BibTeX file] [-h]")
+			print("./problem1_solution.py [input JSON netlist] [output JSON technology mapping] [-h]")
 			print("")
-			queue_ip_args.print_2nd_argument()
-		elif(queue_ip_args.KEYWORDS_DISPLAY == queue_ip_args.CURRENT_SCRIPT):
-			"""
-			println = "=	Get user manual of:"
-			println += queue_ip_args.KEYWORDS_DISPLAY
-			print(println)
-			"""
-			print("==>	Display the sorted list of keywords in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./keywords_display.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.PUBLISHERS_DISPLAY == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Display the sorted list of publishers in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./publishers.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.GET_SERIES == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Display the sorted list of series in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./tutti_series.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.GET_JOURNAL == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Display the sorted list of journal titles in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./journal_titles.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.GET_ORGANIZATION == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Display the sorted list of organizations in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./organizations.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.GET_INSTITUTION == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Display the sorted list of institutions in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./institutions.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.GET_BOOKTITLES == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Display the sorted list of booktitles in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./z_booktitles.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.GET_EDITION == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Display the sorted list of editions in the")
-			print("	input BibTeX database.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./editions.py [input BibTeX file] [-h]")
-			print("")
-		elif(queue_ip_args.STANDARDIZE_BIBTEX == queue_ip_args.CURRENT_SCRIPT):
-			print("=	Get user manual of:"+queue_ip_args.STANDARDIZE_BIBTEX)
-		elif(queue_ip_args.UNCOMMENT_LATEX == queue_ip_args.CURRENT_SCRIPT):
-			print("=	Get user manual of:"+queue_ip_args.UNCOMMENT_LATEX)
-		elif(queue_ip_args.VALIDATE_URL_DOI == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	Determine if URL (and DOI) field(s) is(/are)")
-			print("	missing from the BibTeX database.")
-			print("	If they are missing, copy their values from the")
-			print("	backup URL field.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./validate_url.py [input BibTeX file] [output BibTeX file] [-h]")
-			print("")
-			queue_ip_args.print_2nd_argument()
 		else:
 			raise Exception("Error in accessing user manual.")
 		queue_ip_args.print_help_option()
@@ -309,14 +188,13 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def print_2nd_argument():
-		print("The 2nd (and subsequent) input argument(s) is(/are) optional.")
-		print("")
 		print("The 2nd input argument mustn't be a valid path to an existing file.")
-		print("If it is, warn the user about overwritting the file & exit.")
+		print("If it is, warn the user about overwritting the file & proceed.")
 		print("")
 		print("If 2nd input argument has no file extension, add the")
-		print("BibTeX file extension to it.")
+		print("JSON file extension to it.")
 		print("")
+		print(second_input_argument)
 	# ============================================================
 	#	Method to print the help option to access the user manual.
 	#	O(1) method.
@@ -349,15 +227,15 @@ class queue_ip_args:
 		else:
 			raise Exception("1st input argument isn't a valid path to a file!")
 		#	Does 1st input argument have a BibTeX file extension?
-		println = "==	Does 1st input argument have a BibTeX file extension?"
+		println = "==	Does 1st input argument have a JSON file extension?"
 		#	Get the filename and file extension of the 1st input argument.
 		ip_fname1, ip_f_ext1 = os.path.splitext(queue_ip_args.first_input_argument)
 #	print "==	File name of 1st input argument:"+ip_fname
 #	print "==	File extension of 1st input argument:"+ip_f_ext
-		if(ip_f_ext1 == queue_ip_args.bibtex_f_ext):
+		if(ip_f_ext1 == queue_ip_args.json_f_ext):
 			print(println.format("	Yes."))
 		else:
-			raise Exception("1st input argument isn't a valid BibTeX file!")
+			raise Exception("1st input argument doesn't have JSON file extension!")
 		return queue_ip_args.first_input_argument
 	# ============================================================
 	#	Method to process the second input argument.
@@ -385,39 +263,31 @@ class queue_ip_args:
 		#	Get the filename and file extension of the 2nd input argument.
 		ip_fname2, ip_f_ext2 = os.path.splitext(queue_ip_args.second_input_argument)
 		#	Does 2nd input argument have a BibTeX file extension?
-		println = "==	Does 2nd input argument have a BibTeX file extension?"
-		if(ip_f_ext2 == queue_ip_args.bibtex_f_ext):
+		println = "==	Does 2nd input argument have a JSON file extension?"
+		if(ip_f_ext2 == queue_ip_args.json_f_ext):
 			print(println.format("	Yes."))
 			ip_fname2 = queue_ip_args.second_input_argument
 		else:
 			print(println.format("	No."))
 			#	Add BibTeX file extension to output filename.
 			ip_fname2 = queue_ip_args.second_input_argument
-			ip_fname2 += queue_ip_args.bibtex_f_ext
+			ip_fname2 += queue_ip_args.json_f_ext
 			print("	New output filename is: {}" .format(ip_fname2))
 		return ip_fname2
 	# ============================================================
 	#	Method to handle missing second input argument.
-	#	Append the input filename (1st input argument), without the
-	#		file extension, with "_op.bib", and set the result as the
-	#		second input argument.
+	#	Replace the following substring "_netlist.json" in the input structural
+	#		netlist with "_mapping.json", and set the result as the second
+	#		input argument.
 	#	O(1) method.
 	@staticmethod
 	def missing_2nd_ip_arg():
 		#	Is the number of input arguments to the script <2?
 		if 2 > len(queue_ip_args.get_input_arguments()):
-			#	Get the filename and file extension of the 1st input argument.
-			ip_fname1, ip_f_ext1 = os.path.splitext(queue_ip_args.first_input_argument)
-			#	Set the result as the 2nd input argument.
-			queue_ip_args.set_of_input_arguments.append(ip_fname1+"_op.bib")
-	# ============================================================
-	#	Method to validate the number of the types of BibTeX entries.
-	#	O(1) method.
-	@staticmethod
-	def preprocessing():
-		#	Set filtering mechanism to always provide warnings.
-		warnings.filterwarnings('always')
-		#	Check if set of BibTeX entry types is complete.
-		#	The cardinality of standard BibTeX entry types is 13.
-		if 13 != len(queue_ip_args.BibTeX_entry_types):
-			raise Exception("Set of BibTeX entry types has incorrect size.")
+			# Make a copy of the 1st input argument as the 2nd input argument.
+			queue_ip_args.second_input_argument = queue_ip_args.first_input_argument
+			# Replace the substring "_netlist.json" in the 2nd input argument
+			#	with "_mapping.json".
+			queue_ip_args.second_input_argument.replace("_netlist.json","_mapping.json")
+			#	Add the 2nd input argument to the list of input arguments.
+			queue_ip_args.set_of_input_arguments.append(queue_ip_args.second_input_argument)

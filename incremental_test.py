@@ -81,10 +81,6 @@ import re
 ###############################################################
 #	Import Custom Python Packages and Modules
 
-# Package and module to process input arguments to the script/program.
-from utilities.queue_ip_arguments import queue_ip_args
-# Package and module to perform file I/O (input/output) operations.
-from utilities.file_io import file_io_operations
 """
 	Package and module to print statistics of software testing
 		results.
@@ -92,6 +88,11 @@ from utilities.file_io import file_io_operations
 from statistics.test_statistics import statistical_analysis
 # Package and module to check the validation of statistical analysis.
 from statistics.test_statistics_tester import statistical_analysis_tester
+# Package and module to process input arguments to the script/program.
+from utilities.queue_ip_arguments import queue_ip_args
+# Package and module to perform file I/O (input/output) operations.
+from utilities.file_io import file_io_operations
+
 
 ###############################################################
 """
@@ -177,15 +178,9 @@ class Incremental_Test_Automation:
 
 #	If this is executed as a Python script,
 if __name__ == "__main__":
-	# --------------------------------------------------------
-	#	= Start of Preprocessing.
-	queue_ip_args.preprocessing()
-	# --------------------------------------------------------
-	#	= End of Preprocessing.
 	print("==================================================")
-	print("Automating incremental software test automation of")
-	print("	script(s) for performing data analytics")
-	print("	operations on my BibTeX database.")
+	print("Automating incremental regression testing of my software")
+	print("	solution for genetic technology mapping.")
 	print("")
 	# Assign input arguments to "queue_ip_args" for processing.
 	queue_ip_args.set_input_arguments(sys.argv,queue_ip_args.INCREMENTAL_TEST)
@@ -203,20 +198,9 @@ if __name__ == "__main__":
 	#	### TO-DO
 	# Insert test cases for testing the utilities package.
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	"""
-		### IMPORTANT NOTE: Calling this function does not test
-				anything!
-
-		This function is called as part of automated regression
-			testing to make sure that previously working functions
-			still work, even if they are not a part of the current
-			software build for BibTeX Analytics.
-	"""
-	process_key_freq_pairs.sort_pairs()
+#	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	check_bibtex_key_tester.test_check_bibtex_key()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
+#	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")
 	print(">>	Get statistics of the software testing process.")
 	statistical_analysis.print_statistics_of_software_testing()
