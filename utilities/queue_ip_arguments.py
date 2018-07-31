@@ -103,7 +103,7 @@ class queue_ip_args:
 	#	O(n) method, with respect to the number of input arguments.
 	@staticmethod
 	def print_all_input_arguments():
-		println = "=	Set_of_input_arguments:"
+		println = "~	Set_of_input_arguments:"
 		println += "=".join(str(x) for x in queue_ip_args.set_of_input_arguments)
 		print(println)
 	# ============================================================
@@ -128,6 +128,20 @@ class queue_ip_args:
 		else:
 			warnings.warn("	2nd input argument is missing!!!")
 			queue_ip_args.input_arguments_error()
+	# ============================================================
+	#	Method to get the number of input arguments.
+	#	@return - Number of input arguments for the program.
+	#	O(1) method.
+	@staticmethod
+	def get_number_of_input_arguments():
+		return len(queue_ip_args.set_of_input_arguments)
+	# ============================================================
+	#	Method to get the number of input arguments.
+	#	@return - Number of input arguments for the program.
+	#	O(1) method.
+	@staticmethod
+	def get_number_of_input_arguments():
+		return len(queue_ip_args.set_of_input_arguments)
 	# ============================================================
 	#	Mutator methods.
 	# ============================================================
@@ -231,8 +245,10 @@ class queue_ip_args:
 #	print "==	File extension of 1st input argument:"+ip_f_ext
 		if(ip_f_ext1 == queue_ip_args.json_f_ext):
 			print(println.format("	Yes."))
+			#	Add BibTeX file extension back to input filename.
+			ip_fname1 = queue_ip_args.first_input_argument
 		else:
-			#	Add BibTeX file extension to output filename.
+			#	Add BibTeX file extension to input filename.
 			ip_fname1 += queue_ip_args.json_f_ext
 			print("	New output filename is: {}" .format(ip_fname1))
 			raise Exception("1st input argument doesn't have JSON file extension!")

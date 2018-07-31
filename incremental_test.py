@@ -90,6 +90,8 @@ from statistics.test_statistics import statistical_analysis
 from statistics.test_statistics_tester import statistical_analysis_tester
 # Package and module to process input arguments to the script/program.
 from utilities.queue_ip_arguments import queue_ip_args
+# Package and module to validate processing of input arguments.
+from utilities.queue_ip_arguments_tester import queue_ip_args_tester
 # Package and module to perform file I/O (input/output) operations.
 from utilities.file_io import file_io_operations
 
@@ -199,6 +201,7 @@ if __name__ == "__main__":
 	# Insert test cases for testing the utilities package.
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 #	check_bibtex_key_tester.test_check_bibtex_key()
+	queue_ip_args_tester.test_queue_ip_args()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")

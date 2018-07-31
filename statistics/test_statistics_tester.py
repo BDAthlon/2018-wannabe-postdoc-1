@@ -7,11 +7,11 @@
 	This Python script is written by Zhiyang Ong to test support
 		functions for basic statistical analysis during software
 		test automation.
-	
-	
+
+
 	Synopsis:
 	Perform test the support software for statistical analysis
-		during software test automation. 
+		during software test automation.
 
 
 	Revision History:
@@ -40,7 +40,7 @@ __date__ = 'December 15, 2017'
 	sys			Get access to any command-line arguments.
 	os			Use any operating system dependent functionality.
 	os.path		For pathname manipulations.
-	
+
 	subprocess -> call
 				To make system calls.
 
@@ -80,11 +80,11 @@ from statistics.test_statistics import statistical_analysis
 		test results of software test automation.
 
 	Support for class instantiation is not provided, to avoid
-		acquiring a collection of useless "check_bibtex_key"
+		acquiring a collection of useless "statistical_analysis"
 		objects.
 
 	Test each static method of the "statistical_analysis" class.
-"""  
+"""
 class statistical_analysis_tester:
 	# =========================================================
 	#	Method to test the methods that support software test
@@ -101,27 +101,3 @@ class statistical_analysis_tester:
 			print("Value of x is: {}." .format(x))
 			print("Number of test cases passed:	{}" .format(statistical_analysis.number_test_cases_passed))
 			print("Number of test cases used:	{}" .format(statistical_analysis.number_test_cases_used))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
