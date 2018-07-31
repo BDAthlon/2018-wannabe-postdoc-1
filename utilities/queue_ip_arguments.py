@@ -13,14 +13,11 @@
 
 
 	Notes/Assumptions:
-	Warn the user when the 2nd parameter of the software matches the
-		filename of an existing file, and that its contents would be
-		overwritten.
-
+	Raise an exception when the 2nd parameter of the software matches the
+		filename of an existing file.
+		This prevents its contents from being overwritten.
 	Raise an exception when the user manual cannot be accessed
 		due to errors, or when errors occur in an input argument.
-	Raise an exception to notify user when they are trying to
-		overwrite a file.
 
 	Revision History:
 	July 31, 2018			Version 0.1, initial build.
@@ -235,8 +232,11 @@ class queue_ip_args:
 		if(ip_f_ext1 == queue_ip_args.json_f_ext):
 			print(println.format("	Yes."))
 		else:
+			#	Add BibTeX file extension to output filename.
+			ip_fname1 += queue_ip_args.json_f_ext
+			print("	New output filename is: {}" .format(ip_fname1))
 			raise Exception("1st input argument doesn't have JSON file extension!")
-		return queue_ip_args.first_input_argument
+		return ip_fname1
 	# ============================================================
 	#	Method to process the second input argument.
 	#	@return the output filename, based on the second input argument
