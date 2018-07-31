@@ -46,9 +46,8 @@ The genetic technology mapping engine of **problem1_solution.py** consists of a
 	A solution is an implementation of a known/new algorithm/heuristic for
 		genetic technology mapping.
 
-
-Performs *brute force search* to explore different options for genetic
-	technology mapping.
+Solution *1a* performs *brute force search* to explore different options for
+	genetic technology mapping.
 
 
 The back-end of **problem1_solution.py** generates an output file containing
