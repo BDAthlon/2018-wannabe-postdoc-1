@@ -98,10 +98,11 @@ from statistics.test_statistics_tester import statistical_analysis_tester
 	Module with methods that incrementally test features for my software
 		solution for genetic technology mapping.
 	It tests the following:
-	+ Check if 
-	+ Check if a given BibTeX key is valid.
-	+ The class "entry" that represents a given BibTeX entry.
-	+ The Python-based database of BibTeX entries.
+	+ Test the verification code for checking if the input arguments are valid.
+	+ Check if the file I/O module functions correctly.
+	+ Check if the output JSON file generator works correctly.
+	+ Test the implementations for genetic technology mapping.
+		- Brute force algorithm
 """
 class Incremental_Test_Automation:
 	# List of BibTeX keys

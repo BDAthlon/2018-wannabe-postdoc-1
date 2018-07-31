@@ -5,22 +5,15 @@
 
 """
 	This Python script is written by Zhiyang Ong to process input
-		arguments for a script to clean BibTeX databases/files.
-	
-	
+		arguments for a genetic technology mapping software.
+
+
 	Synopsis:
-	Process input arguments for a script to clean BibTeX databases.
+	Process input arguments for a genetic technology mapping software.
 
 
 	Notes/Assumptions:
-	Do not consider the 'Annote' field as a 'standard' BibTeX field.
-
-	Assume that each 'standard' BibTeX field is a single line field.
-
-	If the BibTeX field 'Annote' has multiple lines, only its last
-		line will end with '}}' and that 'Annote' is the last field
-		of the BibTeX entry.
-
+	
 	Raise an exception when the user manual cannot be accessed
 		due to errors, or when errors occur in an input argument.
 	Raise an exception to notify user when they are trying to
@@ -54,7 +47,7 @@ __date__ = 'Apr 14, 2017'
 	sys			Get access to any command-line arguments.
 	os			Use any operating system dependent functionality.
 	os.path		For pathname manipulations.
-	
+
 	subprocess -> call
 				To make system calls.
 
@@ -97,7 +90,7 @@ class queue_ip_args:
 #	non_standard_BibTeX_fields = ["	Annote = {", "	Date-Added = {", "	Date-Modified = {", "	Keywords = {", "	Rating = {", "	Read = {", "	Abstract = {", "	Bdsk-Url-", "	Bdsk-File-"]
 	non_standard_BibTeX_fields = ["	Date-Added = {", "	Date-Modified = {", "	Keywords = {", "	Rating = {", "	Read = {", "	Abstract = {", "	Bdsk-Url-", "	Bdsk-File-"]
 	# Index for the script that is currently executed.
-	CURRENT_SCRIPT = "No script is currently being executed." 
+	CURRENT_SCRIPT = "No script is currently being executed."
 	# "Constant"s for navigating types of help in the "user manual".
 	INCREMENTAL_TEST = "incremental_test.py"
 	DUPLICATE_ENTRIES = "duplicate_BibTeX_entries.py"
@@ -172,7 +165,7 @@ class queue_ip_args:
 	@staticmethod
 	def set_input_arguments(list_of_ip_arguments,which_script):
 		queue_ip_args.set_of_input_arguments = list_of_ip_arguments
-		# Remove the name of the script from the list of input arguments. 
+		# Remove the name of the script from the list of input arguments.
 		queue_ip_args.set_of_input_arguments.pop(0)
 		queue_ip_args.CURRENT_SCRIPT = which_script
 	# ============================================================
@@ -183,7 +176,7 @@ class queue_ip_args:
 	#	O(n) method, with respect to the number of input arguments.
 	@staticmethod
 	def check_if_help_wanted():
-		# If user wants to read the brief user manual,  
+		# If user wants to read the brief user manual,
 		if "-h" in queue_ip_args.set_of_input_arguments:
 			# Display the user manual and exit.
 			queue_ip_args.how_to_use_script()
@@ -345,7 +338,7 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def process_1st_ip_arg():
-		#	Is the number of input arguments to the script <1? 
+		#	Is the number of input arguments to the script <1?
 		if 1 > len(queue_ip_args.get_input_arguments()):
 			warnings.warn("	There are no input arguments!!!")
 			queue_ip_args.input_arguments_error()
@@ -372,7 +365,7 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def process_2nd_ip_arg():
-		#	Is the number of input arguments to the script <2? 
+		#	Is the number of input arguments to the script <2?
 		if 2 > len(queue_ip_args.get_input_arguments()):
 			warnings.warn("	2nd input argument isn't available!!!")
 			queue_ip_args.input_arguments_error()
@@ -411,7 +404,7 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def missing_2nd_ip_arg():
-		#	Is the number of input arguments to the script <2? 
+		#	Is the number of input arguments to the script <2?
 		if 2 > len(queue_ip_args.get_input_arguments()):
 			#	Get the filename and file extension of the 1st input argument.
 			ip_fname1, ip_f_ext1 = os.path.splitext(queue_ip_args.first_input_argument)
