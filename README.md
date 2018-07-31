@@ -21,6 +21,7 @@ It my solution for the problem on genetic technology mapping.
   - Externalities list.
     * *Publicly available library, API, or framework* that I have used as
         external components for my software.
+		* Some *Python* modules from the repository [bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics).
 
 
 ##  Description of the Software Solution for Genetic Technology Mapping
