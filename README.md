@@ -83,6 +83,8 @@ To use *Doxygen* to generate documentation for the Python software, try:
 
 	make doxygen
 
+To view the *Doxygen*-generated documention, open the file []**docs/html/index.html**](https://github.com/BDAthlon/2018-wannabe-postdoc-1/blob/master/docs/html/index.html) in a Web browser.
+
 The command **make doxygeninit** has already been used to generate a *Doxygen*
 	configuration file named **doxygen.config**.
 	**DO NOT RUN THE COMMAND *doxygen.config* AGAIN!!!**
