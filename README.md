@@ -13,7 +13,7 @@ It my solution for the problem on genetic technology mapping.
 		* pydoc (for Python scripts): /usr/bin/pydoc
 + notes
 	- Software licenses
-		* *MIT License*
+		* *MIT License*.
 	- Guidelines for collaborating on open source software and/or hardware
       projects.
     * Documentation about guidelines that I am following for my research,

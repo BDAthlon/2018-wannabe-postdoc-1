@@ -39,7 +39,7 @@ __date__ = 'July 31, 2018'
 
 #	The MIT License (MIT)
 
-#	Copyright (c) <2014-2018> <Zhiyang Ong>
+#	Copyright (c) <2018> <Zhiyang Ong>
 
 #	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -86,30 +86,19 @@ from utilities.queue_ip_arguments import queue_ip_args
 # Package and module to perform file I/O (input/output) operations.
 from utilities.file_io import file_io_operations
 """
-	Package and module to process (key,frequency) pairs.
-
-	A function of this Python module is called as part of automated
-		regression testing to make sure that previously working
-		functions still work, even if they are not a part of the
-		current software build for BibTeX Analytics.
-"""
-from database.key_frequency_pairs import process_key_freq_pairs
-# Package and module to validate the checking of BibTeX keys.
-from database.key_check_test import check_bibtex_key_tester
-# Package and module to check the validation of statistical analysis.
-from statistics.test_statistics_tester import statistical_analysis_tester
-"""
 	Package and module to print statistics of software testing
 		results.
 """
 from statistics.test_statistics import statistical_analysis
+# Package and module to check the validation of statistical analysis.
+from statistics.test_statistics_tester import statistical_analysis_tester
 
 ###############################################################
 """
-	Module with methods that incrementally test scripts that
-		perform data analytics operations with my BibTeX database.
+	Module with methods that incrementally test features for my software
+		solution for genetic technology mapping.
 	It tests the following:
-	+ Sort a set of (key,mode) pairs.
+	+ Check if 
 	+ Check if a given BibTeX key is valid.
 	+ The class "entry" that represents a given BibTeX entry.
 	+ The Python-based database of BibTeX entries.
