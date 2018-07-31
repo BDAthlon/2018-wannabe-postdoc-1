@@ -81,12 +81,10 @@ Input Parameters:
 
 To use *Doxygen* to generate documentation for the Python software, try:
 
-	make doxygeninit
 	make doxygen
 
-The first statement **make doxygeninit** is optional, and is only used if
-	no *Doxygen*-generated documentation exists for this software in the working
-	directory.
+The command **make doxygeninit** has already been used to generate a *Doxygen*
+	configuration file named **doxygen.config**.
 
 To use *pydoc* to view or generate documentation for my software solution
 	(Python code), try:
