@@ -1,0 +1,169 @@
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation}{}\section{incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation Class Reference}
+\label{classincremental__test_1_1Incremental__Test__Automation}\index{incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation}}
+
+
+Collaboration diagram for incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{d3/d8e/classincremental__test_1_1Incremental__Test__Automation__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{add\+\_\+\+Bib\+Te\+X\+\_\+key} (found\+\_\+\+Bib\+Te\+X\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Method to add Bib\+Te\+X keys into a list, \char`\"{}set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys\char`\"{}. \end{DoxyCompactList}\item 
+def \hyperlink{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{sort\+\_\+\+Bib\+Te\+X\+\_\+keys} ()
+\begin{DoxyCompactList}\small\item\em Method to sort Bib\+Te\+X keys into a list, \char`\"{}set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys\char`\"{}. \end{DoxyCompactList}\item 
+def \hyperlink{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{read\+\_\+input\+\_\+\+Bib\+Te\+X\+\_\+file} (ip\+\_\+file\+\_\+object, input\+\_\+\+Bib\+Te\+X\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Method to read each line of the input Bib\+Te\+X file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{classincremental__test_1_1Incremental__Test__Automation_a8f5272e0488026aa24a829262392f2f7}{set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys} = \mbox{[}$\,$\mbox{]}
+\item 
+int \hyperlink{classincremental__test_1_1Incremental__Test__Automation_ac60587acca9d28d055bd8a7198a987a1}{num\+\_\+of\+\_\+bibtex\+\_\+entries} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line \hyperlink{incremental__test_8py_source_l00110}{110} of file \hyperlink{incremental__test_8py_source}{incremental\+\_\+test.\+py}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{}\index{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}!add\+\_\+\+Bib\+Te\+X\+\_\+key@{add\+\_\+\+Bib\+Te\+X\+\_\+key}}
+\index{add\+\_\+\+Bib\+Te\+X\+\_\+key@{add\+\_\+\+Bib\+Te\+X\+\_\+key}!incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}}
+\subsubsection[{add\+\_\+\+Bib\+Te\+X\+\_\+key(found\+\_\+\+Bib\+Te\+X\+\_\+key)}]{\setlength{\rightskip}{0pt plus 5cm}def incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation.\+add\+\_\+\+Bib\+Te\+X\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{}]{found\+\_\+\+Bib\+Te\+X\+\_\+key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}
+
+
+Method to add Bib\+Te\+X keys into a list, \char`\"{}set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys\char`\"{}. 
+
+O(n) method, where n is the number of Bib\+Te\+X keys. 
+
+Definition at line \hyperlink{incremental__test_8py_source_l00120}{120} of file \hyperlink{incremental__test_8py_source}{incremental\+\_\+test.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_l00120}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{00120}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{add\_BibTeX\_key}(found\_BibTeX\_key):
+00121         \textcolor{keywordflow}{if} (found\_BibTeX\_key \textcolor{keywordflow}{in} Incremental\_Test\_Automation.set\_of\_BibTeX\_keys):
+00122             temp\_str = \textcolor{stringliteral}{"Duplicate BibTeX key:"}+found\_BibTeX\_key
+00123             warnings.warn(temp\_str)
+00124             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Multiple instances of a BibTeX key"})
+00125         Incremental\_Test\_Automation.set\_of\_BibTeX\_keys.append(found\_BibTeX\_key)
+\end{DoxyCode}
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{}\index{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}!read\+\_\+input\+\_\+\+Bib\+Te\+X\+\_\+file@{read\+\_\+input\+\_\+\+Bib\+Te\+X\+\_\+file}}
+\index{read\+\_\+input\+\_\+\+Bib\+Te\+X\+\_\+file@{read\+\_\+input\+\_\+\+Bib\+Te\+X\+\_\+file}!incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}}
+\subsubsection[{read\+\_\+input\+\_\+\+Bib\+Te\+X\+\_\+file(ip\+\_\+file\+\_\+object, input\+\_\+\+Bib\+Te\+X\+\_\+file)}]{\setlength{\rightskip}{0pt plus 5cm}def incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation.\+read\+\_\+input\+\_\+\+Bib\+Te\+X\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{}]{ip\+\_\+file\+\_\+object, }
+\item[{}]{input\+\_\+\+Bib\+Te\+X\+\_\+file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}
+
+
+Method to read each line of the input Bib\+Te\+X file. 
+
+O(n) method, where n is the number of lines of the Bib\+Te\+X file. 
+
+Definition at line \hyperlink{incremental__test_8py_source_l00136}{136} of file \hyperlink{incremental__test_8py_source}{incremental\+\_\+test.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_l00136}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{00136}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{read\_input\_BibTeX\_file}(ip\_file\_object,input\_BibTeX\_file):
+00137         \textcolor{comment}{#print "--------------------------------------------------------"}
+00138         println = \textcolor{stringliteral}{"=    Reading input BibTeX file: "}
+00139         println += input\_BibTeX\_file
+00140         print(println)
+00141         \textcolor{comment}{# Read each available line in the input BibTeX file.}
+00142         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} ip\_file\_object:
+00143             \textcolor{comment}{# Is this line the 1st line of a BibTeX entry?}
+00144             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"@"} == line[0]:
+00145                 \textcolor{comment}{# Yes.}
+00146 \textcolor{comment}{#               print "...  First line of a BibTeX entry."}
+00147                 \textcolor{comment}{# Increment number of BibTeX entries.}
+00148                 Incremental\_Test\_Automation.num\_of\_bibtex\_entries = 
+      Incremental\_Test\_Automation.num\_of\_bibtex\_entries + 1
+00149                 tokenized\_BibTeX\_entry = re.split(\textcolor{stringliteral}{'@|\{|,'},line)
+00150 \textcolor{comment}{#               for i in tokenized\_BibTeX\_entry:}
+00151 \textcolor{comment}{#                   print i}
+00152                 \textcolor{comment}{# Is the type of the BibTeX entry valid?}
+00153                 \textcolor{keywordflow}{if} (tokenized\_BibTeX\_entry[1] \textcolor{keywordflow}{in} queue\_ip\_args.BibTeX\_entry\_types):
+00154                     \textcolor{comment}{# Yes. Try adding the BibTeX entry to "set\_of\_BibTeX\_keys".}
+00155                     Incremental\_Test\_Automation.add\_BibTeX\_key(tokenized\_BibTeX\_entry[2].lower())
+00156                 \textcolor{keywordflow}{else}:
+00157                     \textcolor{comment}{# No. Warn user that the type of BibTeX entry is invalid!}
+00158                     temp\_str = \textcolor{stringliteral}{"Invalid type of BibTeX entry:"}
+00159                     temp\_str += tokenized\_BibTeX\_entry[1]
+00160                     print(temp\_str)
+00161                     \textcolor{comment}{#warnings.warn("Invalid type of BibTeX entry")}
+00162                     \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"BibTeX entry has an invalid type!"})
+00163         \textcolor{keywordflow}{if} (Incremental\_Test\_Automation.num\_of\_bibtex\_entries != len(
+      Incremental\_Test\_Automation.set\_of\_BibTeX\_keys)):
+00164             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Mismatch in number of BibTeX entries processed."})
+00165         \textcolor{keywordflow}{else}:
+00166             print(\textcolor{stringliteral}{"=    Number of BibTeX entries processed: \{\}"} .format(str(
+      Incremental\_Test\_Automation.num\_of\_bibtex\_entries)))
+00167 
+00168 
+00169 
+00170 
+00171 
+00172 
+00173 
+00174 
+00175 
+00176 
+00177 
+\end{DoxyCode}
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{}\index{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}!sort\+\_\+\+Bib\+Te\+X\+\_\+keys@{sort\+\_\+\+Bib\+Te\+X\+\_\+keys}}
+\index{sort\+\_\+\+Bib\+Te\+X\+\_\+keys@{sort\+\_\+\+Bib\+Te\+X\+\_\+keys}!incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}}
+\subsubsection[{sort\+\_\+\+Bib\+Te\+X\+\_\+keys()}]{\setlength{\rightskip}{0pt plus 5cm}def incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation.\+sort\+\_\+\+Bib\+Te\+X\+\_\+keys (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}
+
+
+Method to sort Bib\+Te\+X keys into a list, \char`\"{}set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys\char`\"{}. 
+
+O(n$\ast$log(n)) method, where n is the number of Bib\+Te\+X keys. 
+
+Definition at line \hyperlink{incremental__test_8py_source_l00130}{130} of file \hyperlink{incremental__test_8py_source}{incremental\+\_\+test.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_l00130}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{00130}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{sort\_BibTeX\_keys}():
+00131         Incremental\_Test\_Automation.set\_of\_BibTeX\_keys = sorted(
+      Incremental\_Test\_Automation.set\_of\_BibTeX\_keys)
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_ac60587acca9d28d055bd8a7198a987a1}{}\index{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}!num\+\_\+of\+\_\+bibtex\+\_\+entries@{num\+\_\+of\+\_\+bibtex\+\_\+entries}}
+\index{num\+\_\+of\+\_\+bibtex\+\_\+entries@{num\+\_\+of\+\_\+bibtex\+\_\+entries}!incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}}
+\subsubsection[{num\+\_\+of\+\_\+bibtex\+\_\+entries}]{\setlength{\rightskip}{0pt plus 5cm}int incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation.\+num\+\_\+of\+\_\+bibtex\+\_\+entries = 0\hspace{0.3cm}{\ttfamily [static]}}\label{classincremental__test_1_1Incremental__Test__Automation_ac60587acca9d28d055bd8a7198a987a1}
+
+
+Definition at line \hyperlink{incremental__test_8py_source_l00113}{113} of file \hyperlink{incremental__test_8py_source}{incremental\+\_\+test.\+py}.
+
+\hypertarget{classincremental__test_1_1Incremental__Test__Automation_a8f5272e0488026aa24a829262392f2f7}{}\index{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}!set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys@{set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys}}
+\index{set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys@{set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys}!incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation@{incremental\+\_\+test\+::\+Incremental\+\_\+\+Test\+\_\+\+Automation}}
+\subsubsection[{set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys}]{\setlength{\rightskip}{0pt plus 5cm}list incremental\+\_\+test.\+Incremental\+\_\+\+Test\+\_\+\+Automation.\+set\+\_\+of\+\_\+\+Bib\+Te\+X\+\_\+keys = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}\label{classincremental__test_1_1Incremental__Test__Automation_a8f5272e0488026aa24a829262392f2f7}
+
+
+Definition at line \hyperlink{incremental__test_8py_source_l00112}{112} of file \hyperlink{incremental__test_8py_source}{incremental\+\_\+test.\+py}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{incremental__test_8py}{incremental\+\_\+test.\+py}\end{DoxyCompactItemize}

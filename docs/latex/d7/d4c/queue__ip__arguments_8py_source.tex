@@ -1,0 +1,329 @@
+\hypertarget{queue__ip__arguments_8py_source}{}\section{queue\+\_\+ip\+\_\+arguments.\+py}
+\label{queue__ip__arguments_8py_source}\index{utilities/queue\+\_\+ip\+\_\+arguments.\+py@{utilities/queue\+\_\+ip\+\_\+arguments.\+py}}
+
+\begin{DoxyCode}
+\hypertarget{queue__ip__arguments_8py_source_l00001}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments}{00001} \textcolor{comment}{#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3}
+00002 \textcolor{comment}{### /usr/bin/python}
+00003 \textcolor{comment}{### /Library/Frameworks/Python.framework/Versions/3.6/bin/python3}
+00004 
+00005 
+00006 \textcolor{stringliteral}{"""}
+00007 \textcolor{stringliteral}{    This Python script is written by Zhiyang Ong to process input}
+00008 \textcolor{stringliteral}{        arguments for a genetic technology mapping software.}
+00009 \textcolor{stringliteral}{}
+00010 \textcolor{stringliteral}{}
+00011 \textcolor{stringliteral}{    Synopsis:}
+00012 \textcolor{stringliteral}{    Process input arguments for a genetic technology mapping software.}
+00013 \textcolor{stringliteral}{}
+00014 \textcolor{stringliteral}{}
+00015 \textcolor{stringliteral}{    Notes/Assumptions:}
+00016 \textcolor{stringliteral}{    Raise an exception when the 2nd parameter of the software matches the}
+00017 \textcolor{stringliteral}{        filename of an existing file.}
+00018 \textcolor{stringliteral}{        This prevents its contents from being overwritten.}
+00019 \textcolor{stringliteral}{    Raise an exception when the user manual cannot be accessed}
+00020 \textcolor{stringliteral}{        due to errors, or when errors occur in an input argument.}
+00021 \textcolor{stringliteral}{}
+00022 \textcolor{stringliteral}{    Revision History:}
+00023 \textcolor{stringliteral}{    July 31, 2018           Version 0.1, initial build.}
+00024 \textcolor{stringliteral}{"""}
+00025 
+\hypertarget{queue__ip__arguments_8py_source_l00026}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments_adc999d785e9803ef585833d4c1ae53e4}{00026} \_\_author\_\_ = \textcolor{stringliteral}{'Zhiyang Ong'}
+\hypertarget{queue__ip__arguments_8py_source_l00027}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments_aac0867ebe34eaed5fb081f33e4ac9740}{00027} \_\_version\_\_ = \textcolor{stringliteral}{'1.0'}
+\hypertarget{queue__ip__arguments_8py_source_l00028}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments_a43f24226d75dbc13271de84f469f6944}{00028} \_\_date\_\_ = \textcolor{stringliteral}{'July 31, 2018'}
+00029 
+00030 \textcolor{comment}{#   The MIT License (MIT)}
+00031 
+00032 \textcolor{comment}{#   Copyright (c) <2018> <Zhiyang Ong>}
+00033 
+00034 \textcolor{comment}{#   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+       associated documentation files (the "Software"), to deal in the Software without restriction, including without
+       limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+       Software, and to permit persons to whom the Software is furnished to do so, subject to the following
+       conditions:}
+00035 
+00036 \textcolor{comment}{#   The above copyright notice and this permission notice shall be included in all copies or substantial
+       portions of the Software.}
+00037 
+00038 \textcolor{comment}{#   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+       LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+       EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+       ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+       OR OTHER DEALINGS IN THE SOFTWARE.}
+00039 
+00040 \textcolor{comment}{#   Email address: echo "cukj -wb- 23wU4X5M589 TROJANS cqkH wiuz2y 0f Mw Stanford" | awk '\{
+       sub("23wU4X5M589","F.d\_c\_b. ") sub("Stanford","d0mA1n"); print $5, $2, $8; for (i=1; i<=1; i++) print "6\(\backslash\)b"; print $9, $7,
+       $6 \}' | sed y/kqcbuHwM62z/gnotrzadqmC/ | tr 'q' ' ' | tr -d [:cntrl:] | tr -d 'ir' | tr y "\(\backslash\)n"   Che cosa
+       significa?}
+00041 
+00042 
+00043 
+00044 \textcolor{comment}{###############################################################}
+00045 \textcolor{stringliteral}{"""}
+00046 \textcolor{stringliteral}{    Import modules from The Python Standard Library.}
+00047 \textcolor{stringliteral}{    sys         Get access to any command-line arguments.}
+00048 \textcolor{stringliteral}{    os          Use any operating system dependent functionality.}
+00049 \textcolor{stringliteral}{    os.path     For pathname manipulations.}
+00050 \textcolor{stringliteral}{}
+00051 \textcolor{stringliteral}{    subprocess -> call}
+00052 \textcolor{stringliteral}{                To make system calls.}
+00053 \textcolor{stringliteral}{}
+00054 \textcolor{stringliteral}{    time        To measure elapsed time.}
+00055 \textcolor{stringliteral}{    warnings    Raise warnings.}
+00056 \textcolor{stringliteral}{    re          Use regular expressions.}
+00057 \textcolor{stringliteral}{"""}
+00058 
+00059 \textcolor{keyword}{import} sys
+00060 \textcolor{comment}{#import os}
+00061 \textcolor{keyword}{import} os.path
+00062 \textcolor{comment}{#from subprocess import call}
+00063 \textcolor{comment}{#import time}
+00064 \textcolor{keyword}{import} warnings
+00065 \textcolor{comment}{#import re}
+00066 
+00067 \textcolor{comment}{###############################################################}
+00068 \textcolor{comment}{#   Import Custom Python Modules}
+00069 
+00070 
+00071 \textcolor{comment}{###############################################################}
+00072 \textcolor{comment}{##  Module with methods that clean BibTeX files.}
+\hypertarget{queue__ip__arguments_8py_source_l00073}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args}{00073} \textcolor{keyword}{class }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args}{queue\_ip\_args}:
+00074     \textcolor{comment}{#   List of input arguments}
+\hypertarget{queue__ip__arguments_8py_source_l00075}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_acc8e7685be71a7f95ede7c980355c9f3}{00075}     set\_of\_input\_arguments = []
+00076     \textcolor{comment}{#   First input argument}
+\hypertarget{queue__ip__arguments_8py_source_l00077}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a14394c9820086e09d5b926d9910a180f}{00077}     first\_input\_argument = \textcolor{stringliteral}{"First input argument."}
+00078     \textcolor{comment}{#   Second input argument}
+\hypertarget{queue__ip__arguments_8py_source_l00079}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a0b179a70c0e57de2794d0d532e534c9c}{00079}     second\_input\_argument = \textcolor{stringliteral}{"Second input argument."}
+00080     \textcolor{comment}{#   File extension for JSON files.}
+\hypertarget{queue__ip__arguments_8py_source_l00081}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a8d93f9ade7608583602a9948c0d744f7}{00081}     json\_f\_ext = \textcolor{stringliteral}{".json"}
+00082     \textcolor{comment}{# Index for the script that is currently executed.}
+\hypertarget{queue__ip__arguments_8py_source_l00083}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a453711109bd635e6263a99c8e85e3dff}{00083}     CURRENT\_SCRIPT = \textcolor{stringliteral}{"No script is currently being executed."}
+00084     \textcolor{comment}{# "Constant"s for navigating types of help in the "user manual".}
+\hypertarget{queue__ip__arguments_8py_source_l00085}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a849b659d7a9d7689c4c707502d1684d5}{00085}     INCREMENTAL\_TEST = \textcolor{stringliteral}{"incremental\_test.py"}
+\hypertarget{queue__ip__arguments_8py_source_l00086}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_ad61d6e7f7e2602c0f1c11a8fdf2b7168}{00086}     PROBLEM1\_SOLUTION = \textcolor{stringliteral}{"problem1\_solution.py"}
+00087     \textcolor{comment}{# ============================================================}
+00088     \textcolor{comment}{#   Accessor methods.}
+00089     \textcolor{comment}{# ============================================================}
+00090     \textcolor{comment}{##  Method to get the input arguments.}
+00091     \textcolor{comment}{#   @return - List of input arguments to the program.}
+00092     \textcolor{comment}{#   O(1) method.}
+00093     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00094}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_abeea0f35fe270bfe53f359fd8e85c3e0}{00094}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_abeea0f35fe270bfe53f359fd8e85c3e0}{get\_input\_arguments}():
+00095         \textcolor{stringliteral}{"""}
+00096 \textcolor{stringliteral}{        print "=    Set\_of\_input\_arguments:"}
+00097 \textcolor{stringliteral}{        for cur\_ip\_arg in queue\_ip\_args.set\_of\_input\_arguments:}
+00098 \textcolor{stringliteral}{            print " "+cur\_ip\_arg}
+00099 \textcolor{stringliteral}{        """}
+00100         \textcolor{keywordflow}{return} queue\_ip\_args.set\_of\_input\_arguments
+00101     \textcolor{comment}{# ============================================================}
+00102     \textcolor{comment}{##  Method to print all the input arguments.}
+00103     \textcolor{comment}{#   O(n) method, with respect to the number of input arguments.}
+00104     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00105}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a85480b443e2538123e8531852f9035c9}{00105}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a85480b443e2538123e8531852f9035c9}{print\_all\_input\_arguments}():
+00106         println = \textcolor{stringliteral}{"~    Set\_of\_input\_arguments:"}
+00107         println += \textcolor{stringliteral}{"="}.join(str(x) \textcolor{keywordflow}{for} x \textcolor{keywordflow}{in} queue\_ip\_args.set\_of\_input\_arguments)
+00108         print(println)
+00109     \textcolor{comment}{# ============================================================}
+00110     \textcolor{comment}{##  Method to get the first input argument.}
+00111     \textcolor{comment}{#   @return - First input argument for the program.}
+00112     \textcolor{comment}{#   O(1) method.}
+00113     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00114}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a7b3c5efad539fadfb53eda0cfb8d3f03}{00114}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a7b3c5efad539fadfb53eda0cfb8d3f03}{get\_1st\_input\_argument}():
+00115         \textcolor{keywordflow}{if} 0 < len(queue\_ip\_args.get\_input\_arguments()):
+00116             \textcolor{keywordflow}{return} queue\_ip\_args.set\_of\_input\_arguments[0]
+00117         \textcolor{keywordflow}{else}:
+00118             warnings.warn(\textcolor{stringliteral}{" 1st input argument is missing!!!"})
+00119             queue\_ip\_args.input\_arguments\_error()
+00120     \textcolor{comment}{# ============================================================}
+00121     \textcolor{comment}{##  Method to get the second input argument.}
+00122     \textcolor{comment}{#   @return - Second input argument for the program.}
+00123     \textcolor{comment}{#   O(1) method.}
+00124     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00125}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a18e59da1e2c8044e79ca32a5455ef40b}{00125}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a18e59da1e2c8044e79ca32a5455ef40b}{get\_2nd\_input\_argument}():
+00126         \textcolor{keywordflow}{if} 1 < len(queue\_ip\_args.get\_input\_arguments()):
+00127             \textcolor{keywordflow}{return} queue\_ip\_args.set\_of\_input\_arguments[1]
+00128         \textcolor{keywordflow}{else}:
+00129             warnings.warn(\textcolor{stringliteral}{" 2nd input argument is missing!!!"})
+00130             queue\_ip\_args.input\_arguments\_error()
+00131     \textcolor{comment}{# ============================================================}
+00132     \textcolor{comment}{##  Method to get the number of input arguments.}
+00133     \textcolor{comment}{#   @return - Number of input arguments for the program.}
+00134     \textcolor{comment}{#   O(1) method.}
+00135     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00136}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_ab95a4242fd55bf5d126b35a5f5172593}{00136}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_ab95a4242fd55bf5d126b35a5f5172593}{get\_number\_of\_input\_arguments}():
+00137         \textcolor{keywordflow}{return} len(queue\_ip\_args.set\_of\_input\_arguments)
+00138     \textcolor{comment}{# ============================================================}
+00139     \textcolor{comment}{##  Method to get the name of the current script that is}
+00140     \textcolor{comment}{#       being executed.}
+00141     \textcolor{comment}{#   @return - Name of the current script that is being executed.}
+00142     \textcolor{comment}{#   O(1) method.}
+00143     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00144}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a9eb36bdd493a2c866460b4d9fb24b68c}{00144}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a9eb36bdd493a2c866460b4d9fb24b68c}{get\_name\_of\_current\_script}():
+00145         \textcolor{keywordflow}{return} len(queue\_ip\_args.CURRENT\_SCRIPT)
+00146     \textcolor{comment}{# ============================================================}
+00147     \textcolor{comment}{#   Mutator methods.}
+00148     \textcolor{comment}{# ============================================================}
+00149     \textcolor{comment}{##  Method to set the input arguments.}
+00150     \textcolor{comment}{#       And, remove the name of the script from the list of input}
+00151     \textcolor{comment}{#       arguments, for easier processing.}
+00152     \textcolor{comment}{#   @param list\_of\_ip\_arguments - A list of input arguments to}
+00153     \textcolor{comment}{#       the program.}
+00154     \textcolor{comment}{#   @param which\_script - Which script is currently being executed.}
+00155     \textcolor{comment}{#   O(1) method.}
+00156     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00157}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a4c536970af155ee6cc2c2886b145f807}{00157}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a4c536970af155ee6cc2c2886b145f807}{set\_input\_arguments}(list\_of\_ip\_arguments,which\_script):
+00158         queue\_ip\_args.set\_of\_input\_arguments = list\_of\_ip\_arguments
+00159         \textcolor{comment}{# Remove the name of the script from the list of input arguments.}
+00160         queue\_ip\_args.set\_of\_input\_arguments.pop(0)
+00161         queue\_ip\_args.CURRENT\_SCRIPT = which\_script
+00162     \textcolor{comment}{# ============================================================}
+00163     \textcolor{comment}{#   Other methods.}
+00164     \textcolor{comment}{# ============================================================}
+00165     \textcolor{comment}{##  Method to determine if the user wants help, and conequently}
+00166     \textcolor{comment}{#       display the user manual.}
+00167     \textcolor{comment}{#   O(n) method, with respect to the number of input arguments.}
+00168     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00169}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a1a87ae4035acfa51fe1d1aff53f770f3}{00169}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a1a87ae4035acfa51fe1d1aff53f770f3}{check\_if\_help\_wanted}():
+00170         \textcolor{comment}{# If user wants to read the brief user manual,}
+00171         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"-h"} \textcolor{keywordflow}{in} queue\_ip\_args.set\_of\_input\_arguments:
+00172             \textcolor{comment}{# Display the user manual and exit.}
+00173             queue\_ip\_args.how\_to\_use\_script()
+00174             sys.exit()
+00175     \textcolor{comment}{# ============================================================}
+00176     \textcolor{comment}{##  Method to provide information on how to run this script.}
+00177     \textcolor{comment}{#   O(1) method.}
+00178     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00179}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a5fecd33a91d20f19acba2fb1b8d1a60e}{00179}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a5fecd33a91d20f19acba2fb1b8d1a60e}{how\_to\_use\_script}():
+00180         print(\textcolor{stringliteral}{"-------------------------------------------------"})
+00181         if(queue\_ip\_args.INCREMENTAL\_TEST == queue\_ip\_args.CURRENT\_SCRIPT):
+00182             print(\textcolor{stringliteral}{"==>  This script performs incremental regression testing"})
+00183             print(\textcolor{stringliteral}{" of my solution for genetic technology mapping."})
+00184             print(\textcolor{stringliteral}{""})
+00185             print(\textcolor{stringliteral}{"This script can be executed as follows:"})
+00186             print(\textcolor{stringliteral}{"./incremental\_test.py [input JSON netlist] [output JSON technology mapping] [-h]"})
+00187             print(\textcolor{stringliteral}{""})
+00188         elif(queue\_ip\_args.PROBLEM1\_SOLUTION == queue\_ip\_args.CURRENT\_SCRIPT):
+00189             print(\textcolor{stringliteral}{"==>  This script performs genetic technology mapping."})
+00190             print(\textcolor{stringliteral}{""})
+00191             print(\textcolor{stringliteral}{"This script can be executed as follows:"})
+00192             print(\textcolor{stringliteral}{"./problem1\_solution.py [input JSON netlist] [output JSON technology mapping] [-h]"})
+00193             print(\textcolor{stringliteral}{""})
+00194         \textcolor{keywordflow}{else}:
+00195             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Error in accessing user manual."})
+00196         queue\_ip\_args.print\_help\_option()
+00197         print(\textcolor{stringliteral}{"-------------------------------------------------"})
+00198     \textcolor{comment}{# ============================================================}
+00199     \textcolor{comment}{##  Method to provide information on the second input argument.}
+00200     \textcolor{comment}{#   O(1) method.}
+00201     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00202}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a6311efe4f2f6ac8c64c9b442e8854ab7}{00202}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a6311efe4f2f6ac8c64c9b442e8854ab7}{print\_2nd\_argument}():
+00203         print(\textcolor{stringliteral}{"The 2nd input argument mustn't be a valid path to an existing file."})
+00204         print(\textcolor{stringliteral}{"If it is, warn the user about overwritting the file & proceed."})
+00205         print(\textcolor{stringliteral}{""})
+00206         print(\textcolor{stringliteral}{"If 2nd input argument has no file extension, add the"})
+00207         print(\textcolor{stringliteral}{"JSON file extension to it."})
+00208         print(\textcolor{stringliteral}{""})
+00209         print(second\_input\_argument)
+00210     \textcolor{comment}{# ============================================================}
+00211     \textcolor{comment}{##  Method to print the help option to access the user manual.}
+00212     \textcolor{comment}{#   O(1) method.}
+00213     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00214}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a28c79307da87e28e9ac3467290fd5738}{00214}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a28c79307da87e28e9ac3467290fd5738}{print\_help\_option}():
+00215         print(\textcolor{stringliteral}{"An optional '-h' flag can be used as any input argument"})
+00216         print(\textcolor{stringliteral}{" to show the brief user manual and exit."})
+00217         print(\textcolor{stringliteral}{""})
+00218     \textcolor{comment}{# ============================================================}
+00219     \textcolor{comment}{##  Method to indicate error wth input arguments.}
+00220     \textcolor{comment}{#   O(1) method.}
+00221     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00222}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_afdfbfffba8afb5e786283dd22d856e93}{00222}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_afdfbfffba8afb5e786283dd22d856e93}{input\_arguments\_error}():
+00223         queue\_ip\_args.how\_to\_use\_script()
+00224         \textcolor{comment}{# Inform the user what went wrong.}
+00225         \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Error with input arguments."})
+00226     \textcolor{comment}{# ============================================================}
+00227     \textcolor{comment}{##  Method to process the first input argument.}
+00228     \textcolor{comment}{#   O(1) method.}
+00229     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00230}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_ae1fc6d7af2e429d0656dbf388711db94}{00230}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_ae1fc6d7af2e429d0656dbf388711db94}{process\_1st\_ip\_arg}():
+00231         \textcolor{comment}{#   Is the number of input arguments to the script <1?}
+00232         \textcolor{keywordflow}{if} 1 > len(queue\_ip\_args.get\_input\_arguments()):
+00233             warnings.warn(\textcolor{stringliteral}{" There are no input arguments!!!"})
+00234             queue\_ip\_args.input\_arguments\_error()
+00235         queue\_ip\_args.first\_input\_argument = queue\_ip\_args.get\_1st\_input\_argument()
+00236         println = \textcolor{stringliteral}{"==   Is the 1st input argument a valid path to a file?"}
+00237         \textcolor{keywordflow}{if} (os.path.exists(queue\_ip\_args.first\_input\_argument) \textcolor{keywordflow}{and} os.path.isfile(
+      queue\_ip\_args.first\_input\_argument)):
+00238             print(println.format(\textcolor{stringliteral}{"  Yes."}))
+00239         \textcolor{keywordflow}{else}:
+00240             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"1st input argument isn't a valid path to a file!"})
+00241         \textcolor{comment}{#   Does 1st input argument have a BibTeX file extension?}
+00242         println = \textcolor{stringliteral}{"==   Does 1st input argument have a JSON file extension?"}
+00243         \textcolor{comment}{#   Get the filename and file extension of the 1st input argument.}
+00244         ip\_fname1, ip\_f\_ext1 = os.path.splitext(queue\_ip\_args.first\_input\_argument)
+00245 \textcolor{comment}{#   print "==   File name of 1st input argument:"+ip\_fname}
+00246 \textcolor{comment}{#   print "==   File extension of 1st input argument:"+ip\_f\_ext}
+00247         if(ip\_f\_ext1 == queue\_ip\_args.json\_f\_ext):
+00248             print(println.format(\textcolor{stringliteral}{"  Yes."}))
+00249             \textcolor{comment}{#   Add BibTeX file extension back to input filename.}
+00250             ip\_fname1 = queue\_ip\_args.first\_input\_argument
+00251         \textcolor{keywordflow}{else}:
+00252             \textcolor{comment}{#   Add BibTeX file extension to input filename.}
+00253             ip\_fname1 += queue\_ip\_args.json\_f\_ext
+00254             print(\textcolor{stringliteral}{" New output filename is: \{\}"} .format(ip\_fname1))
+00255             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"1st input argument doesn't have JSON file extension!"})
+00256         \textcolor{keywordflow}{return} ip\_fname1
+00257     \textcolor{comment}{# ============================================================}
+00258     \textcolor{comment}{##  Method to process the second input argument.}
+00259     \textcolor{comment}{#   @return the output filename, based on the second input argument}
+00260     \textcolor{comment}{#   O(1) method.}
+00261     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00262}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a82d245379c48196f61d4268882dd5c6d}{00262}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a82d245379c48196f61d4268882dd5c6d}{process\_2nd\_ip\_arg}():
+00263         \textcolor{comment}{#   Is the number of input arguments to the script <2?}
+00264         \textcolor{keywordflow}{if} 2 > len(queue\_ip\_args.get\_input\_arguments()):
+00265             warnings.warn(\textcolor{stringliteral}{" 2nd input argument isn't available!!!"})
+00266             queue\_ip\_args.input\_arguments\_error()
+00267         queue\_ip\_args.second\_input\_argument = queue\_ip\_args.get\_2nd\_input\_argument()
+00268         \textcolor{stringliteral}{"""}
+00269 \textcolor{stringliteral}{        The 2nd input argument shouldn't be a valid path to an existing file.}
+00270 \textcolor{stringliteral}{        If it is, warn the user about overwritting the file & exit.}
+00271 \textcolor{stringliteral}{        """}
+00272         println = \textcolor{stringliteral}{"==   Is the 2nd input argument a valid path to a file?"}
+00273         \textcolor{keywordflow}{if} (os.path.exists(queue\_ip\_args.second\_input\_argument) \textcolor{keywordflow}{and} os.path.isfile(
+      queue\_ip\_args.second\_input\_argument)):
+00274             print(\textcolor{stringliteral}{" 2nd input argument is a valid path to a file!"})
+00275             println = \textcolor{stringliteral}{" File would be overwritten:"}
+00276             println += queue\_ip\_args.second\_input\_argument
+00277             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"End program to avoid overwritting file."})
+00278         \textcolor{keywordflow}{else}:
+00279             print(println.format(\textcolor{stringliteral}{"  Yes."}))
+00280         \textcolor{comment}{#   Get the filename and file extension of the 2nd input argument.}
+00281         ip\_fname2, ip\_f\_ext2 = os.path.splitext(queue\_ip\_args.second\_input\_argument)
+00282         \textcolor{comment}{#   Does 2nd input argument have a BibTeX file extension?}
+00283         println = \textcolor{stringliteral}{"==   Does 2nd input argument have a JSON file extension?"}
+00284         if(ip\_f\_ext2 == queue\_ip\_args.json\_f\_ext):
+00285             print(println.format(\textcolor{stringliteral}{"  Yes."}))
+00286             ip\_fname2 = queue\_ip\_args.second\_input\_argument
+00287         \textcolor{keywordflow}{else}:
+00288             print(println.format(\textcolor{stringliteral}{"  No."}))
+00289             \textcolor{comment}{#   Add BibTeX file extension to output filename.}
+00290             ip\_fname2 = queue\_ip\_args.second\_input\_argument
+00291             ip\_fname2 += queue\_ip\_args.json\_f\_ext
+00292             print(\textcolor{stringliteral}{" New output filename is: \{\}"} .format(ip\_fname2))
+00293         \textcolor{keywordflow}{return} ip\_fname2
+00294     \textcolor{comment}{# ============================================================}
+00295     \textcolor{comment}{##  Method to handle missing second input argument.}
+00296     \textcolor{comment}{#   Replace the following substring "\_netlist.json" in the input structural}
+00297     \textcolor{comment}{#       netlist with "\_mapping.json", and set the result as the second}
+00298     \textcolor{comment}{#       input argument.}
+00299     \textcolor{comment}{#   O(1) method.}
+00300     @staticmethod
+\hypertarget{queue__ip__arguments_8py_source_l00301}{}\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a4420d4d6a1272816131b5426bfaf678e}{00301}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments_1_1queue__ip__args_a4420d4d6a1272816131b5426bfaf678e}{missing\_2nd\_ip\_arg}():
+00302         \textcolor{comment}{#   Is the number of input arguments to the script <2?}
+00303         \textcolor{keywordflow}{if} 2 > len(queue\_ip\_args.get\_input\_arguments()):
+00304             \textcolor{comment}{# Make a copy of the 1st input argument as the 2nd input argument.}
+00305             queue\_ip\_args.second\_input\_argument = queue\_ip\_args.first\_input\_argument
+00306             \textcolor{comment}{# Replace the substring "\_netlist.json" in the 2nd input argument}
+00307             \textcolor{comment}{#   with "\_mapping.json".}
+00308             queue\_ip\_args.second\_input\_argument.replace(\textcolor{stringliteral}{"\_netlist.json"},\textcolor{stringliteral}{"\_mapping.json"})
+00309             \textcolor{comment}{#   Add the 2nd input argument to the list of input arguments.}
+00310             queue\_ip\_args.set\_of\_input\_arguments.append(queue\_ip\_args.second\_input\_argument)
+\end{DoxyCode}

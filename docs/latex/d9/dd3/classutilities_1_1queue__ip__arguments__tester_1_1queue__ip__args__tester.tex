@@ -1,0 +1,124 @@
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester}{}\section{utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester Class Reference}
+\label{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester}\index{utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester}}
+
+
+Collaboration diagram for utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{d0/dd1/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{test\+\_\+o1\+\_\+methods} ()
+\begin{DoxyCompactList}\small\item\em ========================================================= Method to test the O(1) methods that print information to the standard output, or are accessor methods. \end{DoxyCompactList}\item 
+def \hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\+\_\+queue\+\_\+ip\+\_\+args} ()
+\begin{DoxyCompactList}\small\item\em ========================================================= Method to test the methods that support software test automation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00092}{92} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{}\index{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}!test\+\_\+o1\+\_\+methods@{test\+\_\+o1\+\_\+methods}}
+\index{test\+\_\+o1\+\_\+methods@{test\+\_\+o1\+\_\+methods}!utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}}
+\subsubsection[{test\+\_\+o1\+\_\+methods()}]{\setlength{\rightskip}{0pt plus 5cm}def utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester.\+test\+\_\+o1\+\_\+methods (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}
+
+
+========================================================= Method to test the O(1) methods that print information to the standard output, or are accessor methods. 
+
+\begin{DoxyReturn}{Returns}
+-\/ Nothing. O(?) method. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00099}{99} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00099}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{00099}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{test\_o1\_methods}():
+00100         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.get\_input\_arguments()       OK"})
+00101         temp\_set\_ip\_args = queue\_ip\_args.get\_input\_arguments()
+00102         statistical\_analysis.increment\_number\_test\_cases\_used()
+00103         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00104         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00105         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.print\_all\_input\_arguments()     OK"})
+00106         queue\_ip\_args.print\_all\_input\_arguments()
+00107         statistical\_analysis.increment\_number\_test\_cases\_used()
+00108         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00109         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00110         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_1st\_input\_argument()        \{\}"}
+00111         statistical\_analysis.increment\_number\_test\_cases\_used()
+00112         \textcolor{keywordflow}{if} queue\_ip\_args.get\_1st\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00113             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00114             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00115         \textcolor{keywordflow}{else}:
+00116             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00117         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00118         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_2nd\_input\_argument()        \{\}"}
+00119         statistical\_analysis.increment\_number\_test\_cases\_used()
+00120         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00121             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00122             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00123         \textcolor{keywordflow}{else}:
+00124             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00125         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00126         prompt1 = \textcolor{stringliteral}{" Test: queue\_ip\_args.get\_number\_of\_input\_arguments() \{\}"}
+00127         statistical\_analysis.increment\_number\_test\_cases\_used()
+00128         prompt2 = \textcolor{stringliteral}{" Test: queue\_ip\_args.set\_input\_arguments(...)        \{\}"}
+00129         statistical\_analysis.increment\_number\_test\_cases\_used()
+00130         prompt3 = \textcolor{stringliteral}{" Test: queue\_ip\_args.get\_name\_of\_current\_script()    \{\}"}
+00131         statistical\_analysis.increment\_number\_test\_cases\_used()
+00132         \textcolor{comment}{#   List of input arguments.}
+00133         list\_ip\_args = []
+00134         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00135             print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
+00136             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00137             print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
+00138             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00139             print(prompt3 .format(\textcolor{stringliteral}{"OK"}))
+00140             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00141         \textcolor{keywordflow}{else}:
+00142             print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00143             print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+\end{DoxyCode}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{}\index{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}!test\+\_\+queue\+\_\+ip\+\_\+args@{test\+\_\+queue\+\_\+ip\+\_\+args}}
+\index{test\+\_\+queue\+\_\+ip\+\_\+args@{test\+\_\+queue\+\_\+ip\+\_\+args}!utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}}
+\subsubsection[{test\+\_\+queue\+\_\+ip\+\_\+args()}]{\setlength{\rightskip}{0pt plus 5cm}def utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester.\+test\+\_\+queue\+\_\+ip\+\_\+args (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}
+
+
+========================================================= Method to test the methods that support software test automation. 
+
+\begin{DoxyReturn}{Returns}
+-\/ Nothing. O(1) method. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00150}{150} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00150}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{00150}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\_queue\_ip\_args}():
+00151         print(\textcolor{stringliteral}{"==   Testing class: queue\_ip\_args."})
+00152         queue\_ip\_args\_tester.test\_o1\_methods()
+00153         print(\textcolor{stringliteral}{"."})\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+utilities/\hyperlink{queue__ip__arguments__tester_8py}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}\end{DoxyCompactItemize}

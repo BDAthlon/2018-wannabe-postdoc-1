@@ -1,0 +1,170 @@
+\hypertarget{queue__ip__arguments__tester_8py_source}{}\section{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}
+\label{queue__ip__arguments__tester_8py_source}\index{utilities/queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py@{utilities/queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}}
+
+\begin{DoxyCode}
+\hypertarget{queue__ip__arguments__tester_8py_source_l00001}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments__tester}{00001} \textcolor{comment}{#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3}
+00002 
+00003 \textcolor{stringliteral}{"""}
+00004 \textcolor{stringliteral}{    This Python script is written by Zhiyang Ong to test support functions}
+00005 \textcolor{stringliteral}{        to process input arguments for a genetic technology mapping software.}
+00006 \textcolor{stringliteral}{}
+00007 \textcolor{stringliteral}{}
+00008 \textcolor{stringliteral}{    Synopsis:}
+00009 \textcolor{stringliteral}{    Test support functions to process input arguments for a genetic technology}
+00010 \textcolor{stringliteral}{        mapping software.}
+00011 \textcolor{stringliteral}{}
+00012 \textcolor{stringliteral}{}
+00013 \textcolor{stringliteral}{    Notes/Assumptions:}
+00014 \textcolor{stringliteral}{    Raise an exception when the 2nd parameter of the software matches the}
+00015 \textcolor{stringliteral}{        filename of an existing file.}
+00016 \textcolor{stringliteral}{        This prevents its contents from being overwritten.}
+00017 \textcolor{stringliteral}{    Raise an exception when the user manual cannot be accessed}
+00018 \textcolor{stringliteral}{        due to errors, or when errors occur in an input argument.}
+00019 \textcolor{stringliteral}{}
+00020 \textcolor{stringliteral}{    Revision History:}
+00021 \textcolor{stringliteral}{    July 31, 2018           Version 0.1, initial build.}
+00022 \textcolor{stringliteral}{"""}
+00023 
+\hypertarget{queue__ip__arguments__tester_8py_source_l00024}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments__tester_a4613e6fdf0e66646ab9e6b2431f60697}{00024} \_\_author\_\_ = \textcolor{stringliteral}{'Zhiyang Ong'}
+\hypertarget{queue__ip__arguments__tester_8py_source_l00025}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments__tester_a37d1fc5c2ed863dec0b8ce969bc4ac4c}{00025} \_\_version\_\_ = \textcolor{stringliteral}{'1.0'}
+\hypertarget{queue__ip__arguments__tester_8py_source_l00026}{}\hyperlink{namespaceutilities_1_1queue__ip__arguments__tester_abb3d4e36e816d047434e26922c0e28fe}{00026} \_\_date\_\_ = \textcolor{stringliteral}{'July 31, 2018'}
+00027 
+00028 \textcolor{comment}{#   The MIT License (MIT)}
+00029 
+00030 \textcolor{comment}{#   Copyright (c) <2018> <Zhiyang Ong>}
+00031 
+00032 \textcolor{comment}{#   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+       associated documentation files (the "Software"), to deal in the Software without restriction, including without
+       limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+       Software, and to permit persons to whom the Software is furnished to do so, subject to the following
+       conditions:}
+00033 
+00034 \textcolor{comment}{#   The above copyright notice and this permission notice shall be included in all copies or substantial
+       portions of the Software.}
+00035 
+00036 \textcolor{comment}{#   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+       LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+       EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+       ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+       OR OTHER DEALINGS IN THE SOFTWARE.}
+00037 
+00038 \textcolor{comment}{#   Email address: echo "cukj -wb- 23wU4X5M589 TROJANS cqkH wiuz2y 0f Mw Stanford" | awk '\{
+       sub("23wU4X5M589","F.d\_c\_b. ") sub("Stanford","d0mA1n"); print $5, $2, $8; for (i=1; i<=1; i++) print "6\(\backslash\)b"; print $9, $7,
+       $6 \}' | sed y/kqcbuHwM62z/gnotrzadqmC/ | tr 'q' ' ' | tr -d [:cntrl:] | tr -d 'ir' | tr y "\(\backslash\)n"   Che cosa
+       significa?}
+00039 
+00040 
+00041 \textcolor{comment}{###############################################################}
+00042 \textcolor{stringliteral}{"""}
+00043 \textcolor{stringliteral}{    Import modules from The Python Standard Library.}
+00044 \textcolor{stringliteral}{    sys         Get access to any command-line arguments.}
+00045 \textcolor{stringliteral}{    os          Use any operating system dependent functionality.}
+00046 \textcolor{stringliteral}{    os.path     For pathname manipulations.}
+00047 \textcolor{stringliteral}{}
+00048 \textcolor{stringliteral}{    subprocess -> call}
+00049 \textcolor{stringliteral}{                To make system calls.}
+00050 \textcolor{stringliteral}{    time        To measure elapsed time.}
+00051 \textcolor{stringliteral}{    warnings    Raise warnings.}
+00052 \textcolor{stringliteral}{    re          Use regular expressions.}
+00053 \textcolor{stringliteral}{    collections -> namedtuple}
+00054 \textcolor{stringliteral}{                To use named tuples.}
+00055 \textcolor{stringliteral}{    operator -> attrgetter}
+00056 \textcolor{stringliteral}{                To manipulate attributes of a named tuple as callable}
+00057 \textcolor{stringliteral}{                    objects.}
+00058 \textcolor{stringliteral}{"""}
+00059 
+00060 \textcolor{comment}{#import sys}
+00061 \textcolor{comment}{#import os}
+00062 \textcolor{comment}{#import os.path}
+00063 \textcolor{comment}{#from subprocess import call}
+00064 \textcolor{comment}{#import time}
+00065 \textcolor{keyword}{import} warnings
+00066 \textcolor{comment}{#import re}
+00067 \textcolor{comment}{#from collections import namedtuple}
+00068 \textcolor{comment}{#from operator import attrgetter}
+00069 
+00070 \textcolor{comment}{###############################################################}
+00071 \textcolor{comment}{#   Import Custom Python Modules}
+00072 
+00073 \textcolor{stringliteral}{"""}
+00074 \textcolor{stringliteral}{    Package and module to print statistics of software testing}
+00075 \textcolor{stringliteral}{        results.}
+00076 \textcolor{stringliteral}{"""}
+00077 \textcolor{keyword}{from} \hyperlink{namespacestatistics_1_1test__statistics}{statistics.test\_statistics} \textcolor{keyword}{import} statistical\_analysis
+00078 \textcolor{comment}{# Package and module to process input arguments to the script/program.}
+00079 \textcolor{keyword}{from} \hyperlink{namespaceutilities_1_1queue__ip__arguments}{utilities.queue\_ip\_arguments} \textcolor{keyword}{import} queue\_ip\_args
+00080 
+00081 
+00082 
+00083 \textcolor{comment}{###############################################################}
+00084 \textcolor{stringliteral}{"""}
+00085 \textcolor{stringliteral}{    Module that tests the methods for processing input arguments}
+00086 \textcolor{stringliteral}{        of a genetic technology mapping software.}
+00087 \textcolor{stringliteral}{    Support for class instantiation is not provided, to avoid}
+00088 \textcolor{stringliteral}{        acquiring a collection of useless "queue\_ip\_args"}
+00089 \textcolor{stringliteral}{        objects.}
+00090 \textcolor{stringliteral}{    Test each static method of the "queue\_ip\_args" class.}
+00091 \textcolor{stringliteral}{"""}
+\hypertarget{queue__ip__arguments__tester_8py_source_l00092}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester}{00092} \textcolor{keyword}{class }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester}{queue\_ip\_args\_tester}:
+00093     \textcolor{comment}{## =========================================================}
+00094     \textcolor{comment}{#   Method to test the O(1) methods that print information}
+00095     \textcolor{comment}{#       to the standard output, or are accessor methods.}
+00096     \textcolor{comment}{#   @return - Nothing.}
+00097     \textcolor{comment}{#   O(?) method.}
+00098     @staticmethod
+\hypertarget{queue__ip__arguments__tester_8py_source_l00099}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{00099}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{test\_o1\_methods}():
+00100         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.get\_input\_arguments()       OK"})
+00101         temp\_set\_ip\_args = queue\_ip\_args.get\_input\_arguments()
+00102         statistical\_analysis.increment\_number\_test\_cases\_used()
+00103         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00104         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00105         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.print\_all\_input\_arguments()     OK"})
+00106         queue\_ip\_args.print\_all\_input\_arguments()
+00107         statistical\_analysis.increment\_number\_test\_cases\_used()
+00108         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00109         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00110         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_1st\_input\_argument()        \{\}"}
+00111         statistical\_analysis.increment\_number\_test\_cases\_used()
+00112         \textcolor{keywordflow}{if} queue\_ip\_args.get\_1st\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00113             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00114             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00115         \textcolor{keywordflow}{else}:
+00116             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00117         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00118         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_2nd\_input\_argument()        \{\}"}
+00119         statistical\_analysis.increment\_number\_test\_cases\_used()
+00120         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00121             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00122             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00123         \textcolor{keywordflow}{else}:
+00124             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00125         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00126         prompt1 = \textcolor{stringliteral}{" Test: queue\_ip\_args.get\_number\_of\_input\_arguments() \{\}"}
+00127         statistical\_analysis.increment\_number\_test\_cases\_used()
+00128         prompt2 = \textcolor{stringliteral}{" Test: queue\_ip\_args.set\_input\_arguments(...)        \{\}"}
+00129         statistical\_analysis.increment\_number\_test\_cases\_used()
+00130         prompt3 = \textcolor{stringliteral}{" Test: queue\_ip\_args.get\_name\_of\_current\_script()    \{\}"}
+00131         statistical\_analysis.increment\_number\_test\_cases\_used()
+00132         \textcolor{comment}{#   List of input arguments.}
+00133         list\_ip\_args = []
+00134         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00135             print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
+00136             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00137             print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
+00138             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00139             print(prompt3 .format(\textcolor{stringliteral}{"OK"}))
+00140             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00141         \textcolor{keywordflow}{else}:
+00142             print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00143             print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00144     \textcolor{comment}{## =========================================================}
+00145     \textcolor{comment}{#   Method to test the methods that support software test}
+00146     \textcolor{comment}{#       automation.}
+00147     \textcolor{comment}{#   @return - Nothing.}
+00148     \textcolor{comment}{#   O(1) method.}
+00149     @staticmethod
+\hypertarget{queue__ip__arguments__tester_8py_source_l00150}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{00150}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\_queue\_ip\_args}():
+00151         print(\textcolor{stringliteral}{"==   Testing class: queue\_ip\_args."})
+00152         queue\_ip\_args\_tester.test\_o1\_methods()
+00153         print(\textcolor{stringliteral}{"."})
+\end{DoxyCode}
