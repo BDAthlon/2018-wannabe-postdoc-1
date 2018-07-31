@@ -1,0 +1,209 @@
+%	This is written by Zhiyang Ong as a template for typesetting in LaTeX.
+
+%	The MIT License (MIT)
+
+%	Copyright (c) <2014> <Zhiyang Ong>
+
+%	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+%	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+%	Email address: echo "cukj -wb- 23wU4X5M589 TROJANS cqkH wiuz2y 0f Mw Stanford" | awk '{ sub("23wU4X5M589","F.d_c_b. ") sub("Stanford","d0mA1n"); print $5, $2, $8; for (i=1; i<=1; i++) print "6\b"; print $9, $7, $6 }' | sed y/kqcbuHwM62z/gnotrzadqmC/ | tr 'q' ' ' | tr -d [:cntrl:] | tr -d 'ir' | tr y "\n"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Organization of the {\sc Bib}\TeX\ Analytics Repository}
+\label{chp:OrganizationOfTheBibTeXAnalyticsRepository}
+
+
+The main deliverables of the {\sc Bib}\TeX\ {\it Analytics} project are a {\it Python}-based software to perform reference management, and data analytics on {\sc Bib}\TeX\ entries to recognize emerging research trends. \\
+
+
+The organization of the {\sc Bib}\TeX\ {\it Analytics} repository is described as follows: \vspace{-0.3cm}
+\begin{enumerate} \itemsep -4pt
+\item analysis: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Scripts to analyze {\sc Bib}\TeX\ databases: \vspace{-0.2cm}
+		\begin{enumerate} \itemsep -2pt
+		\item To remove metadata from them.
+		\item To determine the set of keywords/keyphrases from their {\sc Bib}\TeX\ entries.
+		\item To determine the set of publishers from their {\sc Bib}\TeX\ entries.
+		\item To determine the set of series from their {\sc Bib}\TeX\ entries.
+		\item To determine the set of journals from their {\sc Bib}\TeX\ entries.
+		\item To determine the set of authors from their {\sc Bib}\TeX\ entries.
+		\item To determine the set of year from their {\sc Bib}\TeX\ entries.
+		\end{enumerate}
+	\end{enumerate}
+\item analytics\_engine: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item classification: \vspace{-0.2cm}
+		\begin{enumerate} \itemsep -2pt
+		\item Classify each author into hot or not.
+		\item Classify each keyword/keyphrase (and sets thereof) into hot or not.
+		\end{enumerate}
+	\item clustering: \vspace{-0.2cm}
+		\begin{enumerate} \itemsep -2pt
+		\item Find clusters of keyphrases from sets of keyphrases, where each set is a set of keyphrases for a publication, and determine the top 5/10 most common subsets/clusters of keyphrases.
+		\end{enumerate}
+	\item prediction: \vspace{-0.2cm}
+		\begin{enumerate} \itemsep -2pt
+		\item Use predictive analytics to predict emerging trends in research.
+		\item Use predictive analytics to predict emerging megatrends, or macrotrends.
+		\end{enumerate}
+	\end{enumerate}
+\item {\tt automated\_regression\_testing.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./automated\_regression\_testing.py}
+	\item No input nor output required.
+	\item {\it Python} script to automate regression testing.
+	\item {\bf Sort of deprecated.} Still works though.
+	\end{enumerate}
+\item big\_input: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Data set for stress testing the software deliverable of the {\sc Bib}\TeX\ {\it Analytics} project.
+	\end{enumerate}
+\item database \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item {\it bibtex\_database} ({\tt bibtex\_database.py}) class represents (each instance of) a {\sc Bib}\TeX\ database of {\sc Bib}\TeX\ entries.
+	\item {\tt bibtex\_database\_test.py} is a {\it Python} script to test the functionality of the {\it bibtex\_database} class.
+	\item {\it entry} ({\tt entry.py}) class represents each (instance of a) {\sc Bib}\TeX\ entry.
+	\item {\tt entry\_test.py} is a {\it Python} script to test the functionality of the {\it entry} class.
+	\item {\tt key\_check.py} is a {\it Python} script to check if each {\sc Bib}\TeX\ entry is valid.
+	\item {\tt key\_check\_test.py} is a {\it Python} script to test the functionality of the {\it Python} script {\tt key\_check.py}.
+	\item {\tt key\_frequency\_pairs.py} is a {\it Python} script to demonstrate how to sort a set of 2-tuples based on its first/former field and its second/last/latter field.
+	\end{enumerate}
+\item {\tt duplicate\_BibTeX\_entries.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./duplicate\_BibTeX\_entries.py [-h] [BibTeX file]}
+	\item A {\it Python} script to determine if duplicate {\sc Bib}\TeX\ entries exist in a {\sc Bib}\TeX\ file/database. If such entries exist, warn the user that duplicate {\sc Bib}\TeX\ entries exist. 
+	\end{enumerate}
+\item {\tt editions.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./editions.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display a set of editions from all the {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ file/database.
+	\end{enumerate}
+\item front\_end: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Parse input {\sc Bib}\TeX\ files, create {\sc Bib}\TeX\ entries (i.e., instances of {\it entry}), and insert them into the {\sc Bib}\TeX\ database, an instance of {\it bibtex\_database.py}.
+	\end{enumerate}
+\item {\tt incremental\_test.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./incremental\_test.py [input BibTeX file]}
+	\item A {\it Python} script to incrementally test features for performing reference management and data analytics operations with {\sc Bib}\TeX\ files/databases.
+	\end{enumerate}
+\item input: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item A set of {\sc Bib}\TeX\ files to test my {\it Python}-based {\sc Bib}\TeX\ {\it Analytics} software.
+	\end{enumerate}
+\item {\tt institutions.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./institutions.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display a set of institutions from {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ file/database.
+	\end{enumerate}
+\item {\tt journal\_titles.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./journal\_titles.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display a set of journal titles from {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ database.
+	\end{enumerate}
+\item {\tt keywords\_display.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./keywords\_display.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display a set of keywords/keyphrases from {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ database.
+	\end{enumerate}
+\item makefile: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item For build automation of {\it Python} scripts, not placed in subdirectories, in the repository.
+	\end{enumerate}
+\item notes: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item {\tt gpl-license.text}, {\tt LICENSE}, and {\tt mit-license.text} are text files of the GNU General Public License (GNU GPL) ({\tt gpl-license.text}) and The MIT License ({\tt LICENSE} and {\tt mit-license.text}).
+	\item guidelines: \vspace{-0.2cm}
+		\begin{enumerate} \itemsep -2pt
+		\item A document containing a set of guidelines on how to collaborate with me.
+		\end{enumerate}
+	\item report: \vspace{-0.2cm}
+		\begin{enumerate} \itemsep -2pt
+		\item This document that describes the organization of the {\sc Bib}\TeX\ {\it Analytics} repository, the software architecture of the {\sc Bib}\TeX\ {\it Analytics} software, and future work of the {\sc Bib}\TeX\ {\it Analytics} project.
+		\end{enumerate}
+	\end{enumerate}
+\item {\tt organizations.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./organizations.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display a set of organizations from {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ database.
+	\end{enumerate}
+\item {\tt publishers.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./publishers.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display a set of publishers from {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ database.
+	\end{enumerate}
+\item {\tt readme.md}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item A {\it Markdown}-based {\tt readme} document briefly describing this project.
+	\end{enumerate}
+\item {\tt rm\_bibtex\_metadata.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./rm\_bibtex\_metadata.py [input BibTeX file] [output BibTeX file] [-h]}
+	\item {\it [output BibTeX file]} is an optional parameter.
+	\item A {\it Python} script to delint/remove {\sc Bib}\TeX\ metadata from a {\sc Bib}\TeX\ database/file.
+	\end{enumerate}
+\item sandbox: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item A set of {\it Python} scripts to test different concepts in {\it Python}.
+	\end{enumerate}
+\item statistics: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item {\tt test\_statistics\_tester.py} is a {\it Python} script to test the functionality of the {\it test\_statistics} class.
+	\item {\it test\_statistics} ({\tt test\_statistics.py}) class to perform statistical analysis on results of automated testing of a {\it Python} script.
+	\end{enumerate}
+\item {\tt tutti\_series.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./tutti\_series.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display series from {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ database.
+	\end{enumerate}
+\item utilities: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item {\tt file\_io.py} is a {\it Python} script to perform input/output (I/O) operations on files, such as {\sc Bib}\TeX\ databases/files and \LaTeX documents.
+	\item {\tt queue\_ip\_arguments.py} is a {\it Python} script to process input arguments for a script to clean {\sc Bib}\TeX\ databases/files.
+	\end{enumerate}
+\item {\tt validate\_url.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./validate\_url.py [input BibTeX file] [output BibTeX file] [-h]}
+	\item {\it [output BibTeX file]} is an optional parameter.
+	\item A {\it Python} script to check each BibTeX entry in a BibTeX database if it has the non-standard {\sc Bib}\TeX\ field(s) ``Bdsk-Url-1'' (and ``Bdsk-Url-2''), and if the ``Url'' (and ``Doi'') field(s) is(/are) missing; if these conditions are true, copy their values to the ``Url'' BibTeX field (and ``Doi'' field, if it is a DOI).
+	\end{enumerate}
+\item {\tt z\_booktitles.py}: \vspace{-0.3cm}
+	\begin{enumerate} \itemsep -2pt
+	\item Run as: {\bf ./z\_booktitles.py [input BibTeX file] [-h]}
+	\item A {\it Python} script to display booktitles from all {\sc Bib}\TeX\ entries in a {\sc Bib}\TeX\ database.
+	\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

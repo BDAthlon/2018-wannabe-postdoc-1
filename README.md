@@ -28,6 +28,14 @@ It my solution for the problem on genetic technology mapping.
 
 ##  Instructions on How to Build and Run the Software Solution
 
+###	Documentation Generation
+
+	To generate documentation for the incremental, automated regression test
+		suite (Python code), try:
+
+			pydoc incremental_test.py
+
+
 
 
 
