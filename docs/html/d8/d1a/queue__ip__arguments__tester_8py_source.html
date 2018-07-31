@@ -32,7 +32,7 @@
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="../../namespaces.html"><span>Packages</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="../../files.html"><span>Files</span></a></li>
     </ul>
@@ -185,35 +185,37 @@
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        statistical_analysis.increment_number_test_cases_used()</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="comment">#   List of input arguments.</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        list_ip_args = []</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">if</span> queue_ip_args.get_2nd_input_argument() <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            print(prompt1 .format(<span class="stringliteral">&quot;OK&quot;</span>))</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            statistical_analysis.increment_number_test_cases_passed()</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            print(prompt2 .format(<span class="stringliteral">&quot;OK&quot;</span>))</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">#   Name of current script.</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        name_current_script = <span class="stringliteral">&quot;No name&quot;</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">if</span> queue_ip_args.get_2nd_input_argument() <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            print(prompt1 .format(<span class="stringliteral">&quot;OK&quot;</span>))</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            statistical_analysis.increment_number_test_cases_passed()</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            print(prompt3 .format(<span class="stringliteral">&quot;OK&quot;</span>))</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            print(prompt2 .format(<span class="stringliteral">&quot;OK&quot;</span>))</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            statistical_analysis.increment_number_test_cases_passed()</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            print(prompt1 .format(<span class="stringliteral">&quot;FAIL!!!&quot;</span>))</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            print(prompt2 .format(<span class="stringliteral">&quot;FAIL!!!&quot;</span>))</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">## =========================================================</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">#   Method to test the methods that support software test</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">#       automation.</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">#   @return - Nothing.</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">#   O(1) method.</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    @staticmethod</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html#aee90077323d94238d7f81b23e31207c3">  150</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html#aee90077323d94238d7f81b23e31207c3">test_queue_ip_args</a>():</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        print(<span class="stringliteral">&quot;==   Testing class: queue_ip_args.&quot;</span>)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        queue_ip_args_tester.test_o1_methods()</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        print(<span class="stringliteral">&quot;.&quot;</span>)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            print(prompt3 .format(<span class="stringliteral">&quot;OK&quot;</span>))</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            statistical_analysis.increment_number_test_cases_passed()</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            print(prompt1 .format(<span class="stringliteral">&quot;FAIL!!!&quot;</span>))</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            print(prompt2 .format(<span class="stringliteral">&quot;FAIL!!!&quot;</span>))</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">## =========================================================</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">#   Method to test the methods that support software test</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">#       automation.</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">#   @return - Nothing.</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">#   O(1) method.</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    @staticmethod</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html#aee90077323d94238d7f81b23e31207c3">  152</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html#aee90077323d94238d7f81b23e31207c3">test_queue_ip_args</a>():</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        print(<span class="stringliteral">&quot;==   Testing class: queue_ip_args.&quot;</span>)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        queue_ip_args_tester.test_o1_methods()</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        print(<span class="stringliteral">&quot;.&quot;</span>)</div>
 <div class="ttc" id="namespaceutilities_1_1queue__ip__arguments_html"><div class="ttname"><a href="../../d4/d20/namespaceutilities_1_1queue__ip__arguments.html">utilities.queue_ip_arguments</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d4c/queue__ip__arguments_8py_source.html#l00001">queue_ip_arguments.py:1</a></div></div>
 <div class="ttc" id="classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_html"><div class="ttname"><a href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html">utilities.queue_ip_arguments_tester.queue_ip_args_tester</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d1a/queue__ip__arguments__tester_8py_source.html#l00092">queue_ip_arguments_tester.py:92</a></div></div>
 <div class="ttc" id="classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_html_a49bd049dbf616cc1f604d3c0cbe84c43"><div class="ttname"><a href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html#a49bd049dbf616cc1f604d3c0cbe84c43">utilities.queue_ip_arguments_tester.queue_ip_args_tester.test_o1_methods</a></div><div class="ttdeci">def test_o1_methods()</div><div class="ttdoc">========================================================= Method to test the O(1) methods that print ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d1a/queue__ip__arguments__tester_8py_source.html#l00099">queue_ip_arguments_tester.py:99</a></div></div>
 <div class="ttc" id="namespacestatistics_1_1test__statistics_html"><div class="ttname"><a href="../../d6/d2b/namespacestatistics_1_1test__statistics.html">statistics.test_statistics</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d80/test__statistics_8py_source.html#l00001">test_statistics.py:1</a></div></div>
-<div class="ttc" id="classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_html_aee90077323d94238d7f81b23e31207c3"><div class="ttname"><a href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html#aee90077323d94238d7f81b23e31207c3">utilities.queue_ip_arguments_tester.queue_ip_args_tester.test_queue_ip_args</a></div><div class="ttdeci">def test_queue_ip_args()</div><div class="ttdoc">========================================================= Method to test the methods that support sof...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d1a/queue__ip__arguments__tester_8py_source.html#l00150">queue_ip_arguments_tester.py:150</a></div></div>
+<div class="ttc" id="classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_html_aee90077323d94238d7f81b23e31207c3"><div class="ttname"><a href="../../d9/dd3/classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester.html#aee90077323d94238d7f81b23e31207c3">utilities.queue_ip_arguments_tester.queue_ip_args_tester.test_queue_ip_args</a></div><div class="ttdeci">def test_queue_ip_args()</div><div class="ttdoc">========================================================= Method to test the methods that support sof...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d1a/queue__ip__arguments__tester_8py_source.html#l00152">queue_ip_arguments_tester.py:152</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 31 2018 17:58:25 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 31 2018 18:24:45 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -147,24 +147,26 @@
 00131         statistical\_analysis.increment\_number\_test\_cases\_used()
 00132         \textcolor{comment}{#   List of input arguments.}
 00133         list\_ip\_args = []
-00134         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
-00135             print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
-00136             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00137             print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
+00134         \textcolor{comment}{#   Name of current script.}
+00135         name\_current\_script = \textcolor{stringliteral}{"No name"}
+00136         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00137             print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
 00138             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00139             print(prompt3 .format(\textcolor{stringliteral}{"OK"}))
+00139             print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
 00140             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00141         \textcolor{keywordflow}{else}:
-00142             print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
-00143             print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
-00144     \textcolor{comment}{## =========================================================}
-00145     \textcolor{comment}{#   Method to test the methods that support software test}
-00146     \textcolor{comment}{#       automation.}
-00147     \textcolor{comment}{#   @return - Nothing.}
-00148     \textcolor{comment}{#   O(1) method.}
-00149     @staticmethod
-\hypertarget{queue__ip__arguments__tester_8py_source_l00150}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{00150}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\_queue\_ip\_args}():
-00151         print(\textcolor{stringliteral}{"==   Testing class: queue\_ip\_args."})
-00152         queue\_ip\_args\_tester.test\_o1\_methods()
-00153         print(\textcolor{stringliteral}{"."})
+00141             print(prompt3 .format(\textcolor{stringliteral}{"OK"}))
+00142             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00143         \textcolor{keywordflow}{else}:
+00144             print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00145             print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00146     \textcolor{comment}{## =========================================================}
+00147     \textcolor{comment}{#   Method to test the methods that support software test}
+00148     \textcolor{comment}{#       automation.}
+00149     \textcolor{comment}{#   @return - Nothing.}
+00150     \textcolor{comment}{#   O(1) method.}
+00151     @staticmethod
+\hypertarget{queue__ip__arguments__tester_8py_source_l00152}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{00152}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\_queue\_ip\_args}():
+00153         print(\textcolor{stringliteral}{"==   Testing class: queue\_ip\_args."})
+00154         queue\_ip\_args\_tester.test\_o1\_methods()
+00155         print(\textcolor{stringliteral}{"."})
 \end{DoxyCode}

@@ -32,7 +32,7 @@
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="../../namespaces.html"><span>Packages</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
     </ul>
@@ -86,15 +86,24 @@
 <p>[output JSON technology mapping]: A filename of an output JSON file that contains a genetic technology mapping for the input structural netlist.</p>
 <h3>Documentation Generation</h3>
 <p>To use <em>Doxygen</em> to generate documentation for the Python software, try: </p><pre class="fragment">make doxygen
-</pre><p>The command <b>make doxygeninit</b> has already been used to generate a <em>Doxygen</em> configuration file named <b>doxygen.config</b>.</p>
+</pre><p>To view the <em>Doxygen</em>-generated documention, open the file <a href="https://github.com/BDAthlon/2018-wannabe-postdoc-1/blob/master/docs/html/index.html">**docs/html/index.html**</a> in a Web browser.</p>
+<p>The command <b>make doxygeninit</b> has already been used to generate a <em>Doxygen</em> configuration file named <b>doxygen.config</b>. <b>DO NOT RUN THE COMMAND <em>doxygen.config</em> AGAIN!!!</b></p>
 <p>To use <em>pydoc</em> to view or generate documentation for my software solution (Python code), try:</p>
 <p>pydoc [<em>Python</em> package/module/class]</p>
 <p>A <em>Python</em> package corresponds to a subdirectory of this repository, while a <em>Python</em> module/class corresponds to a <em>Python</em> source file in a subdirectory.</p>
 <h1>References</h1>
 <p>Citations/References that use the LaTeX/BibTeX notation are taken from my BibTeX database (set of BibTeX entries).</p>
 <p>Additional references not found in the reference list shall be indicated below (TO BE UPDATED).</p>
-<p>{Roehner2018, Address = {Boston, {MA}}, Author = {Nicholas Roehner and Curtis Madsen}, Howpublished = {Self-published}, Month = {July 31}, Publisher = {Boston University}, School = {Boston University}, Title = {BDAthlon 2018}, Year = {2018}}</p>
-<h1>Author Information</h1>
+<pre class="fragment">@misc{Roehner2018,
+    Address = {Boston, {MA}},
+    Author = {Nicholas Roehner and Curtis Madsen},
+    Howpublished = {Self-published},
+    Month = {July 31},
+    Publisher = {Boston University},
+    School = {Boston University},
+    Title = {BDAthlon 2018},
+    Year = {2018}}
+</pre><h1>Author Information</h1>
 <p>The MIT License (MIT)</p>
 <p>Copyright (c) &lt;2018&gt; Zhiyang Ong</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
@@ -104,7 +113,7 @@
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 31 2018 17:58:25 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 31 2018 18:24:45 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
