@@ -27,8 +27,34 @@ It my solution for the problem on genetic technology mapping.
 
 ##  Description of the Software Solution for Genetic Technology Mapping
 
+My solution for genetic technology mapping, **problem1_solution.py**, takes in
+	two input parameters, **[input JSON netlist]** and **[output JSON technology mapping]**.
+
+The first input parameter **[input JSON netlist]** is a JSON file that contains
+	a structural netlist for genetic technology mapping.
+
+The other input parameter **[output JSON technology mapping]** is a JSON file
+	that contains a genetic technology mapping for the input structural netlist
+	(**[input JSON netlist]**).
+
+
 
 ##  Instructions on How to Build and Run the Software Solution
+
+###	Building and Executing the Software Solution
+
+To execute the software solution, try:
+
+	./problem1_solution.py [input JSON netlist] [output JSON technology mapping]
+
+Input Parameters:
+[input JSON netlist]:							A JSON file that contains a structural
+																		netlist for genetic technology mapping.
+
+[output JSON technology mapping]:	A JSON file that contains a genetic
+																		technology mapping for the input structural
+																		netlist.
+
 
 ###	Documentation Generation
 
@@ -40,6 +66,8 @@ To generate documentation for the incremental, automated regression test
 To generate documentation for my software solution (Python code), try:
 
 	pydoc problem1_solution.py
+
+
 
 
 
