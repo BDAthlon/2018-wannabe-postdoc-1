@@ -131,6 +131,8 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		#	List of input arguments.
 		list_ip_args = []
+		#	Name of current script.
+		name_current_script = "No name"
 		if queue_ip_args.get_2nd_input_argument() is not None:
 			print(prompt1 .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
