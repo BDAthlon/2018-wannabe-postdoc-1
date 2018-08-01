@@ -176,7 +176,7 @@ class queue_ip_args:
 		print("==>	This other script performs incremental regression testing")
 		print("	of my solution for genetic technology mapping.")
 		print("")
-		print("This script can be executed as follows:")
+		print("This other script can be executed as follows:")
 		print("./incremental_test.py [input JSON netlist] [output JSON technology mapping] [-h]")
 		queue_ip_args.print_help_option()
 		print("-------------------------------------------------")
