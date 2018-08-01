@@ -137,8 +137,6 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		prompt2 = "	... Test: queue_ip_args.get_number_of_input_arguments()	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		prompt3 = "	... Test: queue_ip_args.get_name_of_current_script()	{}"
-		statistical_analysis.increment_number_test_cases_used()
 		prompt4 = "	... Test: queue_ip_args.set_input_arguments(...)	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		prompt5 = "	... Test: queue_ip_args.get_1st_input_argument()	{}"
@@ -146,16 +144,13 @@ class queue_ip_args_tester:
 		#	List of input arguments.
 		old_list_ip_args = queue_ip_args.get_list_of_input_arguments()
 		new_list_ip_args = []
-		#	Old and new names of current script.
-		old_name_current_script = queue_ip_args.get_name_of_current_script()
-		new_name_current_script = "No name"
 		"""
 			Assign input arguments to "set_input_arguments(...)" for
 				processing.
 			Statement should fail.
 		"""
 		try:
-			queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+			queue_ip_args.set_input_arguments(new_list_ip_args)
 		except:
 			if old_list_ip_args == queue_ip_args.get_list_of_input_arguments():
 				print(prompt1 .format("OK"))
@@ -169,11 +164,6 @@ class queue_ip_args_tester:
 			else:
 				print(prompt2 .format("FAIL!!!"))
 				#print(queue_ip_args.get_number_of_input_arguments())
-			if old_name_current_script == queue_ip_args.get_name_of_current_script():
-				print(prompt3 .format("OK"))
-				statistical_analysis.increment_number_test_cases_passed()
-			else:
-				print(prompt3 .format("FAIL!!!"))
 			print(prompt4 .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		"""
@@ -199,7 +189,7 @@ class queue_ip_args_tester:
 		current_1st_ip_arg = "benchmarks/majority_netlist.json"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		statistical_analysis.increment_number_test_cases_used()
 		if new_list_ip_args == queue_ip_args.get_list_of_input_arguments():
 			print(prompt1 .format("OK"))
@@ -215,13 +205,6 @@ class queue_ip_args_tester:
 			print(prompt2 .format("FAIL!!!"))
 			#print(len(new_list_ip_args)-1)
 			#print(queue_ip_args.get_number_of_input_arguments())
-		statistical_analysis.increment_number_test_cases_used()
-		if new_name_current_script == queue_ip_args.get_name_of_current_script():
-			print(prompt3 .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt3 .format("FAIL!!!"))
-			print(queue_ip_args.get_name_of_current_script())
 		statistical_analysis.increment_number_test_cases_used()
 		print(prompt4 .format("OK"))
 		statistical_analysis.increment_number_test_cases_passed()
@@ -247,7 +230,7 @@ class queue_ip_args_tester:
 		current_2nd_ip_arg = "nonsense.json"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		statistical_analysis.increment_number_test_cases_used()
 		if new_list_ip_args == queue_ip_args.get_list_of_input_arguments():
 			print(prompt1 .format("OK"))
@@ -293,9 +276,8 @@ class queue_ip_args_tester:
 		current_1st_ip_arg = "garbage.json"
 		current_2nd_ip_arg = "nonsense.json"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
-		new_name_current_script = queue_ip_args.INCREMENTAL_TEST
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		prompt8 = "	... Test: queue_ip_args.check_if_help_wanted()	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		queue_ip_args.check_if_help_wanted()
@@ -306,7 +288,7 @@ class queue_ip_args_tester:
 		current_1st_ip_arg = "-h"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		statistical_analysis.increment_number_test_cases_used()
 		try:
 			queue_ip_args.check_if_help_wanted()
@@ -319,7 +301,7 @@ class queue_ip_args_tester:
 		current_2nd_ip_arg = "-h"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		statistical_analysis.increment_number_test_cases_used()
 		try:
 			queue_ip_args.check_if_help_wanted()
@@ -333,7 +315,7 @@ class queue_ip_args_tester:
 		current_3rd_ip_arg = "-h"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg, current_3rd_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		statistical_analysis.increment_number_test_cases_used()
 		try:
 			queue_ip_args.check_if_help_wanted()
@@ -352,9 +334,8 @@ class queue_ip_args_tester:
 		current_1st_ip_arg = "garbage.json"
 		current_2nd_ip_arg = "notes/guidelines/guidelines.tex"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
-		new_name_current_script = queue_ip_args.INCREMENTAL_TEST
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		prompt9 = "	... Invalid path to file	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		try:
@@ -370,7 +351,7 @@ class queue_ip_args_tester:
 		#current_1st_ip_arg = "benchmarks/majority_netlist.json"
 		current_1st_ip_arg = "notes/mit-license.text"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		prompt10 = "	... Valid path to file, no JSON file extension.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		try:
@@ -384,7 +365,7 @@ class queue_ip_args_tester:
 		"""
 		current_1st_ip_arg = "benchmarks/majority_netlist.json"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		prompt10 = "	... Valid path to file, JSON file extension.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		ip_fname = queue_ip_args.process_1st_ip_arg()
@@ -404,7 +385,7 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		current_2nd_ip_arg = "nonsense"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		try:
 			op_fname = queue_ip_args.process_2nd_ip_arg()
 			print(prompt12 .format("	OK"))
@@ -415,7 +396,7 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		current_2nd_ip_arg = "nonsense.json"
 		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
-		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		queue_ip_args.set_input_arguments(new_list_ip_args)
 		try:
 			op_fname = queue_ip_args.process_2nd_ip_arg()
 			print(prompt13 .format("	OK"))
