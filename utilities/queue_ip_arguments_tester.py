@@ -395,12 +395,19 @@ class queue_ip_args_tester:
 		prompt11 = "	... Valid path to file	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		try:
-			ip_fname = queue_ip_args.process_2nd_ip_arg()
+			op_fname = queue_ip_args.process_2nd_ip_arg()
 			print(prompt11 .format("				FAIL!!!"))
 		except:
 			print(prompt11 .format("				OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt11 = "	... Valid path to file	{}"
+		prompt12 = "	... Invalid path to file, no JSON extension	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			op_fname = queue_ip_args.process_2nd_ip_arg()
+			print(prompt11 .format("				OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		except:
+			print(prompt11 .format("				FAIL!!!"))
 	## =========================================================
 	#	Method to test the methods that support software test
 	#		automation.
