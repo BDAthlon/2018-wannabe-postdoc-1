@@ -145,6 +145,11 @@ Using this refactored *Python* class has an impact on its corresponding
 		software, such as: obtaining a sorted list of keyphrases/keywords; obtaining
 		a sorted list of publishers, organizations, and institutions; and a list of
 		series of books or conference proceedings.
+	These modes shall be specified by an input argument.
+	If multiple modes are specified as input arguments, an order of precedance
+		is used to specify which mode shall be selected for processing.
+	The **[bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics)**
+		software can only process one mode per execution run.
 
 
 #	References
