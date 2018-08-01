@@ -154,7 +154,7 @@ class queue_ip_args:
 	#	@param which_script - Which script is currently being executed.
 	#	O(1) method.
 	@staticmethod
-	def set_input_arguments(list_of_ip_arguments,which_script):
+	def set_input_arguments(list_of_ip_arguments):
 		#	Is the number of input arguments to the script <1?
 		if 1 > len(list_of_ip_arguments):
 			warnings.warn("	There are no input arguments!!!")
@@ -162,7 +162,6 @@ class queue_ip_args:
 		queue_ip_args.set_of_input_arguments = list_of_ip_arguments
 		# Remove the name of the script from the list of input arguments.
 		queue_ip_args.set_of_input_arguments.pop(0)
-		queue_ip_args.CURRENT_SCRIPT = which_script
 	# ============================================================
 	#	Other methods.
 	# ============================================================

@@ -138,8 +138,13 @@ Refactor the class **queue_ip_args** in the *Python* module
 	for the static method **set_input_arguments(list_of_ip_arguments,which_script)**.
 	That is, refactor the static method to **set_input_arguments(list_of_ip_arguments)**.
 
-
-
+Using this refactored *Python* class has an impact on its corresponding
+	*Python* class in the **[bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics)**
+	software.
+	Use this refactored code to handle usage modes in the **bibtex-analytics**
+		software, such as: obtaining a sorted list of keyphrases/keywords; obtaining
+		a sorted list of publishers, organizations, and institutions; and a list of
+		series of books or conference proceedings.
 
 
 #	References
