@@ -143,7 +143,7 @@ class queue_ip_args_tester:
 			Statement should fail.
 		"""
 		try:
-			queue_ip_args.set_input_arguments(list_ip_args,name_current_script)
+			queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
 		except:
 			if old_list_ip_args == queue_ip_args.get_list_of_input_arguments():
 				print(prompt1 .format("OK"))
@@ -153,7 +153,7 @@ class queue_ip_args_tester:
 			if len(old_list_ip_args) == queue_ip_args.get_number_of_input_arguments():
 				print(prompt2 .format("OK"))
 				statistical_analysis.increment_number_test_cases_passed()
-			else:				
+			else:
 				print(prompt2 .format("FAIL!!!"))
 			if old_name_current_script == queue_ip_args.get_name_of_current_script():
 				print(prompt3 .format("OK"))
@@ -163,10 +163,15 @@ class queue_ip_args_tester:
 			print(prompt4 .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		"""
-			The input parameters for the 
-			accessor functions for the 
-			list of input Mutually exclusive
+			The input parameters for queue_ip_args.set_input_arguments(...)
+				are mutually exclusive.
+			Hence, I can test the accessor functions for the input parameters
+				of this function queue_ip_args.set_input_arguments(...)
+				concurrently.
+			I do not need to test them separately, since they are
+				mutually exclusive.
 		"""
+
     ## =========================================================
 	#	Method to test the methods that support software test
 	#		automation.
