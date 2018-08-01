@@ -136,7 +136,7 @@ A *Python* package corresponds to a subdirectory of this repository, while a
 Refactor the class **queue_ip_args** in the *Python* module
 	*queue_ip_arguments.py*, so that does not need the argument **which_script**
 	for the static method **set_input_arguments(list_of_ip_arguments,which_script)**.
-	That is, refactor the code to
+	That is, refactor the static method to **set_input_arguments(list_of_ip_arguments)**.
 
 
 
