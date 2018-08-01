@@ -136,6 +136,13 @@ class queue_ip_args:
 	def get_number_of_input_arguments():
 		return len(queue_ip_args.set_of_input_arguments)
 	# ============================================================
+	##	Method to get the list of input arguments.
+	#	@return - List of input arguments for the program.
+	#	O(1) method.
+	@staticmethod
+	def get_list_of_input_arguments():
+		return queue_ip_args.set_of_input_arguments
+	# ============================================================
 	##	Method to get the name of the current script that is
 	#		being executed.
 	#	@return - Name of the current script that is being executed.
@@ -156,6 +163,10 @@ class queue_ip_args:
 	@staticmethod
 	def set_input_arguments(list_of_ip_arguments,which_script):
 		queue_ip_args.set_of_input_arguments = list_of_ip_arguments
+		#	Is the number of input arguments to the script <1?
+		if 1 > len(queue_ip_args.get_input_arguments()):
+			warnings.warn("	There are no input arguments!!!")
+			queue_ip_args.input_arguments_error()
 		# Remove the name of the script from the list of input arguments.
 		queue_ip_args.set_of_input_arguments.pop(0)
 		queue_ip_args.CURRENT_SCRIPT = which_script

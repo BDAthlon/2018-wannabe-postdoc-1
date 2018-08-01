@@ -7,11 +7,11 @@
 	This Python script is written by Zhiyang Ong to perform
 		operations to support basic statistical analysis
 		during software test automation.
-	
-	
+
+
 	Synopsis:
 	Perform statistical analysis during software test
-		automation. 
+		automation.
 
 
 	Revision History:
@@ -40,7 +40,7 @@ __date__ = 'December 15, 2017'
 	sys			Get access to any command-line arguments.
 	os			Use any operating system dependent functionality.
 	os.path		For pathname manipulations.
-	
+
 	subprocess -> call
 				To make system calls.
 
@@ -147,7 +147,7 @@ class statistical_analysis:
 		if (statistical_analysis.number_test_cases_used > statistical_analysis.number_test_cases_passed):
 			print("	Problem: number_test_cases_used > number_test_cases_passed")
 			raise Exception("	Precondition failed (1): see number_test_cases_used or number_test_cases_passed.")
-		return (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used) 
+		return (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used)
 	# =========================================================
 	#	Method to print statistics of software testing results.
 	#	@return - Nothing
@@ -155,8 +155,8 @@ class statistical_analysis:
 	#	O(1) method.
 	@staticmethod
 	def print_statistics_of_software_testing():
-		if (statistical_analysis.number_test_cases_used > statistical_analysis.number_test_cases_passed):
-			print("	Problem: number_test_cases_used > number_test_cases_passed")
+		if (statistical_analysis.number_test_cases_used < statistical_analysis.number_test_cases_passed):
+			print("	Problem: number_test_cases_used < number_test_cases_passed")
 			raise Exception("	Precondition failed (2): see number_test_cases_used or number_test_cases_passed.")
 		print("*	Number of test cases passed:		{}" .format(statistical_analysis.number_test_cases_passed))
 		print("*	Number of test cases used:		{}" .format(statistical_analysis.number_test_cases_used))
@@ -169,11 +169,3 @@ class statistical_analysis:
 		#print "*	Percentage of test cases passed:	",(13/19)*(10000/100),"%."
 		#print "*	Percentage of test cases passed:	",(10000/100)*(13/19),"%."
 		#print "*	Percentage of test cases passed:	",(13*10000)/(19*100),"%."
-
-
-
-
-
-
-
-

@@ -123,26 +123,50 @@ class queue_ip_args_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		#	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-		prompt1 = "	Test: queue_ip_args.get_number_of_input_arguments()	{}"
+		print("	Testing for an empty list...")
+		prompt1 = "	... Test: queue_ip_args.get_list_of_input_arguments()	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		prompt2 = "	Test: queue_ip_args.set_input_arguments(...)		{}"
+		prompt2 = "	... Test: queue_ip_args.get_number_of_input_arguments()	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		prompt3 = "	Test: queue_ip_args.get_name_of_current_script()	{}"
+		prompt3 = "	... Test: queue_ip_args.get_name_of_current_script()	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		prompt4 = "	... Test: queue_ip_args.set_input_arguments(...)	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		#	List of input arguments.
-		list_ip_args = []
-		#	Name of current script.
-		name_current_script = "No name"
-		if queue_ip_args.get_2nd_input_argument() is not None:
-			print(prompt1 .format("OK"))
+		old_list_ip_args = queue_ip_args.get_list_of_input_arguments()
+		new_list_ip_args = []
+		#	Old and new names of current script.
+		old_name_current_script = queue_ip_args.get_name_of_current_script()
+		new_name_current_script = "No name"
+		"""
+			Assign input arguments to "queue_ip_args" for processing.
+			Statement should fail.
+		"""
+		try:
+			queue_ip_args.set_input_arguments(list_ip_args,name_current_script)
+		except:
+			if old_list_ip_args == queue_ip_args.get_list_of_input_arguments():
+				print(prompt1 .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt1 .format("FAIL!!!"))
+			if len(old_list_ip_args) == queue_ip_args.get_number_of_input_arguments():
+				print(prompt2 .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:				
+				print(prompt2 .format("FAIL!!!"))
+			if old_name_current_script == queue_ip_args.get_name_of_current_script():
+				print(prompt3 .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt3 .format("FAIL!!!"))
+			print(prompt4 .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-			print(prompt2 .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-			print(prompt3 .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt1 .format("FAIL!!!"))
-			print(prompt2 .format("FAIL!!!"))
+		"""
+			The input parameters for the 
+			accessor functions for the 
+			list of input Mutually exclusive
+		"""
     ## =========================================================
 	#	Method to test the methods that support software test
 	#		automation.
