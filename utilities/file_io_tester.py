@@ -5,12 +5,26 @@
 """
 	This Python script is written by Zhiyang Ong to perform
 		input/output (I/O) operations on files, such as BibTeX
-		databases/files and LaTeX documents.
+		databases/files, LaTeX documents, and JSON files.
+
+	Synopsis:
+	Perform input/output (I/O) operations on files.
+
+	Notes/Assumptions:
+	Assume that the user/developer would protect the code base
+		with try-except blocks to handle file I/O errors.
+
+	Revision History:
+	August 1, 2018			Version 0.1, initial build.
 """
+
+__author__ = 'Zhiyang Ong'
+__version__ = '1.0'
+__date__ = 'August 1, 2018'
 
 #	The MIT License (MIT)
 
-#	Copyright (c) <2014> <Zhiyang Ong>
+#	Copyright (c) <2018> <Zhiyang Ong>
 
 #	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -47,5 +61,83 @@ import re
 import filecmp
 
 ###############################################################
-#	Module with methods that perform file I/O operations.
-class file_io_operations:
+#	Import Custom Python Modules
+
+"""
+	Package and module to print statistics of software testing
+		results.
+"""
+from statistics.test_statistics import statistical_analysis
+# Package and module to process input arguments to the script/program.
+from utilities.queue_ip_arguments import queue_ip_args
+# Package and module to perform file I/O operations.
+from utilities.file_io import file_io_operations
+
+###############################################################
+"""
+	Module with methods that perform file I/O operations.
+	Support for class instantiation is not provided, to avoid
+		acquiring a collection of useless "file_io_operations"
+		objects.
+	Test each static method of the "file_io_operations" class.
+"""
+class file_io_operations_tester:
+	## =========================================================
+	#	Method to test the methods that perform file I/O operations.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_queue_ip_args():
+		print("==	Testing class: file_io_operations.")
+		print("	... Testing file operations with invalid file.")
+		filename = "nonsense"
+		prompt = "	Test: file_io_operations.is_path_valid(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_path_valid(filename):
+			print(prompt .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("	FAIL!!!"))
+		prompt = "	Test: file_io_operations.open_file_object_read(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			f_obj = file_io_operations.open_file_object_read(filename)
+			print(prompt .format("FAIL!!!"))
+		except:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	Test: file_io_operations.open_file_object_write(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			f_obj = file_io_operations.open_file_object_write(filename)
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		except:
+			print(prompt .format("FAIL!!!"))
+		try:
+			#	Close the file object, and delete the file.
+			statistical_analysis.increment_number_test_cases_used()
+			file_io_operations.close_file_object(f_obj)
+			os.remove(filename)
+			print("	Test: file_io_operations.close_file_object(...)		OK")
+			statistical_analysis.increment_number_test_cases_passed()
+		except:
+			print(prompt .format("FAIL!!!"))
+		print("	... Testing file operations with valid file.")
+		filename = "notes/mit-license.text"
+		prompt = "	Test: file_io_operations.is_path_valid(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.is_path_valid(filename):
+			print(prompt .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("	FAIL!!!"))
+		prompt = "	Test: file_io_operations.open_file_object_read(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			f_obj = file_io_operations.open_file_object_read(filename)
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		except:
+			print(prompt .format("FAIL!!!"))
+		

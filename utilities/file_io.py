@@ -50,14 +50,34 @@ import filecmp
 #	Module with methods that perform file I/O operations.
 class file_io_operations:
 	# ============================================================
+	##	Method to check if a path to file is valid.
+	#	@param filename - Path to a file.
+	#	@return a boolean TRUE, if the path to the file is valid.
+	#		Else, return FALSE.
+	#	O(1) method.
+	@staticmethod
+	def is_path_valid(filename):
+		if (os.path.exists(filename) and os.path.isfile(filename)):
+			return True
+		else:
+			return False
+	# ============================================================
 	##	Method to open a file object for read/input operations.
+	#	@param filename - Path to a file.
+	#	@return file object ip_file_obj
+	#	@throws Exception for invalid path to the file.
 	#	O(1) method.
 	@staticmethod
 	def open_file_object_read(filename):
-		ip_file_obj = open(filename, 'r')
-		return ip_file_obj
+		if file_io_operations.is_path_valid(filename):
+			ip_file_obj = open(filename, 'r')
+			return ip_file_obj
+		else:
+			raise Exception("File Read Operation: Path to file is invalid.")
 	# ============================================================
 	##	Method to open a file object for write/output operations.
+	#	@param filename - Path to a file.
+	#	@return file object op_file_obj
 	#	O(1) method.
 	@staticmethod
 	def open_file_object_write(filename):
@@ -65,6 +85,8 @@ class file_io_operations:
 		return op_file_obj
 	# ============================================================
 	##	Method to close a file object.
+	#	@param file_obj - A file object.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def close_file_object(file_obj):

@@ -94,7 +94,8 @@ from utilities.queue_ip_arguments import queue_ip_args
 from utilities.queue_ip_arguments_tester import queue_ip_args_tester
 # Package and module to perform file I/O (input/output) operations.
 from utilities.file_io import file_io_operations
-
+# Package and module to test file I/O (input/output) operations.
+from utilities.file_io_tester import file_io_operations_tester
 
 ###############################################################
 """
@@ -202,6 +203,8 @@ if __name__ == "__main__":
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	queue_ip_args_tester.test_queue_ip_args()
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	file_io_operations_tester.test_queue_ip_args()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")

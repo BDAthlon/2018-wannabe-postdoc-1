@@ -28,7 +28,8 @@ It my solution for the problem on genetic technology mapping.
 ##  Description of the Software Solution for Genetic Technology Mapping
 
 My solution for genetic technology mapping, **problem1_solution.py**, takes in
-	two input parameters, **[input JSON netlist]** and **[output JSON technology mapping]**.
+	two input parameters, **[input JSON netlist]** and
+	**[output JSON technology mapping]**.
 
 The first input parameter **[input JSON netlist]** is a JSON file that contains
 	a structural netlist for genetic technology mapping.
@@ -48,6 +49,10 @@ The genetic technology mapping engine of **problem1_solution.py** consists of a
 
 Solution *1a* performs *brute force search* to explore different options for
 	genetic technology mapping.
++	Explore each permutation of NOT gates.
++	For each selection, store its alpha value and the permutation in a table
++ Enumerate a table to find the largest alpha value, and select the
+		corresponding permutation of NOT gates.
 
 
 The back-end of **problem1_solution.py** generates an output file containing
@@ -104,7 +109,8 @@ A *Python* package corresponds to a subdirectory of this repository, while a
 Citations/References that use the LaTeX/BibTeX notation are taken from my
 	BibTeX database (set of BibTeX entries).
 
-Additional references not found in the reference list shall be indicated below (TO BE UPDATED).
+Additional references not found in the reference list shall be indicated below
+	(TO BE UPDATED).
 
 
 	@misc{Roehner2018,

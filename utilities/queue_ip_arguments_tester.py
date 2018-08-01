@@ -424,8 +424,8 @@ class queue_ip_args_tester:
 			print(prompt13 .format("	FAIL!!!"))
 
 	## =========================================================
-	#	Method to test the methods that support software test
-	#		automation.
+	#	Method to test methods that process input arguments to
+	#		the software.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
