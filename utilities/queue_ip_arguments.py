@@ -79,11 +79,6 @@ class queue_ip_args:
 	second_input_argument = "Second input argument."
 	#	File extension for JSON files.
 	json_f_ext = ".json"
-	# Index for the script that is currently executed.
-	CURRENT_SCRIPT = "No script is currently being executed."
-	# "Constant"s for navigating types of help in the "user manual".
-	INCREMENTAL_TEST = "incremental_test.py"
-	PROBLEM1_SOLUTION = "problem1_solution.py"
 	# ============================================================
 	#	Accessor methods.
 	# ============================================================
@@ -136,14 +131,6 @@ class queue_ip_args:
 	def get_number_of_input_arguments():
 		return len(queue_ip_args.set_of_input_arguments)
 	# ============================================================
-	##	Method to get the name of the current script that is
-	#		being executed.
-	#	@return - Name of the current script that is being executed.
-	#	O(1) method.
-	@staticmethod
-	def get_name_of_current_script():
-		return queue_ip_args.CURRENT_SCRIPT
-	# ============================================================
 	#	Mutator methods.
 	# ============================================================
 	##	Method to set the input arguments.
@@ -181,21 +168,16 @@ class queue_ip_args:
 	@staticmethod
 	def how_to_use_script():
 		print("-------------------------------------------------")
-		if(queue_ip_args.INCREMENTAL_TEST == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	This script performs incremental regression testing")
-			print("	of my solution for genetic technology mapping.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./incremental_test.py [input JSON netlist] [output JSON technology mapping] [-h]")
-			print("")
-		elif(queue_ip_args.PROBLEM1_SOLUTION == queue_ip_args.CURRENT_SCRIPT):
-			print("==>	This script performs genetic technology mapping.")
-			print("")
-			print("This script can be executed as follows:")
-			print("./problem1_solution.py [input JSON netlist] [output JSON technology mapping] [-h]")
-			print("")
-		else:
-			raise Exception("Error in accessing user manual.")
+		print("==>	This script performs genetic technology mapping.")
+		print("")
+		print("This script can be executed as follows:")
+		print("./problem1_solution.py [input JSON netlist] [output JSON technology mapping] [-h]")
+		print("")
+		print("==>	This other script performs incremental regression testing")
+		print("	of my solution for genetic technology mapping.")
+		print("")
+		print("This script can be executed as follows:")
+		print("./incremental_test.py [input JSON netlist] [output JSON technology mapping] [-h]")
 		queue_ip_args.print_help_option()
 		print("-------------------------------------------------")
 	# ============================================================
