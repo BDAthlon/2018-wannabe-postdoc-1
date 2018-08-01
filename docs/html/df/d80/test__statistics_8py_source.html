@@ -61,11 +61,11 @@
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="stringliteral">    This Python script is written by Zhiyang Ong to perform</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="stringliteral">        operations to support basic statistical analysis</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="stringliteral">        during software test automation.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="stringliteral">    </span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="stringliteral">    </span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="stringliteral">    Synopsis:</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="stringliteral">    Perform statistical analysis during software test</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="stringliteral">        automation. </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="stringliteral">        automation.</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="stringliteral">    Revision History:</span></div>
@@ -94,7 +94,7 @@
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="stringliteral">    sys         Get access to any command-line arguments.</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="stringliteral">    os          Use any operating system dependent functionality.</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral">    os.path     For pathname manipulations.</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral">    </span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="stringliteral">    subprocess -&gt; call</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="stringliteral">                To make system calls.</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="stringliteral"></span></div>
@@ -201,7 +201,7 @@
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span> (statistical_analysis.number_test_cases_used &gt; statistical_analysis.number_test_cases_passed):</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            print(<span class="stringliteral">&quot; Problem: number_test_cases_used &gt; number_test_cases_passed&quot;</span>)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;   Precondition failed (1): see number_test_cases_used or number_test_cases_passed.&quot;</span>)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used) </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used)</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment"># =========================================================</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">#   Method to print statistics of software testing results.</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">#   @return - Nothing</span></div>
@@ -209,8 +209,8 @@
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">#   O(1) method.</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    @staticmethod</div>
 <div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#ad6bdf2cde8553974d93d5971870970d8">  157</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#ad6bdf2cde8553974d93d5971870970d8">print_statistics_of_software_testing</a>():</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">if</span> (statistical_analysis.number_test_cases_used &gt; statistical_analysis.number_test_cases_passed):</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            print(<span class="stringliteral">&quot; Problem: number_test_cases_used &gt; number_test_cases_passed&quot;</span>)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">if</span> (statistical_analysis.number_test_cases_used &lt; statistical_analysis.number_test_cases_passed):</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            print(<span class="stringliteral">&quot; Problem: number_test_cases_used &lt; number_test_cases_passed&quot;</span>)</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;   Precondition failed (2): see number_test_cases_used or number_test_cases_passed.&quot;</span>)</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        print(<span class="stringliteral">&quot;*    Number of test cases passed:        {}&quot;</span> .format(statistical_analysis.number_test_cases_passed))</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        print(<span class="stringliteral">&quot;*    Number of test cases used:      {}&quot;</span> .format(statistical_analysis.number_test_cases_used))</div>
@@ -223,14 +223,6 @@
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="comment">#print &quot;*   Percentage of test cases passed:    &quot;,(13/19)*(10000/100),&quot;%.&quot;</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">#print &quot;*   Percentage of test cases passed:    &quot;,(10000/100)*(13/19),&quot;%.&quot;</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">#print &quot;*   Percentage of test cases passed:    &quot;,(13*10000)/(19*100),&quot;%.&quot;</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
 <div class="ttc" id="classstatistics_1_1test__statistics_1_1statistical__analysis_html_a7e88e87c8e6739dcaa37740985089f11"><div class="ttname"><a href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#a7e88e87c8e6739dcaa37740985089f11">statistics.test_statistics.statistical_analysis.increment_number_test_cases_used</a></div><div class="ttdeci">def increment_number_test_cases_used()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d80/test__statistics_8py_source.html#l00114">test_statistics.py:114</a></div></div>
 <div class="ttc" id="classstatistics_1_1test__statistics_1_1statistical__analysis_html_a056f55c0e7f60e29d4b37e8e74d3cd08"><div class="ttname"><a href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#a056f55c0e7f60e29d4b37e8e74d3cd08">statistics.test_statistics.statistical_analysis.increment_number_test_cases_passed</a></div><div class="ttdeci">def increment_number_test_cases_passed()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d80/test__statistics_8py_source.html#l00128">test_statistics.py:128</a></div></div>
 <div class="ttc" id="classstatistics_1_1test__statistics_1_1statistical__analysis_html_a1bec04d2404b2bdf277c4ba170abb4a1"><div class="ttname"><a href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#a1bec04d2404b2bdf277c4ba170abb4a1">statistics.test_statistics.statistical_analysis.get_test_cases_passed_average</a></div><div class="ttdeci">def get_test_cases_passed_average()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d80/test__statistics_8py_source.html#l00146">test_statistics.py:146</a></div></div>
@@ -241,7 +233,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 31 2018 18:24:45 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 1 2018 17:41:51 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

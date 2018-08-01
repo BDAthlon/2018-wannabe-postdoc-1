@@ -176,7 +176,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span> (statistical_analysis.number_test_cases_used &gt; statistical_analysis.number_test_cases_passed):</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            print(<span class="stringliteral">&quot; Problem: number_test_cases_used &gt; number_test_cases_passed&quot;</span>)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;   Precondition failed (1): see number_test_cases_used or number_test_cases_passed.&quot;</span>)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used) </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used)</div>
 <div class="ttc" id="classstatistics_1_1test__statistics_1_1statistical__analysis_html_a1bec04d2404b2bdf277c4ba170abb4a1"><div class="ttname"><a href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#a1bec04d2404b2bdf277c4ba170abb4a1">statistics.test_statistics.statistical_analysis.get_test_cases_passed_average</a></div><div class="ttdeci">def get_test_cases_passed_average()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d80/test__statistics_8py_source.html#l00146">test_statistics.py:146</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -274,8 +274,8 @@ Static Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../df/d80/test__statistics_8py_source.html#l00157">157</a> of file <a class="el" href="../../df/d80/test__statistics_8py_source.html">test_statistics.py</a>.</p>
 <div class="fragment"><div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#ad6bdf2cde8553974d93d5971870970d8">  157</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#ad6bdf2cde8553974d93d5971870970d8">print_statistics_of_software_testing</a>():</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">if</span> (statistical_analysis.number_test_cases_used &gt; statistical_analysis.number_test_cases_passed):</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            print(<span class="stringliteral">&quot; Problem: number_test_cases_used &gt; number_test_cases_passed&quot;</span>)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">if</span> (statistical_analysis.number_test_cases_used &lt; statistical_analysis.number_test_cases_passed):</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            print(<span class="stringliteral">&quot; Problem: number_test_cases_used &lt; number_test_cases_passed&quot;</span>)</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;   Precondition failed (2): see number_test_cases_used or number_test_cases_passed.&quot;</span>)</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        print(<span class="stringliteral">&quot;*    Number of test cases passed:        {}&quot;</span> .format(statistical_analysis.number_test_cases_passed))</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        print(<span class="stringliteral">&quot;*    Number of test cases used:      {}&quot;</span> .format(statistical_analysis.number_test_cases_used))</div>
@@ -288,15 +288,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="comment">#print &quot;*   Percentage of test cases passed:    &quot;,(13/19)*(10000/100),&quot;%.&quot;</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">#print &quot;*   Percentage of test cases passed:    &quot;,(10000/100)*(13/19),&quot;%.&quot;</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">#print &quot;*   Percentage of test cases passed:    &quot;,(13*10000)/(19*100),&quot;%.&quot;</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<div class="ttc" id="classstatistics_1_1test__statistics_1_1statistical__analysis_html_ad6bdf2cde8553974d93d5971870970d8"><div class="ttname"><a href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#ad6bdf2cde8553974d93d5971870970d8">statistics.test_statistics.statistical_analysis.print_statistics_of_software_testing</a></div><div class="ttdeci">def print_statistics_of_software_testing()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d80/test__statistics_8py_source.html#l00157">test_statistics.py:157</a></div></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<div class="ttc" id="classstatistics_1_1test__statistics_1_1statistical__analysis_html_ad6bdf2cde8553974d93d5971870970d8"><div class="ttname"><a href="../../d1/d72/classstatistics_1_1test__statistics_1_1statistical__analysis.html#ad6bdf2cde8553974d93d5971870970d8">statistics.test_statistics.statistical_analysis.print_statistics_of_software_testing</a></div><div class="ttdeci">def print_statistics_of_software_testing()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d80/test__statistics_8py_source.html#l00157">test_statistics.py:157</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,7 +343,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 31 2018 18:24:45 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 1 2018 17:41:51 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

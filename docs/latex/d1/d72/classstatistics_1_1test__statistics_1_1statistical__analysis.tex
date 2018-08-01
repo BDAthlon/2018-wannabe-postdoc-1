@@ -97,7 +97,7 @@ Definition at line \hyperlink{test__statistics_8py_source_l00146}{146} of file \
 00149             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"   Precondition failed (1): see number\_test\_cases\_used or
        number\_test\_cases\_passed."})
 00150         \textcolor{keywordflow}{return} (statistical\_analysis.number\_test\_cases\_passed*100 / 
-      statistical\_analysis.number\_test\_cases\_used) 
+      statistical\_analysis.number\_test\_cases\_used)
 \end{DoxyCode}
 \hypertarget{classstatistics_1_1test__statistics_1_1statistical__analysis_a056f55c0e7f60e29d4b37e8e74d3cd08}{}\index{statistics\+::test\+\_\+statistics\+::statistical\+\_\+analysis@{statistics\+::test\+\_\+statistics\+::statistical\+\_\+analysis}!increment\+\_\+number\+\_\+test\+\_\+cases\+\_\+passed@{increment\+\_\+number\+\_\+test\+\_\+cases\+\_\+passed}}
 \index{increment\+\_\+number\+\_\+test\+\_\+cases\+\_\+passed@{increment\+\_\+number\+\_\+test\+\_\+cases\+\_\+passed}!statistics\+::test\+\_\+statistics\+::statistical\+\_\+analysis@{statistics\+::test\+\_\+statistics\+::statistical\+\_\+analysis}}
@@ -160,8 +160,8 @@ Definition at line \hyperlink{test__statistics_8py_source_l00157}{157} of file \
 
 \begin{DoxyCode}
 \hypertarget{classstatistics_1_1test__statistics_1_1statistical__analysis_l00157}{}\hyperlink{classstatistics_1_1test__statistics_1_1statistical__analysis_ad6bdf2cde8553974d93d5971870970d8}{00157}     \textcolor{keyword}{def }\hyperlink{classstatistics_1_1test__statistics_1_1statistical__analysis_ad6bdf2cde8553974d93d5971870970d8}{print\_statistics\_of\_software\_testing}():
-00158         \textcolor{keywordflow}{if} (statistical\_analysis.number\_test\_cases\_used > statistical\_analysis.number\_test\_cases\_passed):
-00159             print(\textcolor{stringliteral}{" Problem: number\_test\_cases\_used > number\_test\_cases\_passed"})
+00158         \textcolor{keywordflow}{if} (statistical\_analysis.number\_test\_cases\_used < statistical\_analysis.number\_test\_cases\_passed):
+00159             print(\textcolor{stringliteral}{" Problem: number\_test\_cases\_used < number\_test\_cases\_passed"})
 00160             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"   Precondition failed (2): see number\_test\_cases\_used or
        number\_test\_cases\_passed."})
 00161         print(\textcolor{stringliteral}{"*    Number of test cases passed:        \{\}"} .format(
@@ -179,15 +179,7 @@ Definition at line \hyperlink{test__statistics_8py_source_l00157}{157} of file \
 00169         \textcolor{comment}{#print "*   Percentage of test cases passed:    ",(13/19)*(10000/100),"%."}
 00170         \textcolor{comment}{#print "*   Percentage of test cases passed:    ",(10000/100)*(13/19),"%."}
 00171         \textcolor{comment}{#print "*   Percentage of test cases passed:    ",(13*10000)/(19*100),"%."}
-00172 
-00173 
-00174 
-00175 
-00176 
-00177 
-00178 
-00179 
-00180 \end{DoxyCode}
+00172 \end{DoxyCode}
 
 
 \subsection{Member Data Documentation}

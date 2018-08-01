@@ -64,10 +64,15 @@
 Collaboration diagram for utilities.file_io.file_io_operations:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../db/d83/classutilities_1_1file__io_1_1file__io__operations__coll__graph.jpg" border="0" usemap="#utilities_8file__io_8file__io__operations_coll__map" alt="Collaboration graph"/></div>
+<map name="utilities_8file__io_8file__io__operations_coll__map" id="utilities_8file__io_8file__io__operations_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a5c4be751037b1ba20bb57884b93e7445"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a5c4be751037b1ba20bb57884b93e7445">is_path_valid</a> (filename)</td></tr>
+<tr class="memdesc:a5c4be751037b1ba20bb57884b93e7445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to check if a path to file is valid.  <a href="#a5c4be751037b1ba20bb57884b93e7445">More...</a><br /></td></tr>
+<tr class="separator:a5c4be751037b1ba20bb57884b93e7445"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a7ef324955033ad370338fe37e68194"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a1a7ef324955033ad370338fe37e68194">open_file_object_read</a> (filename)</td></tr>
 <tr class="memdesc:a1a7ef324955033ad370338fe37e68194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to open a file object for read/input operations.  <a href="#a1a7ef324955033ad370338fe37e68194">More...</a><br /></td></tr>
 <tr class="separator:a1a7ef324955033ad370338fe37e68194"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,12 +114,18 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Method to close a file object. </p>
-<p>O(1) method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_obj</td><td>- A file object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>- Nothing. O(1) method. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00070">70</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a15cce5bd7767b057cdc569f393c24866">   70</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a15cce5bd7767b057cdc569f393c24866">close_file_object</a>(file_obj):</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        file_obj.close()</div>
-<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_a15cce5bd7767b057cdc569f393c24866"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a15cce5bd7767b057cdc569f393c24866">utilities.file_io.file_io_operations.close_file_object</a></div><div class="ttdeci">def close_file_object(file_obj)</div><div class="ttdoc">Method to close a file object. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00070">file_io.py:70</a></div></div>
+<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00092">92</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a15cce5bd7767b057cdc569f393c24866">   92</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a15cce5bd7767b057cdc569f393c24866">close_file_object</a>(file_obj):</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        file_obj.close()</div>
+<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_a15cce5bd7767b057cdc569f393c24866"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a15cce5bd7767b057cdc569f393c24866">utilities.file_io.file_io_operations.close_file_object</a></div><div class="ttdeci">def close_file_object(file_obj)</div><div class="ttdoc">Method to close a file object. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00092">file_io.py:92</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -160,10 +171,51 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a boolean TRUE, if the files are equivalent. Else, return FALSE. O(n) method, with respect to the number of lines in the larger (if the files are different), or either, of the files. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00082">82</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a9b3808ff6b165f5e73b780036f73a917">   82</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a9b3808ff6b165f5e73b780036f73a917">file_comparison</a>(file1, file2):</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> filecmp.cmp(file1,file2,shallow=<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_a9b3808ff6b165f5e73b780036f73a917"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a9b3808ff6b165f5e73b780036f73a917">utilities.file_io.file_io_operations.file_comparison</a></div><div class="ttdeci">def file_comparison(file1, file2)</div><div class="ttdoc">Method to determine if two files are equivalent. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00082">file_io.py:82</a></div></div>
+<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00104">104</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a9b3808ff6b165f5e73b780036f73a917">  104</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a9b3808ff6b165f5e73b780036f73a917">file_comparison</a>(file1, file2):</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> filecmp.cmp(file1,file2,shallow=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_a9b3808ff6b165f5e73b780036f73a917"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a9b3808ff6b165f5e73b780036f73a917">utilities.file_io.file_io_operations.file_comparison</a></div><div class="ttdeci">def file_comparison(file1, file2)</div><div class="ttdoc">Method to determine if two files are equivalent. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00104">file_io.py:104</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5c4be751037b1ba20bb57884b93e7445"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def utilities.file_io.file_io_operations.is_path_valid </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method to check if a path to file is valid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>- Path to a file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a boolean TRUE, if the path to the file is valid. Else, return FALSE. O(1) method. </dd></dl>
+
+<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00059">59</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a5c4be751037b1ba20bb57884b93e7445">   59</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a5c4be751037b1ba20bb57884b93e7445">is_path_valid</a>(filename):</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> (os.path.exists(filename) <span class="keywordflow">and</span> os.path.isfile(filename)):</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_a5c4be751037b1ba20bb57884b93e7445"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a5c4be751037b1ba20bb57884b93e7445">utilities.file_io.file_io_operations.is_path_valid</a></div><div class="ttdeci">def is_path_valid(filename)</div><div class="ttdoc">Method to check if a path to file is valid. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00059">file_io.py:59</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -190,13 +242,28 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Method to open a file object for read/input operations. </p>
-<p>O(1) method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>- Path to a file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>file object ip_file_obj </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>for invalid path to the file. O(1) method. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00056">56</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a1a7ef324955033ad370338fe37e68194">   56</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a1a7ef324955033ad370338fe37e68194">open_file_object_read</a>(filename):</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        ip_file_obj = open(filename, <span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">return</span> ip_file_obj</div>
-<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_a1a7ef324955033ad370338fe37e68194"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a1a7ef324955033ad370338fe37e68194">utilities.file_io.file_io_operations.open_file_object_read</a></div><div class="ttdeci">def open_file_object_read(filename)</div><div class="ttdoc">Method to open a file object for read/input operations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00056">file_io.py:56</a></div></div>
+<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00071">71</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a1a7ef324955033ad370338fe37e68194">   71</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a1a7ef324955033ad370338fe37e68194">open_file_object_read</a>(filename):</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> file_io_operations.is_path_valid(filename):</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            ip_file_obj = open(filename, <span class="stringliteral">&#39;</span><span class="stringliteral">r&#39;)</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">            </span><span class="keywordflow">return</span> ip_file_obj</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;File Read Operation: Path to file is invalid.&quot;</span>)</div>
+<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_a1a7ef324955033ad370338fe37e68194"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#a1a7ef324955033ad370338fe37e68194">utilities.file_io.file_io_operations.open_file_object_read</a></div><div class="ttdeci">def open_file_object_read(filename)</div><div class="ttdoc">Method to open a file object for read/input operations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00071">file_io.py:71</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -223,13 +290,19 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Method to open a file object for write/output operations. </p>
-<p>O(1) method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>- Path to a file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>file object op_file_obj O(1) method. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00063">63</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#aaf94e26da1d988ece479d1600ad1de4a">   63</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#aaf94e26da1d988ece479d1600ad1de4a">open_file_object_write</a>(filename):</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        op_file_obj = open(filename, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> op_file_obj</div>
-<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_aaf94e26da1d988ece479d1600ad1de4a"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#aaf94e26da1d988ece479d1600ad1de4a">utilities.file_io.file_io_operations.open_file_object_write</a></div><div class="ttdeci">def open_file_object_write(filename)</div><div class="ttdoc">Method to open a file object for write/output operations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00063">file_io.py:63</a></div></div>
+<p>Definition at line <a class="el" href="../../db/db0/file__io_8py_source.html#l00083">83</a> of file <a class="el" href="../../db/db0/file__io_8py_source.html">file_io.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#aaf94e26da1d988ece479d1600ad1de4a">   83</a></span>&#160;    <span class="keyword">def </span><a class="code" href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#aaf94e26da1d988ece479d1600ad1de4a">open_file_object_write</a>(filename):</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        op_file_obj = open(filename, <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> op_file_obj</div>
+<div class="ttc" id="classutilities_1_1file__io_1_1file__io__operations_html_aaf94e26da1d988ece479d1600ad1de4a"><div class="ttname"><a href="../../d5/dc5/classutilities_1_1file__io_1_1file__io__operations.html#aaf94e26da1d988ece479d1600ad1de4a">utilities.file_io.file_io_operations.open_file_object_write</a></div><div class="ttdeci">def open_file_object_write(filename)</div><div class="ttdoc">Method to open a file object for write/output operations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db0/file__io_8py_source.html#l00083">file_io.py:83</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -239,7 +312,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 31 2018 18:24:45 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 1 2018 17:41:51 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

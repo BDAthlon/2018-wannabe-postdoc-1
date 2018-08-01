@@ -32,122 +32,176 @@
 00028 ##  Description of the Software Solution for Genetic Technology Mapping
 00029 
 00030 My solution for genetic technology mapping, **problem1\_solution.py**, takes in
-00031    two input parameters, **[input JSON netlist]** and **[output JSON technology mapping]**.
-00032 
-00033 The first input parameter **[input JSON netlist]** is a JSON file that contains
-00034    a structural netlist for genetic technology mapping.
-00035 
-00036 The other input parameter **[output JSON technology mapping]** is the filename
-00037    of an output JSON file that contains a genetic technology mapping for the
-00038    input structural netlist (**[input JSON netlist]**).
-00039 
-00040 The front-end of **problem1\_solution.py** parses the input arguments, checks
-00041    their validity, and parses the input structural netlist for genetic
-00042    technology mapping.
-00043 
-00044 The genetic technology mapping engine of **problem1\_solution.py** consists of a
-00045    (set of) solution(s) to perform genetic technology mapping.
-00046    A solution is an implementation of a known/new algorithm/heuristic for
-00047        genetic technology mapping.
-00048 
-00049 Solution *1a* performs *brute force search* to explore different options for
-00050    genetic technology mapping.
-00051 
-00052 
-00053 The back-end of **problem1\_solution.py** generates an output file containing
-00054    the genetic technology mapping of the input genetic circuit, in JSON format.
-00055 
-00056 
+00031    two input parameters, **[input JSON netlist]** and
+00032    **[output JSON technology mapping]**.
+00033 
+00034 The first input parameter **[input JSON netlist]** is a JSON file that contains
+00035    a structural netlist for genetic technology mapping.
+00036 
+00037 The other input parameter **[output JSON technology mapping]** is the filename
+00038    of an output JSON file that contains a genetic technology mapping for the
+00039    input structural netlist (**[input JSON netlist]**).
+00040 
+00041 The front-end of **problem1\_solution.py** parses the input arguments, checks
+00042    their validity, and parses the input structural netlist for genetic
+00043    technology mapping.
+00044    It also parses the genetic technology library **genetic\_gate\_library.json**,
+00045        maps each genetic NOT gate into a *genetic\_not\_gate* object, and stores
+00046        each object in a map of *(id,objects)*;
+00047        the *id* of the object is the *id* field of the genetic NOT gate, which is
+00048            specified in the genetic technology library.
+00049 
+00050 The genetic technology mapping engine of **problem1\_solution.py** consists of a
+00051    (set of) solution(s) to perform genetic technology mapping.
+00052    A solution is an implementation of a known/new algorithm/heuristic for
+00053        genetic technology mapping.
+00054 
+00055 **Dr. Nicholas Roehner and Dr. Curtis Madsen, I am running out of time, so I
+00056    will sketch the outline of my solutions, and update them as I solve the problem.**
 00057 
-00058 
-00059 
-00060 
-00061 
-00062 
-00063 ##  Instructions on How to Build and Run the Software Solution
+00058 Solution *1a* performs *brute force search* to explore different options for
+00059    genetic technology mapping.
+00060 +  Explore each permutation of NOT gates.
+00061 +  For each selection, store its alpha value and the permutation in a table
+00062 + Enumerate a table to find the largest alpha value, and select the
+00063        corresponding permutation of NOT gates.
 00064 
-00065 ###    Building and Executing the Software Solution
-00066 
-00067 To execute the software solution, try:
-00068 
-00069    ./problem1\_solution.py [input JSON netlist] [output JSON technology mapping]
-00070 
-00071 Input Parameters:
-00072 [input JSON netlist]:                          A JSON file that contains a structural
-00073                                                                        netlist for genetic technology
-       mapping.
+00065 
+00066 Solution *1b* uses simulated annealing for discrete optimization.
+00067 + Pseudo-randomly select a permutation of NOT gates.
+00068 + Initialize temperature to be very hot
+00069 + While temperature is not 0, cool the temperature of the annealing process.
+00070    - As the temperature cools, slowly decrease the
+00071 
+00072 Solution *1b* uses a genetic algorithm for discrete optimization.
+00073 
 00074 
-00075 [output JSON technology mapping]:  A filename of an output JSON file that
-00076                                                                        contains a genetic technology
-       mapping for
-00077                                                                        the input structural netlist.
-00078 
-00079 
-00080 ###    Documentation Generation
+00075 Other solutions considered:
+00076 + 0-1 integer linear programming (ILP)
+00077    * Can't formulate the objective function of the 0-1 ILP problem.
+00078 + pseudo-boolan optimization (PBO)
+00079    * Can't formulate the conjunctive normal form (CNF) boolean satisfiability
+00080        formula for PBO.
 00081 
-00082 To use *Doxygen* to generate documentation for the Python software, try:
-00083 
-00084    make doxygen
+00082 The back-end of **problem1\_solution.py** generates an output file containing
+00083    the genetic technology mapping of the input genetic circuit, in JSON format.
+00084 
 00085 
-00086 To view the *Doxygen*-generated documention, open the file
-       [**docs/html/index.html**](https://github.com/BDAthlon/2018-wannabe-postdoc-1/blob/master/docs/html/index.html) in a Web browser.
+00086 
 00087 
-00088 The command **make doxygeninit** has already been used to generate a *Doxygen*
-00089    configuration file named **doxygen.config**.
-00090    **DO NOT RUN THE COMMAND *doxygen.config* AGAIN!!!**
+00088 
+00089 
+00090 
 00091 
-00092 To use *pydoc* to view or generate documentation for my software solution
-00093    (Python code), try:
-00094 
-00095    pydoc [*Python* package/module/class]
-00096 
-00097 A *Python* package corresponds to a subdirectory of this repository, while a
-00098    *Python* module/class corresponds to a *Python* source file in a subdirectory.
+00092 ##  Instructions on How to Build and Run the Software Solution
+00093 
+00094 ###    Building and Executing the Software Solution
+00095 
+00096 To execute the software solution, try:
+00097 
+00098    ./problem1\_solution.py [input JSON netlist] [output JSON technology mapping]
 00099 
-00100 
-00101 
-00102 #  References
+00100 Input Parameters:
+00101 [input JSON netlist]:                          A JSON file that contains a structural
+00102                                                                        netlist for genetic technology
+       mapping.
 00103 
-00104 Citations/References that use the LaTeX/BibTeX notation are taken from my
-00105    BibTeX database (set of BibTeX entries).
-00106 
-00107 Additional references not found in the reference list shall be indicated below (TO BE UPDATED).
+00104 [output JSON technology mapping]:  A filename of an output JSON file that
+00105                                                                        contains a genetic technology
+       mapping for
+00106                                                                        the input structural netlist.
+00107 
 00108 
-00109 
-00110    @misc\{Roehner2018,
-00111        Address = \{Boston, \{MA\}\},
-00112        Author = \{Nicholas Roehner and Curtis Madsen\},
-00113        Howpublished = \{Self-published\},
-00114        Month = \{July 31\},
-00115        Publisher = \{Boston University\},
-00116        School = \{Boston University\},
-00117        Title = \{BDAthlon 2018\},
-00118        Year = \{2018\}\}
-00119 
+00109 ###    Documentation Generation
+00110 
+00111 To use *Doxygen* to generate documentation for the Python software, try:
+00112 
+00113    make doxygen
+00114 
+00115 To view the *Doxygen*-generated documention, open the file
+       [**docs/html/index.html**](https://github.com/BDAthlon/2018-wannabe-postdoc-1/blob/master/docs/html/index.html) in a Web browser.
+00116 
+00117 The command **make doxygeninit** has already been used to generate a *Doxygen*
+00118    configuration file named **doxygen.config**.
+00119    **DO NOT RUN THE COMMAND *doxygen.config* AGAIN!!!**
 00120 
-00121 
-00122 #  Author Information
+00121 To use *pydoc* to view or generate documentation for my software solution
+00122    (Python code), try:
 00123 
-00124 The MIT License (MIT)
+00124    pydoc [*Python* package/module/class]
 00125 
-00126 Copyright (c) <2018> Zhiyang Ong
-00127 
-00128 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+00126 A *Python* package corresponds to a subdirectory of this repository, while a
+00127    *Python* module/class corresponds to a *Python* source file in a subdirectory.
+00128 
+00129 
+00130 
+00131 
+00132 ## Miscellaneous
+00133 
+00134 ###    Refactoring attempt: *Utilities* package
+00135 
+00136 Refactor the class **queue\_ip\_args** in the *Python* module
+00137    *queue\_ip\_arguments.py*, so that does not need the argument **which\_script**
+00138    for the static method **set\_input\_arguments(list\_of\_ip\_arguments,which\_script)**.
+00139    That is, refactor the static method to **set\_input\_arguments(list\_of\_ip\_arguments)**.
+00140 
+00141 Using this refactored *Python* class has an impact on its corresponding
+00142    *Python* class in the **[bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics)**
+00143    software.
+00144    Use this refactored code to handle usage modes in the **bibtex-analytics**
+00145        software, such as: obtaining a sorted list of keyphrases/keywords; obtaining
+00146        a sorted list of publishers, organizations, and institutions; and a list of
+00147        series of books or conference proceedings.
+00148    These modes shall be specified by an input argument.
+00149    If multiple modes are specified as input arguments, an order of precedance
+00150        is used to specify which mode shall be selected for processing.
+00151    The **[bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics)**
+00152        software can only process one mode per execution run.
+00153 
+00154 
+00155 #  References
+00156 
+00157 Citations/References that use the LaTeX/BibTeX notation are taken from my
+00158    BibTeX database (set of BibTeX entries).
+00159 
+00160 Additional references not found in the reference list shall be indicated below
+00161    (TO BE UPDATED).
+00162 
+00163 
+00164    @misc\{Roehner2018,
+00165        Address = \{Boston, \{MA\}\},
+00166        Author = \{Nicholas Roehner and Curtis Madsen\},
+00167        Howpublished = \{Self-published\},
+00168        Month = \{July 31\},
+00169        Publisher = \{Boston University\},
+00170        School = \{Boston University\},
+00171        Title = \{BDAthlon 2018\},
+00172        Year = \{2018\}\}
+00173 
+00174 
+00175 
+00176 #  Author Information
+00177 
+00178 The MIT License (MIT)
+00179 
+00180 Copyright (c) <2018> Zhiyang Ong
+00181 
+00182 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
        associated documentation files (the "Software"), to deal in the Software without restriction, including without
        limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
        the Software, and to permit persons to whom the Software is furnished to do so, subject to the following
        conditions:
-00129 
-00130 The above copyright notice and this permission notice shall be included in all copies or substantial
+00183 
+00184 The above copyright notice and this permission notice shall be included in all copies or substantial
        portions of the Software.
-00131 
-00132 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+00185 
+00186 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
        LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
        EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
        AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
        OR OTHER DEALINGS IN THE SOFTWARE.
-00133 
-00134 Email address: echo "cukj -wb- 23wU4X5M589 TROJANS cqkH wiuz2y 0f Mw Stanford" | awk '\{
+00187 
+00188 Email address: echo "cukj -wb- 23wU4X5M589 TROJANS cqkH wiuz2y 0f Mw Stanford" | awk '\{
        sub("23wU4X5M589","F.d\_c\_b. ") sub("Stanford","d0mA1n"); print $5, $2, $8; for (i=1; i<=1; i++) print "6\(\backslash\)b"; print $9, $7,
        $6 \}' | sed y/kqcbuHwM62z/gnotrzadqmC/ | tr 'q' ' ' | tr -d [:cntrl:] | tr -d 'ir' | tr y "\(\backslash\)n"      Don't
        compromise my computing accounts. You have been warned.

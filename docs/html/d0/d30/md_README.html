@@ -75,9 +75,33 @@
 <p>My solution for genetic technology mapping, <b>problem1_solution.py</b>, takes in two input parameters, **[input JSON netlist]** and **[output JSON technology mapping]**.</p>
 <p>The first input parameter **[input JSON netlist]** is a JSON file that contains a structural netlist for genetic technology mapping.</p>
 <p>The other input parameter **[output JSON technology mapping]** is the filename of an output JSON file that contains a genetic technology mapping for the input structural netlist (**[input JSON netlist]**).</p>
-<p>The front-end of <b>problem1_solution.py</b> parses the input arguments, checks their validity, and parses the input structural netlist for genetic technology mapping.</p>
+<p>The front-end of <b>problem1_solution.py</b> parses the input arguments, checks their validity, and parses the input structural netlist for genetic technology mapping. It also parses the genetic technology library <b>genetic_gate_library.json</b>, maps each genetic NOT gate into a <em>genetic_not_gate</em> object, and stores each object in a map of *(id,objects)*; the <em>id</em> of the object is the <em>id</em> field of the genetic NOT gate, which is specified in the genetic technology library.</p>
 <p>The genetic technology mapping engine of <b>problem1_solution.py</b> consists of a (set of) solution(s) to perform genetic technology mapping. A solution is an implementation of a known/new algorithm/heuristic for genetic technology mapping.</p>
-<p>Solution <em>1a</em> performs <em>brute force search</em> to explore different options for genetic technology mapping.</p>
+<p><b>Dr. Nicholas Roehner and Dr. Curtis Madsen, I am running out of time, so I will sketch the outline of my solutions, and update them as I solve the problem.</b></p>
+<p>Solution <em>1a</em> performs <em>brute force search</em> to explore different options for genetic technology mapping.</p><ul>
+<li>Explore each permutation of NOT gates.</li>
+<li>For each selection, store its alpha value and the permutation in a table</li>
+<li>Enumerate a table to find the largest alpha value, and select the corresponding permutation of NOT gates.</li>
+</ul>
+<p>Solution <em>1b</em> uses simulated annealing for discrete optimization.</p><ul>
+<li>Pseudo-randomly select a permutation of NOT gates.</li>
+<li>Initialize temperature to be very hot</li>
+<li>While temperature is not 0, cool the temperature of the annealing process.<ul>
+<li>As the temperature cools, slowly decrease the</li>
+</ul>
+</li>
+</ul>
+<p>Solution <em>1b</em> uses a genetic algorithm for discrete optimization.</p>
+<p>Other solutions considered:</p><ul>
+<li>0-1 integer linear programming (ILP)<ul>
+<li>Can't formulate the objective function of the 0-1 ILP problem.</li>
+</ul>
+</li>
+<li>pseudo-boolan optimization (PBO)<ul>
+<li>Can't formulate the conjunctive normal form (CNF) boolean satisfiability formula for PBO.</li>
+</ul>
+</li>
+</ul>
 <p>The back-end of <b>problem1_solution.py</b> generates an output file containing the genetic technology mapping of the input genetic circuit, in JSON format.</p>
 <h2>Instructions on How to Build and Run the Software Solution</h2>
 <h3>Building and Executing the Software Solution</h3>
@@ -91,6 +115,10 @@
 <p>To use <em>pydoc</em> to view or generate documentation for my software solution (Python code), try:</p>
 <p>pydoc [<em>Python</em> package/module/class]</p>
 <p>A <em>Python</em> package corresponds to a subdirectory of this repository, while a <em>Python</em> module/class corresponds to a <em>Python</em> source file in a subdirectory.</p>
+<h2>Miscellaneous</h2>
+<h3>Refactoring attempt: <em>Utilities</em> package</h3>
+<p>Refactor the class <b>queue_ip_args</b> in the <em>Python</em> module <em><a class="el" href="../../d7/d4c/queue__ip__arguments_8py.html">queue_ip_arguments.py</a></em>, so that does not need the argument <b>which_script</b> for the static method <b>set_input_arguments(list_of_ip_arguments,which_script)</b>. That is, refactor the static method to <b>set_input_arguments(list_of_ip_arguments)</b>.</p>
+<p>Using this refactored <em>Python</em> class has an impact on its corresponding <em>Python</em> class in the **<a href="https://github.com/eda-ricercatore/bibtex-analytics">bibtex-analytics</a>** software. Use this refactored code to handle usage modes in the <b>bibtex-analytics</b> software, such as: obtaining a sorted list of keyphrases/keywords; obtaining a sorted list of publishers, organizations, and institutions; and a list of series of books or conference proceedings. These modes shall be specified by an input argument. If multiple modes are specified as input arguments, an order of precedance is used to specify which mode shall be selected for processing. The **<a href="https://github.com/eda-ricercatore/bibtex-analytics">bibtex-analytics</a>** software can only process one mode per execution run.</p>
 <h1>References</h1>
 <p>Citations/References that use the LaTeX/BibTeX notation are taken from my BibTeX database (set of BibTeX entries).</p>
 <p>Additional references not found in the reference list shall be indicated below (TO BE UPDATED).</p>
@@ -113,7 +141,7 @@
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 31 2018 18:24:45 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 1 2018 17:41:51 for Genetic Technology Mapping by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -151,6 +151,10 @@ Using this refactored *Python* class has an impact on its corresponding
 	The **[bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics)**
 		software can only process one mode per execution run.
 
+Refactoring step has been completed.
+
+
+
 
 #	References
 

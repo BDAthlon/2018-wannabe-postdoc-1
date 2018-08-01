@@ -2,7 +2,8 @@
 \label{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester}\index{utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester}}
 
 
-Collaboration diagram for utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester\+:\nopagebreak
+Collaboration diagram for utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,8 +15,12 @@ Collaboration diagram for utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\
 \item 
 def \hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{test\+\_\+o1\+\_\+methods} ()
 \begin{DoxyCompactList}\small\item\em ========================================================= Method to test the O(1) methods that print information to the standard output, or are accessor methods. \end{DoxyCompactList}\item 
+def \hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a4af9d2177916d79d95fc9de5531162af}{test\+\_\+if\+\_\+help\+\_\+needed} ()
+\begin{DoxyCompactList}\small\item\em ========================================================= Method to test if the user wants to read the brief user manual. \end{DoxyCompactList}\item 
+def \hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a53e53ec2797918a6488b0d75ba437407}{test\+\_\+processing\+\_\+input\+\_\+arguments} ()
+\begin{DoxyCompactList}\small\item\em ========================================================= Method to test the processing of the 1st \& 2nd input arguments. \end{DoxyCompactList}\item 
 def \hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\+\_\+queue\+\_\+ip\+\_\+args} ()
-\begin{DoxyCompactList}\small\item\em ========================================================= Method to test the methods that support software test automation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ========================================================= Method to test methods that process input arguments to the software. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -26,6 +31,82 @@ Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00092}{92
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a4af9d2177916d79d95fc9de5531162af}{}\index{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}!test\+\_\+if\+\_\+help\+\_\+needed@{test\+\_\+if\+\_\+help\+\_\+needed}}
+\index{test\+\_\+if\+\_\+help\+\_\+needed@{test\+\_\+if\+\_\+help\+\_\+needed}!utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}}
+\subsubsection[{test\+\_\+if\+\_\+help\+\_\+needed()}]{\setlength{\rightskip}{0pt plus 5cm}def utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester.\+test\+\_\+if\+\_\+help\+\_\+needed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a4af9d2177916d79d95fc9de5531162af}
+
+
+========================================================= Method to test if the user wants to read the brief user manual. 
+
+\begin{DoxyReturn}{Returns}
+-\/ Nothing. O(1) method. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00263}{263} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00263}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a4af9d2177916d79d95fc9de5531162af}{00263}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a4af9d2177916d79d95fc9de5531162af}{test\_if\_help\_needed}():
+00264         print(\textcolor{stringliteral}{" Testing for no help needed..."})
+00265         \textcolor{comment}{#   Set the list of input arguments to have 2 arguments.}
+00266         name\_of\_script\_dumped = \textcolor{stringliteral}{"name-of-the-script"}
+00267         current\_1st\_ip\_arg = \textcolor{stringliteral}{"garbage.json"}
+00268         current\_2nd\_ip\_arg = \textcolor{stringliteral}{"nonsense.json"}
+00269         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00270         \textcolor{comment}{#   Assign input arguments to "set\_input\_arguments(...)" for processing.}
+00271         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00272         prompt8 = \textcolor{stringliteral}{" ... Test: queue\_ip\_args.check\_if\_help\_wanted()  \{\}"}
+00273         statistical\_analysis.increment\_number\_test\_cases\_used()
+00274         queue\_ip\_args.check\_if\_help\_wanted()
+00275         print(prompt8 .format(\textcolor{stringliteral}{" OK"}))
+00276         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00277         print(\textcolor{stringliteral}{" Testing for help needed (1st arg)... "})
+00278         \textcolor{comment}{#   Change the list of input arguments to have "-h" option.}
+00279         current\_1st\_ip\_arg = \textcolor{stringliteral}{"-h"}
+00280         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00281         \textcolor{comment}{#   Assign input arguments to "set\_input\_arguments(...)" for processing.}
+00282         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00283         statistical\_analysis.increment\_number\_test\_cases\_used()
+00284         \textcolor{keywordflow}{try}:
+00285             queue\_ip\_args.check\_if\_help\_wanted()
+00286             print(prompt8 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00287         \textcolor{keywordflow}{except}:
+00288             print(prompt8 .format(\textcolor{stringliteral}{" OK"}))
+00289             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00290         print(\textcolor{stringliteral}{" Testing for help needed (2nd arg)... "})
+00291         current\_1st\_ip\_arg = \textcolor{stringliteral}{"garbage.json"}
+00292         current\_2nd\_ip\_arg = \textcolor{stringliteral}{"-h"}
+00293         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00294         \textcolor{comment}{#   Assign input arguments to "set\_input\_arguments(...)" for processing.}
+00295         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00296         statistical\_analysis.increment\_number\_test\_cases\_used()
+00297         \textcolor{keywordflow}{try}:
+00298             queue\_ip\_args.check\_if\_help\_wanted()
+00299             print(prompt8 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00300         \textcolor{keywordflow}{except}:
+00301             print(prompt8 .format(\textcolor{stringliteral}{" OK"}))
+00302             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00303         print(\textcolor{stringliteral}{" Testing for help needed (3rd arg)... "})
+00304         current\_1st\_ip\_arg = \textcolor{stringliteral}{"garbage.json"}
+00305         current\_2nd\_ip\_arg = \textcolor{stringliteral}{"nonsense.json"}
+00306         current\_3rd\_ip\_arg = \textcolor{stringliteral}{"-h"}
+00307         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg, 
+      current\_3rd\_ip\_arg]
+00308         \textcolor{comment}{#   Assign input arguments to "set\_input\_arguments(...)" for processing.}
+00309         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00310         statistical\_analysis.increment\_number\_test\_cases\_used()
+00311         \textcolor{keywordflow}{try}:
+00312             queue\_ip\_args.check\_if\_help\_wanted()
+00313             print(prompt8 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00314         \textcolor{keywordflow}{except}:
+00315             print(prompt8 .format(\textcolor{stringliteral}{" OK"}))
+00316             statistical\_analysis.increment\_number\_test\_cases\_passed()
+\end{DoxyCode}
 \hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{}\index{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}!test\+\_\+o1\+\_\+methods@{test\+\_\+o1\+\_\+methods}}
 \index{test\+\_\+o1\+\_\+methods@{test\+\_\+o1\+\_\+methods}!utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}}
 \subsubsection[{test\+\_\+o1\+\_\+methods()}]{\setlength{\rightskip}{0pt plus 5cm}def utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester.\+test\+\_\+o1\+\_\+methods (
@@ -38,61 +119,268 @@ Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00092}{92
 ========================================================= Method to test the O(1) methods that print information to the standard output, or are accessor methods. 
 
 \begin{DoxyReturn}{Returns}
--\/ Nothing. O(?) method. 
+-\/ Nothing. O(1) method. O(n) in terms of the number of input arguments. 
 \end{DoxyReturn}
 
 
-Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00099}{99} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
+Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00100}{100} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
 
 
 \begin{DoxyCode}
-\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00099}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{00099}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{test\_o1\_methods}():
-00100         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.get\_input\_arguments()       OK"})
-00101         temp\_set\_ip\_args = queue\_ip\_args.get\_input\_arguments()
-00102         statistical\_analysis.increment\_number\_test\_cases\_used()
-00103         statistical\_analysis.increment\_number\_test\_cases\_passed()
-00104         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
-00105         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.print\_all\_input\_arguments()     OK"})
-00106         queue\_ip\_args.print\_all\_input\_arguments()
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00100}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{00100}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a49bd049dbf616cc1f604d3c0cbe84c43}{test\_o1\_methods}():
+00101         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.how\_to\_use\_script()         OK"})
+00102         queue\_ip\_args.how\_to\_use\_script()
+00103         statistical\_analysis.increment\_number\_test\_cases\_used()
+00104         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00105         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.print\_help\_option()         OK"})
+00106         queue\_ip\_args.print\_help\_option()
 00107         statistical\_analysis.increment\_number\_test\_cases\_used()
 00108         statistical\_analysis.increment\_number\_test\_cases\_passed()
-00109         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
-00110         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_1st\_input\_argument()        \{\}"}
+00109         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.get\_list\_of\_input\_arguments()   OK"})
+00110         temp\_set\_ip\_args = queue\_ip\_args.get\_list\_of\_input\_arguments()
 00111         statistical\_analysis.increment\_number\_test\_cases\_used()
-00112         \textcolor{keywordflow}{if} queue\_ip\_args.get\_1st\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
-00113             print(prompt .format(\textcolor{stringliteral}{"OK"}))
-00114             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00115         \textcolor{keywordflow}{else}:
-00116             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
-00117         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
-00118         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_2nd\_input\_argument()        \{\}"}
-00119         statistical\_analysis.increment\_number\_test\_cases\_used()
-00120         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
-00121             print(prompt .format(\textcolor{stringliteral}{"OK"}))
-00122             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00123         \textcolor{keywordflow}{else}:
-00124             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
-00125         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
-00126         prompt1 = \textcolor{stringliteral}{" Test: queue\_ip\_args.get\_number\_of\_input\_arguments() \{\}"}
-00127         statistical\_analysis.increment\_number\_test\_cases\_used()
-00128         prompt2 = \textcolor{stringliteral}{" Test: queue\_ip\_args.set\_input\_arguments(...)        \{\}"}
-00129         statistical\_analysis.increment\_number\_test\_cases\_used()
-00130         prompt3 = \textcolor{stringliteral}{" Test: queue\_ip\_args.get\_name\_of\_current\_script()    \{\}"}
-00131         statistical\_analysis.increment\_number\_test\_cases\_used()
-00132         \textcolor{comment}{#   List of input arguments.}
-00133         list\_ip\_args = []
-00134         \textcolor{comment}{#   Name of current script.}
-00135         name\_current\_script = \textcolor{stringliteral}{"No name"}
-00136         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
-00137             print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
-00138             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00139             print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
-00140             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00141             print(prompt3 .format(\textcolor{stringliteral}{"OK"}))
-00142             statistical\_analysis.increment\_number\_test\_cases\_passed()
-00143         \textcolor{keywordflow}{else}:
-00144             print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
-00145             print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00112         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00113         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00114         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.print\_all\_input\_arguments()     OK"})
+00115         queue\_ip\_args.print\_all\_input\_arguments()
+00116         statistical\_analysis.increment\_number\_test\_cases\_used()
+00117         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00118         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00119         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_1st\_input\_argument()        \{\}"}
+00120         statistical\_analysis.increment\_number\_test\_cases\_used()
+00121         \textcolor{keywordflow}{if} queue\_ip\_args.get\_1st\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00122             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00123             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00124         \textcolor{keywordflow}{else}:
+00125             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00126         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00127         prompt = \textcolor{stringliteral}{"  Test: queue\_ip\_args.get\_2nd\_input\_argument()        \{\}"}
+00128         statistical\_analysis.increment\_number\_test\_cases\_used()
+00129         \textcolor{keywordflow}{if} queue\_ip\_args.get\_2nd\_input\_argument() \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+00130             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00131             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00132         \textcolor{keywordflow}{else}:
+00133             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00134         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00135         print(\textcolor{stringliteral}{" Testing for an empty list..."})
+00136         prompt1 = \textcolor{stringliteral}{" ... Test: queue\_ip\_args.get\_list\_of\_input\_arguments()   \{\}"}
+00137         statistical\_analysis.increment\_number\_test\_cases\_used()
+00138         prompt2 = \textcolor{stringliteral}{" ... Test: queue\_ip\_args.get\_number\_of\_input\_arguments() \{\}"}
+00139         statistical\_analysis.increment\_number\_test\_cases\_used()
+00140         prompt4 = \textcolor{stringliteral}{" ... Test: queue\_ip\_args.set\_input\_arguments(...)    \{\}"}
+00141         statistical\_analysis.increment\_number\_test\_cases\_used()
+00142         prompt5 = \textcolor{stringliteral}{" ... Test: queue\_ip\_args.get\_1st\_input\_argument()    \{\}"}
+00143         prompt6 = \textcolor{stringliteral}{" ... Test: queue\_ip\_args.get\_2nd\_input\_argument()    \{\}"}
+00144         \textcolor{comment}{#   List of input arguments.}
+00145         old\_list\_ip\_args = queue\_ip\_args.get\_list\_of\_input\_arguments()
+00146         new\_list\_ip\_args = []
+00147         \textcolor{stringliteral}{"""}
+00148 \textcolor{stringliteral}{            Assign input arguments to "set\_input\_arguments(...)" for}
+00149 \textcolor{stringliteral}{                processing.}
+00150 \textcolor{stringliteral}{            Statement should fail.}
+00151 \textcolor{stringliteral}{        """}
+00152         \textcolor{keywordflow}{try}:
+00153             queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00154         \textcolor{keywordflow}{except}:
+00155             \textcolor{keywordflow}{if} old\_list\_ip\_args == queue\_ip\_args.get\_list\_of\_input\_arguments():
+00156                 print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
+00157                 statistical\_analysis.increment\_number\_test\_cases\_passed()
+00158             \textcolor{keywordflow}{else}:
+00159                 print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00160                 \textcolor{comment}{#print(queue\_ip\_args.get\_list\_of\_input\_arguments())}
+00161             \textcolor{keywordflow}{if} len(old\_list\_ip\_args) == queue\_ip\_args.get\_number\_of\_input\_arguments():
+00162                 print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
+00163                 statistical\_analysis.increment\_number\_test\_cases\_passed()
+00164             \textcolor{keywordflow}{else}:
+00165                 print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00166                 \textcolor{comment}{#print(queue\_ip\_args.get\_number\_of\_input\_arguments())}
+00167             print(prompt4 .format(\textcolor{stringliteral}{"OK"}))
+00168             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00169         print(\textcolor{stringliteral}{" Testing for list with 1 argument..."})
+00170         \textcolor{stringliteral}{"""}
+00171 \textcolor{stringliteral}{            Set the list of input arguments to have 1 argument, in addition}
+00172 \textcolor{stringliteral}{                to the name of the script.}
+00173 \textcolor{stringliteral}{            Hence, the list would have 2 arguments, since the first}
+00174 \textcolor{stringliteral}{                "argument" is dumped during the method call to}
+00175 \textcolor{stringliteral}{                set\_input\_arguments(...);}
+00176 \textcolor{stringliteral}{                this first "argument" is the name of the currently executing}
+00177 \textcolor{stringliteral}{                    script.}
+00178 \textcolor{stringliteral}{        """}
+00179         name\_of\_script\_dumped = \textcolor{stringliteral}{"name-of-the-script"}
+00180         current\_1st\_ip\_arg = \textcolor{stringliteral}{"benchmarks/majority\_netlist.json"}
+00181         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg]
+00182         \textcolor{comment}{#   Assign input arguments to "set\_input\_arguments(...)" for processing.}
+00183         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00184         statistical\_analysis.increment\_number\_test\_cases\_used()
+00185         \textcolor{keywordflow}{if} new\_list\_ip\_args == queue\_ip\_args.get\_list\_of\_input\_arguments():
+00186             print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
+00187             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00188         \textcolor{keywordflow}{else}:
+00189             print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00190             \textcolor{comment}{#print(queue\_ip\_args.get\_list\_of\_input\_arguments())}
+00191         statistical\_analysis.increment\_number\_test\_cases\_used()
+00192         \textcolor{keywordflow}{if} len(new\_list\_ip\_args) == queue\_ip\_args.get\_number\_of\_input\_arguments():
+00193             print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
+00194             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00195         \textcolor{keywordflow}{else}:
+00196             print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00197             \textcolor{comment}{#print(len(new\_list\_ip\_args)-1)}
+00198             \textcolor{comment}{#print(queue\_ip\_args.get\_number\_of\_input\_arguments())}
+00199         statistical\_analysis.increment\_number\_test\_cases\_used()
+00200         print(prompt4 .format(\textcolor{stringliteral}{"OK"}))
+00201         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00202         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00203         statistical\_analysis.increment\_number\_test\_cases\_used()
+00204         \textcolor{keywordflow}{if} current\_1st\_ip\_arg == queue\_ip\_args.get\_1st\_input\_argument():
+00205             print(prompt5 .format(\textcolor{stringliteral}{"OK"}))
+00206             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00207         \textcolor{keywordflow}{else}:
+00208             print(prompt5 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00209         \textcolor{stringliteral}{"""}
+00210 \textcolor{stringliteral}{            If an input argument for the software is "-h", show the}
+00211 \textcolor{stringliteral}{                brief user manual to the user.}
+00212 \textcolor{stringliteral}{            Else, there is no need to test for more than 2 input arguments}
+00213 \textcolor{stringliteral}{                for the software, since only the first two are processed.}
+00214 \textcolor{stringliteral}{            So, the list shall have 3 elements, since the first element}
+00215 \textcolor{stringliteral}{                is dumped during the method call to set\_input\_arguments(...).}
+00216 \textcolor{stringliteral}{        """}
+00217         print(\textcolor{stringliteral}{" Testing for list with 2 arguments..."})
+00218         \textcolor{comment}{#   Set the list of input arguments to have 2 arguments.}
+00219         \textcolor{comment}{#new\_list\_ip\_args = ["benchmarks/majority\_netlist.json" "nonsense.json"]}
+00220         current\_1st\_ip\_arg = \textcolor{stringliteral}{"garbage.json"}
+00221         current\_2nd\_ip\_arg = \textcolor{stringliteral}{"nonsense.json"}
+00222         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00223         \textcolor{comment}{#   Assign input arguments to "set\_input\_arguments(...)" for processing.}
+00224         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00225         statistical\_analysis.increment\_number\_test\_cases\_used()
+00226         \textcolor{keywordflow}{if} new\_list\_ip\_args == queue\_ip\_args.get\_list\_of\_input\_arguments():
+00227             print(prompt1 .format(\textcolor{stringliteral}{"OK"}))
+00228             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00229         \textcolor{keywordflow}{else}:
+00230             print(prompt1 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00231             \textcolor{comment}{#print(queue\_ip\_args.get\_list\_of\_input\_arguments())}
+00232         statistical\_analysis.increment\_number\_test\_cases\_used()
+00233         \textcolor{keywordflow}{if} len(new\_list\_ip\_args) == queue\_ip\_args.get\_number\_of\_input\_arguments():
+00234             print(prompt2 .format(\textcolor{stringliteral}{"OK"}))
+00235             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00236         \textcolor{keywordflow}{else}:
+00237             print(prompt2 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00238             \textcolor{comment}{#print(queue\_ip\_args.get\_number\_of\_input\_arguments())}
+00239         statistical\_analysis.increment\_number\_test\_cases\_used()
+00240         print(prompt4 .format(\textcolor{stringliteral}{"OK"}))
+00241         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00242         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00243         statistical\_analysis.increment\_number\_test\_cases\_used()
+00244         \textcolor{keywordflow}{if} current\_2nd\_ip\_arg == queue\_ip\_args.get\_2nd\_input\_argument():
+00245             print(prompt6 .format(\textcolor{stringliteral}{"OK"}))
+00246             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00247         \textcolor{keywordflow}{else}:
+00248             print(prompt6 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00249         prompt7 = \textcolor{stringliteral}{" ... Test: queue\_ip\_args.input\_arguments\_error() \{\}"}
+00250         statistical\_analysis.increment\_number\_test\_cases\_used()
+00251         \textcolor{keywordflow}{try}:
+00252             queue\_ip\_args.input\_arguments\_error()
+00253             print(prompt7 .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00254         \textcolor{keywordflow}{except}:
+00255             print(prompt7 .format(\textcolor{stringliteral}{" OK"}))
+00256             statistical\_analysis.increment\_number\_test\_cases\_passed()
+\end{DoxyCode}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a53e53ec2797918a6488b0d75ba437407}{}\index{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}!test\+\_\+processing\+\_\+input\+\_\+arguments@{test\+\_\+processing\+\_\+input\+\_\+arguments}}
+\index{test\+\_\+processing\+\_\+input\+\_\+arguments@{test\+\_\+processing\+\_\+input\+\_\+arguments}!utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}}
+\subsubsection[{test\+\_\+processing\+\_\+input\+\_\+arguments()}]{\setlength{\rightskip}{0pt plus 5cm}def utilities.\+queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+queue\+\_\+ip\+\_\+args\+\_\+tester.\+test\+\_\+processing\+\_\+input\+\_\+arguments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a53e53ec2797918a6488b0d75ba437407}
+
+
+========================================================= Method to test the processing of the 1st \& 2nd input arguments. 
+
+\begin{DoxyReturn}{Returns}
+-\/ Nothing. O(1) method. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00322}{322} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00322}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a53e53ec2797918a6488b0d75ba437407}{00322}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_a53e53ec2797918a6488b0d75ba437407}{test\_processing\_input\_arguments}():
+00323         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.process\_1st\_ip\_arg()... "})
+00324         name\_of\_script\_dumped = \textcolor{stringliteral}{"name-of-the-script"}
+00325         current\_1st\_ip\_arg = \textcolor{stringliteral}{"garbage.json"}
+00326         current\_2nd\_ip\_arg = \textcolor{stringliteral}{"notes/guidelines/guidelines.tex"}
+00327         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00328         \textcolor{comment}{#   Assign input arguments to "set\_input\_arguments(...)" for processing.}
+00329         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00330         prompt9 = \textcolor{stringliteral}{" ... Invalid path to file    \{\}"}
+00331         statistical\_analysis.increment\_number\_test\_cases\_used()
+00332         \textcolor{keywordflow}{try}:
+00333             ip\_fname = queue\_ip\_args.process\_1st\_ip\_arg()
+00334             print(prompt9 .format(\textcolor{stringliteral}{"     FAIL!!!"}))
+00335         \textcolor{keywordflow}{except}:
+00336             print(prompt9 .format(\textcolor{stringliteral}{"         OK"}))
+00337             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00338         \textcolor{comment}{#   -   -   -   -   -   -   -   -   -   -   -   -   -}
+00339         \textcolor{stringliteral}{"""}
+00340 \textcolor{stringliteral}{            1st input argument: Valid path to file, no JSON file extension.}
+00341 \textcolor{stringliteral}{        """}
+00342         \textcolor{comment}{#current\_1st\_ip\_arg = "benchmarks/majority\_netlist.json"}
+00343         current\_1st\_ip\_arg = \textcolor{stringliteral}{"notes/mit-license.text"}
+00344         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00345         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00346         prompt10 = \textcolor{stringliteral}{"    ... Valid path to file, no JSON file extension. \{\}"}
+00347         statistical\_analysis.increment\_number\_test\_cases\_used()
+00348         \textcolor{keywordflow}{try}:
+00349             ip\_fname = queue\_ip\_args.process\_1st\_ip\_arg()
+00350             print(prompt10 .format(\textcolor{stringliteral}{"        FAIL!!!"}))
+00351         \textcolor{keywordflow}{except}:
+00352             print(prompt10 .format(\textcolor{stringliteral}{"    OK"}))
+00353             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00354         \textcolor{stringliteral}{"""}
+00355 \textcolor{stringliteral}{            1st input argument: Valid path to file, JSON file extension.}
+00356 \textcolor{stringliteral}{        """}
+00357         current\_1st\_ip\_arg = \textcolor{stringliteral}{"benchmarks/majority\_netlist.json"}
+00358         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00359         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00360         prompt10 = \textcolor{stringliteral}{"    ... Valid path to file, JSON file extension.    \{\}"}
+00361         statistical\_analysis.increment\_number\_test\_cases\_used()
+00362         ip\_fname = queue\_ip\_args.process\_1st\_ip\_arg()
+00363         print(prompt10 .format(\textcolor{stringliteral}{"    OK"}))
+00364         statistical\_analysis.increment\_number\_test\_cases\_passed()
+00365         print(\textcolor{stringliteral}{" -   -   -   -   -   -   -   -"})
+00366         print(\textcolor{stringliteral}{" Test: queue\_ip\_args.process\_2nd\_ip\_arg()... "})
+00367         prompt11 = \textcolor{stringliteral}{"    ... Valid path to file  \{\}"}
+00368         statistical\_analysis.increment\_number\_test\_cases\_used()
+00369         \textcolor{keywordflow}{try}:
+00370             op\_fname = queue\_ip\_args.process\_2nd\_ip\_arg()
+00371             print(prompt11 .format(\textcolor{stringliteral}{"                FAIL!!!"}))
+00372         \textcolor{keywordflow}{except}:
+00373             print(prompt11 .format(\textcolor{stringliteral}{"                OK"}))
+00374             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00375         prompt12 = \textcolor{stringliteral}{"    ... Invalid path to file, no JSON extension \{\}"}
+00376         statistical\_analysis.increment\_number\_test\_cases\_used()
+00377         current\_2nd\_ip\_arg = \textcolor{stringliteral}{"nonsense"}
+00378         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00379         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00380         \textcolor{keywordflow}{try}:
+00381             op\_fname = queue\_ip\_args.process\_2nd\_ip\_arg()
+00382             print(prompt12 .format(\textcolor{stringliteral}{"    OK"}))
+00383             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00384         \textcolor{keywordflow}{except}:
+00385             print(prompt12 .format(\textcolor{stringliteral}{"    FAIL!!!"}))
+00386         prompt13 = \textcolor{stringliteral}{"    ... Invalid path to file, JSON extension    \{\}"}
+00387         statistical\_analysis.increment\_number\_test\_cases\_used()
+00388         current\_2nd\_ip\_arg = \textcolor{stringliteral}{"nonsense.json"}
+00389         new\_list\_ip\_args = [name\_of\_script\_dumped, current\_1st\_ip\_arg, current\_2nd\_ip\_arg]
+00390         queue\_ip\_args.set\_input\_arguments(new\_list\_ip\_args)
+00391         \textcolor{keywordflow}{try}:
+00392             op\_fname = queue\_ip\_args.process\_2nd\_ip\_arg()
+00393             print(prompt13 .format(\textcolor{stringliteral}{"    OK"}))
+00394             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00395         \textcolor{keywordflow}{except}:
+00396             print(prompt13 .format(\textcolor{stringliteral}{"    FAIL!!!"}))
+00397 
 \end{DoxyCode}
 \hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{}\index{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}!test\+\_\+queue\+\_\+ip\+\_\+args@{test\+\_\+queue\+\_\+ip\+\_\+args}}
 \index{test\+\_\+queue\+\_\+ip\+\_\+args@{test\+\_\+queue\+\_\+ip\+\_\+args}!utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester@{utilities\+::queue\+\_\+ip\+\_\+arguments\+\_\+tester\+::queue\+\_\+ip\+\_\+args\+\_\+tester}}
@@ -103,22 +391,23 @@ Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00099}{99
 )\hspace{0.3cm}{\ttfamily [static]}}\label{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}
 
 
-========================================================= Method to test the methods that support software test automation. 
+========================================================= Method to test methods that process input arguments to the software. 
 
 \begin{DoxyReturn}{Returns}
 -\/ Nothing. O(1) method. 
 \end{DoxyReturn}
 
 
-Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00152}{152} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
+Definition at line \hyperlink{queue__ip__arguments__tester_8py_source_l00404}{404} of file \hyperlink{queue__ip__arguments__tester_8py_source}{queue\+\_\+ip\+\_\+arguments\+\_\+tester.\+py}.
 
 
 \begin{DoxyCode}
-\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00152}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{00152}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\_queue\_ip\_args}():
-00153         print(\textcolor{stringliteral}{"==   Testing class: queue\_ip\_args."})
-00154         queue\_ip\_args\_tester.test\_o1\_methods()
-00155         print(\textcolor{stringliteral}{"."})
-00156 \end{DoxyCode}
+\hypertarget{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_l00404}{}\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{00404}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1queue__ip__arguments__tester_1_1queue__ip__args__tester_aee90077323d94238d7f81b23e31207c3}{test\_queue\_ip\_args}():
+00405         print(\textcolor{stringliteral}{"==   Testing class: queue\_ip\_args."})
+00406         queue\_ip\_args\_tester.test\_o1\_methods()
+00407         queue\_ip\_args\_tester.test\_if\_help\_needed()
+00408         queue\_ip\_args\_tester.test\_processing\_input\_arguments()
+00409 \end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

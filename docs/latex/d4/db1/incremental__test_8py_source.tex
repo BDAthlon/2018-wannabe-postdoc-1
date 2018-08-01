@@ -109,81 +109,81 @@
 00094 \textcolor{keyword}{from} \hyperlink{namespaceutilities_1_1queue__ip__arguments__tester}{utilities.queue\_ip\_arguments\_tester} \textcolor{keyword}{import} queue\_ip\_args\_tester
 00095 \textcolor{comment}{# Package and module to perform file I/O (input/output) operations.}
 00096 \textcolor{keyword}{from} \hyperlink{namespaceutilities_1_1file__io}{utilities.file\_io} \textcolor{keyword}{import} file\_io\_operations
-00097 
-00098 
-00099 \textcolor{comment}{###############################################################}
-00100 \textcolor{stringliteral}{"""}
-00101 \textcolor{stringliteral}{    Module with methods that incrementally test features for my software}
-00102 \textcolor{stringliteral}{        solution for genetic technology mapping.}
-00103 \textcolor{stringliteral}{    It tests the following:}
-00104 \textcolor{stringliteral}{    + Test the verification code for checking if the input arguments are valid.}
-00105 \textcolor{stringliteral}{    + Check if the file I/O module functions correctly.}
-00106 \textcolor{stringliteral}{    + Check if the output JSON file generator works correctly.}
-00107 \textcolor{stringliteral}{    + Test the implementations for genetic technology mapping.}
-00108 \textcolor{stringliteral}{        - Brute force algorithm}
-00109 \textcolor{stringliteral}{"""}
-\hypertarget{incremental__test_8py_source_l00110}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation}{00110} \textcolor{keyword}{class }\hyperlink{classincremental__test_1_1Incremental__Test__Automation}{Incremental\_Test\_Automation}:
-00111     \textcolor{comment}{# List of BibTeX keys}
-\hypertarget{incremental__test_8py_source_l00112}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a8f5272e0488026aa24a829262392f2f7}{00112}     set\_of\_BibTeX\_keys = []
-\hypertarget{incremental__test_8py_source_l00113}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_ac60587acca9d28d055bd8a7198a987a1}{00113}     num\_of\_bibtex\_entries = 0
-00114     \textcolor{comment}{# ============================================================}
-00115     \textcolor{comment}{#   Other methods.}
-00116     \textcolor{comment}{# ============================================================}
-00117     \textcolor{comment}{##  Method to add BibTeX keys into a list, "set\_of\_BibTeX\_keys".}
-00118     \textcolor{comment}{#   O(n) method, where n is the number of BibTeX keys.}
-00119     @staticmethod
-\hypertarget{incremental__test_8py_source_l00120}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{00120}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{add\_BibTeX\_key}(found\_BibTeX\_key):
-00121         \textcolor{keywordflow}{if} (found\_BibTeX\_key \textcolor{keywordflow}{in} Incremental\_Test\_Automation.set\_of\_BibTeX\_keys):
-00122             temp\_str = \textcolor{stringliteral}{"Duplicate BibTeX key:"}+found\_BibTeX\_key
-00123             warnings.warn(temp\_str)
-00124             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Multiple instances of a BibTeX key"})
-00125         Incremental\_Test\_Automation.set\_of\_BibTeX\_keys.append(found\_BibTeX\_key)
-00126     \textcolor{comment}{# ============================================================}
-00127     \textcolor{comment}{##  Method to sort BibTeX keys into a list, "set\_of\_BibTeX\_keys".}
-00128     \textcolor{comment}{#   O(n*log(n)) method, where n is the number of BibTeX keys.}
-00129     @staticmethod
-\hypertarget{incremental__test_8py_source_l00130}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{00130}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{sort\_BibTeX\_keys}():
-00131         Incremental\_Test\_Automation.set\_of\_BibTeX\_keys = sorted(
+00097 \textcolor{comment}{# Package and module to test file I/O (input/output) operations.}
+00098 \textcolor{keyword}{from} \hyperlink{namespaceutilities_1_1file__io__tester}{utilities.file\_io\_tester} \textcolor{keyword}{import} file\_io\_operations\_tester
+00099 
+00100 \textcolor{comment}{###############################################################}
+00101 \textcolor{stringliteral}{"""}
+00102 \textcolor{stringliteral}{    Module with methods that incrementally test features for my software}
+00103 \textcolor{stringliteral}{        solution for genetic technology mapping.}
+00104 \textcolor{stringliteral}{    It tests the following:}
+00105 \textcolor{stringliteral}{    + Test the verification code for checking if the input arguments are valid.}
+00106 \textcolor{stringliteral}{    + Check if the file I/O module functions correctly.}
+00107 \textcolor{stringliteral}{    + Check if the output JSON file generator works correctly.}
+00108 \textcolor{stringliteral}{    + Test the implementations for genetic technology mapping.}
+00109 \textcolor{stringliteral}{        - Brute force algorithm}
+00110 \textcolor{stringliteral}{"""}
+\hypertarget{incremental__test_8py_source_l00111}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation}{00111} \textcolor{keyword}{class }\hyperlink{classincremental__test_1_1Incremental__Test__Automation}{Incremental\_Test\_Automation}:
+00112     \textcolor{comment}{# List of BibTeX keys}
+\hypertarget{incremental__test_8py_source_l00113}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a8f5272e0488026aa24a829262392f2f7}{00113}     set\_of\_BibTeX\_keys = []
+\hypertarget{incremental__test_8py_source_l00114}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_ac60587acca9d28d055bd8a7198a987a1}{00114}     num\_of\_bibtex\_entries = 0
+00115     \textcolor{comment}{# ============================================================}
+00116     \textcolor{comment}{#   Other methods.}
+00117     \textcolor{comment}{# ============================================================}
+00118     \textcolor{comment}{##  Method to add BibTeX keys into a list, "set\_of\_BibTeX\_keys".}
+00119     \textcolor{comment}{#   O(n) method, where n is the number of BibTeX keys.}
+00120     @staticmethod
+\hypertarget{incremental__test_8py_source_l00121}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{00121}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a14b316790ae1ef50d84bd4741a4fa020}{add\_BibTeX\_key}(found\_BibTeX\_key):
+00122         \textcolor{keywordflow}{if} (found\_BibTeX\_key \textcolor{keywordflow}{in} Incremental\_Test\_Automation.set\_of\_BibTeX\_keys):
+00123             temp\_str = \textcolor{stringliteral}{"Duplicate BibTeX key:"}+found\_BibTeX\_key
+00124             warnings.warn(temp\_str)
+00125             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Multiple instances of a BibTeX key"})
+00126         Incremental\_Test\_Automation.set\_of\_BibTeX\_keys.append(found\_BibTeX\_key)
+00127     \textcolor{comment}{# ============================================================}
+00128     \textcolor{comment}{##  Method to sort BibTeX keys into a list, "set\_of\_BibTeX\_keys".}
+00129     \textcolor{comment}{#   O(n*log(n)) method, where n is the number of BibTeX keys.}
+00130     @staticmethod
+\hypertarget{incremental__test_8py_source_l00131}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{00131}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a856c60714b5d716d5eb630cbc3d55d09}{sort\_BibTeX\_keys}():
+00132         Incremental\_Test\_Automation.set\_of\_BibTeX\_keys = sorted(
       Incremental\_Test\_Automation.set\_of\_BibTeX\_keys)
-00132     \textcolor{comment}{# ============================================================}
-00133     \textcolor{comment}{##  Method to read each line of the input BibTeX file.}
-00134     \textcolor{comment}{#   O(n) method, where n is the number of lines of the BibTeX file.}
-00135     @staticmethod
-\hypertarget{incremental__test_8py_source_l00136}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{00136}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{read\_input\_BibTeX\_file}(ip\_file\_object,input\_BibTeX\_file):
-00137         \textcolor{comment}{#print "--------------------------------------------------------"}
-00138         println = \textcolor{stringliteral}{"=    Reading input BibTeX file: "}
-00139         println += input\_BibTeX\_file
-00140         print(println)
-00141         \textcolor{comment}{# Read each available line in the input BibTeX file.}
-00142         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} ip\_file\_object:
-00143             \textcolor{comment}{# Is this line the 1st line of a BibTeX entry?}
-00144             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"@"} == line[0]:
-00145                 \textcolor{comment}{# Yes.}
-00146 \textcolor{comment}{#               print "...  First line of a BibTeX entry."}
-00147                 \textcolor{comment}{# Increment number of BibTeX entries.}
-00148                 Incremental\_Test\_Automation.num\_of\_bibtex\_entries = 
+00133     \textcolor{comment}{# ============================================================}
+00134     \textcolor{comment}{##  Method to read each line of the input BibTeX file.}
+00135     \textcolor{comment}{#   O(n) method, where n is the number of lines of the BibTeX file.}
+00136     @staticmethod
+\hypertarget{incremental__test_8py_source_l00137}{}\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{00137}     \textcolor{keyword}{def }\hyperlink{classincremental__test_1_1Incremental__Test__Automation_a7cec6a541c4680c857a699dbe363ffbd}{read\_input\_BibTeX\_file}(ip\_file\_object,input\_BibTeX\_file):
+00138         \textcolor{comment}{#print "--------------------------------------------------------"}
+00139         println = \textcolor{stringliteral}{"=    Reading input BibTeX file: "}
+00140         println += input\_BibTeX\_file
+00141         print(println)
+00142         \textcolor{comment}{# Read each available line in the input BibTeX file.}
+00143         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} ip\_file\_object:
+00144             \textcolor{comment}{# Is this line the 1st line of a BibTeX entry?}
+00145             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"@"} == line[0]:
+00146                 \textcolor{comment}{# Yes.}
+00147 \textcolor{comment}{#               print "...  First line of a BibTeX entry."}
+00148                 \textcolor{comment}{# Increment number of BibTeX entries.}
+00149                 Incremental\_Test\_Automation.num\_of\_bibtex\_entries = 
       Incremental\_Test\_Automation.num\_of\_bibtex\_entries + 1
-00149                 tokenized\_BibTeX\_entry = re.split(\textcolor{stringliteral}{'@|\{|,'},line)
-00150 \textcolor{comment}{#               for i in tokenized\_BibTeX\_entry:}
-00151 \textcolor{comment}{#                   print i}
-00152                 \textcolor{comment}{# Is the type of the BibTeX entry valid?}
-00153                 \textcolor{keywordflow}{if} (tokenized\_BibTeX\_entry[1] \textcolor{keywordflow}{in} queue\_ip\_args.BibTeX\_entry\_types):
-00154                     \textcolor{comment}{# Yes. Try adding the BibTeX entry to "set\_of\_BibTeX\_keys".}
-00155                     Incremental\_Test\_Automation.add\_BibTeX\_key(tokenized\_BibTeX\_entry[2].lower())
-00156                 \textcolor{keywordflow}{else}:
-00157                     \textcolor{comment}{# No. Warn user that the type of BibTeX entry is invalid!}
-00158                     temp\_str = \textcolor{stringliteral}{"Invalid type of BibTeX entry:"}
-00159                     temp\_str += tokenized\_BibTeX\_entry[1]
-00160                     print(temp\_str)
-00161                     \textcolor{comment}{#warnings.warn("Invalid type of BibTeX entry")}
-00162                     \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"BibTeX entry has an invalid type!"})
-00163         \textcolor{keywordflow}{if} (Incremental\_Test\_Automation.num\_of\_bibtex\_entries != len(
+00150                 tokenized\_BibTeX\_entry = re.split(\textcolor{stringliteral}{'@|\{|,'},line)
+00151 \textcolor{comment}{#               for i in tokenized\_BibTeX\_entry:}
+00152 \textcolor{comment}{#                   print i}
+00153                 \textcolor{comment}{# Is the type of the BibTeX entry valid?}
+00154                 \textcolor{keywordflow}{if} (tokenized\_BibTeX\_entry[1] \textcolor{keywordflow}{in} queue\_ip\_args.BibTeX\_entry\_types):
+00155                     \textcolor{comment}{# Yes. Try adding the BibTeX entry to "set\_of\_BibTeX\_keys".}
+00156                     Incremental\_Test\_Automation.add\_BibTeX\_key(tokenized\_BibTeX\_entry[2].lower())
+00157                 \textcolor{keywordflow}{else}:
+00158                     \textcolor{comment}{# No. Warn user that the type of BibTeX entry is invalid!}
+00159                     temp\_str = \textcolor{stringliteral}{"Invalid type of BibTeX entry:"}
+00160                     temp\_str += tokenized\_BibTeX\_entry[1]
+00161                     print(temp\_str)
+00162                     \textcolor{comment}{#warnings.warn("Invalid type of BibTeX entry")}
+00163                     \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"BibTeX entry has an invalid type!"})
+00164         \textcolor{keywordflow}{if} (Incremental\_Test\_Automation.num\_of\_bibtex\_entries != len(
       Incremental\_Test\_Automation.set\_of\_BibTeX\_keys)):
-00164             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Mismatch in number of BibTeX entries processed."})
-00165         \textcolor{keywordflow}{else}:
-00166             print(\textcolor{stringliteral}{"=    Number of BibTeX entries processed: \{\}"} .format(str(
+00165             \textcolor{keywordflow}{raise} Exception(\textcolor{stringliteral}{"Mismatch in number of BibTeX entries processed."})
+00166         \textcolor{keywordflow}{else}:
+00167             print(\textcolor{stringliteral}{"=    Number of BibTeX entries processed: \{\}"} .format(str(
       Incremental\_Test\_Automation.num\_of\_bibtex\_entries)))
-00167 
 00168 
 00169 
 00170 
@@ -194,39 +194,43 @@
 00175 
 00176 
 00177 
-00178 \textcolor{comment}{###############################################################}
-00179 \textcolor{comment}{# Main method for the program.}
-00180 
-00181 \textcolor{comment}{#   If this is executed as a Python script,}
-00182 \textcolor{keywordflow}{if} \_\_name\_\_ == \textcolor{stringliteral}{"\_\_main\_\_"}:
-00183     print(\textcolor{stringliteral}{"=================================================="})
-00184     print(\textcolor{stringliteral}{"Automating incremental regression testing of my software"})
-00185     print(\textcolor{stringliteral}{" solution for genetic technology mapping."})
-00186     print(\textcolor{stringliteral}{""})
-00187     \textcolor{comment}{# Assign input arguments to "queue\_ip\_args" for processing.}
-00188     queue\_ip\_args.set\_input\_arguments(sys.argv,queue\_ip\_args.INCREMENTAL\_TEST)
-00189     \textcolor{comment}{# Check if user wants to read the brief user manual.}
-00190     queue\_ip\_args.check\_if\_help\_wanted()
-00191     \textcolor{comment}{# Process the first input argument.}
-00192     print(\textcolor{stringliteral}{"=    Process the first input argument."})
-\hypertarget{incremental__test_8py_source_l00193}{}\hyperlink{namespaceincremental__test_ab5a7aa877c2dae060e3fd03a472cbbf3}{00193}     ip\_filename = queue\_ip\_args.process\_1st\_ip\_arg()
-00194     \textcolor{comment}{# Create a file object for reading.}
-00195     print(\textcolor{stringliteral}{"=    Create a file object for reading."})
-00196     \textcolor{comment}{# Create a file object for input BibTeX file, in reading mode.}
-\hypertarget{incremental__test_8py_source_l00197}{}\hyperlink{namespaceincremental__test_aaf431f9a2a2d1172f09263453438e4f4}{00197}     ip\_file\_obj = file\_io\_operations.open\_file\_object\_read(ip\_filename)
-00198     \textcolor{comment}{# The real stuff begins here...}
-00199     statistical\_analysis\_tester.test\_statistical\_analysis()
-00200     \textcolor{comment}{#   ### TO-DO}
-00201     \textcolor{comment}{# Insert test cases for testing the utilities package.}
-00202     print(\textcolor{stringliteral}{"-    -   -   -   -   -   -   -   -   -   -   -   -"})
-00203 \textcolor{comment}{#   check\_bibtex\_key\_tester.test\_check\_bibtex\_key()}
-00204     queue\_ip\_args\_tester.test\_queue\_ip\_args()
-00205     print(\textcolor{stringliteral}{"-    -   -   -   -   -   -   -   -   -   -   -   -"})
-00206 \textcolor{comment}{#   Incremental\_Test\_Automation.read\_input\_BibTeX\_file(ip\_file\_obj,ip\_filename)}
-00207     print(\textcolor{stringliteral}{"!    !   !   !   !   !   !   !   !   !   !"})
-00208     print(\textcolor{stringliteral}{">>   Get statistics of the software testing process."})
-00209     statistical\_analysis.print\_statistics\_of\_software\_testing()
-00210     \textcolor{comment}{# Close the file object for reading.}
-00211     print(\textcolor{stringliteral}{"=    Close the file object for reading."})
-00212     file\_io\_operations.close\_file\_object(ip\_file\_obj)
+00178 
+00179 \textcolor{comment}{###############################################################}
+00180 \textcolor{comment}{# Main method for the program.}
+00181 
+00182 \textcolor{comment}{#   If this is executed as a Python script,}
+00183 \textcolor{keywordflow}{if} \_\_name\_\_ == \textcolor{stringliteral}{"\_\_main\_\_"}:
+00184     print(\textcolor{stringliteral}{"=================================================="})
+00185     print(\textcolor{stringliteral}{"Automating incremental regression testing of my software"})
+00186     print(\textcolor{stringliteral}{" solution for genetic technology mapping."})
+00187     print(\textcolor{stringliteral}{""})
+00188     \textcolor{comment}{# Assign input arguments to "queue\_ip\_args" for processing.}
+00189     \textcolor{comment}{#queue\_ip\_args.set\_input\_arguments(sys.argv,queue\_ip\_args.INCREMENTAL\_TEST)}
+00190     queue\_ip\_args.set\_input\_arguments(sys.argv)
+00191     \textcolor{comment}{# Check if user wants to read the brief user manual.}
+00192     queue\_ip\_args.check\_if\_help\_wanted()
+00193     \textcolor{comment}{# Process the first input argument.}
+00194     print(\textcolor{stringliteral}{"=    Process the first input argument."})
+\hypertarget{incremental__test_8py_source_l00195}{}\hyperlink{namespaceincremental__test_ab5a7aa877c2dae060e3fd03a472cbbf3}{00195}     ip\_filename = queue\_ip\_args.process\_1st\_ip\_arg()
+00196     \textcolor{comment}{# Create a file object for reading.}
+00197     print(\textcolor{stringliteral}{"=    Create a file object for reading."})
+00198     \textcolor{comment}{# Create a file object for input BibTeX file, in reading mode.}
+\hypertarget{incremental__test_8py_source_l00199}{}\hyperlink{namespaceincremental__test_aaf431f9a2a2d1172f09263453438e4f4}{00199}     ip\_file\_obj = file\_io\_operations.open\_file\_object\_read(ip\_filename)
+00200     \textcolor{comment}{# The real stuff begins here...}
+00201     statistical\_analysis\_tester.test\_statistical\_analysis()
+00202     \textcolor{comment}{#   ### TO-DO}
+00203     \textcolor{comment}{# Insert test cases for testing the utilities package.}
+00204     print(\textcolor{stringliteral}{"-    -   -   -   -   -   -   -   -   -   -   -   -"})
+00205 \textcolor{comment}{#   check\_bibtex\_key\_tester.test\_check\_bibtex\_key()}
+00206     queue\_ip\_args\_tester.test\_queue\_ip\_args()
+00207     print(\textcolor{stringliteral}{"-    -   -   -   -   -   -   -   -   -   -   -   -"})
+00208     file\_io\_operations\_tester.test\_queue\_ip\_args()
+00209     print(\textcolor{stringliteral}{"-    -   -   -   -   -   -   -   -   -   -   -   -"})
+00210 \textcolor{comment}{#   Incremental\_Test\_Automation.read\_input\_BibTeX\_file(ip\_file\_obj,ip\_filename)}
+00211     print(\textcolor{stringliteral}{"!    !   !   !   !   !   !   !   !   !   !"})
+00212     print(\textcolor{stringliteral}{">>   Get statistics of the software testing process."})
+00213     statistical\_analysis.print\_statistics\_of\_software\_testing()
+00214     \textcolor{comment}{# Close the file object for reading.}
+00215     print(\textcolor{stringliteral}{"=    Close the file object for reading."})
+00216     file\_io\_operations.close\_file\_object(ip\_file\_obj)
 \end{DoxyCode}

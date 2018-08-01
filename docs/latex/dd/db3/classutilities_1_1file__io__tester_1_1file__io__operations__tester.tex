@@ -1,0 +1,107 @@
+\hypertarget{classutilities_1_1file__io__tester_1_1file__io__operations__tester}{}\section{utilities.\+file\+\_\+io\+\_\+tester.\+file\+\_\+io\+\_\+operations\+\_\+tester Class Reference}
+\label{classutilities_1_1file__io__tester_1_1file__io__operations__tester}\index{utilities.\+file\+\_\+io\+\_\+tester.\+file\+\_\+io\+\_\+operations\+\_\+tester@{utilities.\+file\+\_\+io\+\_\+tester.\+file\+\_\+io\+\_\+operations\+\_\+tester}}
+
+
+Collaboration diagram for utilities.\+file\+\_\+io\+\_\+tester.\+file\+\_\+io\+\_\+operations\+\_\+tester\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{d8/dec/classutilities_1_1file__io__tester_1_1file__io__operations__tester__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classutilities_1_1file__io__tester_1_1file__io__operations__tester_aeb92655105777047c5da87ac2fe33451}{test\+\_\+queue\+\_\+ip\+\_\+args} ()
+\begin{DoxyCompactList}\small\item\em ========================================================= Method to test the methods that perform file I/\+O operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line \hyperlink{file__io__tester_8py_source_l00084}{84} of file \hyperlink{file__io__tester_8py_source}{file\+\_\+io\+\_\+tester.\+py}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classutilities_1_1file__io__tester_1_1file__io__operations__tester_aeb92655105777047c5da87ac2fe33451}{}\index{utilities\+::file\+\_\+io\+\_\+tester\+::file\+\_\+io\+\_\+operations\+\_\+tester@{utilities\+::file\+\_\+io\+\_\+tester\+::file\+\_\+io\+\_\+operations\+\_\+tester}!test\+\_\+queue\+\_\+ip\+\_\+args@{test\+\_\+queue\+\_\+ip\+\_\+args}}
+\index{test\+\_\+queue\+\_\+ip\+\_\+args@{test\+\_\+queue\+\_\+ip\+\_\+args}!utilities\+::file\+\_\+io\+\_\+tester\+::file\+\_\+io\+\_\+operations\+\_\+tester@{utilities\+::file\+\_\+io\+\_\+tester\+::file\+\_\+io\+\_\+operations\+\_\+tester}}
+\subsubsection[{test\+\_\+queue\+\_\+ip\+\_\+args()}]{\setlength{\rightskip}{0pt plus 5cm}def utilities.\+file\+\_\+io\+\_\+tester.\+file\+\_\+io\+\_\+operations\+\_\+tester.\+test\+\_\+queue\+\_\+ip\+\_\+args (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classutilities_1_1file__io__tester_1_1file__io__operations__tester_aeb92655105777047c5da87ac2fe33451}
+
+
+========================================================= Method to test the methods that perform file I/\+O operations. 
+
+\begin{DoxyReturn}{Returns}
+-\/ Nothing. O(1) method. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{file__io__tester_8py_source_l00090}{90} of file \hyperlink{file__io__tester_8py_source}{file\+\_\+io\+\_\+tester.\+py}.
+
+
+\begin{DoxyCode}
+\hypertarget{classutilities_1_1file__io__tester_1_1file__io__operations__tester_l00090}{}\hyperlink{classutilities_1_1file__io__tester_1_1file__io__operations__tester_aeb92655105777047c5da87ac2fe33451}{00090}     \textcolor{keyword}{def }\hyperlink{classutilities_1_1file__io__tester_1_1file__io__operations__tester_aeb92655105777047c5da87ac2fe33451}{test\_queue\_ip\_args}():
+00091         print(\textcolor{stringliteral}{"==   Testing class: file\_io\_operations."})
+00092         print(\textcolor{stringliteral}{" ... Testing file operations with invalid file."})
+00093         filename = \textcolor{stringliteral}{"nonsense"}
+00094         prompt = \textcolor{stringliteral}{"  Test: file\_io\_operations.is\_path\_valid(...) \{\}"}
+00095         statistical\_analysis.increment\_number\_test\_cases\_used()
+00096         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} file\_io\_operations.is\_path\_valid(filename):
+00097             print(prompt .format(\textcolor{stringliteral}{"  OK"}))
+00098             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00099         \textcolor{keywordflow}{else}:
+00100             print(prompt .format(\textcolor{stringliteral}{"  FAIL!!!"}))
+00101         prompt = \textcolor{stringliteral}{"  Test: file\_io\_operations.open\_file\_object\_read(...) \{\}"}
+00102         statistical\_analysis.increment\_number\_test\_cases\_used()
+00103         \textcolor{keywordflow}{try}:
+00104             f\_obj = file\_io\_operations.open\_file\_object\_read(filename)
+00105             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00106         \textcolor{keywordflow}{except}:
+00107             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00108             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00109         prompt = \textcolor{stringliteral}{"  Test: file\_io\_operations.open\_file\_object\_write(...)    \{\}"}
+00110         statistical\_analysis.increment\_number\_test\_cases\_used()
+00111         \textcolor{keywordflow}{try}:
+00112             f\_obj = file\_io\_operations.open\_file\_object\_write(filename)
+00113             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00114             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00115         \textcolor{keywordflow}{except}:
+00116             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00117         \textcolor{keywordflow}{try}:
+00118             \textcolor{comment}{#   Close the file object, and delete the file.}
+00119             statistical\_analysis.increment\_number\_test\_cases\_used()
+00120             file\_io\_operations.close\_file\_object(f\_obj)
+00121             os.remove(filename)
+00122             print(\textcolor{stringliteral}{" Test: file\_io\_operations.close\_file\_object(...)     OK"})
+00123             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00124         \textcolor{keywordflow}{except}:
+00125             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00126         print(\textcolor{stringliteral}{" ... Testing file operations with valid file."})
+00127         filename = \textcolor{stringliteral}{"notes/mit-license.text"}
+00128         prompt = \textcolor{stringliteral}{"  Test: file\_io\_operations.is\_path\_valid(...) \{\}"}
+00129         statistical\_analysis.increment\_number\_test\_cases\_used()
+00130         \textcolor{keywordflow}{if} file\_io\_operations.is\_path\_valid(filename):
+00131             print(prompt .format(\textcolor{stringliteral}{"  OK"}))
+00132             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00133         \textcolor{keywordflow}{else}:
+00134             print(prompt .format(\textcolor{stringliteral}{"  FAIL!!!"}))
+00135         prompt = \textcolor{stringliteral}{"  Test: file\_io\_operations.open\_file\_object\_read(...) \{\}"}
+00136         statistical\_analysis.increment\_number\_test\_cases\_used()
+00137         \textcolor{keywordflow}{try}:
+00138             f\_obj = file\_io\_operations.open\_file\_object\_read(filename)
+00139             print(prompt .format(\textcolor{stringliteral}{"OK"}))
+00140             statistical\_analysis.increment\_number\_test\_cases\_passed()
+00141         \textcolor{keywordflow}{except}:
+00142             print(prompt .format(\textcolor{stringliteral}{"FAIL!!!"}))
+00143         
+00144 \end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+utilities/\hyperlink{file__io__tester_8py}{file\+\_\+io\+\_\+tester.\+py}\end{DoxyCompactItemize}
