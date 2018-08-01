@@ -128,6 +128,20 @@ A *Python* package corresponds to a subdirectory of this repository, while a
 
 
 
+
+##	Miscellaneous
+
+###	Refactoring attempt: **Utilities** package
+
+Refactor the class **queue_ip_args** in the *Python* module
+	*queue_ip_arguments.py*, so that does not need the argument **which_script**
+	for the static method **set_input_arguments(list_of_ip_arguments,which_script)**.
+	That is, refactor the code to
+
+
+
+
+
 #	References
 
 Citations/References that use the LaTeX/BibTeX notation are taken from my

@@ -186,7 +186,8 @@ if __name__ == "__main__":
 	print("	solution for genetic technology mapping.")
 	print("")
 	# Assign input arguments to "queue_ip_args" for processing.
-	queue_ip_args.set_input_arguments(sys.argv,queue_ip_args.INCREMENTAL_TEST)
+	#queue_ip_args.set_input_arguments(sys.argv,queue_ip_args.INCREMENTAL_TEST)
+	queue_ip_args.set_input_arguments(sys.argv)
 	# Check if user wants to read the brief user manual.
 	queue_ip_args.check_if_help_wanted()
 	# Process the first input argument.
