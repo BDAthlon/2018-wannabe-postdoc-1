@@ -265,21 +265,3 @@ class queue_ip_args:
 			ip_fname2 += queue_ip_args.json_f_ext
 			print("	New output filename is: {}" .format(ip_fname2))
 		return ip_fname2
-	# ============================================================
-	##	Method to handle missing second input argument.
-	#	Replace the following substring "_netlist.json" in the input structural
-	#		netlist with "_mapping.json", and set the result as the second
-	#		input argument.
-	#	O(1) method.
-	#	@deprecated
-	@staticmethod
-	def missing_2nd_ip_arg():
-		#	Is the number of input arguments to the script <2?
-		if 2 > len(queue_ip_args.get_list_of_input_arguments()):
-			# Make a copy of the 1st input argument as the 2nd input argument.
-			queue_ip_args.second_input_argument = queue_ip_args.first_input_argument
-			# Replace the substring "_netlist.json" in the 2nd input argument
-			#	with "_mapping.json".
-			queue_ip_args.second_input_argument.replace("_netlist.json","_mapping.json")
-			#	Add the 2nd input argument to the list of input arguments.
-			queue_ip_args.set_of_input_arguments.append(queue_ip_args.second_input_argument)
