@@ -139,7 +139,8 @@ class queue_ip_args_tester:
 		old_name_current_script = queue_ip_args.get_name_of_current_script()
 		new_name_current_script = "No name"
 		"""
-			Assign input arguments to "queue_ip_args" for processing.
+			Assign input arguments to "set_input_arguments(...)" for
+				processing.
 			Statement should fail.
 		"""
 		try:
@@ -150,11 +151,13 @@ class queue_ip_args_tester:
 				statistical_analysis.increment_number_test_cases_passed()
 			else:
 				print(prompt1 .format("FAIL!!!"))
+				#print(queue_ip_args.get_list_of_input_arguments())
 			if len(old_list_ip_args) == queue_ip_args.get_number_of_input_arguments():
 				print(prompt2 .format("OK"))
 				statistical_analysis.increment_number_test_cases_passed()
 			else:
 				print(prompt2 .format("FAIL!!!"))
+				#print(queue_ip_args.get_number_of_input_arguments())
 			if old_name_current_script == queue_ip_args.get_name_of_current_script():
 				print(prompt3 .format("OK"))
 				statistical_analysis.increment_number_test_cases_passed()
@@ -171,7 +174,35 @@ class queue_ip_args_tester:
 			I do not need to test them separately, since they are
 				mutually exclusive.
 		"""
-
+		print("	Testing for list with 1 argument...")
+		#	Set the list of input arguments to have 1 argument.
+		new_list_ip_args = ["benchmarks/majority_netlist.json"]
+		#	Assign input arguments to "set_input_arguments(...)" for processing.
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		statistical_analysis.increment_number_test_cases_used()
+		if new_list_ip_args == queue_ip_args.get_list_of_input_arguments():
+			print(prompt1 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt1 .format("FAIL!!!"))
+			#print(queue_ip_args.get_list_of_input_arguments())
+		statistical_analysis.increment_number_test_cases_used()
+		if len(new_list_ip_args) == queue_ip_args.get_number_of_input_arguments():
+			print(prompt2 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt2 .format("FAIL!!!"))
+			#print(queue_ip_args.get_number_of_input_arguments())
+		statistical_analysis.increment_number_test_cases_used()
+		if new_name_current_script == queue_ip_args.get_name_of_current_script():
+			print(prompt3 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt3 .format("FAIL!!!"))
+			print(queue_ip_args.get_name_of_current_script())
+		statistical_analysis.increment_number_test_cases_used()
+		print(prompt4 .format("OK"))
+		statistical_analysis.increment_number_test_cases_passed()
     ## =========================================================
 	#	Method to test the methods that support software test
 	#		automation.

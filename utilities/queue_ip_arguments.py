@@ -149,7 +149,7 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def get_name_of_current_script():
-		return len(queue_ip_args.CURRENT_SCRIPT)
+		return queue_ip_args.CURRENT_SCRIPT
 	# ============================================================
 	#	Mutator methods.
 	# ============================================================
@@ -162,11 +162,11 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def set_input_arguments(list_of_ip_arguments,which_script):
-		queue_ip_args.set_of_input_arguments = list_of_ip_arguments
 		#	Is the number of input arguments to the script <1?
-		if 1 > len(queue_ip_args.get_input_arguments()):
+		if 1 > len(list_of_ip_arguments):
 			warnings.warn("	There are no input arguments!!!")
 			queue_ip_args.input_arguments_error()
+		queue_ip_args.set_of_input_arguments = list_of_ip_arguments
 		# Remove the name of the script from the list of input arguments.
 		queue_ip_args.set_of_input_arguments.pop(0)
 		queue_ip_args.CURRENT_SCRIPT = which_script
