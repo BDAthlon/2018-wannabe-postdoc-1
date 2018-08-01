@@ -131,7 +131,7 @@ A *Python* package corresponds to a subdirectory of this repository, while a
 
 ##	Miscellaneous
 
-###	Refactoring attempt: **Utilities** package
+###	Refactoring attempt: *Utilities* package
 
 Refactor the class **queue_ip_args** in the *Python* module
 	*queue_ip_arguments.py*, so that does not need the argument **which_script**
