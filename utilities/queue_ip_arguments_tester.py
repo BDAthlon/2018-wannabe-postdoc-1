@@ -94,10 +94,19 @@ class queue_ip_args_tester:
 	#	Method to test the O(1) methods that print information
 	#		to the standard output, or are accessor methods.
 	#	@return - Nothing.
-	#	O(?) method.
+	#	O(1) method.
+	#	O(n) in terms of the number of input arguments.
 	@staticmethod
 	def test_o1_methods():
-		print("	Test: queue_ip_args.get_list_of_input_arguments()		OK")
+		print("	Test: queue_ip_args.how_to_use_script()			OK")
+		queue_ip_args.how_to_use_script()
+		statistical_analysis.increment_number_test_cases_used()
+		statistical_analysis.increment_number_test_cases_passed()
+		print("	Test: queue_ip_args.print_help_option()			OK")
+		queue_ip_args.print_help_option()
+		statistical_analysis.increment_number_test_cases_used()
+		statistical_analysis.increment_number_test_cases_passed()
+		print("	Test: queue_ip_args.get_list_of_input_arguments()	OK")
 		temp_set_ip_args = queue_ip_args.get_list_of_input_arguments()
 		statistical_analysis.increment_number_test_cases_used()
 		statistical_analysis.increment_number_test_cases_passed()
@@ -132,6 +141,8 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		prompt4 = "	... Test: queue_ip_args.set_input_arguments(...)	{}"
 		statistical_analysis.increment_number_test_cases_used()
+		prompt5 = "	... Test: queue_ip_args.get_1st_input_argument()	{}"
+		prompt6 = "	... Test: queue_ip_args.get_2nd_input_argument()	{}"
 		#	List of input arguments.
 		old_list_ip_args = queue_ip_args.get_list_of_input_arguments()
 		new_list_ip_args = []
@@ -175,8 +186,18 @@ class queue_ip_args_tester:
 				mutually exclusive.
 		"""
 		print("	Testing for list with 1 argument...")
-		#	Set the list of input arguments to have 1 argument.
-		new_list_ip_args = ["benchmarks/majority_netlist.json"]
+		"""
+			Set the list of input arguments to have 1 argument, in addition
+				to the name of the script.
+			Hence, the list would have 2 arguments, since the first
+				"argument" is dumped during the method call to
+				set_input_arguments(...);
+				this first "argument" is the name of the currently executing
+					script.
+		"""
+		name_of_script_dumped = "name-of-the-script"
+		current_1st_ip_arg = "benchmarks/majority_netlist.json"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
 		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
 		statistical_analysis.increment_number_test_cases_used()
@@ -192,6 +213,7 @@ class queue_ip_args_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt2 .format("FAIL!!!"))
+			#print(len(new_list_ip_args)-1)
 			#print(queue_ip_args.get_number_of_input_arguments())
 		statistical_analysis.increment_number_test_cases_used()
 		if new_name_current_script == queue_ip_args.get_name_of_current_script():
@@ -203,16 +225,27 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		print(prompt4 .format("OK"))
 		statistical_analysis.increment_number_test_cases_passed()
+		#	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+		statistical_analysis.increment_number_test_cases_used()
+		if current_1st_ip_arg == queue_ip_args.get_1st_input_argument():
+			print(prompt5 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt5 .format("FAIL!!!"))
 		"""
 			If an input argument for the software is "-h", show the
 				brief user manual to the user.
 			Else, there is no need to test for more than 2 input arguments
 				for the software, since only the first two are processed.
+			So, the list shall have 3 elements, since the first element
+				is dumped during the method call to set_input_arguments(...).
 		"""
 		print("	Testing for list with 2 arguments...")
 		#	Set the list of input arguments to have 2 arguments.
 		#new_list_ip_args = ["benchmarks/majority_netlist.json" "nonsense.json"]
-		new_list_ip_args = ["garbage.json" "nonsense.json"]
+		current_1st_ip_arg = "garbage.json"
+		current_2nd_ip_arg = "nonsense.json"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
 		#	Assign input arguments to "set_input_arguments(...)" for processing.
 		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
 		statistical_analysis.increment_number_test_cases_used()
@@ -232,7 +265,143 @@ class queue_ip_args_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		print(prompt4 .format("OK"))
 		statistical_analysis.increment_number_test_cases_passed()
+		#	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+		statistical_analysis.increment_number_test_cases_used()
+		if current_2nd_ip_arg == queue_ip_args.get_2nd_input_argument():
+			print(prompt6 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt6 .format("FAIL!!!"))
+		prompt7 = "	... Test: queue_ip_args.input_arguments_error()	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			queue_ip_args.input_arguments_error()
+			print(prompt7 .format("FAIL!!!"))
+		except:
+			print(prompt7 .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
     ## =========================================================
+	#	Method to test if the user wants to read the brief user
+	#		manual.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_if_help_needed():
+		print("	Testing for no help needed...")
+		#	Set the list of input arguments to have 2 arguments.
+		name_of_script_dumped = "name-of-the-script"
+		current_1st_ip_arg = "garbage.json"
+		current_2nd_ip_arg = "nonsense.json"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
+		new_name_current_script = queue_ip_args.INCREMENTAL_TEST
+		#	Assign input arguments to "set_input_arguments(...)" for processing.
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		prompt8 = "	... Test: queue_ip_args.check_if_help_wanted()	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		queue_ip_args.check_if_help_wanted()
+		print(prompt8 .format("	OK"))
+		statistical_analysis.increment_number_test_cases_passed()
+		print("	Testing for help needed (1st arg)... ")
+		#	Change the list of input arguments to have "-h" option.
+		current_1st_ip_arg = "-h"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
+		#	Assign input arguments to "set_input_arguments(...)" for processing.
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			queue_ip_args.check_if_help_wanted()
+			print(prompt8 .format("FAIL!!!"))
+		except:
+			print(prompt8 .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		print("	Testing for help needed (2nd arg)... ")
+		current_1st_ip_arg = "garbage.json"
+		current_2nd_ip_arg = "-h"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
+		#	Assign input arguments to "set_input_arguments(...)" for processing.
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			queue_ip_args.check_if_help_wanted()
+			print(prompt8 .format("FAIL!!!"))
+		except:
+			print(prompt8 .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		print("	Testing for help needed (3rd arg)... ")
+		current_1st_ip_arg = "garbage.json"
+		current_2nd_ip_arg = "nonsense.json"
+		current_3rd_ip_arg = "-h"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg, current_3rd_ip_arg]
+		#	Assign input arguments to "set_input_arguments(...)" for processing.
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			queue_ip_args.check_if_help_wanted()
+			print(prompt8 .format("FAIL!!!"))
+		except:
+			print(prompt8 .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+	## =========================================================
+	#	Method to test the processing of the 1st & 2nd input arguments.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_processing_input_arguments():
+		print("	Test: queue_ip_args.process_1st_ip_arg()... ")
+		name_of_script_dumped = "name-of-the-script"
+		current_1st_ip_arg = "garbage.json"
+		current_2nd_ip_arg = "notes/guidelines/guidelines.tex"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
+		new_name_current_script = queue_ip_args.INCREMENTAL_TEST
+		#	Assign input arguments to "set_input_arguments(...)" for processing.
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		prompt9 = "	... Invalid path to file	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			ip_fname = queue_ip_args.process_1st_ip_arg()
+			print(prompt9 .format("		FAIL!!!"))
+		except:
+			print(prompt9 .format("			OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		#	-	-	-	-	-	-	-	-	-	-	-	-	-
+		"""
+			1st input argument: Valid path to file, no JSON file extension.
+		"""
+		#current_1st_ip_arg = "benchmarks/majority_netlist.json"
+		current_1st_ip_arg = "notes/mit-license.text"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		prompt10 = "	... Valid path to file, no JSON file extension.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			ip_fname = queue_ip_args.process_1st_ip_arg()
+			print(prompt10 .format("		FAIL!!!"))
+		except:
+			print(prompt10 .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		"""
+			1st input argument: Valid path to file, JSON file extension.
+		"""
+		current_1st_ip_arg = "benchmarks/majority_netlist.json"
+		new_list_ip_args = [name_of_script_dumped, current_1st_ip_arg, current_2nd_ip_arg]
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		prompt10 = "	... Valid path to file, JSON file extension.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		ip_fname = queue_ip_args.process_1st_ip_arg()
+		print(prompt10 .format("	OK"))
+		statistical_analysis.increment_number_test_cases_passed()
+		print("	-	-	-	-	-	-	-	-")
+		print("	Test: queue_ip_args.process_2nd_ip_arg()... ")
+		prompt11 = "	... Valid path to file	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			ip_fname = queue_ip_args.process_2nd_ip_arg()
+			print(prompt11 .format("				FAIL!!!"))
+		except:
+			print(prompt11 .format("				OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt11 = "	... Valid path to file	{}"
+	## =========================================================
 	#	Method to test the methods that support software test
 	#		automation.
 	#	@return - Nothing.
@@ -241,4 +410,5 @@ class queue_ip_args_tester:
 	def test_queue_ip_args():
 		print("==	Testing class: queue_ip_args.")
 		queue_ip_args_tester.test_o1_methods()
-		print(".")
+		queue_ip_args_tester.test_if_help_needed()
+		queue_ip_args_tester.test_processing_input_arguments()

@@ -200,18 +200,6 @@ class queue_ip_args:
 		queue_ip_args.print_help_option()
 		print("-------------------------------------------------")
 	# ============================================================
-	##	Method to provide information on the second input argument.
-	#	O(1) method.
-	@staticmethod
-	def print_2nd_argument():
-		print("The 2nd input argument mustn't be a valid path to an existing file.")
-		print("If it is, warn the user about overwritting the file & proceed.")
-		print("")
-		print("If 2nd input argument has no file extension, add the")
-		print("JSON file extension to it.")
-		print("")
-		print(second_input_argument)
-	# ============================================================
 	##	Method to print the help option to access the user manual.
 	#	O(1) method.
 	@staticmethod
@@ -229,6 +217,7 @@ class queue_ip_args:
 		raise Exception("Error with input arguments.")
 	# ============================================================
 	##	Method to process the first input argument.
+	#	@return - 1st input argument, input filename.
 	#	O(1) method.
 	@staticmethod
 	def process_1st_ip_arg():
@@ -239,7 +228,7 @@ class queue_ip_args:
 		queue_ip_args.first_input_argument = queue_ip_args.get_1st_input_argument()
 		println = "==	Is the 1st input argument a valid path to a file?"
 		if (os.path.exists(queue_ip_args.first_input_argument) and os.path.isfile(queue_ip_args.first_input_argument)):
-			print(println.format("	Yes."))
+			print(println .format("	Yes."))
 		else:
 			raise Exception("1st input argument isn't a valid path to a file!")
 		#	Does 1st input argument have a BibTeX file extension?
@@ -249,7 +238,7 @@ class queue_ip_args:
 #	print "==	File name of 1st input argument:"+ip_fname
 #	print "==	File extension of 1st input argument:"+ip_f_ext
 		if(ip_f_ext1 == queue_ip_args.json_f_ext):
-			print(println.format("	Yes."))
+			print(println .format("	Yes."))
 			#	Add BibTeX file extension back to input filename.
 			ip_fname1 = queue_ip_args.first_input_argument
 		else:
@@ -301,6 +290,7 @@ class queue_ip_args:
 	#		netlist with "_mapping.json", and set the result as the second
 	#		input argument.
 	#	O(1) method.
+	#	@deprecated
 	@staticmethod
 	def missing_2nd_ip_arg():
 		#	Is the number of input arguments to the script <2?
