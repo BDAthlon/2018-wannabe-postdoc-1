@@ -64,9 +64,13 @@ Solution *1a* performs *brute force search* to explore different options for
 
 
 Solution *1b* uses simulated annealing for discrete optimization.
-+ Pseudo-randomly select a permutation of
++ Pseudo-randomly select a permutation of NOT gates.
++ Initialize temperature to be very hot
++ While temperature is not 0, cool the temperature of the annealing process.
+	- As the temperature cools, slowly decrease the
 
-genetic
+Solution *1b* uses a genetic algorithm for discrete optimization.
+
 
 Other solutions considered:
 + 0-1 integer linear programming (ILP)
