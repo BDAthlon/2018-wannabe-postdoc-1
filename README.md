@@ -64,9 +64,16 @@ Solution *1a* performs *brute force search* to explore different options for
 
 
 Solution *1b* uses simulated annealing for discrete optimization.
-+ Store the
++ Pseudo-randomly select a permutation of
 
 genetic
+
+Other solutions considered:
++ 0-1 integer linear programming (ILP)
+	* Can't formulate the objective function of the 0-1 ILP problem.
++ pseudo-boolan optimization (PBO)
+	* Can't formulate the conjunctive normal form (CNF) boolean satisfiability
+		formula for PBO.
 
 The back-end of **problem1_solution.py** generates an output file containing
 	the genetic technology mapping of the input genetic circuit, in JSON format.
