@@ -41,11 +41,19 @@ The other input parameter **[output JSON technology mapping]** is the filename
 The front-end of **problem1_solution.py** parses the input arguments, checks
 	their validity, and parses the input structural netlist for genetic
 	technology mapping.
+	It also parses the genetic technology library **genetic_gate_library.json**,
+		maps each genetic NOT gate into a *genetic_not_gate* object, and stores
+		each object in a map of *(id,objects)*;
+		the *id* of the object is the *id* field of the genetic NOT gate, which is
+			specified in the genetic technology library.
 
 The genetic technology mapping engine of **problem1_solution.py** consists of a
 	(set of) solution(s) to perform genetic technology mapping.
 	A solution is an implementation of a known/new algorithm/heuristic for
 		genetic technology mapping.
+
+**Dr. Nicholas Roehner and Dr. Curtis Madsen, I am running out of time, so I
+	will sketch the outline of my solutions, and update them as I solve the problem.**
 
 Solution *1a* performs *brute force search* to explore different options for
 	genetic technology mapping.
@@ -54,6 +62,11 @@ Solution *1a* performs *brute force search* to explore different options for
 + Enumerate a table to find the largest alpha value, and select the
 		corresponding permutation of NOT gates.
 
+
+Solution *1b* uses simulated annealing for discrete optimization.
++ Store the
+
+genetic
 
 The back-end of **problem1_solution.py** generates an output file containing
 	the genetic technology mapping of the input genetic circuit, in JSON format.
