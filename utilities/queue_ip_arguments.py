@@ -87,11 +87,11 @@ class queue_ip_args:
 	# ============================================================
 	#	Accessor methods.
 	# ============================================================
-	##	Method to get the input arguments.
+	##	Method to get the list of input arguments.
 	#	@return - List of input arguments to the program.
 	#	O(1) method.
 	@staticmethod
-	def get_input_arguments():
+	def get_list_of_input_arguments():
 		"""
 		print "=	Set_of_input_arguments:"
 		for cur_ip_arg in queue_ip_args.set_of_input_arguments:
@@ -112,7 +112,7 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def get_1st_input_argument():
-		if 0 < len(queue_ip_args.get_input_arguments()):
+		if 0 < len(queue_ip_args.get_list_of_input_arguments()):
 			return queue_ip_args.set_of_input_arguments[0]
 		else:
 			warnings.warn("	1st input argument is missing!!!")
@@ -123,7 +123,7 @@ class queue_ip_args:
 	#	O(1) method.
 	@staticmethod
 	def get_2nd_input_argument():
-		if 1 < len(queue_ip_args.get_input_arguments()):
+		if 1 < len(queue_ip_args.get_list_of_input_arguments()):
 			return queue_ip_args.set_of_input_arguments[1]
 		else:
 			warnings.warn("	2nd input argument is missing!!!")
@@ -135,13 +135,6 @@ class queue_ip_args:
 	@staticmethod
 	def get_number_of_input_arguments():
 		return len(queue_ip_args.set_of_input_arguments)
-	# ============================================================
-	##	Method to get the list of input arguments.
-	#	@return - List of input arguments for the program.
-	#	O(1) method.
-	@staticmethod
-	def get_list_of_input_arguments():
-		return queue_ip_args.set_of_input_arguments
 	# ============================================================
 	##	Method to get the name of the current script that is
 	#		being executed.
@@ -240,7 +233,7 @@ class queue_ip_args:
 	@staticmethod
 	def process_1st_ip_arg():
 		#	Is the number of input arguments to the script <1?
-		if 1 > len(queue_ip_args.get_input_arguments()):
+		if 1 > len(queue_ip_args.get_list_of_input_arguments()):
 			warnings.warn("	There are no input arguments!!!")
 			queue_ip_args.input_arguments_error()
 		queue_ip_args.first_input_argument = queue_ip_args.get_1st_input_argument()
@@ -272,7 +265,7 @@ class queue_ip_args:
 	@staticmethod
 	def process_2nd_ip_arg():
 		#	Is the number of input arguments to the script <2?
-		if 2 > len(queue_ip_args.get_input_arguments()):
+		if 2 > len(queue_ip_args.get_list_of_input_arguments()):
 			warnings.warn("	2nd input argument isn't available!!!")
 			queue_ip_args.input_arguments_error()
 		queue_ip_args.second_input_argument = queue_ip_args.get_2nd_input_argument()
@@ -311,7 +304,7 @@ class queue_ip_args:
 	@staticmethod
 	def missing_2nd_ip_arg():
 		#	Is the number of input arguments to the script <2?
-		if 2 > len(queue_ip_args.get_input_arguments()):
+		if 2 > len(queue_ip_args.get_list_of_input_arguments()):
 			# Make a copy of the 1st input argument as the 2nd input argument.
 			queue_ip_args.second_input_argument = queue_ip_args.first_input_argument
 			# Replace the substring "_netlist.json" in the 2nd input argument

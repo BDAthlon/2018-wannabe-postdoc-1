@@ -97,8 +97,8 @@ class queue_ip_args_tester:
 	#	O(?) method.
 	@staticmethod
 	def test_o1_methods():
-		print("	Test: queue_ip_args.get_input_arguments()		OK")
-		temp_set_ip_args = queue_ip_args.get_input_arguments()
+		print("	Test: queue_ip_args.get_list_of_input_arguments()		OK")
+		temp_set_ip_args = queue_ip_args.get_list_of_input_arguments()
 		statistical_analysis.increment_number_test_cases_used()
 		statistical_analysis.increment_number_test_cases_passed()
 		#	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
@@ -200,6 +200,35 @@ class queue_ip_args_tester:
 		else:
 			print(prompt3 .format("FAIL!!!"))
 			print(queue_ip_args.get_name_of_current_script())
+		statistical_analysis.increment_number_test_cases_used()
+		print(prompt4 .format("OK"))
+		statistical_analysis.increment_number_test_cases_passed()
+		"""
+			If an input argument for the software is "-h", show the
+				brief user manual to the user.
+			Else, there is no need to test for more than 2 input arguments
+				for the software, since only the first two are processed.
+		"""
+		print("	Testing for list with 2 arguments...")
+		#	Set the list of input arguments to have 2 arguments.
+		#new_list_ip_args = ["benchmarks/majority_netlist.json" "nonsense.json"]
+		new_list_ip_args = ["garbage.json" "nonsense.json"]
+		#	Assign input arguments to "set_input_arguments(...)" for processing.
+		queue_ip_args.set_input_arguments(new_list_ip_args,new_name_current_script)
+		statistical_analysis.increment_number_test_cases_used()
+		if new_list_ip_args == queue_ip_args.get_list_of_input_arguments():
+			print(prompt1 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt1 .format("FAIL!!!"))
+			#print(queue_ip_args.get_list_of_input_arguments())
+		statistical_analysis.increment_number_test_cases_used()
+		if len(new_list_ip_args) == queue_ip_args.get_number_of_input_arguments():
+			print(prompt2 .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt2 .format("FAIL!!!"))
+			#print(queue_ip_args.get_number_of_input_arguments())
 		statistical_analysis.increment_number_test_cases_used()
 		print(prompt4 .format("OK"))
 		statistical_analysis.increment_number_test_cases_passed()
