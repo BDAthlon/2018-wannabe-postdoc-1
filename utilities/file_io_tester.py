@@ -87,7 +87,7 @@ class file_io_operations_tester:
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_queue_ip_args():
+	def test_file_io_operations():
 		print("==	Testing class: file_io_operations.")
 		print("	... Testing file operations with invalid file.")
 		filename = "nonsense"
@@ -140,4 +140,51 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		except:
 			print(prompt .format("FAIL!!!"))
-		
+		prompt = "	Test: file_io_operations.open_file_object_write(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			f_obj = file_io_operations.open_file_object_write(filename)
+			print(prompt .format("FAIL!!!"))
+		except:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		print("	Testing file operations on files with the same content.")
+		prompt = "	... Test: file_io_operations.file_comparison(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.file_comparison("notes/mit-license.text","notes/trash/mit-license-spare-copy.text"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		print("	Testing file operations on files with the different content.")
+		prompt = "	... Test: file_io_operations.file_comparison(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.file_comparison("notes/mit-license.text","notes/guidelines/guidelines.tex"):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		# -----------------------------------------------------------------
+		print("	Testing file_io_operations.get_file_extension() method.")
+		prompt = "	... Test: one file extension				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.get_file_extension("something.text") == ".text":
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: double/dual file extensions			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.get_file_extension("something.tar.gz") == ".tar.gz":
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			#print(file_io_operations.get_file_extension("something.tar.gz"))
+		prompt = "	... Test: multiple file extensions			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.get_file_extension("something.pdf.tar.gz") == ".pdf.tar.gz":
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))

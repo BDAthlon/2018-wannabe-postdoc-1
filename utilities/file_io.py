@@ -6,6 +6,11 @@
 	This Python script is written by Zhiyang Ong to perform
 		input/output (I/O) operations on files, such as BibTeX
 		databases/files and LaTeX documents.
+
+	References:
+	\cite[\S11 File and Directory Access, \S11.2 os.path - Common pathname manipulations]{DrakeJr2016b}
+
+
 """
 
 #	The MIT License (MIT)
@@ -49,6 +54,7 @@ import filecmp
 ###############################################################
 #	Module with methods that perform file I/O operations.
 class file_io_operations:
+	#
 	# ============================================================
 	##	Method to check if a path to file is valid.
 	#	@param filename - Path to a file.
@@ -107,3 +113,26 @@ class file_io_operations:
 	@staticmethod
 	def file_comparison(file1, file2):
 		return filecmp.cmp(file1,file2,shallow=False)
+	# ============================================================
+	##	Method to determine the file extension of a file (or given
+	#		path).
+	#	@param filename - Path to a file.
+	#	@return the file extension of a file (or given path).
+	#	O(n) method, with respect to the number of characters in the
+	#		path_to_file argument;
+	#		traverse the string from the right end till the first
+	#			period is found (this indicates the file extension).
+	#	References:
+	#	1) \cite{Dharmkar2017}\cite{nosklo2017}
+	#	2) \cite[\S11 File and Directory Access, \S11.2 os.path - Common pathname manipulations]{DrakeJr2016b}
+	@staticmethod
+	def get_file_extension(filename):
+		temp_filename_extension = ""
+		while True:
+			filename_prefix, filename_extension = os.path.splitext(filename)
+			if not filename_extension:
+				break
+			else:
+				filename  = filename_prefix
+				temp_filename_extension = filename_extension + temp_filename_extension
+		return temp_filename_extension

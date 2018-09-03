@@ -205,7 +205,7 @@ if __name__ == "__main__":
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	queue_ip_args_tester.test_queue_ip_args()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	file_io_operations_tester.test_queue_ip_args()
+	file_io_operations_tester.test_file_io_operations()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")

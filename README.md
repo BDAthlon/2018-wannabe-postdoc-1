@@ -154,6 +154,11 @@ Using this refactored *Python* class has an impact on its corresponding
 Refactoring step has been completed.
 
 
+###	Generics Programming for *Python*
+
+References for generics programming for *Python*:
++ https://www.quora.com/Can-you-provide-an-example-of-generics-in-Python
++ https://www.quora.com/How-can-I-use-generic-in-Python
 
 
 #	References
