@@ -114,10 +114,9 @@ class file_io_operations:
 	def file_comparison(file1, file2):
 		return filecmp.cmp(file1,file2,shallow=False)
 	# ============================================================
-	##	Method to determine the file extension of a file (or given
-	#		path).
-	#	@param filename - Path to a file.
-	#	@return the file extension of a file (or given path).
+	##	Method to determine the file extension of a file.
+	#	@param filename - Name of a file.
+	#	@return the file extension of a file.
 	#	O(n) method, with respect to the number of characters in the
 	#		path_to_file argument;
 	#		traverse the string from the right end till the first
@@ -136,3 +135,21 @@ class file_io_operations:
 				filename  = filename_prefix
 				temp_filename_extension = filename_extension + temp_filename_extension
 		return temp_filename_extension
+	# ============================================================
+	##	Method to determine if the file extension of a file matches with
+	#		a given file extension.
+	#	@param filename - Name of a file.
+	#	@param file_extension - Extension
+	#	@return boolean True if the file extension of the given filename
+	#		matches file_extension; else, return False.
+	#	O(n) method, with respect to the number of characters in the
+	#		path_to_file argument;
+	#		traverse the string from the right end till the first
+	#			period is found (this indicates the file extension).
+	@staticmethod
+	def check_file_extension(filename, file_extension):
+		f_name, f_extension = get_file_extension(filename)
+		if filename_extension == f_extension:
+			return True
+		else:
+			return False
