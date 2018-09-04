@@ -359,9 +359,16 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: valid date & time				{}"
+		prompt = "	... Test: valid date & time - leap year			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if file_io_operations.check_filename_date_time_format("29-2-2016-13-58-59-734507.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: valid date & time				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.check_filename_date_time_format("28-2-2018-13-58-59-734507.txt"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
