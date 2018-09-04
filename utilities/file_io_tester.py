@@ -322,3 +322,47 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		# -----------------------------------------------------------------
+		print("	Testing file_io_operations.is_valid_date() method.")
+		prompt = "	... Test: single error, dd				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.check_filename_date_time_format("54-9-2018-13-58-59-734507.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, yy				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.check_filename_date_time_format("54-9-3018-13-58-59-734507.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, mm				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.check_filename_date_time_format("29-82-2018-13-58-59-734507.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: multiple errors, dd, mm, yy			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.check_filename_date_time_format("29-2-2018-13-58-59-734507.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: multiple errors, dd, mm, yy			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.check_filename_date_time_format("30-2-2016-13-58-59-734507.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: valid date & time				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.check_filename_date_time_format("29-2-2016-13-58-59-734507.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))

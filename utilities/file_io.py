@@ -203,20 +203,22 @@ class file_io_operations:
 			print("Date/Day is:%d",dd)
 			"""
 			return False
-		if (calendar.isleap(yy)) and (2 == mm) and ((1 <= dd) or (29 >= dd)):
+		if (calendar.isleap(yy)) and (2 == mm) and ((1 > dd) or (29 < dd)):
 			"""
 			print("Month is:%d",mm)
 			print("Date/Day is:%d",dd)
 			print("Leap year is:%d",calendar.isleap(yy))
 			print("Year is:%d",yy)
+			print("February has 29 days.")
 			"""
 			return False
-		if (not calendar.isleap(yy)) and (2 == mm) and ((1 <= dd) or (28 >= dd)):
+		if (not calendar.isleap(yy)) and (2 == mm) and ((1 > dd) or (28 < dd)):
 			"""
 			print("Month is:%d",mm)
 			print("Date/Day is:%d",dd)
 			print("Leap year is:%d",calendar.isleap(yy))
 			print("Year is:%d",yy)
+			print("February has 28 days.")
 			"""
 			return False
 		# Check if the month is valid: 1 <= tokens[0] <= 31.
@@ -246,5 +248,5 @@ class file_io_operations:
 	def check_filename_date_time_format(filename):
 		# Remove the file extension from the filename.
 		filename, filename_extension = os.path.splitext(filename)
-		tokens = filename.split("")
-		return (is_valid_time(int(tokens[0]),int(tokens[1]),int(tokens[2])) and is_valid_date(int(tokens[3]),int(tokens[4]),int(tokens[5]),int(tokens[6])))
+		tokens = filename.split("-")
+		return (file_io_operations.is_valid_date(int(tokens[0]),int(tokens[1]),int(tokens[2])) and file_io_operations.is_valid_time(int(tokens[3]),int(tokens[4]),int(tokens[5]),int(tokens[6])))
