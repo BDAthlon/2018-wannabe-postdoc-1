@@ -123,6 +123,7 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		except:
 			print(prompt .format("FAIL!!!"))
+		# -----------------------------------------------------------------
 		print("	... Testing file operations with valid file.")
 		filename = "notes/mit-license.text"
 		prompt = "	Test: file_io_operations.is_path_valid(...)	{}"
@@ -148,6 +149,7 @@ class file_io_operations_tester:
 		except:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		# -----------------------------------------------------------------
 		print("	Testing file operations on files with the same content.")
 		prompt = "	... Test: file_io_operations.file_comparison(...)	{}"
 		statistical_analysis.increment_number_test_cases_used()
@@ -184,6 +186,138 @@ class file_io_operations_tester:
 		prompt = "	... Test: multiple file extensions			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if file_io_operations.get_file_extension("something.pdf.tar.gz") == ".pdf.tar.gz":
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		# -----------------------------------------------------------------
+		print("	Testing file_io_operations.check_file_extension() method.")
+		prompt = "	... Test: same file extension				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if file_io_operations.check_file_extension("something.text",".text"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: different file extensions			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.check_file_extension("something.tar.gz",".rtsdtfyg"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		# -----------------------------------------------------------------
+		print("	Testing file_io_operations.is_valid_time() method.")
+		prompt = "	... Test: single error, hh				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_time(34,5,3,124395):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, mm				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_time(4,-8215,3,124395):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, ss				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_time(4,15,586,124395):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, us				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_time(4,15,56,123435435434395):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: double errors, ss and us			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_time(4,15,956,123435435434395):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: multiple errors, hh, ss, and us		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_time(42390534,15,956,123435435434395):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		# -----------------------------------------------------------------
+		print("	Testing file_io_operations.is_valid_date() method.")
+		prompt = "	... Test: single error, dd				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(34,5,2017):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, -dd				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(-6701,5,2017):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, mm				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(24,15,2017):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, mm				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(6,0,2017):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, -mm				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(6,-20,2017):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, yy				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(6,2,6017):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: single error, yy				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(6,2,1017):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: double errors, dd and yy			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(29,2,2018):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: double errors, dd and yy			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(30,2,1980):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: multiple errors, dd, mm, and yy		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not file_io_operations.is_valid_date(32,-4,1988):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
