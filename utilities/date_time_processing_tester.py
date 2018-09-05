@@ -82,12 +82,11 @@ from utilities.date_time_processing import date_time_operations
 """
 class date_time_operations_tester:
 	## =========================================================
-	#	Method to test the methods that perform date and time
-    #       operations.
+	#	Method to test the methods that perform time operations.
     #	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_date_time_operations():
+	def test_time_operations():
 		print("==	Testing class: date_time_operations.")
 		print("	Testing date_time_operations.is_valid_time() method.")
 		prompt = "	... Test: single error, hh				{}"
@@ -153,7 +152,19 @@ class date_time_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		# -----------------------------------------------------------------
+	## =========================================================
+	#	Method to test the methods that perform date operations.
+    #	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_is_valid_year():
+		return True
+	## =========================================================
+	#	Method to test the methods that perform date operations.
+    #	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_date_operations():
 		print("	Testing date_time_operations.is_valid_date() method.")
 		prompt = "	... Test: single error, dd				{}"
 		statistical_analysis.increment_number_test_cases_used()
@@ -304,3 +315,12 @@ class date_time_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the methods that perform date and time
+    #       operations.
+    #	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_date_time_operations():
+		date_time_operations_tester.test_time_operations()
+		date_time_operations_tester.test_date_operations()

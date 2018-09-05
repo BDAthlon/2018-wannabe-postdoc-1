@@ -80,84 +80,6 @@ class date_time_operations:
 		if (0>us) or (1000000<us):
 			return False
 		return True
-	# ============================================================
-	##	Method to determine if the year is valid.
-    #	Check if the year is valid: 2014 <= yy <= 2100.
-	#	@param yy - year of a date in numbers.
-	#	@return boolean True if the year is valid;
-	#		else, return False.
-	#	O(1) method.
-	@staticmethod
-	def is_valid_year(yy):
-		if (2014 > yy) or (2100 < yy):
-			return False
-		else:
-			return True
-    # ============================================================
-	##	Method to determine if the month is valid.
-	#	Check if the month is valid: 1 <= mm <= 12.
-	#	@param mm - Month of a date in numbers.
-	#	@return boolean True if the month is valid;
-	#		else, return False.
-	#	O(1) method.
-	@staticmethod
-	def is_valid_month(mm):
-		if (1 > mm) or (12 < mm):
-			return False
-		else:
-			return True
-    # ============================================================
-	##	Method to determine if the date/day of a 31-day month is valid.
-    #	@param dd - Date/Day of a date (specifically 31-day month)
-    #                   in numbers.
-	#	@param mm - 31-day month of a date in numbers.
-	#	@return boolean True if the date/day of a 31-day month is valid;
-	#		else, return False.
-	#	O(1) method.
-	@staticmethod
-	def is_valid_31_day_month(dd,mm):
-        # Check if month has 31 days, 1 <= dd <= 31.
-		if ((1 == mm) or (3 == mm) or (5 == mm) or (7 == mm) or (8 == mm) or (10 == mm) or (12 == mm)):
-			if (1 > dd) or (31 < dd):
-				return False
-			else:
-				return True
-    # ============================================================
-	##	Method to determine if the date/day of a 30-day month is valid.
-    #	@param dd - Date/Day of a date (specifically 30-day month)
-    #                   in numbers.
-	#	@param mm - 30-day month of a date in numbers.
-	#	@return boolean True if the date/day of a 30-day month is valid;
-	#		else, return False.
-	#	O(1) method.
-	@staticmethod
-	def is_valid_30_day_month(dd,mm):
-        # Check if month has 30 days, 1 <= dd <= 30.
-		if ((4 == mm) or (6 == mm) or (9 == mm) or (11 == mm)):
-			if (1 > dd) or (30 < dd):
-				return False
-			else:
-				return True
-    # ============================================================
-	##	Method to determine if the date in February is valid.
-	#	@param dd - Date/Day of a date in February in numbers.
-	#	@param mm - Month of a date (in February) in numbers.
-	#	@param yy - Year of a date in numbers.
-	#	@return boolean True if the date is valid;
-	#		else, return False.
-	#	O(1) method.
-	@staticmethod
-	def is_valid_date_in_Feb(dd,mm,yy):
-		if (calendar.isleap(yy)) and (2 == mm):
-			if ((1 > dd) or (29 < dd)):
-				return False
-			else:
-				return True
-		elif (not calendar.isleap(yy)) and (2 == mm):
-			if ((1 > dd) or (28 < dd)):
-				return False
-			else:
-				return True
     # ============================================================
 	##	Method to determine if the date is valid.
 	#	@param dd - Date/Day of a date in numbers.
@@ -168,7 +90,51 @@ class date_time_operations:
 	#	O(1) method.
 	@staticmethod
 	def is_valid_date(dd,mm,yy):
-		return (date_time_operations.is_valid_month(mm) and date_time_operations.is_valid_year(yy) and date_time_operations.is_valid_31_day_month(dd,mm) and date_time_operations.is_valid_30_day_month(dd,mm) and date_time_operations.is_valid_date_in_Feb(dd,mm,yy))
+		# Check if the month is valid: 1 <= tokens[1] <= 12.
+		if (1>mm) or (12<mm):
+			print("Month is:%d",mm)
+			return False
+		# Check if the year is valid: 2014 <= tokens[2] <= 2100.
+		if (2014>yy) or (2100<yy):
+			print("Year is:%d",yy)
+			return False
+		# Check if month has 31 days, 1 <= tokens[0] <= 31.
+		if ((1 == mm) or (3 == mm) or (5 == mm) or (7 == mm) or (8 == mm) or (10 == mm) or (12 == mm)) and ((1>dd) or (31<dd)):
+			#"""
+			print("Month is:%d",mm)
+			print("Date/Day is:%d",dd)
+			#"""
+			return False
+		if (calendar.isleap(yy)) and (2 == mm) and ((1 > dd) or (29 < dd)):
+			#"""
+			print("Month is:%d",mm)
+			print("Date/Day is:%d",dd)
+			print("Leap year is:%d",calendar.isleap(yy))
+			print("Year is:%d",yy)
+			print("February has 29 days.")
+			#"""
+			return False
+		if (not calendar.isleap(yy)) and (2 == mm) and ((1 > dd) or (28 < dd)):
+			#"""
+			print("Month is:%d",mm)
+			print("Date/Day is:%d",dd)
+			print("Leap year is:%d",calendar.isleap(yy))
+			print("Year is:%d",yy)
+			print("February has 28 days.")
+			#"""
+			return False
+		if ((4 == mm) or (6 == mm) or (9 == mm) or (10 == mm) or (12 == mm)) and ((1>dd) or (31<dd)):
+            print("Date/Day is:%d",dd)
+            print("Month is:%d",mm)
+            # Check if the month is valid: 1 <= tokens[0] <= 30.
+            return False
+		else:
+			#"""
+			print("Month is:%d",mm)
+			print("Date/Day is:%d",dd)
+			print("Year is:%d",yy)
+			#"""
+			return True
     # ============================================================
 	##	Method to determine if the filename contains information
 	#		about the date and time in which the output files are
