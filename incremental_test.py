@@ -96,6 +96,10 @@ from utilities.queue_ip_arguments_tester import queue_ip_args_tester
 from utilities.file_io import file_io_operations
 # Package and module to test file I/O (input/output) operations.
 from utilities.file_io_tester import file_io_operations_tester
+# Package and module to perform date and time operations.
+from utilities.date_time_processing import date_time_operations
+# Package and module to test date and time operations.
+from utilities.date_time_processing_tester import date_time_operations_tester
 
 ###############################################################
 """
@@ -206,6 +210,8 @@ if __name__ == "__main__":
 	queue_ip_args_tester.test_queue_ip_args()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	file_io_operations_tester.test_file_io_operations()
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	date_time_operations_tester.test_date_time_operations()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")
