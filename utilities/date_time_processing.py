@@ -120,8 +120,7 @@ class date_time_operations:
 		if ((1 == mm) or (3 == mm) or (5 == mm) or (7 == mm) or (8 == mm) or (10 == mm) or (12 == mm)):
 			if (1 > dd) or (31 < dd):
 				return False
-			else:
-				return True
+		return True
     # ============================================================
 	##	Method to determine if the date/day of a 30-day month is valid.
     #	@param dd - Date/Day of a date (specifically 30-day month)
