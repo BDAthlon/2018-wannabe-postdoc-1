@@ -9,7 +9,12 @@
 	Citations/References that use the LaTeX/BibTeX notation are taken
     	from my BibTeX database (set of BibTeX entries).
 
-
+	Notes/Assumptions:
+	Assume that the following functions would be used together
+		to validate the date/day of a month (and given year):
+		+ date_time_operations.is_valid_31_day_month(dd,mm)
+		+ date_time_operations.is_valid_30_day_month(dd,mm)
+		+ date_time_operations.is_valid_date_in_Feb(dd,mm,yy))
 """
 
 #	The MIT License (MIT)
@@ -114,6 +119,10 @@ class date_time_operations:
 	#	@return boolean True if the date/day of a 31-day month is valid;
 	#		else, return False.
 	#	O(1) method.
+	#
+	#	Assume that the functions is_valid_30_day_month(dd,mm) and
+	#		is_valid_date_in_Feb(dd,mm,yy) will determine the
+	#		validity of the date for not-a-31-day months.
 	@staticmethod
 	def is_valid_31_day_month(dd,mm):
 		if not date_time_operations.is_valid_month(mm):
@@ -122,6 +131,11 @@ class date_time_operations:
 		if ((1 == mm) or (3 == mm) or (5 == mm) or (7 == mm) or (8 == mm) or (10 == mm) or (12 == mm)):
 			if (1 > dd) or (31 < dd):
 				return False
+		"""
+			Assume that the functions is_valid_30_day_month(dd,mm) and
+				is_valid_date_in_Feb(dd,mm,yy) will determine the
+				validity of the date for not-a-31-day months.
+		"""
 		return True
     # ============================================================
 	##	Method to determine if the date/day of a 30-day month is valid.
@@ -131,6 +145,10 @@ class date_time_operations:
 	#	@return boolean True if the date/day of a 30-day month is valid;
 	#		else, return False.
 	#	O(1) method.
+	#
+	#	Assume that the functions is_valid_31_day_month(dd,mm) and
+	#		is_valid_date_in_Feb(dd,mm,yy) will determine the
+	#		validity of the date for not-a-30-day months.
 	@staticmethod
 	def is_valid_30_day_month(dd,mm):
 		if not date_time_operations.is_valid_month(mm):
@@ -139,6 +157,11 @@ class date_time_operations:
 		if ((4 == mm) or (6 == mm) or (9 == mm) or (11 == mm)):
 			if (1 > dd) or (30 < dd):
 				return False
+		"""
+			Assume that the functions is_valid_31_day_month(dd,mm) and
+				is_valid_date_in_Feb(dd,mm,yy) will determine the
+				validity of the date for not-a-30-day months.
+		"""
 		return True
     # ============================================================
 	##	Method to determine if the date in February is valid.
@@ -148,6 +171,10 @@ class date_time_operations:
 	#	@return boolean True if the date is valid;
 	#		else, return False.
 	#	O(1) method.
+	#
+	#	Assume that the functions is_valid_31_day_month(dd,mm)
+	#		and is_valid_30_day_month(dd,mm) will determine the
+	#		validity of the date for not-February months.
 	@staticmethod
 	def is_valid_date_in_Feb(dd,mm,yy):
 		if not date_time_operations.is_valid_year(yy):
@@ -165,6 +192,11 @@ class date_time_operations:
 			else:
 				return True
 		else:
+			"""
+				Assume that the functions is_valid_31_day_month(dd,mm)
+					and is_valid_30_day_month(dd,mm) will determine the
+					validity of the date for not-February months.
+			"""
 			return True
     # ============================================================
 	##	Method to determine if the date is valid.
@@ -174,6 +206,12 @@ class date_time_operations:
 	#	@return boolean True if the date is valid;
 	#		else, return False.
 	#	O(1) method.
+	#
+	#	Assume that the following functions would be used together
+	#		to validate the date/day of a month (and given year):
+	#		+ date_time_operations.is_valid_31_day_month(dd,mm)
+	#		+ date_time_operations.is_valid_30_day_month(dd,mm)
+	#		+ date_time_operations.is_valid_date_in_Feb(dd,mm,yy))
 	@staticmethod
 	def is_valid_date(dd,mm,yy):
 		return (date_time_operations.is_valid_month(mm) and date_time_operations.is_valid_year(yy) and date_time_operations.is_valid_31_day_month(dd,mm) and date_time_operations.is_valid_30_day_month(dd,mm) and date_time_operations.is_valid_date_in_Feb(dd,mm,yy))
