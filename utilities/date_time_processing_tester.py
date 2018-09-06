@@ -230,23 +230,109 @@ class date_time_operations_tester:
 	@staticmethod
 	def test_is_valid_31_day_month():
 		print("	Testing date_time_operations.is_valid_31_day_month() method.")
-		prompt = "	... Test: not 31-day month				{}"
+		prompt = "	... Test: not 31-day month, mm = 4			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if date_time_operations.is_valid_31_day_month(17,4):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: 31-day month, dd < 1				{}"
+		prompt = "	... Test: not 31-day month, mm = 2			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if date_time_operations.is_valid_31_day_month(17,4):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: 31-day month, dd < 0				{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if not date_time_operations.is_valid_31_day_month(-8,7):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: 31-day month, dd < 1				{}"
+		prompt = "	... Test: 31-day month, dd = 0				{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if not date_time_operations.is_valid_31_day_month(-8,7):
+		if not date_time_operations.is_valid_31_day_month(0,7):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: 31-day month, dd = 27				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if date_time_operations.is_valid_31_day_month(27,10):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test method that determines if the date/day of
+	#		a 30-day month is valid.
+    #	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_is_valid_30_day_month():
+		print("	Testing date_time_operations.is_valid_30_day_month() method.")
+		prompt = "	... Test: not 30-day month, mm = 2			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if date_time_operations.is_valid_30_day_month(17,2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: not 30-day month, mm = 12			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if date_time_operations.is_valid_30_day_month(17,12):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: 30-day month, dd < 0				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not date_time_operations.is_valid_30_day_month(-8,6):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: 30-day month, dd = 0				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not date_time_operations.is_valid_30_day_month(0,4):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: 30-day month, dd = 27				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if date_time_operations.is_valid_30_day_month(27,11):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test method that determines if the date/day of
+	#		February is valid.
+    #	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_is_valid_date_in_Feb():
+		print("	Testing date_time_operations.is_valid_date_in_Feb() method.")
+		prompt = "	... Test: not February, mm = 12				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if date_time_operations.is_valid_date_in_Feb(17,12,2016):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: not February, mm = -2				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not date_time_operations.is_valid_date_in_Feb(17,-2,2016):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: not February, mm = 14				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not date_time_operations.is_valid_date_in_Feb(17,14,2016):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -418,4 +504,6 @@ class date_time_operations_tester:
 		date_time_operations_tester.test_is_valid_year()
 		date_time_operations_tester.test_is_valid_month()
 		date_time_operations_tester.test_is_valid_31_day_month()
+		date_time_operations_tester.test_is_valid_30_day_month()
+		date_time_operations_tester.test_is_valid_date_in_Feb()
 		date_time_operations_tester.test_date_operations()

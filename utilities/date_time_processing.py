@@ -116,6 +116,8 @@ class date_time_operations:
 	#	O(1) method.
 	@staticmethod
 	def is_valid_31_day_month(dd,mm):
+		if not date_time_operations.is_valid_month(mm):
+			return False
         # Check if month has 31 days, 1 <= dd <= 31.
 		if ((1 == mm) or (3 == mm) or (5 == mm) or (7 == mm) or (8 == mm) or (10 == mm) or (12 == mm)):
 			if (1 > dd) or (31 < dd):
@@ -131,12 +133,13 @@ class date_time_operations:
 	#	O(1) method.
 	@staticmethod
 	def is_valid_30_day_month(dd,mm):
+		if not date_time_operations.is_valid_month(mm):
+			return False
         # Check if month has 30 days, 1 <= dd <= 30.
 		if ((4 == mm) or (6 == mm) or (9 == mm) or (11 == mm)):
 			if (1 > dd) or (30 < dd):
 				return False
-			else:
-				return True
+		return True
     # ============================================================
 	##	Method to determine if the date in February is valid.
 	#	@param dd - Date/Day of a date in February in numbers.
@@ -147,6 +150,10 @@ class date_time_operations:
 	#	O(1) method.
 	@staticmethod
 	def is_valid_date_in_Feb(dd,mm,yy):
+		if not date_time_operations.is_valid_year(yy):
+			return False
+		if not date_time_operations.is_valid_month(mm):
+			return False
 		if (calendar.isleap(yy)) and (2 == mm):
 			if ((1 > dd) or (29 < dd)):
 				return False
@@ -157,6 +164,8 @@ class date_time_operations:
 				return False
 			else:
 				return True
+		else:
+			return True
     # ============================================================
 	##	Method to determine if the date is valid.
 	#	@param dd - Date/Day of a date in numbers.
