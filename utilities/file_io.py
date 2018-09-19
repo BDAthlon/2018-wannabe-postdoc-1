@@ -107,6 +107,17 @@ class file_io_operations:
 		else:
 			raise Exception("File Write Operation: Path to file is valid.")
 	# ============================================================
+	##	Method to open a new file object for write/output operations.
+	#	@param filename - Path to a file.
+	#	@return file object op_file_obj
+	#	O(1) method.
+	@staticmethod
+	def open_file_object_write_new(filename):
+		if file_io_operations.is_path_valid(filename):
+			os.remove(filename)
+		op_file_obj = open(filename, 'w')
+		return op_file_obj
+	# ============================================================
 	##	Method to close a file object.
 	#	@param file_obj - A file object.
 	#	@return - Nothing.

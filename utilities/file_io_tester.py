@@ -63,6 +63,8 @@ import time
 import warnings
 import re
 import filecmp
+# Copy a file from [source] to [destination]
+from shutil import copyfile
 
 ###############################################################
 #	Import Custom Python Modules
@@ -118,6 +120,14 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		except:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	Test: file_io_ops[BLAH].open_file_object_write_new(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			f_obj = file_io_operations.open_file_object_write_new(filename)
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		except:
+			print(prompt .format("FAIL!!!"))
 		try:
 			#	Close the file object, and delete the file.
 			statistical_analysis.increment_number_test_cases_used()
@@ -153,6 +163,21 @@ class file_io_operations_tester:
 		except:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	Test: file_io_ops[BLAH].open_file_object_write_new(...)	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			f_obj = file_io_operations.open_file_object_write_new(filename)
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		except:
+			print(prompt .format("FAIL!!!"))
+		"""
+			Close the file object to preserve data in the test data file.
+			filename = "notes/mit-license.text"
+		"""
+		file_io_operations.close_file_object(f_obj)
+		# Copy a file from [source] to [destination]
+		copyfile("notes/trash/mit-license-spare-copy.text","notes/mit-license.text")
 		# -----------------------------------------------------------------
 		print("	Testing file operations on files with the same content.")
 		prompt = "	... Test: file_io_operations.file_comparison(...)	{}"
@@ -210,4 +235,3 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		

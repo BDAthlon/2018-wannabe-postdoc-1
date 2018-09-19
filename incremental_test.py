@@ -102,6 +102,13 @@ from utilities.date_time_processing import date_time_operations
 from utilities.date_time_processing_tester import date_time_operations_tester
 
 ###############################################################
+
+# Global variables.
+#	Location to store simulation and/or experimental results.
+result_repository = "/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
+
+
+###############################################################
 """
 	Module with methods that incrementally test features for my software
 		solution for genetic technology mapping.

@@ -83,7 +83,7 @@ from utilities.date_time_processing import date_time_operations
 class date_time_operations_tester:
 	## =========================================================
 	#	Method to test the methods that perform time operations.
-    #	@return - Nothing.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_time_operations():
@@ -154,7 +154,7 @@ class date_time_operations_tester:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test method that determines if year is valid.
-    #	@return - Nothing.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_is_valid_year():
@@ -189,7 +189,7 @@ class date_time_operations_tester:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test method that determines if month is valid.
-    #	@return - Nothing.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_is_valid_month():
@@ -225,7 +225,7 @@ class date_time_operations_tester:
 	## =========================================================
 	#	Method to test method that determines if the date/day of
 	#		a 31-day month is valid.
-    #	@return - Nothing.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_is_valid_31_day_month():
@@ -268,7 +268,7 @@ class date_time_operations_tester:
 	## =========================================================
 	#	Method to test method that determines if the date/day of
 	#		a 30-day month is valid.
-    #	@return - Nothing.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_is_valid_30_day_month():
@@ -311,7 +311,7 @@ class date_time_operations_tester:
 	## =========================================================
 	#	Method to test method that determines if the date/day of
 	#		February is valid.
-    #	@return - Nothing.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_is_valid_date_in_Feb():
@@ -339,7 +339,7 @@ class date_time_operations_tester:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the methods that perform date operations.
-    #	@return - Nothing.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_date_operations():
@@ -495,8 +495,8 @@ class date_time_operations_tester:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the methods that perform date and time
-    #       operations.
-    #	@return - Nothing.
+	#       operations.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_date_time_operations():

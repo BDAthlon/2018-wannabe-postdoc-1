@@ -7,7 +7,7 @@
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
-    	from my BibTeX database (set of BibTeX entries).
+		from my BibTeX database (set of BibTeX entries).
 
 	Notes/Assumptions:
 	Assume that the following functions would be used together
@@ -61,7 +61,7 @@ import calendar
 #	Module with methods that perform date & time processing/operations.
 class date_time_operations:
 	#
-    # ============================================================
+	# ============================================================
 	##	Method to determine if the time is valid.
 	#	@param hh - Hour of a time in numbers.
 	#	@param mm - Minutes of a time in numbers.
@@ -98,7 +98,7 @@ class date_time_operations:
 			return False
 		else:
 			return True
-    # ============================================================
+	# ============================================================
 	##	Method to determine if the month is valid.
 	#	Check if the month is valid: 1 <= mm <= 12.
 	#	@param mm - Month of a date in numbers.
@@ -111,10 +111,10 @@ class date_time_operations:
 			return False
 		else:
 			return True
-    # ============================================================
+	# ============================================================
 	##	Method to determine if the date/day of a 31-day month is valid.
-    #	@param dd - Date/Day of a date (specifically 31-day month)
-    #                   in numbers.
+	#	@param dd - Date/Day of a date (specifically 31-day month)
+	#                   in numbers.
 	#	@param mm - 31-day month of a date in numbers.
 	#	@return boolean True if the date/day of a 31-day month is valid;
 	#		else, return False.
@@ -127,7 +127,7 @@ class date_time_operations:
 	def is_valid_31_day_month(dd,mm):
 		if not date_time_operations.is_valid_month(mm):
 			return False
-        # Check if month has 31 days, 1 <= dd <= 31.
+		# Check if month has 31 days, 1 <= dd <= 31.
 		if ((1 == mm) or (3 == mm) or (5 == mm) or (7 == mm) or (8 == mm) or (10 == mm) or (12 == mm)):
 			if (1 > dd) or (31 < dd):
 				return False
@@ -137,10 +137,10 @@ class date_time_operations:
 				validity of the date for not-a-31-day months.
 		"""
 		return True
-    # ============================================================
+	# ============================================================
 	##	Method to determine if the date/day of a 30-day month is valid.
-    #	@param dd - Date/Day of a date (specifically 30-day month)
-    #                   in numbers.
+	#	@param dd - Date/Day of a date (specifically 30-day month)
+	#                   in numbers.
 	#	@param mm - 30-day month of a date in numbers.
 	#	@return boolean True if the date/day of a 30-day month is valid;
 	#		else, return False.
@@ -153,7 +153,7 @@ class date_time_operations:
 	def is_valid_30_day_month(dd,mm):
 		if not date_time_operations.is_valid_month(mm):
 			return False
-        # Check if month has 30 days, 1 <= dd <= 30.
+		# Check if month has 30 days, 1 <= dd <= 30.
 		if ((4 == mm) or (6 == mm) or (9 == mm) or (11 == mm)):
 			if (1 > dd) or (30 < dd):
 				return False
@@ -163,7 +163,7 @@ class date_time_operations:
 				validity of the date for not-a-30-day months.
 		"""
 		return True
-    # ============================================================
+	# ============================================================
 	##	Method to determine if the date in February is valid.
 	#	@param dd - Date/Day of a date in February in numbers.
 	#	@param mm - Month of a date (in February) in numbers.
@@ -198,7 +198,7 @@ class date_time_operations:
 					validity of the date for not-February months.
 			"""
 			return True
-    # ============================================================
+	# ============================================================
 	##	Method to determine if the date is valid.
 	#	@param dd - Date/Day of a date in numbers.
 	#	@param mm - Month of a date in numbers.
@@ -215,7 +215,24 @@ class date_time_operations:
 	@staticmethod
 	def is_valid_date(dd,mm,yy):
 		return (date_time_operations.is_valid_month(mm) and date_time_operations.is_valid_year(yy) and date_time_operations.is_valid_31_day_month(dd,mm) and date_time_operations.is_valid_30_day_month(dd,mm) and date_time_operations.is_valid_date_in_Feb(dd,mm,yy))
-    # ============================================================
+	# ============================================================
+	##	Method to tokenize the filename containing information
+	#		about the date and time in which the output files are
+	#		generated.
+	#	@param filename - Name of a file.
+	#	@return tokens if the filename contains the date and
+	#		time placed in the DD-MM-YY-HR-SS-US format is valid;
+	#		else, return False.
+	#	O(n) method, with respect to the number of characters in the
+	#		filename argument;
+	#		traverse the string from the right end till the first
+	#			period is found (this indicates the file extension).
+	@staticmethod
+	def check_filename_date_time_format(filename):
+		# Remove the file extension from the filename.
+		filename, filename_extension = os.path.splitext(filename)
+		tokens = filename.split("-")
+	# ============================================================
 	##	Method to determine if the filename contains information
 	#		about the date and time in which the output files are
 	#		generated.
