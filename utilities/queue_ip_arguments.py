@@ -138,7 +138,7 @@ class queue_ip_args:
 	#		arguments, for easier processing.
 	#	@param list_of_ip_arguments - A list of input arguments to
 	#		the program.
-	#	@param which_script - Which script is currently being executed.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def set_input_arguments(list_of_ip_arguments):

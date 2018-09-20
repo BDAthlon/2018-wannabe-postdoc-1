@@ -118,6 +118,18 @@ class file_io_operations:
 		op_file_obj = open(filename, 'w')
 		return op_file_obj
 	# ============================================================
+	##	Method to open a new file object for write/output operations
+	#		to store simulation and/or experimental results.
+	#	@param - None.
+	#	@return file object results_file_obj
+	#	O(1) method.
+	@staticmethod
+	def open_file_object_write_results():
+		# Determine path to store simulation/experimental results.
+		results_filename = generate_filename.create_filename()
+		print(result_repository,"=works=")
+		return results_file_obj
+	# ============================================================
 	##	Method to close a file object.
 	#	@param file_obj - A file object.
 	#	@return - Nothing.

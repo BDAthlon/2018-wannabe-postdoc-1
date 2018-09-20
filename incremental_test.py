@@ -127,6 +127,7 @@ class Incremental_Test_Automation:
 	#	Other methods.
 	# ============================================================
 	##	Method to add BibTeX keys into a list, "set_of_BibTeX_keys".
+	#	@return ???
 	#	O(n) method, where n is the number of BibTeX keys.
 	@staticmethod
 	def add_BibTeX_key(found_BibTeX_key):
@@ -204,7 +205,6 @@ if __name__ == "__main__":
 	# Process the first input argument.
 	print("=	Process the first input argument.")
 	ip_filename = queue_ip_args.process_1st_ip_arg()
-	# Create a file object for reading.
 	print("=	Create a file object for reading.")
 	# Create a file object for input BibTeX file, in reading mode.
 	ip_file_obj = file_io_operations.open_file_object_read(ip_filename)
