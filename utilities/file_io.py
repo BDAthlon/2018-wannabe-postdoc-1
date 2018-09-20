@@ -121,7 +121,8 @@ class file_io_operations:
 	##	Method to open a new file object for write/output operations
 	#		to store simulation and/or experimental results.
 	#	@param - None.
-	#	@return file object results_file_obj
+	#	@return file object "results_file_obj" that writes data
+	#		containing simulation and/or experimental results.
 	#	O(1) method.
 	@staticmethod
 	def open_file_object_write_results():
