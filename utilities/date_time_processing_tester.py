@@ -509,8 +509,6 @@ class date_time_operations_tester:
 		prompt = "	... Test: invalid DD-MM-YY-HR-MN-SS-US format		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		tokens = date_time_operations.get_date_time_tokens_of_filename(generate_filename.create_filename())
-		print("	... Length of tokens:",len(tokens))
-		print("	... The tokens are:",tokens)
 		if (None != tokens) and (7 == len(tokens)):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
