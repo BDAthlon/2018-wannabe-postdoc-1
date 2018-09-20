@@ -508,6 +508,22 @@ class date_time_operations_tester:
 		print("	Testing date & time tokenization method.")
 		prompt = "	... Test: invalid DD-MM-YY-HR-MN-SS-US format		{}"
 		statistical_analysis.increment_number_test_cases_used()
+		tokens = date_time_operations.get_date_time_tokens_of_filename("12-2018-14-11-50-912982.invalid")
+		if (None != tokens) and (7 == len(tokens)):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: with None object				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		tokens = None
+		if (None != tokens) and (7 == len(tokens)):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: valid DD-MM-YY-HR-MN-SS-US format		{}"
+		statistical_analysis.increment_number_test_cases_used()
 		tokens = date_time_operations.get_date_time_tokens_of_filename(generate_filename.create_filename())
 		if (None != tokens) and (7 == len(tokens)):
 			print(prompt .format("OK"))
