@@ -71,6 +71,11 @@ from statistics.test_statistics import statistical_analysis
 from utilities.queue_ip_arguments import queue_ip_args
 # Package and module to perform date and time operations.
 from utilities.date_time_processing import date_time_operations
+"""
+	Module to generate the filename for storing the experimental
+		results and simulation output.
+"""
+from utilities.generate_results_filename import generate_filename
 
 ###############################################################
 """
@@ -494,6 +499,24 @@ class date_time_operations_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
+	#	Method to test the method that tokenizes a filename in
+	#		the DD-MM-YY-HR-MN-SS-US format.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_date_time_tokenization():
+		print("	Testing date & time tokenization method.")
+		prompt = "	... Test: invalid DD-MM-YY-HR-MN-SS-US format		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		tokens = date_time_operations.get_date_time_tokens_of_filename(generate_filename.create_filename())
+		print("	... Length of tokens:",len(tokens))
+		print("	... The tokens are:",tokens)
+		if (None != tokens) and (7 == len(tokens)):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
 	#	Method to test the methods that perform date and time
 	#       operations.
 	#	@return - Nothing.
@@ -507,3 +530,4 @@ class date_time_operations_tester:
 		date_time_operations_tester.test_is_valid_30_day_month()
 		date_time_operations_tester.test_is_valid_date_in_Feb()
 		date_time_operations_tester.test_date_operations()
+		date_time_operations_tester.test_date_time_tokenization()

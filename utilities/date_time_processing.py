@@ -220,25 +220,29 @@ class date_time_operations:
 	#		about the date and time in which the output files are
 	#		generated.
 	#	@param filename - Name of a file.
-	#	@return tokens if the filename contains the date and
-	#		time placed in the DD-MM-YY-HR-SS-US format is valid;
-	#		else, return False.
+	#	@return tokens if the filename containing the date and
+	#		time placed in the DD-MM-YY-HR-MN-SS-US format is valid;
+	#		else, return None.
 	#	O(n) method, with respect to the number of characters in the
 	#		filename argument;
 	#		traverse the string from the right end till the first
 	#			period is found (this indicates the file extension).
 	@staticmethod
-	def check_filename_date_time_format(filename):
-		# Remove the file extension from the filename.
-		filename, filename_extension = os.path.splitext(filename)
-		tokens = filename.split("-")
+	def get_date_time_tokens_of_filename(filename):
+		if date_time_operations.check_filename_date_time_format(filename):
+			# Remove the file extension from the filename.
+			filename, filename_extension = os.path.splitext(filename)
+			tokens = filename.split("-")
+			return tokens
+		else:
+			return None
 	# ============================================================
 	##	Method to determine if the filename contains information
 	#		about the date and time in which the output files are
 	#		generated.
 	#	@param filename - Name of a file.
 	#	@return boolean True if the filename contains the date and
-	#		time placed in the DD-MM-YY-HR-SS-US format is valid;
+	#		time placed in the DD-MM-YY-HR-MN-SS-US format is valid;
 	#		else, return False.
 	#	O(n) method, with respect to the number of characters in the
 	#		filename argument;
@@ -246,6 +250,12 @@ class date_time_operations:
 	#			period is found (this indicates the file extension).
 	@staticmethod
 	def check_filename_date_time_format(filename):
+		"""
+			Cannot use the get_date_time_tokens_of_filename() method
+				of this date_time_operations module/class, because it
+				will result in infinite recursion.
+			#tokens = date_time_operations.get_date_time_tokens_of_filename(filename)
+		"""
 		# Remove the file extension from the filename.
 		filename, filename_extension = os.path.splitext(filename)
 		tokens = filename.split("-")
