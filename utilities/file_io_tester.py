@@ -89,12 +89,13 @@ from utilities.file_io import file_io_operations
 """
 class file_io_operations_tester:
 	## =========================================================
-	#	Method to test the methods that perform file I/O operations.
+	#	Method to test the methods that perform file I/O operations
+	#		with an invalid file.
+	#	@param - Nothing
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_file_io_operations():
-		print("==	Testing class: file_io_operations.")
+	def test_file_io_operations_with_invalid_file():
 		print("	... Testing file operations with invalid file.")
 		filename = "nonsense"
 		prompt = "	Test: file_io_operations.is_path_valid(...)	{}"
@@ -137,7 +138,14 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		except:
 			print(prompt .format("FAIL!!!"))
-		# -----------------------------------------------------------------
+	## =========================================================
+	#	Method to test the methods that perform file I/O operations
+	#		with a valid file.
+	#	@param - Nothing
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_file_io_operations_with_valid_file():
 		print("	... Testing file operations with valid file.")
 		filename = "notes/mit-license.text"
 		prompt = "	Test: file_io_operations.is_path_valid(...)	{}"
@@ -178,7 +186,13 @@ class file_io_operations_tester:
 		file_io_operations.close_file_object(f_obj)
 		# Copy a file from [source] to [destination]
 		copyfile("notes/trash/mit-license-spare-copy.text","notes/mit-license.text")
-		# -----------------------------------------------------------------
+	## =========================================================
+	#	Method to test file operations on files with the same content.
+	#	@param - Nothing
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_file_io_operations_on_files_with_same_content():
 		print("	Testing file operations on files with the same content.")
 		prompt = "	... Test: file_io_operations.file_comparison(...)	{}"
 		statistical_analysis.increment_number_test_cases_used()
@@ -195,7 +209,12 @@ class file_io_operations_tester:
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		# -----------------------------------------------------------------
+	## =========================================================
+	#	Method to test file_io_operations.get_file_extension() method.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_file_io_operations_get_file_extension():
 		print("	Testing file_io_operations.get_file_extension() method.")
 		prompt = "	... Test: one file extension				{}"
 		statistical_analysis.increment_number_test_cases_used()
@@ -219,7 +238,12 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		# -----------------------------------------------------------------
+	## =========================================================
+	#	Method to test file_io_operations.check_file_extension() method.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_file_io_operations_check_file_extension():
 		print("	Testing file_io_operations.check_file_extension() method.")
 		prompt = "	... Test: same file extension				{}"
 		statistical_analysis.increment_number_test_cases_used()
@@ -235,3 +259,32 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test file_io_operations.open_file_object_write_results()
+	#		method.
+	#	@param - Nothing
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_file_io_operations_open_file_object_write_results():
+		prompt = "	Test: file_io_BLAH.open_file_object_write_results()	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		results_f_obj = file_io_operations.open_file_object_write_results()
+		if results_f_obj:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the methods that perform file I/O operations.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_file_io_operations():
+		print("==	Testing class: file_io_operations.")
+		file_io_operations_tester.test_file_io_operations_with_invalid_file()
+		file_io_operations_tester.test_file_io_operations_with_valid_file()
+		file_io_operations_tester.test_file_io_operations_on_files_with_same_content()
+		file_io_operations_tester.test_file_io_operations_get_file_extension()
+		file_io_operations_tester.test_file_io_operations_check_file_extension()
+		file_io_operations_tester.test_file_io_operations_open_file_object_write_results()

@@ -105,7 +105,7 @@ from utilities.date_time_processing_tester import date_time_operations_tester
 
 # Global variables.
 #	Location to store simulation and/or experimental results.
-result_repository = "/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
+#result_repository = "/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 
 
 ###############################################################
@@ -220,6 +220,7 @@ if __name__ == "__main__":
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	date_time_operations_tester.test_date_time_operations()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	#	Test expr_configuration
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")
 	print(">>	Get statistics of the software testing process.")

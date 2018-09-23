@@ -60,13 +60,20 @@ import calendar
 ###############################################################
 #	Import Custom Python Modules
 
-# Package and module to perform file I/O operations.
-#from utilities.file_io import file_io_operations
-
+# Package and module to perform date and time operations.
+from utilities.date_time_processing import date_time_operations
+"""
+	Module to generate the filename for storing the experimental
+		results and simulation output.
+"""
+from utilities.generate_results_filename import generate_filename
 
 ###############################################################
 #	Module with methods that perform file I/O operations.
 class file_io_operations:
+	#	Location to store simulation and/or experimental results.
+	#result_repository = "~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
+	result_repository = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 	#
 	# ============================================================
 	##	Method to check if a path to file is valid.
@@ -128,8 +135,17 @@ class file_io_operations:
 	def open_file_object_write_results():
 		# Determine path to store simulation/experimental results.
 		results_filename = generate_filename.create_filename()
-		print(result_repository,"=works=")
-		return results_file_obj
+		# Tokenize this filename (DD-MM-YY-HR-MN-SS-US format).
+		tokens = date_time_operations.get_date_time_tokens_of_filename(results_filename)
+		current_path = file_io_operations.result_repository + "/" + tokens[2]
+		#if (os.path.exists(current_path) and os.path.isdir(current_path)):
+		if os.path.isdir(current_path):
+			print(current_path,"=works=")
+		else:
+			print("	... Creating directory at:",current_path)
+			print("	...os.path.exists(current_path:",os.path.exists(current_path))
+			print("	...os.path.isdir(current_path):",os.path.isdir(current_path))
+		return file_io_operations.open_file_object_write(results_filename)
 	# ============================================================
 	##	Method to close a file object.
 	#	@param file_obj - A file object.

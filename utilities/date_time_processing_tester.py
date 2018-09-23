@@ -506,10 +506,12 @@ class date_time_operations_tester:
 	@staticmethod
 	def test_date_time_tokenization():
 		print("	Testing date & time tokenization method.")
+		# Number of tokens in the DD-MM-YY-HR-MN-SS-US format.
+		number_of_tokens = 7
 		prompt = "	... Test: invalid DD-MM-YY-HR-MN-SS-US format		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		tokens = date_time_operations.get_date_time_tokens_of_filename("12-2018-14-11-50-912982.invalid")
-		if (None != tokens) and (7 == len(tokens)):
+		if (None != tokens) and (number_of_tokens == len(tokens)):
 			print(prompt .format("FAIL!!!"))
 		else:
 			print(prompt .format("OK"))
@@ -517,7 +519,7 @@ class date_time_operations_tester:
 		prompt = "	... Test: with None object				{}"
 		statistical_analysis.increment_number_test_cases_used()
 		tokens = None
-		if (None != tokens) and (7 == len(tokens)):
+		if (None != tokens) and (number_of_tokens == len(tokens)):
 			print(prompt .format("FAIL!!!"))
 		else:
 			print(prompt .format("OK"))
@@ -525,7 +527,7 @@ class date_time_operations_tester:
 		prompt = "	... Test: valid DD-MM-YY-HR-MN-SS-US format		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		tokens = date_time_operations.get_date_time_tokens_of_filename(generate_filename.create_filename())
-		if (None != tokens) and (7 == len(tokens)):
+		if (None != tokens) and (number_of_tokens == len(tokens)):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
