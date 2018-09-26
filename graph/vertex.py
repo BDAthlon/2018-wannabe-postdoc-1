@@ -63,4 +63,4 @@ import calendar
 ###############################################################
 #	Module with methods that perform file I/O operations.
 class vertex:
-	
+	# 
