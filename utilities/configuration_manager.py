@@ -2,9 +2,12 @@
 ###	/usr/bin/python
 
 """
-	This Python script is written by Zhiyang Ong to perform
-		input/output (I/O) operations on files, such as BibTeX
-		databases/files, LaTeX documents, and JSON files.
+	This Python script is written by Zhiyang Ong to configure the
+		software application's parameters, via a JSON-based
+		"parameters.config" (or "configuration.json") file.
+
+	Synopsis:
+	Manage the configuration of the software application's parameters.
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
@@ -75,17 +78,18 @@ class config_manager:
 	#	O(1) method.
 	@staticmethod
 	def set_result_repository(location):
+		if not os.path.isabs(location):
+		#	print("	location is a relative path.")
+			# Change the relative path to an absolute path.
+			location = os.path.expanduser(location)
+		#else:
+		#	print("	location is an absolute path.")
 		if os.path.isdir(location):
-			print("	location is a valid directory.")
-			if os.path.isabs(location):
-				print("	location is an absolute path.")
-				config_manager.result_repository = location
-			else:
-				print("	location is a relative path.")
-				config_manager.result_repository = os.path.expanduser(location)
+			#print("	location is a valid directory.")
+			config_manager.result_repository = location
 			return True
 		else:
-			print("	location is an invalid directory.")
+			#print("	location is an invalid directory.")
 			return False
 	# ============================================================
 	##	Method to get the location of simulation/experimental results.

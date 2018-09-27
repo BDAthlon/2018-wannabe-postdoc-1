@@ -7,6 +7,9 @@
 		input/output (I/O) operations on files, such as BibTeX
 		databases/files, LaTeX documents, and JSON files.
 
+	Synopsis:
+	Perform input/output (I/O) operations on files.
+
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
     	from my BibTeX database (set of BibTeX entries).

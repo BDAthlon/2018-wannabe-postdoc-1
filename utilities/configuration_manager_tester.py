@@ -4,7 +4,8 @@
 """
 	This Python script is written by Zhiyang Ong to test the
 		configuration of the software application's parameters,
-		via a JSON-based ".config" (or "configuration.json") file.
+		via a JSON-based "parameters.config" (or "configuration.json")
+		file.
 
 	Synopsis:
 	Test the configuration of the software application's parameters.
@@ -118,6 +119,7 @@ class config_manager_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 			print("Actual location=",config_manager.get_result_repository(),"=")
+		# ------------------------------------------------------------
 		prompt = "	... Test: result_repository, check change to rel. path.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		"""
@@ -135,6 +137,26 @@ class config_manager_tester:
 			This is because if a relative path is detected, it will be
 				transform/changed to an absolute path, before being
 				assigned to "result_repository".
+		"""
+		if (config_manager.get_result_repository() == absolute_path):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("Actual location=",config_manager.get_result_repository(),"=")
+		# ------------------------------------------------------------
+		prompt = "	... Test: result_repository, changing to invalid path.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		"""
+			Set "result_repository" to an invalid path.
+		"""
+		if not config_manager.set_result_repository("~/This/is/an/invalid/path"):
+			print("	result_repository is not changed to an invalid path.")
+		else:
+			print("	result_repository is CHANGED to an INVALID path.")
+		"""
+			"result_repository" should not be changed to an invalid path.
+			Hence, it shall still refer to "absolute_path".
 		"""
 		if (config_manager.get_result_repository() == absolute_path):
 			print(prompt .format("OK"))
