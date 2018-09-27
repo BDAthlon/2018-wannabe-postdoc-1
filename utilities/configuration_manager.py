@@ -9,6 +9,16 @@
 	Synopsis:
 	Manage the configuration of the software application's parameters.
 
+	Notes/Assumptions:
+		JSON (JavaScript Object Notation) is a subset of YAML
+			(YAML Ain't Markup Language) \cite{WikipediaContributors2018o}.
+		Hence, JSON is simpler to parse than YAML.
+		Also, since XML (Extensible Markup Language)
+			\cite{WikipediaContributors2018n} is more complex
+			to parse than JSON \cite{Desai2015}, I am going to
+			use the JSON format to represent data that is used
+			to configure the parameters of the software application.
+
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
     	from my BibTeX database (set of BibTeX entries).
