@@ -100,6 +100,16 @@ from utilities.file_io_tester import file_io_operations_tester
 from utilities.date_time_processing import date_time_operations
 # Package and module to test date and time operations.
 from utilities.date_time_processing_tester import date_time_operations_tester
+"""
+	Package and module to configure the software application's
+		parameters.
+"""
+from utilities.configuration_manager import config_manager
+"""
+	Package and module to test the configuration of the software
+		application's parameters.
+"""
+from utilities.configuration_manager_tester import config_manager_tester
 
 ###############################################################
 
@@ -219,6 +229,8 @@ if __name__ == "__main__":
 	file_io_operations_tester.test_file_io_operations()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	date_time_operations_tester.test_date_time_operations()
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	config_manager_tester.test_configure_sw_application_parameters()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	Test expr_configuration
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)

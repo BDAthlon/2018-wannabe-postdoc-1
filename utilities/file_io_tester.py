@@ -75,7 +75,7 @@ from shutil import copyfile
 """
 from statistics.test_statistics import statistical_analysis
 # Package and module to process input arguments to the script/program.
-from utilities.queue_ip_arguments import queue_ip_args
+#from utilities.queue_ip_arguments import queue_ip_args
 # Package and module to perform file I/O operations.
 from utilities.file_io import file_io_operations
 
