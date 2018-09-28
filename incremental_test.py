@@ -208,6 +208,9 @@ class Incremental_Test_Automation:
 
 #	If this is executed as a Python script,
 if __name__ == "__main__":
+	results_file_object = file_io_operations.open_file_object_write_results()
+	file_io_operations.redirect_std_op_to_file_obj(results_file_object)
+	file_io_operations.redirect_std_err_to_file_obj(results_file_object)
 	print("==================================================")
 	print("Automating incremental regression testing of my software")
 	print("	solution for genetic technology mapping.")
@@ -245,5 +248,10 @@ if __name__ == "__main__":
 	print(">>	Get statistics of the software testing process.")
 	statistical_analysis.print_statistics_of_software_testing()
 	# Close the file object for reading.
-	print("=	Close the file object for reading.")
+	print("=	Close the file objects for reading.")
 	file_io_operations.close_file_object(ip_file_obj)
+	file_io_operations.close_file_object(results_file_object)
+	# Stop redirecting standard output.
+	file_io_operations.stop_redirecting_std_op()
+	file_io_operations.stop_redirecting_std_err()
+	print("<<	I can see this in standard output, printed in the Terminal.")

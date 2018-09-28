@@ -130,7 +130,7 @@ class json_obj_tester:
 			print(prompt .format("FAIL!!!"))
 		file_io_operations.close_file_object(Congleton2017_json_fo)
 		# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-		prompt = "	Test: Congleton2017_json				{}"
+		prompt = "	Test: WikipediaContributors2018p_1_json			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		WikipediaContributors2018p_1_json_fo_1 = file_io_operations.open_file_object_read(WikipediaContributors2018p_1_json)
 		WikipediaContributors2018p_1_json_fo_2 = file_io_operations.open_file_object_read(WikipediaContributors2018p_1_json)
@@ -155,3 +155,57 @@ class json_obj_tester:
 				operations, a run-time json.decoder.JSONDecodeError will
 				occur.
 		"""
+		# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+		prompt = "	Test: WikipediaContributors2018p_2_json			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		WikipediaContributors2018p_2_json_fo_1 = file_io_operations.open_file_object_read(WikipediaContributors2018p_2_json)
+		WikipediaContributors2018p_2_json_fo_2 = file_io_operations.open_file_object_read(WikipediaContributors2018p_2_json)
+		json_to_py_obj = json_obj(WikipediaContributors2018p_2_json_fo_1)
+		WikipediaContributors2018p_2_json_dict = json.load(WikipediaContributors2018p_2_json_fo_2)
+		"""
+			Compare contents of the Python Object with that from the
+				json.load() operation.
+		"""
+		if json_to_py_obj.__list__ == WikipediaContributors2018p_2_json_dict:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		file_io_operations.close_file_object(WikipediaContributors2018p_2_json_fo_1)
+		file_io_operations.close_file_object(WikipediaContributors2018p_2_json_fo_2)
+		# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+		prompt = "	Test: WikipediaContributors2018p_3_json			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		WikipediaContributors2018p_3_json_fo_1 = file_io_operations.open_file_object_read(WikipediaContributors2018p_3_json)
+		WikipediaContributors2018p_3_json_fo_2 = file_io_operations.open_file_object_read(WikipediaContributors2018p_3_json)
+		json_to_py_obj = json_obj(WikipediaContributors2018p_3_json_fo_1)
+		WikipediaContributors2018p_3_json_dict = json.load(WikipediaContributors2018p_3_json_fo_2)
+		"""
+			Compare contents of the Python Object with that from the
+				json.load() operation.
+		"""
+		if json_to_py_obj.__list__ == WikipediaContributors2018p_3_json_dict:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		file_io_operations.close_file_object(WikipediaContributors2018p_3_json_fo_1)
+		file_io_operations.close_file_object(WikipediaContributors2018p_3_json_fo_2)
+		# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+		prompt = "	Test: WikipediaContributors2018p_4_json			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		WikipediaContributors2018p_4_json_fo_1 = file_io_operations.open_file_object_read(WikipediaContributors2018p_4_json)
+		WikipediaContributors2018p_4_json_fo_2 = file_io_operations.open_file_object_read(WikipediaContributors2018p_4_json)
+		json_to_py_obj = json_obj(WikipediaContributors2018p_4_json_fo_1)
+		WikipediaContributors2018p_4_json_dict = json.load(WikipediaContributors2018p_4_json_fo_2)
+		"""
+			Compare contents of the Python Object with that from the
+				json.load() operation.
+		"""
+		if json_to_py_obj.__list__ == WikipediaContributors2018p_4_json_dict:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		file_io_operations.close_file_object(WikipediaContributors2018p_4_json_fo_1)
+		file_io_operations.close_file_object(WikipediaContributors2018p_4_json_fo_2)

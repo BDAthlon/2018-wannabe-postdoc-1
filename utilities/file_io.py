@@ -77,6 +77,10 @@ class file_io_operations:
 	#	Location to store simulation and/or experimental results.
 	#result_repository = "~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 	result_repository = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
+	# Backup of the standard output.
+	std_op_backup = None
+	# Backup of the standard error.
+	std_err_backup = None
 	#
 	# ============================================================
 	##	Method to check if a path to file is valid.
@@ -143,7 +147,7 @@ class file_io_operations:
 		current_path = file_io_operations.result_repository + "/" + tokens[2]
 		#if (os.path.exists(current_path) and os.path.isdir(current_path)):
 		if os.path.isdir(current_path):
-			print(current_path,"=works=")
+			print(current_path,"=works= ... From: file_io.py, line 146.")
 		else:
 			print("	... Creating directory at:",current_path)
 			print("	...os.path.exists(current_path:",os.path.exists(current_path))
@@ -208,3 +212,41 @@ class file_io_operations:
 			return True
 		else:
 			return False
+	# ============================================================
+	##	Method to end redirection of standard output.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def stop_redirecting_std_op():
+		sys.stdout = file_io_operations.std_op_backup
+	# ============================================================
+	##	Method to redirect standard output to a file object with
+	#		write access.
+	#	@param file_obj - File object with write access.
+	#	@return boolean True if standard output is redirected to
+	#		a file object with write access; else, return False.
+	#	O(1) method.
+	@staticmethod
+	def redirect_std_op_to_file_obj(file_obj):
+		file_io_operations.std_op_backup = sys.stdout
+		sys.stdout = file_obj
+	# ============================================================
+	##	Method to end redirection of standard error.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def stop_redirecting_std_err():
+		sys.stderr = file_io_operations.std_err_backup
+	# ============================================================
+	##	Method to redirect standard error to a file object with
+	#		write access.
+	#	@param file_obj - File object with write access.
+	#	@return boolean True if standard error is redirected to
+	#		a file object with write access; else, return False.
+	#	O(1) method.
+	@staticmethod
+	def redirect_std_err_to_file_obj(file_obj):
+		file_io_operations.std_err_backup = sys.stderr
+		sys.stderr = file_obj
