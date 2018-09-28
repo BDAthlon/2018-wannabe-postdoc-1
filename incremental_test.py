@@ -88,6 +88,7 @@ import re
 from statistics.test_statistics import statistical_analysis
 # Package and module to check the validation of statistical analysis.
 from statistics.test_statistics_tester import statistical_analysis_tester
+
 # Package and module to process input arguments to the script/program.
 from utilities.queue_ip_arguments import queue_ip_args
 # Package and module to validate processing of input arguments.
@@ -110,6 +111,10 @@ from utilities.configuration_manager import config_manager
 		application's parameters.
 """
 from utilities.configuration_manager_tester import config_manager_tester
+
+# Package and module to transform JSON objects to Python objects.
+from parsers.json_object import json_obj
+from parsers.json_object_tester import json_obj_tester
 
 ###############################################################
 
@@ -231,6 +236,8 @@ if __name__ == "__main__":
 	date_time_operations_tester.test_date_time_operations()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	config_manager_tester.test_configure_sw_application_parameters()
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	json_obj_tester.test_json_object_accessibility()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	Test expr_configuration
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)

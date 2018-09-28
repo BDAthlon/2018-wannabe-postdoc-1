@@ -60,6 +60,7 @@
 	warnings	Raise warnings.
 	re			Use regular expressions.
 	filecmp		For file comparison.
+	json		For parsing JSON files and processing JSON-based data.
 """
 
 import sys
@@ -70,7 +71,7 @@ import time
 import warnings
 import re
 import filecmp
-import calendar
+import json
 
 
 ###############################################################
@@ -82,10 +83,11 @@ import calendar
 	Module to contain (nested) dictionaries of a JSON object in
 		JavaScript into a Python object.
 """
-class json_object:
+class json_obj:
 	"""
 		Standard constructor that requires a file object associated
 			with opening a JSON file for read operations.
 	"""
 	def __init__(self, file_object):
-		self.__dict__ = json.load(file_object)
+		#self.__dict__ = json.load(file_object)
+		self.__list__ = json.load(file_object)
