@@ -113,7 +113,12 @@ class json_obj_tester:
 		print("=	Print the transformed JSON object.")
 		print(json_to_py_obj.__dict__)
 		print("=	Print the loaded JSON object.")
-		Congleton2017_json_dict = json.load(Congleton2017_json)
+		#Congleton2017_json_dict.__dict__ = json.load(Congleton2017_json)
+		#Congleton2017_json_dict.__list__ = json.load(Congleton2017_json)
+		#Congleton2017_json_dict = json.load(Congleton2017_json_fo)
+		#Congleton2017_json_dict.__dict__ = json.load(Congleton2017_json_fo)
+		#Congleton2017_json_dict = json.load(Congleton2017_json_fo)
+		Congleton2017_json_dict = json.load(file_io_operations.open_file_object_read(Congleton2017_json))
 		print(Congleton2017_json_dict)
 		"""
 		if json_to_py_obj.__dict__ == Congleton2017_json_dict:
