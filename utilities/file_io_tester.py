@@ -275,6 +275,7 @@ class file_io_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		file_io_operations.close_file_object(results_f_obj)
 	## =========================================================
 	#	Method to test the methods that perform file I/O operations.
 	#	@return - Nothing.
