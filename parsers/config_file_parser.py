@@ -20,6 +20,9 @@
 		Hence, I am trading off annotations in the configuration
 			file(s) for simplicity to parse such files when I
 			choose JSON as my data exchange format.
+		That said, if I select appropriate names for different
+			nested dictionaries in the JSON file, I do not need
+			to use comments.
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
