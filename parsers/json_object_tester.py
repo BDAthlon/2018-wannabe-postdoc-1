@@ -106,26 +106,52 @@ class json_obj_tester:
 		WikipediaContributors2018p_4_json = "/Users/zhiyang/Documents/ricerca/gulyas-scripts/sandbox/python/json-files/WikipediaContributors2018p-4.json"
 		# -------------------------------------------------------
 		print("	... Test transformation of JSON objects to Python objects.")
-		prompt = "	Test: Congleton2017_json			{}"
+		prompt = "	Test: Congleton2017_json				{}"
 		statistical_analysis.increment_number_test_cases_used()
 		Congleton2017_json_fo = file_io_operations.open_file_object_read(Congleton2017_json)
 		json_to_py_obj = json_obj(Congleton2017_json_fo)
-		print("=	Print the transformed JSON object.")
-		print(json_to_py_obj.__dict__)
-		print("=	Print the loaded JSON object.")
-		#Congleton2017_json_dict.__dict__ = json.load(Congleton2017_json)
-		#Congleton2017_json_dict.__list__ = json.load(Congleton2017_json)
-		#Congleton2017_json_dict = json.load(Congleton2017_json_fo)
-		#Congleton2017_json_dict.__dict__ = json.load(Congleton2017_json_fo)
-		#Congleton2017_json_dict = json.load(Congleton2017_json_fo)
+		#print("=	Print the transformed JSON object.")
+		#print(json_to_py_obj.__dict__)
+		#print("=	Print the transformed JSON object: list format.")
+		#print(json_to_py_obj.__list__)
+		#print("=	Print the loaded JSON object.")
+		# Why does this line work, and the next line doesn't?
 		Congleton2017_json_dict = json.load(file_io_operations.open_file_object_read(Congleton2017_json))
-		print(Congleton2017_json_dict)
+		#Congleton2017_json_dict = json.load(Congleton2017_json_fo)
+		#print(Congleton2017_json_dict)
 		"""
-		if json_to_py_obj.__dict__ == Congleton2017_json_dict:
+			Compare contents of the Python Object with that from the
+				json.load() operation.
+		"""
+		if json_to_py_obj.__list__ == Congleton2017_json_dict:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		"""
 		file_io_operations.close_file_object(Congleton2017_json_fo)
-		# compare contents of the Python Object with that from the json.load() operation
+		# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+		prompt = "	Test: Congleton2017_json				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		WikipediaContributors2018p_1_json_fo_1 = file_io_operations.open_file_object_read(WikipediaContributors2018p_1_json)
+		WikipediaContributors2018p_1_json_fo_2 = file_io_operations.open_file_object_read(WikipediaContributors2018p_1_json)
+		json_to_py_obj = json_obj(WikipediaContributors2018p_1_json_fo_1)
+		WikipediaContributors2018p_1_json_dict = json.load(WikipediaContributors2018p_1_json_fo_2)
+		"""
+			Compare contents of the Python Object with that from the
+				json.load() operation.
+		"""
+		if json_to_py_obj.__list__ == WikipediaContributors2018p_1_json_dict:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		file_io_operations.close_file_object(WikipediaContributors2018p_1_json_fo_1)
+		file_io_operations.close_file_object(WikipediaContributors2018p_1_json_fo_2)
+		"""
+			This indicates that when a file object is created for a
+				JSON load operation, it cannot be used for another JSON
+				load operation.
+			If I try to use a file object for multiple JSON load
+				operations, a run-time json.decoder.JSONDecodeError will
+				occur.
+		"""
