@@ -2,12 +2,9 @@
 ###	/usr/bin/python
 
 """
-	This Python script is written by Zhiyang Ong to configure the
-		software application's parameters, via a JSON-based
-		"parameters.config" (or "configuration.json") file.
-
-	Synopsis:
-	Manage the configuration of the software application's parameters.
+	This Python script is written by Zhiyang Ong to contain (nested)
+		dictionaries of a JSON-based "parameters.config" (or
+		"configuration.json") file.
 
 	Notes/Assumptions:
 		JSON (JavaScript Object Notation) is a subset of YAML
@@ -18,13 +15,20 @@
 			to parse than JSON \cite{Desai2015}, I am going to
 			use the JSON format to represent data that is used
 			to configure the parameters of the software application.
+		However, JSON cannot contain comments \cite{WikipediaContributors2018p},
+			while YAML \cite{WikipediaContributors2018o} and
+			XML \cite{WikipediaContributors2018n} can.
+		Hence, I am trading off annotations in the configuration
+			file(s) for simplicity to parse such files when I
+			choose JSON as my data exchange format.
+		That said, if I select appropriate names for different
+			nested dictionaries in the JSON file, I do not need
+			to use comments.
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
 		from my BibTeX database (set of BibTeX entries).
 
-	[DrakeJr2016b]
-		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations
 
 
 """
@@ -74,38 +78,14 @@ import calendar
 
 
 ###############################################################
-#	Module with methods that perform file I/O operations.
-class config_manager:
-	#	Base location to store simulation and/or experimental results.
-	#result_repository = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
-	result_repository = "Unknown location."
-	#
-	# ============================================================
-	##	Method to set the location of simulation/experimental results.
-	#	@param location - Location of a directory.
-	#	@return a boolean TRUE, if the location is a valid directory.
-	#		Else, return FALSE.
-	#	O(1) method.
-	@staticmethod
-	def set_result_repository(location):
-		if not os.path.isabs(location):
-		#	print("	location is a relative path.")
-			# Change the relative path to an absolute path.
-			location = os.path.expanduser(location)
-		#else:
-		#	print("	location is an absolute path.")
-		if os.path.isdir(location):
-			#print("	location is a valid directory.")
-			config_manager.result_repository = location
-			return True
-		else:
-			#print("	location is an invalid directory.")
-			return False
-	# ============================================================
-	##	Method to get the location of simulation/experimental results.
-	#	@param - Nothing.
-	#	@return the location of simulation/experimental results.
-	#	O(1) method.
-	@staticmethod
-	def get_result_repository():
-		return config_manager.result_repository
+"""
+	Module to contain (nested) dictionaries of a JSON object in
+		JavaScript into a Python object.
+"""
+class json_object:
+	"""
+		Standard constructor that requires a file object associated
+			with opening a JSON file for read operations.
+	"""
+	def __init__(self, file_object):
+		self.__dict__ = json.load(file_object)

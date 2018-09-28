@@ -16,7 +16,7 @@
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
-    	from my BibTeX database (set of BibTeX entries).
+		from my BibTeX database (set of BibTeX entries).
 
 	Revision History:
 	August 1, 2018			Version 0.1, initial build.
@@ -98,6 +98,7 @@ class config_manager_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_configure_sw_application_parameters():
+	#def test_configure_sw_application_parameter_result_repository():
 		print("	Testing the config_manager class/module.")
 		prompt = "	... Test: check default result_repository		{}"
 		statistical_analysis.increment_number_test_cases_used()

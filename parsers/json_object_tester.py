@@ -1,37 +1,34 @@
 #!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 ###	/usr/bin/python
+###	/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 
 """
-	This Python script is written by Zhiyang Ong to configure the
-		software application's parameters, via a JSON-based
-		"parameters.config" (or "configuration.json") file.
+	This Python script is written by Zhiyang Ong to test
+		input/output (I/O) operations on files, such as BibTeX
+		databases/files, LaTeX documents, and JSON files.
 
 	Synopsis:
-	Manage the configuration of the software application's parameters.
+	Test input/output (I/O) operations on files.
 
 	Notes/Assumptions:
-		JSON (JavaScript Object Notation) is a subset of YAML
-			(YAML Ain't Markup Language) \cite{WikipediaContributors2018o}.
-		Hence, JSON is simpler to parse than YAML.
-		Also, since XML (Extensible Markup Language)
-			\cite{WikipediaContributors2018n} is more complex
-			to parse than JSON \cite{Desai2015}, I am going to
-			use the JSON format to represent data that is used
-			to configure the parameters of the software application.
+	Assume that the user/developer would protect the code base
+		with try-except blocks to handle file I/O errors.
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
-		from my BibTeX database (set of BibTeX entries).
+    	from my BibTeX database (set of BibTeX entries).
 
-	[DrakeJr2016b]
-		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations
-
-
+	Revision History:
+	August 1, 2018			Version 0.1, initial build.
 """
+
+__author__ = 'Zhiyang Ong'
+__version__ = '1.0'
+__date__ = 'August 1, 2018'
 
 #	The MIT License (MIT)
 
-#	Copyright (c) <2014> <Zhiyang Ong>
+#	Copyright (c) <2018> <Zhiyang Ong>
 
 #	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -66,46 +63,37 @@ import time
 import warnings
 import re
 import filecmp
-import calendar
-
+# Copy a file from [source] to [destination]
+from shutil import copyfile
 
 ###############################################################
 #	Import Custom Python Modules
 
+"""
+	Package and module to print statistics of software testing
+		results.
+"""
+from statistics.test_statistics import statistical_analysis
+# Package and module to process input arguments to the script/program.
+#from utilities.queue_ip_arguments import queue_ip_args
+# Package and module to perform file I/O operations.
+from utilities.file_io import file_io_operations
 
 ###############################################################
-#	Module with methods that perform file I/O operations.
-class config_manager:
-	#	Base location to store simulation and/or experimental results.
-	#result_repository = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
-	result_repository = "Unknown location."
-	#
-	# ============================================================
-	##	Method to set the location of simulation/experimental results.
-	#	@param location - Location of a directory.
-	#	@return a boolean TRUE, if the location is a valid directory.
-	#		Else, return FALSE.
+"""
+	Module with methods that perform file I/O operations.
+	Support for class instantiation is not provided, to avoid
+		acquiring a collection of useless "file_io_operations"
+		objects.
+	Test each static method of the "file_io_operations" class.
+"""
+class file_io_operations_tester:
+	## =========================================================
+	#	Method to test the methods that perform file I/O operations
+	#		with an invalid file.
+	#	@param - Nothing
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def set_result_repository(location):
-		if not os.path.isabs(location):
-		#	print("	location is a relative path.")
-			# Change the relative path to an absolute path.
-			location = os.path.expanduser(location)
-		#else:
-		#	print("	location is an absolute path.")
-		if os.path.isdir(location):
-			#print("	location is a valid directory.")
-			config_manager.result_repository = location
-			return True
-		else:
-			#print("	location is an invalid directory.")
-			return False
-	# ============================================================
-	##	Method to get the location of simulation/experimental results.
-	#	@param - Nothing.
-	#	@return the location of simulation/experimental results.
-	#	O(1) method.
-	@staticmethod
-	def get_result_repository():
-		return config_manager.result_repository
+	def test_file_io_operations_with_invalid_file():
+		print("	... Testing file operations with invalid file.")

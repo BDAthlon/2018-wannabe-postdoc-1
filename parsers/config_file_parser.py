@@ -26,7 +26,7 @@
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
-    	from my BibTeX database (set of BibTeX entries).
+		from my BibTeX database (set of BibTeX entries).
 
 	[DrakeJr2016b]
 		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations
