@@ -138,6 +138,8 @@ class Incremental_Test_Automation:
 	# List of BibTeX keys
 	set_of_BibTeX_keys = []
 	num_of_bibtex_entries = 0
+	#	Location to store simulation and/or experimental results.
+	result_repository = "~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 	# ============================================================
 	#	Other methods.
 	# ============================================================
@@ -209,6 +211,7 @@ class Incremental_Test_Automation:
 #	If this is executed as a Python script,
 if __name__ == "__main__":
 	"""
+	# Redirect standard output and standard error to an output file.
 	results_file_object = file_io_operations.open_file_object_write_results()
 	file_io_operations.redirect_std_op_to_file_obj(results_file_object)
 	file_io_operations.redirect_std_err_to_file_obj(results_file_object)
@@ -231,7 +234,12 @@ if __name__ == "__main__":
 	# The real stuff begins here...
 	statistical_analysis_tester.test_statistical_analysis()
 	#	### TO-DO
+	# Insert test cases for testing the parsers package.
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	json_obj_tester.test_json_object_accessibility()
 	# Insert test cases for testing the utilities package.
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	config_manager_tester.test_configure_sw_application_parameters()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	queue_ip_args_tester.test_queue_ip_args()
@@ -239,10 +247,6 @@ if __name__ == "__main__":
 	file_io_operations_tester.test_file_io_operations()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	date_time_operations_tester.test_date_time_operations()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	config_manager_tester.test_configure_sw_application_parameters()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	json_obj_tester.test_json_object_accessibility()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	Test expr_configuration
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
@@ -254,7 +258,7 @@ if __name__ == "__main__":
 	file_io_operations.close_file_object(ip_file_obj)
 	"""
 	file_io_operations.close_file_object(results_file_object)
-	# Stop redirecting standard output.
+	# Stop redirecting standard output and standard to an output file.
 	file_io_operations.stop_redirecting_std_op()
 	file_io_operations.stop_redirecting_std_err()
 	"""

@@ -19,6 +19,11 @@
 			use the JSON format to represent data that is used
 			to configure the parameters of the software application.
 
+	Assume that relative paths refer to paths that begin from the
+		user's home directory ("~/").
+	Regarding Python's "os.path" module, paths that begin with
+		"../" or "statistics"
+
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
 		from my BibTeX database (set of BibTeX entries).
