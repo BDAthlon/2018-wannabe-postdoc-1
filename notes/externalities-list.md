@@ -17,9 +17,23 @@ In addition, changes made to other types of components/entities in
 List of repositories that are affected by the *2018-wannabe-postdoc-1*
 	repository, including its code base and notes:
 
-+ [boilerplate-code](https://github.com/eda-ricercatore/boilerplate-code)
++ [bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics)
 	- Notes
-	- Scripts
+	- *Python* packages and modules:
+		* statistics
+			+ test_statistics.py
+			+ test_statistics_tester.py
+		* utilities
+			+ configuration_manager.py
+			+ configuration_manager_tester.py
+			+ date_time_processing.py
+			+ date_time_processing_tester.py
+			+ file_io.py
+			+ file_io_tester.py
+			+ generate_results_filename.py
+			+ queue_ip_arguments.py
+			+ queue_ip_arguments_tester.py
+
 
 
 
