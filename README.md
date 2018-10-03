@@ -12,12 +12,14 @@ It my solution for the problem on genetic technology mapping.
 		* Doxygen
 		* pydoc (for Python scripts): /usr/bin/pydoc
 + notes
+	- Handout for the BDAthlon 2018 contest.
 	- Software licenses
 		* *MIT License*.
 	- Guidelines for collaborating on open source software and/or hardware
 		projects.
 		* Documentation about guidelines that I am following for my research,
 			and for my research collaborators to know about.
+	- Project report in *LaTeX*
 	- Externalities list.
 		* *Publicly available library, API, or framework* that I have used as
 			external components for my software.
