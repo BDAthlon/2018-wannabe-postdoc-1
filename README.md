@@ -15,9 +15,9 @@ It my solution for the problem on genetic technology mapping.
 	- Software licenses
 		* *MIT License*.
 	- Guidelines for collaborating on open source software and/or hardware
-      projects.
-    * Documentation about guidelines that I am following for my research,
-  		  and for my research collaborators to know about.
+		projects.
+		* Documentation about guidelines that I am following for my research,
+			and for my research collaborators to know about.
   - Externalities list.
     * *Publicly available library, API, or framework* that I have used as
         external components for my software.
@@ -44,8 +44,7 @@ The front-end of **problem1_solution.py** parses the input arguments, checks
 	It also parses the genetic technology library **genetic_gate_library.json**,
 		maps each genetic NOT gate into a *genetic_not_gate* object, and stores
 		each object in a map of *(id,objects)*;
-		the *id* of the object is the *id* field of the genetic NOT gate, which is
-			specified in the genetic technology library.
+		the *id* of the object is the *id* field of the genetic NOT gate, which is specified in the genetic technology library.
 
 The genetic technology mapping engine of **problem1_solution.py** consists of a
 	(set of) solution(s) to perform genetic technology mapping.
@@ -98,12 +97,8 @@ To execute the software solution, try:
 	./problem1_solution.py [input JSON netlist] [output JSON technology mapping]
 
 Input Parameters:
-[input JSON netlist]:							A JSON file that contains a structural
-																		netlist for genetic technology mapping.
-
-[output JSON technology mapping]:	A filename of an output JSON file that
-																		contains a genetic technology mapping for
-																		the input structural netlist.
++[input JSON netlist]: A JSON file that contains a structural netlist for genetic technology mapping.
++ [output JSON technology mapping]: A filename of an output JSON file that contains a genetic technology mapping for the input structural netlist.
 
 
 ###	Documentation Generation

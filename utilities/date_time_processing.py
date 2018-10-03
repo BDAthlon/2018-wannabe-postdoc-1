@@ -64,7 +64,7 @@ class date_time_operations:
 		Create a dictionary (associative memories, or associative arrays)
 			of (number, name) months.
 	"""
-	mth_number_name = {1:"january", 2:"february", 3:"march", 4:"april", 5:"may", 6:"june", 7:"july", 8:"august", 9:"september", 10:"october", 11:"november", 12:"december"}
+	mth_number_name = {"1":"january", "2":"february", "3":"march", "4":"april", "5":"may", "6":"june", "7":"july", "8":"august", "9":"september", "10":"october", "11":"november", "12":"december"}
 	# ============================================================
 	##	Method to determine if the time is valid.
 	#	@param hh - Hour of a time in numbers.
