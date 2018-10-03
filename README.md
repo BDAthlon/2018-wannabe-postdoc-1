@@ -18,9 +18,9 @@ It my solution for the problem on genetic technology mapping.
 		projects.
 		* Documentation about guidelines that I am following for my research,
 			and for my research collaborators to know about.
-  - Externalities list.
-    * *Publicly available library, API, or framework* that I have used as
-        external components for my software.
+	- Externalities list.
+		* *Publicly available library, API, or framework* that I have used as
+			external components for my software.
 		* Some *Python* modules from the repository [bibtex-analytics](https://github.com/eda-ricercatore/bibtex-analytics),
 			which I developed.
 
