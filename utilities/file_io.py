@@ -81,7 +81,11 @@ from utilities.generate_results_filename import generate_filename
 ###############################################################
 #	Module with methods that perform file I/O operations.
 class file_io_operations:
-	#	Location to store simulation and/or experimental results.
+	"""
+		Location to store simulation and/or experimental results.
+		Requires an absolute path, since no processing will be done
+			to check if this is an absolute path or relative path.
+	"""
 	#result_repository = "~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 	result_repository = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 	# Backup of the standard output.
@@ -152,22 +156,22 @@ class file_io_operations:
 		# Tokenize this filename (DD-MM-YY-HR-MN-SS-US format).
 		tokens = date_time_operations.get_date_time_tokens_of_filename(results_filename)
 		# Determine which year should the results file be placed in.
-		current_path = file_io_operations.result_repository + "/" + tokens[2]
+		current_path = os.path.join(file_io_operations.result_repository,tokens[2])
 		#if (os.path.exists(current_path) and os.path.isdir(current_path)):
 		if os.path.isdir(current_path):
 			# Determine which month should the results file be placed in.
-			print("tokens[1]=",tokens[1],"=")
-			print("date_time_operations.mth_number_name[tokens[1]]=",date_time_operations.mth_number_name[tokens[1]],"=")
+			#print("tokens[1]=",tokens[1],"=")
+			#print("date_time_operations.mth_number_name[tokens[1]]=",date_time_operations.mth_number_name[tokens[1]],"=")
 			current_path = os.path.join(current_path,date_time_operations.mth_number_name[tokens[1]])
-			if os.path.isdir(current_path):
-				print(current_path,"=works= ... From: file_io.py, line 146.")
-			else:
+			if not os.path.isdir(current_path):
 				print("	... Creating directory for month at:",current_path)
 				try:
 					os.mkdirs(current_path, exist_ok = True)
 				except OSError:
 					print("Encountered error in making directory.", file=sys.stderr)
 					logging.error("Determine why directory for month cannot be created.")
+			else:
+				print(current_path,"=works= ... From: file_io.py, line 146.")
 		else:
 			print("	... Creating directory for year at:",current_path)
 			# Determine which month should the results file be placed in.

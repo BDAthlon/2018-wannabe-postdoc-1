@@ -6,6 +6,12 @@
 		JSON-based "parameters.config" (or "configuration.json") file.
 
 	Notes/Assumptions:
+	The "configuration.json" is parsed by the "config_file_parser.py",
+		and its fields are mapped from a JSON object into a Python object
+		represented by "json_object.py".
+	In this parsing process, it sets the field(s) in the Python module/class
+		in "configuration_manager.py".
+
 		JSON (JavaScript Object Notation) is a subset of YAML
 			(YAML Ain't Markup Language) \cite{WikipediaContributors2018o}.
 		Hence, JSON is simpler to parse than YAML.
@@ -82,6 +88,10 @@ import calendar
 		parameters.
 """
 from utilities.configuration_manager import config_manager
+# Package and module to transform JSON objects to Python objects.
+from parsers.json_object import json_obj
+# Package and module to perform file I/O operations.
+from utilities.file_io import file_io_operations
 
 ###############################################################
 """
@@ -89,6 +99,11 @@ from utilities.configuration_manager import config_manager
 		"configuration.json") file.
 """
 class config_manager:
+	"""
+		Name of configuration file that would be parsed.
+		It configures the parameters of this Python program.
+	"""
+	name_of_configuration_file = "configuration.json"
 	"""
 		A dictionary a set of name–value pairs, which are also
 			known as key–value pairs, field–value pairs, or
@@ -100,5 +115,25 @@ class config_manager:
 			dictionaries.
 		This is because JSON files contain dictionaries and
 			nested dictionaries.
+		For a default value, set this to an empty dictionary.
 	"""
 	temp_dictionary = dict()
+	#
+	# ============================================================
+	##	Method to parse the "configuration.json" file.
+	#	@param - None.
+	#	@return Nothing.
+	#	O(n) method, where n is the number of fields in the file.
+	@staticmethod
+	def parse_configuration_file():
+		"""
+			File object associated with reading the configuration
+				file that parameterizes this software.
+		"""
+		config_file_obj = file_io_operations.open_file_object_read(config_manager.name_of_configuration_file)
+		temp_dictionary = json_obj(config_file_obj)
+		if config_manager.set_result_repository(temp_dictionary["result_repository"]):
+			return temp_dictionary
+		#else:
+		#	print("Do nothing.")
+		#	return None

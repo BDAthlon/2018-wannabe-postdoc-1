@@ -7,6 +7,11 @@
 		"configuration.json") file.
 
 	Notes/Assumptions:
+	The "configuration.json" is parsed by the "config_file_parser.py",
+		and its fields are mapped from a JSON object into a Python object
+		represented by "json_object.py".
+	In this parsing process, it sets the field(s) in this Python module/class.
+
 		JSON (JavaScript Object Notation) is a subset of YAML
 			(YAML Ain't Markup Language) \cite{WikipediaContributors2018o}.
 		Hence, JSON is simpler to parse than YAML.

@@ -10,6 +10,11 @@
 	Manage the configuration of the software application's parameters.
 
 	Notes/Assumptions:
+	The "configuration.json" is parsed by the "config_file_parser.py",
+		and its fields are mapped from a JSON object into a Python object
+		represented by "json_object.py".
+	In this parsing process, it sets the field(s) in this Python module/class.
+
 		JSON (JavaScript Object Notation) is a subset of YAML
 			(YAML Ain't Markup Language) \cite{WikipediaContributors2018o}.
 		Hence, JSON is simpler to parse than YAML.
@@ -108,7 +113,7 @@ class config_manager:
 			return False
 	# ============================================================
 	##	Method to get the location of simulation/experimental results.
-	#	@param - Nothing.
+	#	@param - None.
 	#	@return the location of simulation/experimental results.
 	#	O(1) method.
 	@staticmethod
