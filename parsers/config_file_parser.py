@@ -123,8 +123,12 @@ class config_parser:
 	# ============================================================
 	##	Method to parse the "configuration.json" file.
 	#	@param - None.
-	#	@return Nothing.
-	#	O(n) method, where n is the number of fields in the file.
+	#	@return a boolean TRUE, if the location of the directory to
+	#		store simulation/experimental results has been
+	#		set/configured by the "configuration.json" file.
+	#		Else, return FALSE..
+	#	O(n) method, where n is the number of fields in the
+	#		"configuration.json" file.
 	@staticmethod
 	def parse_configuration_file():
 		"""
@@ -134,7 +138,6 @@ class config_parser:
 		config_file_obj = file_io_operations.open_file_object_read(config_manager.name_of_configuration_file)
 		temp_dictionary = json_obj(config_file_obj)
 		if config_manager.set_result_repository(temp_dictionary["result_repository"]):
-			return temp_dictionary
-		#else:
-		#	print("Do nothing.")
-		#	return None
+			return True
+		else:
+			return False
