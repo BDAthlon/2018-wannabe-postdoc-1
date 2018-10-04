@@ -99,7 +99,7 @@ class config_manager:
 	@staticmethod
 	def set_result_repository(location):
 		if not os.path.isabs(location):
-		#	print("	location is a relative path.")
+			#print("	location is a relative path.")
 			# Change the relative path to an absolute path.
 			location = os.path.expanduser(location)
 		#else:

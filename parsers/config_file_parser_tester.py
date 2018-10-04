@@ -102,8 +102,12 @@ class config_parser_tester:
 	@staticmethod
 	def test_json_config_file_parser():
 		# -------------------------------------------------------
-		print("	... Test parsing of JSON configuration file.")
-		prompt = "	Test: Congleton2017_json				{}"
+		#print("	... Test parsing of JSON configuration file	{}.")
+		prompt = "	... Test parsing of JSON configuration file		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		Congleton2017_json_fo = file_io_operations.open_file_object_read(Congleton2017_json)
-		json_to_py_obj = json_obj(Congleton2017_json_fo)
+		if config_parser.parse_configuration_file():
+			#prompt = "	Test: Congleton2017_json				{}"
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))

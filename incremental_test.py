@@ -115,6 +115,9 @@ from utilities.configuration_manager_tester import config_manager_tester
 # Package and module to transform JSON objects to Python objects.
 from parsers.json_object import json_obj
 from parsers.json_object_tester import json_obj_tester
+# Package and module to parse JSON configuration files.
+from parsers.config_file_parser import config_parser
+from parsers.config_file_parser_tester import config_parser_tester
 
 ###############################################################
 
@@ -248,6 +251,7 @@ if __name__ == "__main__":
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	date_time_operations_tester.test_date_time_operations()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	config_parser_tester.test_json_config_file_parser();
 	#	Test expr_configuration
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")

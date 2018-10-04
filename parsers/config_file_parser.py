@@ -135,9 +135,25 @@ class config_parser:
 			File object associated with reading the configuration
 				file that parameterizes this software.
 		"""
-		config_file_obj = file_io_operations.open_file_object_read(config_manager.name_of_configuration_file)
+		config_file_obj = file_io_operations.open_file_object_read(config_parser.name_of_configuration_file)
+		#print("	... Created file object: config_file_obj.")
 		temp_dictionary = json_obj(config_file_obj)
-		if config_manager.set_result_repository(temp_dictionary["result_repository"]):
+		#print("temp_dictionary:=",temp_dictionary,"=")
+		#print("temp_dictionary.__list__=",temp_dictionary.__list__,"=")
+		"""
+			A 'json_obj' object with the ".__list__" suffix is
+				subscriptable.
+			Hence, I can use the name of a field in the JSON object
+				to access the value of that field.
+		"""
+		#print("temp_dictionary.__list__['result_repository']=",temp_dictionary.__list__["result_repository"],"=")
+		"""
+			The temp_dictionary is not subscriptable, since 'json_obj'
+				objects are not subscriptable.
+			Hence, the following sentence is not valid.
+		"""
+		#print("temp_dictionary['result_repository']=",temp_dictionary["result_repository"],"=")
+		if config_manager.set_result_repository(temp_dictionary.__list__["result_repository"]):
 			return True
 		else:
 			return False
