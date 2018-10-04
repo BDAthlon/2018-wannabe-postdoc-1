@@ -191,6 +191,7 @@ class file_io_operations:
 			except OSError:
 				print("Encountered error in making directory.", file=sys.stderr)
 				logging.error("Determine why directory for month cannot be created.")
+		results_filename = os.path.join(current_path, results_filename)
 		return file_io_operations.open_file_object_write(results_filename)
 	# ============================================================
 	##	Method to close a file object.
