@@ -88,17 +88,18 @@ import calendar
 		parameters.
 """
 from utilities.configuration_manager import config_manager
-# Package and module to transform JSON objects to Python objects.
-from parsers.json_object import json_obj
 # Package and module to perform file I/O operations.
 from utilities.file_io import file_io_operations
+# Package and module to transform JSON objects to Python objects.
+from parsers.json_object import json_obj
+
 
 ###############################################################
 """
 	Module to parse a JSON-based "parameters.config" (or
 		"configuration.json") file.
 """
-class config_manager:
+class config_parser:
 	"""
 		Name of configuration file that would be parsed.
 		It configures the parameters of this Python program.

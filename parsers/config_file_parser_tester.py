@@ -6,7 +6,8 @@
 		parameters for this software.
 
 	Synopsis:
-	Test transformation of JSON objects to Python objects.
+	Test the parsing of a JSON file containing the configuration of
+		parameters for this software.
 
 	Notes/Assumptions:
 	None at the moment.
@@ -74,10 +75,29 @@ import json
 		results.
 """
 from statistics.test_statistics import statistical_analysis
-# Package and module to process input arguments to the script/program.
-#from utilities.queue_ip_arguments import queue_ip_args
+"""
+	Package and module to configure the software application's
+		parameters.
+"""
+from utilities.configuration_manager import config_manager
 # Package and module to perform file I/O operations.
 from utilities.file_io import file_io_operations
-
 # Package and module to transform JSON objects to Python objects.
 from parsers.json_object import json_obj
+# Package and module to parse JSON configuration files.
+from parsers.config_file_parser import config_parser
+
+###############################################################
+"""
+	Module to test JSON parser for the configuration file that
+		parameterizes this software.
+"""
+class config_parser_tester:
+	## =========================================================
+	#	Method to test how the JSON configuration file is parsed,
+	#		and how the config_manager is updated.
+	#	@param - Nothing
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_json_config_file_parser():
