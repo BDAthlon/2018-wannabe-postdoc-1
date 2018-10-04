@@ -123,10 +123,10 @@ class config_parser:
 	# ============================================================
 	##	Method to parse the "configuration.json" file.
 	#	@param - None.
-	#	@return a boolean TRUE, if the location of the directory to
+	#	@return boolean TRUE, if the location of the directory to
 	#		store simulation/experimental results has been
 	#		set/configured by the "configuration.json" file.
-	#		Else, return FALSE..
+	#		Else, return boolean FALSE.
 	#	O(n) method, where n is the number of fields in the
 	#		"configuration.json" file.
 	@staticmethod

@@ -94,6 +94,33 @@ from parsers.config_file_parser import config_parser
 """
 class config_parser_tester:
 	## =========================================================
+	#	Method to test if I can write to the storage location
+	#		specified by the JSON configuration file that has
+	#		been parsed.
+	#	@param - Nothing
+	#	@return boolean TRUE, if the storage file contains the
+	#		message that has been written to it.
+	#		Else, return boolean FALSE.
+	#	O(1) method.
+	@staticmethod
+	def test_writing_to_results_file():
+		"""
+			Temporarily redirect standard output and standard error
+				to an output file.
+		"""
+		results_file_object = file_io_operations.open_file_object_write_results()
+		file_io_operations.redirect_std_op_to_file_obj(results_file_object)
+		file_io_operations.redirect_std_err_to_file_obj(results_file_object)
+		# Write test message in the experimental/simulation results file.
+		test_message = "Storing experimental/simulation results."
+		print(test_message)
+		# Close the file object for reading.
+		file_io_operations.close_file_object(results_file_object)
+		# Stop redirecting standard output and standard to an output file.
+		file_io_operations.stop_redirecting_std_op()
+		file_io_operations.stop_redirecting_std_err()
+		return True
+	## =========================================================
 	#	Method to test how the JSON configuration file is parsed,
 	#		and how the config_manager is updated.
 	#	@param - Nothing
@@ -107,6 +134,13 @@ class config_parser_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		if config_parser.parse_configuration_file():
 			#prompt = "	Test: Congleton2017_json				{}"
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test writing results to storage location		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if config_parser_tester.test_writing_to_results_file():
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:

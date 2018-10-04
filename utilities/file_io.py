@@ -121,7 +121,8 @@ class file_io_operations:
 	# ============================================================
 	##	Method to open a file object for write/output operations.
 	#	@param filename - Path to a file.
-	#	@return file object op_file_obj
+	#	@return file object op_file_obj that enables writing to the
+	#		file named "filename".
 	#	@throws Exception for invalid path to the file.
 	#	O(1) method.
 	@staticmethod
@@ -134,7 +135,8 @@ class file_io_operations:
 	# ============================================================
 	##	Method to open a new file object for write/output operations.
 	#	@param filename - Path to a file.
-	#	@return file object op_file_obj
+	#	@return file object op_file_obj that enables writing to the
+	#		file named "filename".
 	#	O(1) method.
 	@staticmethod
 	def open_file_object_write_new(filename):
@@ -174,10 +176,21 @@ class file_io_operations:
 				print(current_path,"=works= ... From: file_io.py, line 146.")
 		else:
 			print("	... Creating directory for year at:",current_path)
+			try:
+				os.mkdirs(current_path, exist_ok = True)
+			except OSError:
+				print("Encountered error in making directory.", file=sys.stderr)
+				logging.error("Determine why directory for year cannot be created.")
 			# Determine which month should the results file be placed in.
-			current_path = current_path + "/" + date_time_operations.mth_number_name[tokens[1]]
+			current_path = os.path.join(current_path, date_time_operations.mth_number_name[tokens[1]])
 			print("	...os.path.exists(current_path:",os.path.exists(current_path))
 			print("	...os.path.isdir(current_path):",os.path.isdir(current_path))
+			print("	... Creating directory for month at:",current_path)
+			try:
+				os.mkdirs(current_path, exist_ok = True)
+			except OSError:
+				print("Encountered error in making directory.", file=sys.stderr)
+				logging.error("Determine why directory for month cannot be created.")
 		return file_io_operations.open_file_object_write(results_filename)
 	# ============================================================
 	##	Method to close a file object.

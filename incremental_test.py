@@ -258,7 +258,7 @@ if __name__ == "__main__":
 	print(">>	Get statistics of the software testing process.")
 	statistical_analysis.print_statistics_of_software_testing()
 	# Close the file object for reading.
-	print("=	Close the file objects for reading.")
+	print("=	Close the file objects for reading (and writing).")
 	file_io_operations.close_file_object(ip_file_obj)
 	"""
 	file_io_operations.close_file_object(results_file_object)
