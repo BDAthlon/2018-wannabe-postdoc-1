@@ -111,6 +111,7 @@ from utilities.configuration_manager import config_manager
 		application's parameters.
 """
 from utilities.configuration_manager_tester import config_manager_tester
+from utilities.miscellaneous import misc
 
 # Package and module to transform JSON objects to Python objects.
 from parsers.json_object import json_obj
@@ -267,3 +268,4 @@ if __name__ == "__main__":
 	file_io_operations.stop_redirecting_std_err()
 	"""
 #	print("<<	I can see this in standard output, printed in the Terminal.")
+	misc.add_commit_push_updates_to_git_repository("Update build: Added access to Git repository")
