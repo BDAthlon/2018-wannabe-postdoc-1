@@ -268,4 +268,7 @@ if __name__ == "__main__":
 	file_io_operations.stop_redirecting_std_err()
 	"""
 #	print("<<	I can see this in standard output, printed in the Terminal.")
-	misc.add_commit_push_updates_to_git_repository("Update build: Added access to Git repository")
+	if misc.add_commit_push_updates_to_git_repository("Update build: Added access to Git repository"):
+		print("Update repository of simulation/experimental results.")
+	else:
+		print("DID NOT update repository of simulation/experimental results.")
