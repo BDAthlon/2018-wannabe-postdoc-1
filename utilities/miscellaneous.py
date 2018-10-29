@@ -10,7 +10,17 @@
 	Perform miscellaneous tasks.
 
 
-	Notes/Assumptions:
+	#### IMPORTANT NOTES:
+	#### IMPORTANT ASSUMPTIONS:
+	A test suite for this Python module is not provided.
+	This is because it would require a Python interface to Git in order
+		to test if differences between the last build (or build *n*) and
+		the previous last build (or build *n*-1) have been committed and
+		pushed to the cloud-based Git repository.
+		It involves checking for file additions and deletions, and file
+			updates.
+	I cannot simply and quickly write a test suite for this, so I have
+		only tested this manually.
 
 
 	Revision History:
@@ -54,6 +64,7 @@ import sys
 #import os
 import os.path
 #from subprocess import call
+import subprocess
 #import time
 import warnings
 #import re
@@ -61,6 +72,11 @@ import warnings
 ###############################################################
 #	Import Custom Python Modules
 
+"""
+	Package and module to configure the software application's
+		parameters.
+"""
+from utilities.configuration_manager import config_manager
 
 ###############################################################
 ##	Module with methods that perform miscellaneous tasks.
@@ -79,15 +95,16 @@ class misc:
 		try:
 			print("-------------------------------------------------")
 			cmd = ['git', 'add', "-A"]
-			p = subprocess.Popen(cmd, cwd=repo_dir)
-
+			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
+			#p = subprocess.call(cmd, cwd=config_manager.result_repository)
+			print("-	Added. Commit now.")
 			comment = "Update build via Python."
 			cmd = ["git", "commit", "-m", comment]
-			p = subprocess.Popen(cmd, cwd=repo_dir)
+			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
 			p.wait()
-
+			print("-	Committed. Push now.")
 			cmd = ["git", "push"]
-			p = subprocess.Popen(cmd, cwd=repo_dir)
+			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
 			p.wait()
 			print("-------------------------------------------------")
 			return True

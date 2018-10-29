@@ -8,7 +8,14 @@
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
-    	from my BibTeX database (set of BibTeX entries).
+		from my BibTeX database (set of BibTeX entries).
+
+	\cite[\S14.2,\S14.2.3]{Goodrich2013} is the primary source of reference
+		about adjacency map.
+
+	From \cite[\S14.2,pp.627]{Goodrich2013}:
+		"In an adjacency list, we maintain, for each vertex, a separate list containing those edges that are incident to the vertex. The complete set of edges can be determined by taking the union of the smaller sets, while the organization allows us to more efficiently find all edges incident to a given vertex."
+		"An adjacency map is very similar to an adjacency list, but the secondary container of all edges incident to a vertex is organized as a map, rather than as a list, with the adjacent vertex serving as a key. This allows for access to a specific edge (u,v) in O(1) expected time."
 
 	[DrakeJr2016b]
 		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations
@@ -43,6 +50,7 @@
 	warnings	Raise warnings.
 	re			Use regular expressions.
 	filecmp		For file comparison.
+	calendar	For calendar-related functions.
 """
 
 import sys
@@ -63,4 +71,4 @@ import calendar
 ###############################################################
 #	Module with methods that perform file I/O operations.
 class vertex:
-	# 
+	#
