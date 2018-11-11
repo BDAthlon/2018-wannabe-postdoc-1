@@ -72,3 +72,7 @@ import calendar
 #	Module with methods that perform file I/O operations.
 class vertex:
 	#
+
+
+a b c d
+b c d a
