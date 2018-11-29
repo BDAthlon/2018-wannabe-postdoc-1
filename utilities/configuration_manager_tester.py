@@ -107,7 +107,7 @@ class config_manager_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-			print("location=",config_manager.get_result_repository(),"=")
+			#print("location=",config_manager.get_result_repository(),"=")
 		absolute_path = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 		prompt = "	... Test: result_repository, check change to abs. path.	{}"
 		statistical_analysis.increment_number_test_cases_used()
