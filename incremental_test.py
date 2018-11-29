@@ -111,6 +111,17 @@ from utilities.configuration_manager import config_manager
 		application's parameters.
 """
 from utilities.configuration_manager_tester import config_manager_tester
+"""
+	Module to generate the filename for storing the experimental
+		results and simulation output.
+"""
+from utilities.generate_results_filename import generate_filename
+"""
+	Module to test if the generated filename (based on the
+		then-current time stamp) conforms to the specified
+		format.
+"""
+from utilities.generate_results_filename_tester import generate_filename_tester
 from utilities.miscellaneous import misc
 
 # Package and module to transform JSON objects to Python objects.
@@ -235,24 +246,25 @@ if __name__ == "__main__":
 	print("=	Create a file object for reading.")
 	# Create a file object for input BibTeX file, in reading mode.
 	ip_file_obj = file_io_operations.open_file_object_read(ip_filename)
+	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	# The real stuff begins here...
+	#	Insert test cases for statistical analysis package
 	statistical_analysis_tester.test_statistical_analysis()
-	#	### TO-DO
-	# Insert test cases for testing the parsers package.
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	json_obj_tester.test_json_object_accessibility()
 	# Insert test cases for testing the utilities package.
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	config_manager_tester.test_configure_sw_application_parameters()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-#	check_bibtex_key_tester.test_check_bibtex_key()
-	queue_ip_args_tester.test_queue_ip_args()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	file_io_operations_tester.test_file_io_operations()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	queue_ip_args_tester.test_queue_ip_args()
+	config_manager_tester.test_configure_sw_application_parameters()
 	date_time_operations_tester.test_date_time_operations()
+	generate_filename_tester.test_filename_generation_methods()
+#	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	# Insert test cases for testing the parsers package.
+	json_obj_tester.test_json_object_accessibility()
 	config_parser_tester.test_json_config_file_parser();
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	# Insert test cases for testing the parsers package.
+	#	### TO-DO
 	#	Test expr_configuration
 #	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")
