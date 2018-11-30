@@ -12,7 +12,7 @@
 
 	#### IMPORTANT NOTES:
 	#### IMPORTANT ASSUMPTIONS:
-	A test suite for this Python module is not provided.
+	A complete test suite for this Python module is not provided.
 	This is because it would require a Python interface to Git in order
 		to test if differences between the last build (or build *n*) and
 		the previous last build (or build *n*-1) have been committed and
@@ -58,6 +58,7 @@ __date__ = 'July 31, 2018'
 	time		To measure elapsed time.
 	warnings	Raise warnings.
 	re			Use regular expressions.
+	calendar	For checking if given year is a leap year.
 """
 
 import sys
@@ -68,6 +69,8 @@ import subprocess
 #import time
 import warnings
 #import re
+import calendar
+from calendar import month_name
 
 ###############################################################
 #	Import Custom Python Modules
@@ -77,10 +80,147 @@ import warnings
 		parameters.
 """
 from utilities.configuration_manager import config_manager
+# Package and module to generate filename with time stamp.
+#from utilities.generate_results_filename import generate_filename
+"""
+	Module to test if the generated filename (based on the
+		then-current time stamp) conforms to the specified
+		format.
+"""
+from utilities.generate_results_filename_tester import generate_filename_tester
 
 ###############################################################
 ##	Module with methods that perform miscellaneous tasks.
 class misc:
+	absolute_path_to_store_results = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
+	# ============================================================
+	##	Method to get the absolute path to store results.
+	#	It is an accessor method.
+	#	@param - Nothing.
+	#	@return the absolute path to store results.
+	#	O(1) method.
+	@staticmethod
+	def get_absolute_path_to_store_results():
+		return misc.absolute_path_to_store_results
+	# ============================================================
+	##	Method to validate the absolute path to store results.
+	#	It is an query method
+	#	@param path_to_file - A path to store the results file.
+	#	@param filename - A filename.
+	#	@return boolean True, if the path to the desired location can
+	#		be contains the value in "misc.absolute_path_to_store_results"
+	#		and the filename of the results file.
+	#		Else, return boolean False.
+	#	O(1) method.
+	@staticmethod
+	def check_absolute_path_to_store_results(path_to_file,filename):
+		if path_to_file.find(filename):
+			return True
+		else:
+			return False
+	# ============================================================
+	##	Method to determine if a filename has the DD-MM-YY-HH-MM-SS-uS.txt
+	#		format.
+	#	@param filename - A filename.
+	#	@return boolean True if the path to the desired location can
+	#		be found;
+	#		Else, return boolean False.
+	#	O(1) method.
+	@staticmethod
+	def check_filename_format(filename):
+		filename_wo_extn, file_extn = os.path.splitext(filename)
+		if ".txt" != file_extn:
+			return False
+		tokens = filename_wo_extn.split("-")
+		"""
+			Check against the format: DD-MM-YY-HH-MM-SS-uS[.txt].
+			tokens[0] = DD/Day
+			tokens[1] = MM/Month
+			tokens[2] = YY/Year
+			tokens[3] = HH/Hour
+			tokens[4] = MM/Minute
+			tokens[5] = [SS/Second]
+			tokens[6] = [uS/Microsecond]
+		"""
+		if 7 != len(tokens):
+			return False
+		if 1 > int(tokens[0]):
+			return False
+		if 2 == int(tokens[1]) and 29 < int(tokens[0]) and calendar.isleap(int(tokens[2])):
+			return False
+		if 2 == int(tokens[1]) and 28 < int(tokens[0]) and not calendar.isleap(int(tokens[2])):
+			return False
+		if generate_filename_tester.is_30_day_month(tokens[1]) and 30 < int(tokens[0]):
+			return False
+		if generate_filename_tester.is_31_day_month(tokens[1]) and 31 < int(tokens[0]):
+			return False
+		if 1 > int(tokens[1]):
+			return False
+		if 12 < int(tokens[1]):
+			return False
+		if 2000 > int(tokens[2]):
+			return False
+		if 0 > int(tokens[3]):
+			return False
+		if 23 < int(tokens[3]):
+			return False
+		if 0 > int(tokens[4]):
+			return False
+		if 59 < int(tokens[4]):
+			return False
+		if 0 > int(tokens[5]):
+			return False
+		if 59 < int(tokens[5]):
+			return False
+		if 0 > int(tokens[6]):
+			return False
+		if 999999 < int(tokens[6]):
+			return False
+		return True
+	# ============================================================
+	##	Method to determine where to store the results of the
+	#		experimental, simulation, verification, or testing runs
+	#	@param filename - A filename that has the DD-MM-YY-HH-MM-SS-uS.txt.
+	#	@return a string representing the absolute path of the location.
+	#	O(1) method.
+	@staticmethod
+	def find_desired_location_for_results(filename):
+		# Does filename have the DD-MM-YY-HH-MM-SS-uS.txt format?
+		if not misc.check_filename_format(filename):
+			return "'filename' needs to have the format: DD-MM-YY-HH-MM-SS-uS.txt."
+		# Remove file extension, and tokenize the filename.
+		filename_wo_extn, file_extn = os.path.splitext(filename)
+		tokens = filename_wo_extn.split("-")
+		"""
+			In the repository to store results from experiments,
+				simulations, and verification runs, and testing runs,
+				classify the files by subdirectories according to year
+				first before the month.
+		"""
+		# Does a directory for the specified year exists?
+		path_to_results_file = misc.get_absolute_path_to_store_results() +  "/" + tokens[2]
+		if not os.path.isdir(path_to_results_file):
+			# Creat the directory for the specified year.
+			os.mkdir(path_to_results_file)
+		# Does a directory for the specified month exists?
+		path_to_results_file = path_to_results_file + "/" + month_name[int(tokens[1])].lower()
+		if not os.path.isdir(path_to_results_file):
+			# Creat the directory for the specified month.
+			os.mkdir(path_to_results_file)
+		path_to_results_file = path_to_results_file + "/" + filename
+		#print("path_to_results_file:",path_to_results_file,"=")
+		return path_to_results_file
+	# ============================================================
+	##	Method to store the results file in the specified absolute path.
+	#	@param path_to_file - A path to store the results file.
+	#	@return a file object for the results file.
+	#	O(1) method.
+	@staticmethod
+	def store_results(path_to_file):
+		if path_to_file is not None:
+			return open(path_to_file, 'w+')
+		else:
+			return None
 	# ============================================================
 	##	Method to add, commit, and push additions and updates
 	#		to a Git repository.
