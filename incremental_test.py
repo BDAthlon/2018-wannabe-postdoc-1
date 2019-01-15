@@ -130,6 +130,11 @@ from parsers.json_object_tester import json_obj_tester
 # Package and module to parse JSON configuration files.
 from parsers.config_file_parser import config_parser
 from parsers.config_file_parser_tester import config_parser_tester
+"""
+	Module to test miscellaneous methods.
+"""
+from utilities.miscellaneous import misc
+from utilities.miscellaneous_tester import misc_tester
 
 ###############################################################
 
@@ -257,6 +262,7 @@ if __name__ == "__main__":
 	config_manager_tester.test_configure_sw_application_parameters()
 	date_time_operations_tester.test_date_time_operations()
 	generate_filename_tester.test_filename_generation_methods()
+	misc_tester.test_miscellaneous_methods()
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the parsers package.
