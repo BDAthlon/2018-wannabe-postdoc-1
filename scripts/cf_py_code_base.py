@@ -2,12 +2,12 @@
 
 """
 	This Python script is written by Zhiyang Ong to compare my
-		Python boilerplate code base with it copies in other
+		Python boilerplate codebase with it copies in other
 		Python repositories.
 
 
 	Synopsis:
-	For each copy of my Python boilerplate code base,
+	For each copy of my Python boilerplate codebase,
 		compare their subdirectories and files.
 
 	This script can be executed as follows:
@@ -79,12 +79,12 @@ import re
 
 #	If this is executed as a Python script,
 if __name__ == "__main__":
-	# This is the relative path to my Python boilerplate code base.
+	# This is the relative path to my Python boilerplate codebase.
 	dir_py_boilerplate_code_base = "~/Documents/progetti/bda/2018-wannabe-postdoc-1"
 	"""
 		This is a list of Python repositories that include copies
-			of my Python boilerplate code base.
-		Each copy is a subset of my Python boilerplate code base.
+			of my Python boilerplate codebase.
+		Each copy is a subset of my Python boilerplate codebase.
 		For each repository, its relative path to the its
 			corresponding directory is indicated.
 		Separate each copy (of the type "string") by a comma.
@@ -97,7 +97,7 @@ if __name__ == "__main__":
 		print(index+1, path_of_directory)
 	"""
 	#	--------------------------------------------------------
-	# For each copy of my Python boilerplate code base,
+	# For each copy of my Python boilerplate codebase,
 	for index, path_of_directory in enumerate(list_copies_of_py_repositories):
 
 		"""
@@ -111,9 +111,9 @@ if __name__ == "__main__":
 		# For each subdirectory of currently enumerated repository/directory,
 		"""
 			Compare it with the corresponding subdirectory
-				in my Python boilerplate code base.
+				in my Python boilerplate codebase.
 		"""
 """
-	Python boilerplate code base with it copies in other
+	Python boilerplate codebase with it copies in other
 	Python repositories.
 """
