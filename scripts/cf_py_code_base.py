@@ -95,6 +95,10 @@ if __name__ == "__main__":
 	test_list_copies_of_py_repositories = ["~/Documents/ricerca/gulyas-scripts/std_cell_library/std_cells", "~/Documents/ricerca/gulyas-scripts/gelato", "~/Documents/ricerca/gulyas-scripts/barfi"]
 	for index, path_of_directory in enumerate(test_list_copies_of_py_repositories):
 		print(index+1, path_of_directory)
+
+	If I used the following, the word "Output" would appear before
+		printing each element in the list with the corresponding index.
+	for index, path_of_directory in enumerate(test_list_copies_of_py_repositories,1):
 	"""
 	#	--------------------------------------------------------
 	# For each copy of my Python boilerplate codebase,
