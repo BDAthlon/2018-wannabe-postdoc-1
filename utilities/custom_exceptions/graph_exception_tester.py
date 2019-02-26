@@ -3,10 +3,12 @@
 
 """
 	This Python script is written by Zhiyang Ong to test the
-		custom exception graph_exception, from the utilities.custom_exceptions package.
+		,
+		via a JSON-based "parameters.config" (or "configuration.json")
+		file.
 
 	Synopsis:
-	Test the custom exception graph_exception.
+	Test the configuration of the software application's parameters.
 
 	Notes/Assumptions:
 	None at the moment.
@@ -77,29 +79,26 @@ from statistics.test_statistics import statistical_analysis
 		parameters.
 """
 from utilities.configuration_manager import config_manager
-"""
-	Package and module to throw/raise the custom exception
-		graph_exception.
-"""
-from utilities.custom_exceptions.graph_exception import graph_error
-
 
 ###############################################################
 """
-	Module with method that test the custom exception graph_exception.
+	Module with methods that configure the software application's
+		parameters.
 	Support for class instantiation is not provided, to avoid
-		acquiring a collection of useless "graph_error"
+		acquiring a collection of useless "config_manager"
 		objects.
-	Test throwing/raising the graph_error exception.
+	Test each static method of the "config_manager" class.
 """
-class graph_error_tester:
+class config_manager_tester:
 	## =========================================================
-	#	Method to test throwing/raising the graph_error exception.
+	#	Method to test the methods that configure the software
+	#		application's parameters.
 	#	@param - Nothing
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_raising_graph_error():
+	def test_configure_sw_application_parameters():
+	#def test_configure_sw_application_parameter_result_repository():
 		print("	Testing the config_manager class/module.")
 		prompt = "	... Test: check default result_repository		{}"
 		statistical_analysis.increment_number_test_cases_used()

@@ -21,6 +21,10 @@
 
 	gahooa, Answer to ``Proper way to declare custom exceptions in modern Python?,'' Stack Exchange Inc., New York, NY, August 23, 2009. Available online from {\it Stack Exchange Inc.: Stack Overflow: Questions} at: \url{https://stackoverflow.com/questions/1319615/proper-way-to-declare-custom-exceptions-in-modern-python} and \url{https://stackoverflow.com/revisions/1319675/7}; March 26, 2018 was the last accessed date.
 
+	\cite[\S pickle — Python object serialization]{DrakeJr2016b}
+		Available online at: \url{https://docs.python.org/3/library/pickle.html}; February 27, 2019 was the last accessed date
+
+	kylejmcintyre, ``How to make a custom exception class with multiple init args pickleable,'' Stack Exchange Inc., New York, NY, April 26, 2013. Available online from {\it Stack Exchange Inc.: Stack Overflow: Questions} at: \url{https://stackoverflow.com/questions/16244923/how-to-make-a-custom-exception-class-with-multiple-init-args-pickleable}, \url{https://stackoverflow.com/posts/36342588/revisions}, and \url{https://stackoverflow.com/posts/16245182/revisions}; February 27, 2019 was the last accessed date.
 """
 
 #	The MIT License (MIT)
@@ -78,38 +82,12 @@ class graph_exception(Exception):
 	#	@param errors - Associted errors to this instance of the
 	#		graph_exception.
 	def __init__(self, error_message, errors):
-		# Call base class, Exception, constructor with required
-		#	parameters.
-		super().__init__(error_message)
 		# Custom code: Assign associated errors.
 		self.errors = errors
-	#
-	# ============================================================
-	##	Method to set the location of simulation/experimental results.
-	#	@param location - Location of a directory.
-	#	@return a boolean TRUE, if the location is a valid directory.
-	#		Else, return FALSE.
-	#	O(1) method.
-	@staticmethod
-	def set_result_repository(location):
-		if not os.path.isabs(location):
-			#print("	location is a relative path.")
-			# Change the relative path to an absolute path.
-			location = os.path.expanduser(location)
-		#else:
-		#	print("	location is an absolute path.")
-		if os.path.isdir(location):
-			#print("	location is a valid directory.")
-			config_manager.result_repository = location
-			return True
-		else:
-			#print("	location is an invalid directory.")
-			return False
-	# ============================================================
-	##	Method to get the location of simulation/experimental results.
-	#	@param - None.
-	#	@return the location of simulation/experimental results.
-	#	O(1) method.
-	@staticmethod
-	def get_result_repository():
-		return config_manager.result_repository
+		# Call base class, Exception, constructor with required
+		#	parameters.
+		super(graph_exception, self).__init__('error message: {}, list of errors: {}'.format(error_message, errors))
+		#super(graph_exception, self).__init__(error_message)
+		# Override the "__reduce__" method.
+		def __reduce__(self):
+			return (MyException, (self.arg1, self.arg2))
