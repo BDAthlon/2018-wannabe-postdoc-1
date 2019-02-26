@@ -71,8 +71,19 @@ import calendar
 ###############################################################
 #	Module with methods that perform file I/O operations.
 class vertex:
-	#
+	# ============================================================
+	##	Method to determine if an edge e_i is an incident edge
+	#		to this vertex.
+	#	@param - None.
+	#	@return boolean TRUE, if the location of the directory to
+	#		store simulation/experimental results has been
+	#		set/configured by the "configuration.json" file.
+	#		Else, return boolean FALSE.
+	#	O(n) method, where n is the number of fields in the
+	#		"configuration.json" file.
+	#	Reference:
+	#		\cite[\S13.1.1, pp. 599]{Goodrich2011}.
+	def is_incident_edge(e_i)
 
 
-a b c d
-b c d a
+Do I pass in an instance of the graph in these methods?
