@@ -73,11 +73,6 @@ from shutil import copyfile
 """
 from statistics.test_statistics import statistical_analysis
 """
-	Package and module to configure the software application's
-		parameters.
-"""
-from utilities.configuration_manager import config_manager
-"""
 	Package and module to throw/raise the custom exception
 		graph_exception.
 """
@@ -89,7 +84,7 @@ from utilities.custom_exceptions.graph_exception import graph_error
 	Module with method that test the custom exception graph_exception.
 	Support for class instantiation is not provided, to avoid
 		acquiring a collection of useless "graph_error"
-		objects.
+		and "graph_error_tester" objects.
 	Test throwing/raising the graph_error exception.
 """
 class graph_error_tester:
