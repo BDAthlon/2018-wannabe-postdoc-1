@@ -85,7 +85,7 @@ from parsers.json_object import json_obj
 
 ###############################################################
 """
-	Module with methods that transform JSON objects to Python
+	Module to test methods that transform JSON objects to Python
 		objects.
 	Test the accessibility of each field of the "json_object" class.
 """
