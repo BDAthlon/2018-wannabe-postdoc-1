@@ -2,6 +2,7 @@
 ###	/usr/bin/python
 
 """
+	Check for no usage of the term "error".
 	This Python script is written by Zhiyang Ong to implement
 		a custom graph_exception that extends the default Python
 		exception class.

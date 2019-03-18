@@ -26,9 +26,16 @@ See my *LaTeX* report about [data structures and algorithms](https://github.com/
 	- Implement graph_dg class.
 	- Test graph_dg class.
 
-
-
-
+For each class, implement the following:
+	- Constructor:
+		* Default constructor.
+		* Standard constructor(s) (if any).
+	- Attributes/Properties/Fields.
+	- Accessor methods for its attributes.
+	- Mutator methods for its attributes.
+	- Other methods.
+	- Test each constructor.
+	- Test each method.
 
 
 

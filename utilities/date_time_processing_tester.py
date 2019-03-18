@@ -2,7 +2,7 @@
 ###	/usr/bin/python
 
 """
-	This Python script is written by Zhiyang Ong to perform
+	This Python script is written by Zhiyang Ong to test
 		date and time operations.
 
 	Synopsis:

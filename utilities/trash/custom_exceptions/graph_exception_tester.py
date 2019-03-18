@@ -3,10 +3,11 @@
 
 """
 	This Python script is written by Zhiyang Ong to test the
-		custom exception graph_exception, from the utilities.custom_exceptions package.
+		custom graph_exception that extends the default Python
+		exception class.
 
 	Synopsis:
-	Test the custom exception graph_exception.
+	Test the custom graph_exception class.
 
 	Notes/Assumptions:
 	None at the moment.
@@ -73,37 +74,37 @@ from shutil import copyfile
 """
 from statistics.test_statistics import statistical_analysis
 """
-	Package and module to throw/raise the custom exception
-		graph_exception.
+	Package and module to configure the software application's
+		parameters.
 """
-from utilities.custom_exceptions.graph_exception import graph_error
-
+from utilities.configuration_manager import config_manager
 
 ###############################################################
 """
-	Module with method that test the custom exception graph_exception.
+	Module to test the custom graph_exception class.
 	Support for class instantiation is not provided, to avoid
-		acquiring a collection of useless "graph_error"
-		and "graph_error_tester" objects.
-	Test throwing/raising the graph_error exception.
+		acquiring a collection of useless "graph_exception"
+		objects.
 """
-class graph_error_tester:
+class graph_exception_tester:
 	## =========================================================
-	#	Method to test throwing/raising the graph_error exception.
+	#	Method to test the usage of the custom graph_exception class.
 	#	@param - Nothing
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_raising_graph_error():
-		print("	Testing the config_manager class/module.")
-		prompt = "	... Test: check default result_repository		{}"
+	def test_graph_exception():
+		print("	Testing the graph_exception class/module.")
+		prompt = "	... Test: Raise graph_exception		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if (config_manager.get_result_repository() == "Unknown location."):
+		try (config_manager.get_result_repository() == "Unknown location."):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		else:
+		except graph_exception:
 			print(prompt .format("FAIL!!!"))
 			#print("location=",config_manager.get_result_repository(),"=")
+		except:
+			print(prompt .format("FAIL fail!!!"))
 		absolute_path = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 		prompt = "	... Test: result_repository, check change to abs. path.	{}"
 		statistical_analysis.increment_number_test_cases_used()

@@ -17,11 +17,15 @@
 		"In an adjacency list, we maintain, for each vertex, a separate list containing those edges that are incident to the vertex. The complete set of edges can be determined by taking the union of the smaller sets, while the organization allows us to more efficiently find all edges incident to a given vertex."
 		"An adjacency map is very similar to an adjacency list, but the secondary container of all edges incident to a vertex is organized as a map, rather than as a list, with the adjacent vertex serving as a key. This allows for access to a specific edge (u,v) in O(1) expected time."
 
-	[DrakeJr2016b]
-		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations
+	The attributes/properties/fields and methods of the vertex class are primarily described in my LaTeX report about data structures and algorithms (see https://github.com/eda-ricercatore/boilerplate-code/tree/master/notes/report), including a typeset PDF copy of the report (https://github.com/eda-ricercatore/boilerplate-code/blob/master/notes/report/data-structures_n_algor.pdf).
 
-
+	Revision History:
+	August 1, 2018			Version 0.1, initial build.
 """
+
+__author__ = 'Zhiyang Ong'
+__version__ = '1.0'
+__date__ = 'August 1, 2018'
 
 #	The MIT License (MIT)
 
@@ -69,21 +73,31 @@ import calendar
 
 
 ###############################################################
-#	Module with methods that perform file I/O operations.
+#	Module with accessor and mutator method(s) for its attributes.
 class vertex:
+	# Unique ID of the instance object.
+	#	No other instance object of vertex shares this ID.
+	id = "Unknown ID of this vertex."
 	# ============================================================
-	##	Method to determine if an edge e_i is an incident edge
-	#		to this vertex.
+
+	#	Accessor methods of the vertex class.
+
+	##	Method to access the ID of a vertex instance object.
 	#	@param - None.
-	#	@return boolean TRUE, if the location of the directory to
-	#		store simulation/experimental results has been
-	#		set/configured by the "configuration.json" file.
-	#		Else, return boolean FALSE.
-	#	O(n) method, where n is the number of fields in the
-	#		"configuration.json" file.
-	#	Reference:
-	#		\cite[\S13.1.1, pp. 599]{Goodrich2011}.
-	def is_incident_edge(e_i)
+	#	@return the ID belonging to the vertex instance object.
+	#	O(1) .
+	def get_id():
+		return id
 
+	# ------------------------------------------------------------
 
-Do I pass in an instance of the graph in these methods?
+	#	Mutator methods of the vertex class.
+
+	##	Method to set the ID of a vertex instance object as
+	#		"identity".
+	#	@param identity - The new/replacement ID of the vertex
+	#		instance object.
+	#	@return the ID belonging to the vertex instance object.
+	#	O(1) .
+	def set_id(identity):
+		id = identity
