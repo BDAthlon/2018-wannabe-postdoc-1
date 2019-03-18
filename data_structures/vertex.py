@@ -4,7 +4,7 @@
 
 """
 	This Python script is written by Zhiyang Ong to model a vertex/node
-		of a (mathematical) graph/network.
+		of an undirected (mathematical) graph/network.
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken

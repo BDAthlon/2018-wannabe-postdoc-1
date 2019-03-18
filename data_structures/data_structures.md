@@ -2,6 +2,35 @@
 
 See my *LaTeX* report about [data structures and algorithms](https://github.com/eda-ricercatore/boilerplate-code/tree/master/notes/report), including a typeset [PDF copy of the report](https://github.com/eda-ricercatore/boilerplate-code/blob/master/notes/report/data-structures_n_algor.pdf).
 
+##	To-Do List
+
++ Implement a generic graph.
+	- Implement *vertex class.
+	- Test *vertex class.
+	- Implement *edge* class.
+	- Test *edge* class.
+	- Implement *graph* class.
+	- Test *graph* class.
++ Implement an undirected graph, which extends a generic graph.
+	- Implement vertex_ug class.
+	- Test vertex_ug class.
+	- Implement edge_ug class.
+	- Test edge_ug class.
+	- Implement graph_ug class.
+	- Test graph_ug class.
++ Implement a directed graph, which extends a generic graph.
+	- Implement vertex_dg class.
+	- Test vertex_dg class.
+	- Implement edge_dg class.
+	- Test edge_dg class.
+	- Implement graph_dg class.
+	- Test graph_dg class.
+
+
+
+
+
+
 
 
 
