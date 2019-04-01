@@ -98,18 +98,32 @@ class config_manager:
 	#	O(1) method.
 	@staticmethod
 	def set_result_repository(location):
+		copy_of_location = location
 		if not os.path.isabs(location):
 			#print("	location is a relative path.")
 			# Change the relative path to an absolute path.
-			location = os.path.expanduser(location)
+			#location = os.path.expanduser(location)
+			copy_of_location = os.path.expanduser(location)
 		#else:
 		#	print("	location is an absolute path.")
-		if os.path.isdir(location):
+		#if os.path.isdir(location):
+		if os.path.isdir(copy_of_location):
 			#print("	location is a valid directory.")
-			config_manager.result_repository = location
+			#config_manager.result_repository = location
+			config_manager.result_repository = copy_of_location
+			print("config_manager.result_repository:::",config_manager.result_repository,"=")
+			print("	config_manager.result_repository is set correctly.")
 			return True
 		else:
 			#print("	location is an invalid directory.")
+			print("config_manager.result_repository:::",config_manager.result_repository,"=")
+			print("	'location' is a valid directory.")
+			print("	'location' path check:::",os.path.isdir("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"),"=")
+			#if "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization" == location.strip():
+			if "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization" == copy_of_location:
+				print("location value is WRONG!!!")
+			print("	'location':::",location,"=")
+			print("	'copy_of_location':::",copy_of_location,"=")
 			return False
 	# ============================================================
 	##	Method to get the location of simulation/experimental results.

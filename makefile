@@ -40,7 +40,8 @@ GPLUSPLUS=			g++
 COMPILE=			-c
 LINK=				-o
 RMHG=				hg remove
-EXECUTABLE=			./test-boilerplate-code				# ./sizer.exe
+#EXECUTABLE=			./test-boilerplate-code				# ./sizer.exe
+EXECUTABLE=			./incremental_test.py
 OBJFILES=			*.o
 SOURCE=				*.cpp
 HEADER=				*.h
@@ -78,9 +79,9 @@ DYNINCLUDE=			-l
 #	Used when testing and debugging.
 COVERAGE=			-coverage
 #	Normal output message/text file
-NORMALTXT=			normal_output.txt
+NORMALTXT=			./output/normal_output.txt
 #	Error output message/text file
-ERRORTXT=			error_output.txt
+ERRORTXT=			./output/error_output.txt
 #	Used when testing and debugging.
 COVERAGE=			-coverage
 CPP11=				-std=c++11
@@ -104,15 +105,21 @@ CPP17=				-std=c++17
 #	the software resides, so that it is easier to maintain.
 #
 # Module that defines the key components of a (hyper)graphs.
-GRAPHPATH=		../src/graph/
-DIRGRAPHPATH=	../src/graph/directed/
-UNDIRGRAPHPATH=	../src/graph/undirected/
+GRAPHPATH=		./data_structures/
+DIRGRAPHPATH=	./directed_graph/
+UNDIRGRAPHPATH=	./undirected_graph/
 #
 # Module containing the input benchmarks that are used to test my software.
-BENCHMARKS=		../benchmarks/
+BENCHMARKS=		./benchmarks/
 # Benchmarks provided for lamiera-per-caldaie
 STACK1=			stack1
+STACK1=			stack1
 STACK2=			stack2
+MAJORITYCELL=	majority_netlist.json
+MULTIPLEXER=	multiplexer_netlist.json
+RULE30=			rule_30_netlist.json
+# Module containing the output solutions produced by my software.
+OUTPUTDIR=		./output/
 # Name of output file
 OPRESULTS=		output-results
 #
@@ -222,26 +229,13 @@ all:
 # TEST THE SOFTWARE: UNIT, MODULE, INTEGRATION, AND REGRESSION TESTING
 ########################################################################
 # Build and test the latest software build.
-test:
+test_deprecated:
 	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
 	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
 	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
 	$(DATE)
 	$(TBBSETUP)
 	@echo === Compiling C++ source code in the...
-	@echo === Utilities Directory
-	$(GPLUSPLUS)	$(CPP11)	$(COMPILE)	$(UTILITYPATH)$(SOURCE)
-	@echo === Graph Directory
-#	$(GPLUSPLUS)	$(CPP11)	$(COMPILE)	$(DIRGRAPHPATH)$(SOURCE)
-	@echo === Parsers Directory
-	@echo === Sandbox Directory
-	$(GPLUSPLUS)	$(CPP11)	$(COMPILE)	$(SANDBOXPATH)$(TEMPLATEPATH)
-	@echo === Test/Utilities Directory
-	$(GPLUSPLUS)	$(CPP11)	$(COMPILE)	$(TESTPATH)$(TPUTILITIES)$(SOURCE)
-	@echo === Test/Graph Directory
-#	$(GPLUSPLUS)	$(CPP11)	$(COMPILE)	$(TESTPATH)$(TPGRAPH)$(SOURCE)
-#	$(GPLUSPLUS)	$(CPP11)	$(COMPILE)	$(TESTPATH)$(TPGRAPH)$(TPDIRGRAPH)$(SOURCE)
-	@echo === Test/Parsers Directory
 	@echo === Test Directory
 	$(GPLUSPLUS)	$(CPP11)	$(COMPILE)	$(TESTPATH)$(SOURCE)
 	@echo === Link the C++ object files...
@@ -264,6 +258,46 @@ test:
 	@echo
 	more $(NORMALTXT)
 	more $(ERRORTXT)
+
+
+
+
+
+########################################################################
+# TEST THE SOFTWARE: UNIT, MODULE, INTEGRATION, AND REGRESSION TESTING
+########################################################################
+# Build and test the latest software build.
+test:
+	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
+	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
+	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
+	$(DATE)
+	@echo === Executing the software...
+	#$(TIME) $(EXECUTABLE) $(BENCHMARKS)$(MAJORITYCELL)	$(OPRESULTS)
+	$(EXECUTABLE) $(BENCHMARKS)$(MAJORITYCELL)	$(OUTPUTDIR)$(OPRESULTS)
+	@echo
+	@echo
+	@echo
+	@echo
+	@echo "The code is rather buggy; use is at own risk."
+	@echo "-- Donald Chai"
+	@echo
+	@echo "Beware of bugs in the above code."
+	@echo "I have only proved it correct, not tried it."
+	@echo "-- Donald E. Knuth"
+	@echo
+	@echo
+	@echo
+	@echo
+	more $(NORMALTXT)
+	more $(ERRORTXT)
+
+
+
+
+
+
+
 
 
 

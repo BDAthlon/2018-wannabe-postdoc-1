@@ -153,6 +153,7 @@ class config_parser:
 			Hence, the following sentence is not valid.
 		"""
 		#print("temp_dictionary['result_repository']=",temp_dictionary["result_repository"],"=")
+		#if config_manager.set_result_repository(temp_dictionary.__list__["output"]):
 		if config_manager.set_result_repository(temp_dictionary.__list__["result_repository"]):
 			return True
 		else:
