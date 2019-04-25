@@ -89,7 +89,24 @@ class config_manager:
 	#	Base location to store simulation and/or experimental results.
 	#result_repository = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 	result_repository = "Unknown location."
+	home_directory_of_zhiyang_ong = "/Users/zhiyang"
 	#
+	# ============================================================
+	##	Method to set the location of simulation/experimental results.
+	#	@param location - Location of a directory.
+	#	@return the absolute path of location, if location is a
+	#		relative path from the user's home directory.
+	#		Else, return location.
+	#	####IMPORTANT NOTES: Method to fix bug in the method
+	#		"os.path.expanduser", which had replaced the initial
+	#		substring "~/" of the relative path from the user's
+	#		home directory with "../"
+	#		This bug is not always replicable.
+	#		Hence, I am providing/using this workaround.
+	#	O(1) method.
+	@staticmethod
+	def relative_path_from_user_home_directory_to_absolute_path(location):
+
 	# ============================================================
 	##	Method to set the location of simulation/experimental results.
 	#	@param location - Location of a directory.
@@ -99,6 +116,7 @@ class config_manager:
 	@staticmethod
 	def set_result_repository(location):
 		copy_of_location = location
+		print("..	given copy_of_location:::",copy_of_location,"=")
 		"""
 			Since os.path.isdir returns false for relative paths,
 				ensure that the directory is an absolute path
@@ -108,7 +126,8 @@ class config_manager:
 			#print("	location is a relative path.")
 			# Change the relative path to an absolute path.
 			#location = os.path.expanduser(location)
-			copy_of_location = os.path.expanduser(location)
+			#copy_of_location = os.path.expanduser(location)
+			copy_of_location = os.path.expanduser(copy_of_location)
 			print("	copy_of_location made abs:::",copy_of_location,"=")
 		#else:
 		#	print("	location is an absolute path.")
