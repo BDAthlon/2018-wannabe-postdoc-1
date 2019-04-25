@@ -102,11 +102,21 @@ class config_manager:
 	#		substring "~/" of the relative path from the user's
 	#		home directory with "../"
 	#		This bug is not always replicable.
+	#		This is because os.environ['HOME'] is set to "../".
+	#		Hence, it will replace "~/" with "../".
 	#		Hence, I am providing/using this workaround.
 	#	O(1) method.
 	@staticmethod
 	def relative_path_from_user_home_directory_to_absolute_path(location):
-
+		#print("Where is my home?",os.environ['HOME'],"=")
+		#home_directory = os.path.expanduser("~")
+		home_directory_of_zhiyang_ong = "/Users/zhiyang/"
+		#print("?	home_directory:::",home_directory,"=")
+		if location.startswith("~/"):
+			#print("temp_dictionary starts with ~/")
+			return location.replace("~/",home_directory_of_zhiyang_ong)
+		else:
+			return location
 	# ============================================================
 	##	Method to set the location of simulation/experimental results.
 	#	@param location - Location of a directory.
@@ -115,40 +125,44 @@ class config_manager:
 	#	O(1) method.
 	@staticmethod
 	def set_result_repository(location):
-		copy_of_location = location
-		print("..	given copy_of_location:::",copy_of_location,"=")
+		#copy_of_location = location
+		#print("..	given copy_of_location:::",copy_of_location,"=")
 		"""
 			Since os.path.isdir returns false for relative paths,
 				ensure that the directory is an absolute path
 					before proceeding.
 		"""
+		location = config_manager.relative_path_from_user_home_directory_to_absolute_path(location)
+		print(";;;~current location:::",location,"=")
 		if not os.path.isabs(location):
 			#print("	location is a relative path.")
 			# Change the relative path to an absolute path.
 			#location = os.path.expanduser(location)
 			#copy_of_location = os.path.expanduser(location)
-			copy_of_location = os.path.expanduser(copy_of_location)
-			print("	copy_of_location made abs:::",copy_of_location,"=")
+			location = os.path.expanduser(location)
+			print("	location made abs:::",location,"=")
+		print("	location should be abs:::",location,"=")
+		print("os.path.isdir(location)",os.path.isdir(location),"=")
 		#else:
 		#	print("	location is an absolute path.")
 		#if os.path.isdir(location):
-		if os.path.isdir(copy_of_location):
+		if os.path.isdir(location):
 			#print("	location is a valid directory.")
-			#config_manager.result_repository = location
-			config_manager.result_repository = copy_of_location
+			config_manager.result_repository = location
+			#config_manager.result_repository = copy_of_location
 			print("config_manager.result_repository:::",config_manager.result_repository,"=")
 			print("	config_manager.result_repository is set correctly.")
 			return True
 		else:
 			#print("	location is an invalid directory.")
-			print("config_manager.result_repository:::",config_manager.result_repository,"=")
+			print("&&& config_manager.result_repository:::",config_manager.result_repository,"=")
 			print("	'location' is a valid directory.")
 			print("	'location' path check:::",os.path.isdir("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"),"=")
 			#if "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization" == location.strip():
-			if "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization" == copy_of_location:
+			if "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization" == location:
 				print("location value is WRONG!!!")
 			print("	'location':::",location,"=")
-			print("	'copy_of_location':::",copy_of_location,"=")
+			#print("	'copy_of_location':::",copy_of_location,"=")
 			return False
 	# ============================================================
 	##	Method to get the location of simulation/experimental results.
