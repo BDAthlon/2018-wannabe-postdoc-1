@@ -99,6 +99,11 @@ class config_manager:
 	@staticmethod
 	def set_result_repository(location):
 		copy_of_location = location
+		"""
+			Since os.path.isdir returns false for relative paths,
+				ensure that the directory is an absolute path
+					before proceeding.
+		"""
 		if not os.path.isabs(location):
 			#print("	location is a relative path.")
 			# Change the relative path to an absolute path.
