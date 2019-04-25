@@ -146,7 +146,7 @@ class config_parser:
 			Hence, I can use the name of a field in the JSON object
 				to access the value of that field.
 		"""
-		#print("temp_dictionary.__list__['result_repository']=",temp_dictionary.__list__["result_repository"],"=")
+		print("temp_dictionary.__list__['result_repository']=",temp_dictionary.__list__["result_repository"],"=")
 		"""
 			The temp_dictionary is not subscriptable, since 'json_obj'
 				objects are not subscriptable.

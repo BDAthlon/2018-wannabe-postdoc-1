@@ -104,6 +104,7 @@ class config_manager:
 			# Change the relative path to an absolute path.
 			#location = os.path.expanduser(location)
 			copy_of_location = os.path.expanduser(location)
+			print("	copy_of_location made abs:::",copy_of_location,"=")
 		#else:
 		#	print("	location is an absolute path.")
 		#if os.path.isdir(location):
