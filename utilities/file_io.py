@@ -10,9 +10,24 @@
 	Synopsis:
 	Perform input/output (I/O) operations on files.
 
+
+
+	#### IMPORTANT NOTES:
+	In lieu of using the specified file input/output (I/O) methods
+		to perform file input operations, use the "with" statement
+		for file I/O operations because it has a predefined clean-up
+		action, such as the following.
+
+	with open("myfile.txt") as f:
+		for line in f:
+			print(line, end="")
+
+
+
+
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
-    	from my BibTeX database (set of BibTeX entries).
+		from my BibTeX database (set of BibTeX entries).
 
 	[DrakeJr2016b]
 		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations

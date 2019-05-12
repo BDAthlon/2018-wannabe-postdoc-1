@@ -154,7 +154,7 @@ from utilities.miscellaneous_tester import misc_tester
 	+ Test the implementations for genetic technology mapping.
 		- Brute force algorithm
 """
-class Incremental_Test_Automation:
+class incremental_test_automation:
 	# List of BibTeX keys
 	set_of_BibTeX_keys = []
 	num_of_bibtex_entries = 0
@@ -168,17 +168,17 @@ class Incremental_Test_Automation:
 	#	O(n) method, where n is the number of BibTeX keys.
 	@staticmethod
 	def add_BibTeX_key(found_BibTeX_key):
-		if (found_BibTeX_key in Incremental_Test_Automation.set_of_BibTeX_keys):
+		if (found_BibTeX_key in incremental_test_automation.set_of_BibTeX_keys):
 			temp_str = "Duplicate BibTeX key:"+found_BibTeX_key
 			warnings.warn(temp_str)
 			raise Exception("Multiple instances of a BibTeX key")
-		Incremental_Test_Automation.set_of_BibTeX_keys.append(found_BibTeX_key)
+		incremental_test_automation.set_of_BibTeX_keys.append(found_BibTeX_key)
 	# ============================================================
 	##	Method to sort BibTeX keys into a list, "set_of_BibTeX_keys".
 	#	O(n*log(n)) method, where n is the number of BibTeX keys.
 	@staticmethod
 	def sort_BibTeX_keys():
-		Incremental_Test_Automation.set_of_BibTeX_keys = sorted(Incremental_Test_Automation.set_of_BibTeX_keys)
+		incremental_test_automation.set_of_BibTeX_keys = sorted(incremental_test_automation.set_of_BibTeX_keys)
 	# ============================================================
 	##	Method to read each line of the input BibTeX file.
 	#	O(n) method, where n is the number of lines of the BibTeX file.
@@ -195,14 +195,14 @@ class Incremental_Test_Automation:
 				# Yes.
 #				print "...	First line of a BibTeX entry."
 				# Increment number of BibTeX entries.
-				Incremental_Test_Automation.num_of_bibtex_entries = Incremental_Test_Automation.num_of_bibtex_entries + 1
+				incremental_test_automation.num_of_bibtex_entries = incremental_test_automation.num_of_bibtex_entries + 1
 				tokenized_BibTeX_entry = re.split('@|{|,',line)
 #				for i in tokenized_BibTeX_entry:
 #					print i
 				# Is the type of the BibTeX entry valid?
 				if (tokenized_BibTeX_entry[1] in queue_ip_args.BibTeX_entry_types):
 					# Yes. Try adding the BibTeX entry to "set_of_BibTeX_keys".
-					Incremental_Test_Automation.add_BibTeX_key(tokenized_BibTeX_entry[2].lower())
+					incremental_test_automation.add_BibTeX_key(tokenized_BibTeX_entry[2].lower())
 				else:
 					# No. Warn user that the type of BibTeX entry is invalid!
 					temp_str = "Invalid type of BibTeX entry:"
@@ -210,10 +210,10 @@ class Incremental_Test_Automation:
 					print(temp_str)
 					#warnings.warn("Invalid type of BibTeX entry")
 					raise Exception("BibTeX entry has an invalid type!")
-		if (Incremental_Test_Automation.num_of_bibtex_entries != len(Incremental_Test_Automation.set_of_BibTeX_keys)):
+		if (incremental_test_automation.num_of_bibtex_entries != len(incremental_test_automation.set_of_BibTeX_keys)):
 			raise Exception("Mismatch in number of BibTeX entries processed.")
 		else:
-			print("=	Number of BibTeX entries processed: {}" .format(str(Incremental_Test_Automation.num_of_bibtex_entries)))
+			print("=	Number of BibTeX entries processed: {}" .format(str(incremental_test_automation.num_of_bibtex_entries)))
 
 
 
@@ -272,7 +272,7 @@ if __name__ == "__main__":
 	# Insert test cases for testing the parsers package.
 	#	### TO-DO
 	#	Test expr_configuration
-#	Incremental_Test_Automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
+#	incremental_test_automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
 	print("!	!	!	!	!	!	!	!	!	!	!")
 	print(">>	Get statistics of the software testing process.")
 	statistical_analysis.print_statistics_of_software_testing()

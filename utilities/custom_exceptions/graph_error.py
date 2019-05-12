@@ -26,6 +26,8 @@
 		Available online at: \url{https://docs.python.org/3/library/pickle.html}; February 27, 2019 was the last accessed date
 
 	kylejmcintyre, ``How to make a custom exception class with multiple init args pickleable,'' Stack Exchange Inc., New York, NY, April 26, 2013. Available online from {\it Stack Exchange Inc.: Stack Overflow: Questions} at: \url{https://stackoverflow.com/questions/16244923/how-to-make-a-custom-exception-class-with-multiple-init-args-pickleable}, \url{https://stackoverflow.com/posts/36342588/revisions}, and \url{https://stackoverflow.com/posts/16245182/revisions}; February 27, 2019 was the last accessed date.
+
+	\cite[\8.5 User-defined Exceptions]{Brandl2017a}
 """
 
 #	The MIT License (MIT)
@@ -75,7 +77,7 @@ import calendar
 ###############################################################
 #	Module of a custom graph_exception that extends the default
 #		Python exception class.
-class graph_exception(Exception):
+class my_graph_error(Exception):
 	##	Standard constructor for the graph_exception class.
 	#	@param self - This instance of the graph_exception class.
 	#	@param error_message - Custom error message included when
