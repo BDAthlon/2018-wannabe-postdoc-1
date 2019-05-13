@@ -123,6 +123,11 @@ from utilities.generate_results_filename import generate_filename
 """
 from utilities.generate_results_filename_tester import generate_filename_tester
 from utilities.miscellaneous import misc
+from utilities.custom_exceptions.my_graph_error import m_graph_error
+from utilities.custom_exceptions.my_graph_error_tester import graph_error_t
+
+
+
 
 # Package and module to transform JSON objects to Python objects.
 from parsers.json_object import json_obj
@@ -263,6 +268,8 @@ if __name__ == "__main__":
 	date_time_operations_tester.test_date_time_operations()
 	generate_filename_tester.test_filename_generation_methods()
 	misc_tester.test_miscellaneous_methods()
+	my_graph_error_tester.test_raising_graph_error()
+	graph_error_t.test_raising_graph_error()
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the parsers package.
