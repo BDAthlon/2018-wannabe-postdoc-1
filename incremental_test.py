@@ -123,10 +123,14 @@ from utilities.generate_results_filename import generate_filename
 """
 from utilities.generate_results_filename_tester import generate_filename_tester
 from utilities.miscellaneous import misc
-from utilities.custom_exceptions.my_graph_error import m_graph_error
-from utilities.custom_exceptions.my_graph_error_tester import graph_error_t
-
-
+#	from utilities/custom_exceptions.my_graph_error import m_graph_error
+#from utilities.custom_exceptions.my_graph_error import m_graph_error
+import utilities.custom_exceptions.graph_error
+#import utilities.custom_exceptions
+#from utilities.custom_exceptions.my_graph_error_tester import graph_error_t
+import utilities.custom_exceptions.graph_error_tester
+	#from utilities.custom_exceptions.graph_error_tester import graph_err_t
+#import utilities.custom_exceptions.graph_error_tester as graph_err_t
 
 
 # Package and module to transform JSON objects to Python objects.
@@ -268,13 +272,15 @@ if __name__ == "__main__":
 	date_time_operations_tester.test_date_time_operations()
 	generate_filename_tester.test_filename_generation_methods()
 	misc_tester.test_miscellaneous_methods()
-	my_graph_error_tester.test_raising_graph_error()
-	graph_error_t.test_raising_graph_error()
+	#graph_error_tester.test_raising_graph_error()
+#	utilities.custom_exceptions.graph_error_tester.test_raising_graph_error()
+	utilities.custom_exceptions.graph_error_tester.helloworld()
+	#graph_err_t.test_raising_graph_error()
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the parsers package.
 	json_obj_tester.test_json_object_accessibility()
-	config_parser_tester.test_json_config_file_parser();
+	config_parser_tester.test_json_config_file_parser()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the parsers package.
 	#	### TO-DO

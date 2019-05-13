@@ -77,8 +77,8 @@ from statistics.test_statistics import statistical_analysis
 	Package and module to throw/raise the custom exception
 		graph_exception.
 """
-from utilities.custom_exceptions.graph_exception import graph_error
-
+#from utilities.custom_exceptions.graph_error import graph_err
+import utilities.custom_exceptions.graph_error
 
 ###############################################################
 """
@@ -88,7 +88,16 @@ from utilities.custom_exceptions.graph_exception import graph_error
 		and "graph_error_tester" objects.
 	Test throwing/raising the graph_error exception.
 """
-class my_graph_error_tester:
+#class my_graph_error_tester:
+class graph_error_tester:
+	## =========================================================
+	#	Method to test throwing/raising the graph_error exception.
+	#	@param - Nothing
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def helloworld():
+		print("Hello World.")
 	## =========================================================
 	#	Method to test throwing/raising the graph_error exception.
 	#	@param - Nothing
