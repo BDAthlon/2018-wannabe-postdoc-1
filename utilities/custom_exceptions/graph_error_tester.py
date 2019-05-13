@@ -111,7 +111,8 @@ class graph_error_tester:
 			prompt = "	... Test: raise graph_error exception		{}"
 			statistical_analysis.increment_number_test_cases_used()
 			#raise graph_error("Can graph_error be caught")
-			raise utilities.custom_exceptions.graph_error("Can graph_error be caught")
+			#raise utilities.custom_exceptions.graph_error("Can graph_error be caught")
+			raise graph_error("Can graph_error be caught","gyou")
 		#except utilities.custom_exceptions.graph_error:
 		except graph_error:
 			print(prompt .format("OK"))

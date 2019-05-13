@@ -273,7 +273,7 @@ if __name__ == "__main__":
 	date_time_operations_tester.test_date_time_operations()
 	generate_filename_tester.test_filename_generation_methods()
 	misc_tester.test_miscellaneous_methods()
-	#graph_error_tester.test_raising_graph_error()
+	graph_error_tester.test_raising_graph_error()
 	#utilities.custom_exceptions.graph_error_tester.test_raising_graph_error()
 	#utilities.custom_exceptions.graph_error_tester.helloworld()
 	#utilities.custom_exceptions.graph_error_tester.graph_error_tester.helloworld()

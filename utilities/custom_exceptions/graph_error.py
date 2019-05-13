@@ -94,8 +94,8 @@ class graph_error(Exception):
 		self.errors = errors
 		# Call base class, Exception, constructor with required
 		#	parameters.
-		super(graph_exception, self).__init__('error message: {}, list of errors: {}'.format(error_message, errors))
-		#super(graph_exception, self).__init__(error_message)
+		super(graph_error, self).__init__('error message: {}, list of errors: {}'.format(error_message, errors))
+		#super(graph_error, self).__init__(error_message)
 		# Override the "__reduce__" method.
 		def __reduce__(self):
-			return (MyException, (self.arg1, self.arg2))
+			return (graph_error, (self.arg1, self.arg2))
