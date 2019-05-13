@@ -108,11 +108,23 @@ class graph_error_tester:
 	def test_raising_graph_error():
 		print("	Testing the graph_error class/module.")
 		try:
-			prompt = "	... Test: raise graph_error exception		{}"
+			prompt = "	... Test: raise graph_error exception, 2 arguments	{}"
 			statistical_analysis.increment_number_test_cases_used()
 			#raise graph_error("Can graph_error be caught")
 			#raise utilities.custom_exceptions.graph_error("Can graph_error be caught")
-			raise graph_error("Can graph_error be caught","gyou")
+			raise graph_error("Can graph_error be caught?","gyou")
+		#except utilities.custom_exceptions.graph_error:
+		except graph_error:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		try:
+			prompt = "	... Test: raise graph_error exception, 1 argument	{}"
+			statistical_analysis.increment_number_test_cases_used()
+			#raise graph_error("Can graph_error be caught")
+			#raise utilities.custom_exceptions.graph_error("Can graph_error be caught")
+			raise graph_error("Can graph_error be caught?")
 		#except utilities.custom_exceptions.graph_error:
 		except graph_error:
 			print(prompt .format("OK"))

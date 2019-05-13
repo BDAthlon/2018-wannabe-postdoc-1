@@ -89,8 +89,7 @@ class graph_error(Exception):
 	#		raising/throwing this graph_exception class.
 	#	@param errors - Associted errors to this instance of the
 	#		graph_exception.
-	def __init__(self, error_message, errors=None):
-		self.error_message = error_message
+	def __init__(self, error_message, errors):
 		# Custom code: Assign associated errors.
 		self.errors = errors
 		# Call base class, Exception, constructor with required
