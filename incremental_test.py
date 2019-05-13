@@ -128,10 +128,10 @@ from utilities.miscellaneous import misc
 import utilities.custom_exceptions.graph_error
 #import utilities.custom_exceptions
 #from utilities.custom_exceptions.my_graph_error_tester import graph_error_t
-import utilities.custom_exceptions.graph_error_tester
+#import utilities.custom_exceptions.graph_error_tester
 	#from utilities.custom_exceptions.graph_error_tester import graph_err_t
 #import utilities.custom_exceptions.graph_error_tester as graph_err_t
-
+from utilities.custom_exceptions.graph_error_tester import *
 
 # Package and module to transform JSON objects to Python objects.
 from parsers.json_object import json_obj
@@ -274,7 +274,9 @@ if __name__ == "__main__":
 	misc_tester.test_miscellaneous_methods()
 	#graph_error_tester.test_raising_graph_error()
 #	utilities.custom_exceptions.graph_error_tester.test_raising_graph_error()
-	utilities.custom_exceptions.graph_error_tester.helloworld()
+#	utilities.custom_exceptions.graph_error_tester.helloworld()
+	utilities.custom_exceptions.graph_error_tester.graph_error_tester.helloworld()
+#	utilities.custom_exceptions.graph_error_tester.graph_error_tester.test_raising_graph_error()
 	#graph_err_t.test_raising_graph_error()
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")

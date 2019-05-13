@@ -97,7 +97,7 @@ class graph_error_tester:
 	#	O(1) method.
 	@staticmethod
 	def helloworld():
-		print("Hello World.")
+		print(":::	graph_error accessor method works.")
 	## =========================================================
 	#	Method to test throwing/raising the graph_error exception.
 	#	@param - Nothing
@@ -105,70 +105,13 @@ class graph_error_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_raising_graph_error():
-		print("	Testing the config_manager class/module.")
-		prompt = "	... Test: check default result_repository		{}"
-		statistical_analysis.increment_number_test_cases_used()
-		if (config_manager.get_result_repository() == "Unknown location."):
+		print("	Testing the graph_error class/module.")
+		try:
+			prompt = "	... Test: raise graph_error exception		{}"
+			statistical_analysis.increment_number_test_cases_used()
+			raise graph_error("Can graph_error be caught")
+		except graph_error:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-			#print("location=",config_manager.get_result_repository(),"=")
-		absolute_path = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
-		prompt = "	... Test: result_repository, check change to abs. path.	{}"
-		statistical_analysis.increment_number_test_cases_used()
-		if config_manager.set_result_repository(absolute_path):
-			print("	result_repository is changed to an absolute path.")
-		else:
-			print("	result_repository is NOT changed to an absolute path.")
-		if (config_manager.get_result_repository() == absolute_path):
-			print(prompt .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt .format("FAIL!!!"))
-			print("Actual location=",config_manager.get_result_repository(),"=")
-		# ------------------------------------------------------------
-		prompt = "	... Test: result_repository, check change to rel. path.	{}"
-		statistical_analysis.increment_number_test_cases_used()
-		"""
-			Set "result_repository" to a relative path that is equivalent
-				absolute path, "absolute_path".
-		"""
-		if config_manager.set_result_repository("~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"):
-			print("	result_repository is changed to an relative path.")
-		else:
-			print("	result_repository is NOT changed to an relative path.")
-		"""
-			"result_repository" is changed to an relative path.
-			However, compare "result_repository" to the equivalent
-				absolute path.
-			This is because if a relative path is detected, it will be
-				transform/changed to an absolute path, before being
-				assigned to "result_repository".
-		"""
-		if (config_manager.get_result_repository() == absolute_path):
-			print(prompt .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt .format("FAIL!!!"))
-			print("Actual location=",config_manager.get_result_repository(),"=")
-		# ------------------------------------------------------------
-		prompt = "	... Test: result_repository, changing to invalid path.	{}"
-		statistical_analysis.increment_number_test_cases_used()
-		"""
-			Set "result_repository" to an invalid path.
-		"""
-		if not config_manager.set_result_repository("~/This/is/an/invalid/path"):
-			print("	result_repository is not changed to an invalid path.")
-		else:
-			print("	result_repository is CHANGED to an INVALID path.")
-		"""
-			"result_repository" should not be changed to an invalid path.
-			Hence, it shall still refer to "absolute_path".
-		"""
-		if (config_manager.get_result_repository() == absolute_path):
-			print(prompt .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt .format("FAIL!!!"))
-			print("Actual location=",config_manager.get_result_repository(),"=")
