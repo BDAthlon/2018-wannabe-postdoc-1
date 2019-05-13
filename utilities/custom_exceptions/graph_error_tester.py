@@ -78,7 +78,8 @@ from statistics.test_statistics import statistical_analysis
 		graph_exception.
 """
 #from utilities.custom_exceptions.graph_error import graph_err
-import utilities.custom_exceptions.graph_error
+#import utilities.custom_exceptions.graph_error
+from utilities.custom_exceptions.graph_error import *
 
 ###############################################################
 """
@@ -109,7 +110,9 @@ class graph_error_tester:
 		try:
 			prompt = "	... Test: raise graph_error exception		{}"
 			statistical_analysis.increment_number_test_cases_used()
-			raise graph_error("Can graph_error be caught")
+			#raise graph_error("Can graph_error be caught")
+			raise utilities.custom_exceptions.graph_error("Can graph_error be caught")
+		#except utilities.custom_exceptions.graph_error:
 		except graph_error:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()

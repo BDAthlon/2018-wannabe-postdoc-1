@@ -125,7 +125,8 @@ from utilities.generate_results_filename_tester import generate_filename_tester
 from utilities.miscellaneous import misc
 #	from utilities/custom_exceptions.my_graph_error import m_graph_error
 #from utilities.custom_exceptions.my_graph_error import m_graph_error
-import utilities.custom_exceptions.graph_error
+#import utilities.custom_exceptions.graph_error
+from utilities.custom_exceptions.graph_error import *
 #import utilities.custom_exceptions
 #from utilities.custom_exceptions.my_graph_error_tester import graph_error_t
 #import utilities.custom_exceptions.graph_error_tester
@@ -273,10 +274,10 @@ if __name__ == "__main__":
 	generate_filename_tester.test_filename_generation_methods()
 	misc_tester.test_miscellaneous_methods()
 	#graph_error_tester.test_raising_graph_error()
-#	utilities.custom_exceptions.graph_error_tester.test_raising_graph_error()
-#	utilities.custom_exceptions.graph_error_tester.helloworld()
-	utilities.custom_exceptions.graph_error_tester.graph_error_tester.helloworld()
-#	utilities.custom_exceptions.graph_error_tester.graph_error_tester.test_raising_graph_error()
+	#utilities.custom_exceptions.graph_error_tester.test_raising_graph_error()
+	#utilities.custom_exceptions.graph_error_tester.helloworld()
+	#utilities.custom_exceptions.graph_error_tester.graph_error_tester.helloworld()
+	#utilities.custom_exceptions.graph_error_tester.graph_error_tester.test_raising_graph_error()
 	#graph_err_t.test_raising_graph_error()
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
