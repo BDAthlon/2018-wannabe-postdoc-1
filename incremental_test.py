@@ -146,6 +146,11 @@ from parsers.config_file_parser_tester import config_parser_tester
 from data_structures.vertex import vertex
 # Module to test the vertex of a generic graph.
 from data_structures.vertex_tester import vertex_tester
+# Module to model the vertex of a directed graph.
+from data_structures.directed_graph.vertex_dg import *
+# Module to test the vertex of a directed graph.
+from data_structures.directed_graph.vertex_dg_tester import *
+
 
 ###############################################################
 
@@ -299,6 +304,7 @@ if __name__ == "__main__":
 	print("=	Testing the data_structures package.")
 	print("")
 	vertex_tester.test_generic_vertex()
+	vertex_dg_tester.test_vertex_dg()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	### TO-DO
 	#	Test expr_configuration

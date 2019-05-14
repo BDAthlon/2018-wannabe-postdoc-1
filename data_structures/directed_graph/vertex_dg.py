@@ -4,7 +4,7 @@
 
 """
 	This Python script is written by Zhiyang Ong to model a vertex/node
-		of a (mathematical) graph/network.
+		of a directed graph.
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
@@ -20,6 +20,8 @@
 	[DrakeJr2016b]
 		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations
 
+	\cite[\S2.3.3]{Ong2017} provides a list of methods that shall be
+		implemented.
 
 #### TO BE COMPLETED
 
@@ -68,13 +70,26 @@ import calendar
 
 ###############################################################
 #	Import Custom Python Modules
+# Package and module to representing the vertex class of the graph.
+from data_structures.vertex import vertex
 
 
 ###############################################################
-#	Module with methods that perform file I/O operations.
-class vertex:
-	#
-
-
-a b c d
-b c d a
+#	Module with attributes and methods to model a vertex in a
+#		directed graph.
+class vertex_dg(vertex):
+	# List of outgoing edges.
+	list_outgoing_edges = []
+	# List of incoming edges.
+	list_incoming_edges = []
+	"""
+		Override the constructor of the parent/super class.
+		Accepts a list of outgoing edges and a list of incoming
+			edges as input parameters of the standard constructor.
+		Assign the input parameters to "None" by default, so that
+			these input parameters would be optional.
+	"""
+	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = None, incoming_edges = None):
+		self.id = initialized_id
+		self.list_outgoing_edges = outgoing_edges
+		self.list_incoming_edges = incoming_edges

@@ -4,10 +4,12 @@
 
 """
 	This Python script is written by Zhiyang Ong to test
-		the constructors and methods of the vertex class.
+		the constructors and methods of the vertex class
+		of a directed graph.
 
 	Synopsis:
-	Test all constructors and methods of the vertex class.
+	Test all constructors and methods of the vertex class
+		of a directed graph.
 
 	Notes/Assumptions:
 
@@ -72,51 +74,52 @@ import calendar
 from statistics.test_statistics import statistical_analysis
 # Package and module to representing the vertex class of the graph.
 from data_structures.vertex import vertex
+from data_structures.directed_graph.vertex_dg import *
 
 """
 	Module that tests the methods for accessing and modifying
-		vertices of a generic graph.
+		vertices of a directed graph.
 
 	Support for class instantiation is not provided, to avoid
-		acquiring a collection of useless "vertex_tester" and
-		"vertex" objects.
+		acquiring a collection of useless "vertex_dg_tester"
+		and "vertex_dg" objects.
 """
-class vertex_tester:
+class vertex_dg_tester:
 	# =========================================================
 	##	Method to test the methods that for accessing and
-	#		modifying vertices of a generic graph.
+	#		modifying vertices of a directed graph.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_generic_vertex():
-		print("==	Testing class: vertex.")
-		vertex_tester.test_constructors_and_equality_comparison()
-		vertex_tester.test_pairs_of_accessor_mutator_methods()
+	def test_vertex_dg():
+		print("==	Testing class: vertex_dg.")
+		vertex_dg_tester.test_constructors_and_equality_comparison()
+		vertex_dg_tester.test_pairs_of_accessor_mutator_methods()
 	# =========================================================
 	##	Method to test constructors and equality comparison method
-	#		for the vertex class.
+	#		for the vertex_dg class.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_constructors_and_equality_comparison():
-		prompt = "	... Test default constructor of vertex	 		{}."
+		prompt = "	... Test default constructor of vertex_dg	 		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if vertex() is not None:
+		if vertex_dg() is not None:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test standard constructor of vertex			{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if vertex(45678) is not None:
+		if vertex_dg(45678) is not None:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test instances of default constructor		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		a = vertex()
-		b = vertex()
+		a = vertex_dg()
+		b = vertex_dg()
 		# Compare the object identities and object values.
 		if (a is not b) and (a == b):
 			print(prompt .format("OK"))
@@ -127,8 +130,8 @@ class vertex_tester:
 			print("	a == b",a == b,"=")
 		prompt = "	... Test instances of standard constructor (!= values)	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		a = vertex(45678)
-		b = vertex(353453423)
+		a = vertex_dg(45678)
+		b = vertex_dg(353453423)
 		# Compare the object identities and object values.
 		if (a is not b) and (a != b):
 			print(prompt .format("OK"))
@@ -137,8 +140,8 @@ class vertex_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test instances of standard constructor (== values)	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		a = vertex(45678)
-		b = vertex(45678)
+		a = vertex_dg(45678)
+		b = vertex_dg(45678)
 		# Compare the object identities and object values.
 		if (a is not b) and (a == b):
 			print(prompt .format("OK"))
@@ -147,8 +150,8 @@ class vertex_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test instances of different constructors		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		a = vertex(45678)
-		b = vertex()
+		a = vertex_dg(45678)
+		b = vertex_dg()
 		# Compare the object identities and object values.
 		if (a is not b) and (a != b):
 			print(prompt .format("OK"))
