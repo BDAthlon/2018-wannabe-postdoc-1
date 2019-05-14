@@ -92,6 +92,8 @@ class date_time_operations_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_time_operations():
+		print("")
+		print("")
 		print("==	Testing class: date_time_operations.")
 		print("	Testing date_time_operations.is_valid_time() method.")
 		prompt = "	... Test: single error, hh				{}"

@@ -461,6 +461,8 @@ class misc_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_miscellaneous_methods():
+		print("")
+		print("")
 		print("==	Testing class: misc_tester.")
 		misc_tester.test_check_filename_format()
 		misc_tester.test_find_desired_location_for_results()

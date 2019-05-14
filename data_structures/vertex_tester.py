@@ -48,4 +48,21 @@ __date__ = 'August 1, 2018'
 """
 from statistics.test_statistics import statistical_analysis
 # Package and module to representing the vertex class of the graph.
-from 
+from data_structures.vertex import g_vertex
+
+"""
+	Module that tests the methods for accessing and modifying
+		vertices of a generic graph.
+
+	Support for class instantiation is not provided, to avoid
+		acquiring a collection of useless "statistical_analysis"
+		objects.
+"""
+class vertex_tester:
+	# =========================================================
+	##	Method to test the methods that for accessing and
+	#		modifying vertices of a generic graph.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_generic_vertex():

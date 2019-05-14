@@ -106,7 +106,8 @@ class graph_error_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_raising_graph_error():
-		print("	Testing the graph_error class/module.")
+		print("")
+		print("==	Testing the graph_error class/module.")
 		try:
 			prompt = "	... Test: raise graph_error exception, 2 arguments	{}"
 			statistical_analysis.increment_number_test_cases_used()

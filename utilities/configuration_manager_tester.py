@@ -99,7 +99,9 @@ class config_manager_tester:
 	@staticmethod
 	def test_configure_sw_application_parameters():
 	#def test_configure_sw_application_parameter_result_repository():
-		print("	Testing the config_manager class/module.")
+		print("")
+		print("")
+		print("==	Testing the config_manager class/module.")
 		prompt = "	... Test: check default result_repository		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if (config_manager.get_result_repository() == "Unknown location."):

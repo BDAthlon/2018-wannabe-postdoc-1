@@ -298,6 +298,8 @@ class generate_filename_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_filename_generation_methods():
+		print("")
+		print("")
 		print("==	Testing class: generate_filename.")
 		generate_filename_tester.check_filename_format()
 

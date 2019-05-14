@@ -122,15 +122,13 @@ from utilities.generate_results_filename import generate_filename
 		format.
 """
 from utilities.generate_results_filename_tester import generate_filename_tester
+# Module to test miscellaneous methods.
 from utilities.miscellaneous import misc
-#	from utilities/custom_exceptions.my_graph_error import m_graph_error
-#from utilities.custom_exceptions.my_graph_error import m_graph_error
+from utilities.miscellaneous_tester import misc_tester
+# Module for user-defined error/exception.
 #import utilities.custom_exceptions.graph_error
 from utilities.custom_exceptions.graph_error import *
-#import utilities.custom_exceptions
-#from utilities.custom_exceptions.my_graph_error_tester import graph_error_t
-#import utilities.custom_exceptions.graph_error_tester
-	#from utilities.custom_exceptions.graph_error_tester import graph_err_t
+# Module to test user-defined errors/exceptions.
 #import utilities.custom_exceptions.graph_error_tester as graph_err_t
 from utilities.custom_exceptions.graph_error_tester import *
 
@@ -140,11 +138,7 @@ from parsers.json_object_tester import json_obj_tester
 # Package and module to parse JSON configuration files.
 from parsers.config_file_parser import config_parser
 from parsers.config_file_parser_tester import config_parser_tester
-"""
-	Module to test miscellaneous methods.
-"""
-from utilities.miscellaneous import misc
-from utilities.miscellaneous_tester import misc_tester
+
 
 ###############################################################
 
@@ -267,12 +261,17 @@ if __name__ == "__main__":
 	statistical_analysis_tester.test_statistical_analysis()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the utilities package.
+	print("=	Testing the utilities package.")
 	file_io_operations_tester.test_file_io_operations()
 	queue_ip_args_tester.test_queue_ip_args()
 	config_manager_tester.test_configure_sw_application_parameters()
 	date_time_operations_tester.test_date_time_operations()
 	generate_filename_tester.test_filename_generation_methods()
 	misc_tester.test_miscellaneous_methods()
+	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	print("")
+	print("=	Testing user-defined errors.")
+	print("")
 	graph_error_tester.test_raising_graph_error()
 	#utilities.custom_exceptions.graph_error_tester.test_raising_graph_error()
 	#utilities.custom_exceptions.graph_error_tester.helloworld()
@@ -282,6 +281,9 @@ if __name__ == "__main__":
 #	check_bibtex_key_tester.test_check_bibtex_key()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the parsers package.
+	print("")
+	print("=	Testing the parsers package.")
+	print("")
 	json_obj_tester.test_json_object_accessibility()
 	config_parser_tester.test_json_config_file_parser()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
