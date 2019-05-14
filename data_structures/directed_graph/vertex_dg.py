@@ -9,7 +9,7 @@
 
 
 	Notes/Assumptions:
-	A vertex_dg object can share the same list of outgoing edges and
+	A vertex_dg object can share the same dictionaries of outgoing edges and
 		incoming edges as another vertex_dg object, and be different/unique
 		vertex_dg objects as long as their IDs are different/unique.
 
@@ -21,6 +21,18 @@
 
 	\cite[\S14.2,\S14.2.3]{Goodrich2013} is the primary source of reference
 		about adjacency map.
+		Note that in \cite[\S14.2,\S14.2.3]{Goodrich2013}, map is used
+			synonymously/interchangeably with dictionary and asssociative
+			arrays \cite[\S10.1]{Goodrich2013}.
+		Specifically, in \cite[\S10.1]{Goodrich2013}, dictionary refers
+			to Python's "dict" class, and map refers to the abstract
+			data type of dictionaries.
+		Note that the map(function f, list of inputs) function applies
+			the function f to the list of inputs;
+			f and the list of inputs are passed as input parameters to
+				the map() function.
+		Hence, do not confuse dictionaries/maps with the map() function.
+
 
 	From \cite[\S14.2,pp.627]{Goodrich2013}:
 		"In an adjacency list, we maintain, for each vertex, a separate list containing those edges that are incident to the vertex. The complete set of edges can be determined by taking the union of the smaller sets, while the organization allows us to more efficiently find all edges incident to a given vertex."
@@ -91,23 +103,24 @@ class vertex_dg(vertex):
 	# Unique ID of the instance object.
 	#	No other instance object of vertex shares this ID.
 	id = "Unknown ID of this vertex."
-	# List of outgoing edges.
-	list_outgoing_edges = []
-	# List of incoming edges.
-	list_incoming_edges = []
+	# A dictionary of outgoing edges.
+	dict_outgoing_edges = []
+	# A dictionary of incoming edges.
+	dict_incoming_edges = []
 	"""
 		Override the constructor of the parent/super class.
-		Accepts a list of outgoing edges and a list of incoming
-			edges as input parameters of the standard constructor.
+		Accepts a dictionary of outgoing edges and a dictionary of
+			incoming edges as input parameters of the standard
+			constructor.
 		Assign the input parameters to values/"None" by default,
 			so that these input parameters would be optional.
 	"""
-	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = None, incoming_edges = None):
+	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = {}, incoming_edges = {}):
 		if initialized_id is None:
 			initialized_id = sys.maxsize
 		self.id = initialized_id
-		self.list_outgoing_edges = outgoing_edges
-		self.list_incoming_edges = incoming_edges
+		self.dict_outgoing_edges = outgoing_edges
+		self.dict_incoming_edges = incoming_edges
 
 	# ============================================================
 
@@ -119,12 +132,34 @@ class vertex_dg(vertex):
 			"""
 			print("self.id:::",self.id,"=")
 			print("other.id:::",other.id,"=")
-			print("self.list_outgoing_edges:::",self.list_outgoing_edges,"=")
-			print("other.list_outgoing_edges:::",other.list_outgoing_edges,"=")
-			print("self.list_incoming_edges:::",self.list_incoming_edges,"=")
-			print("other.list_incoming_edges:::",other.list_incoming_edges,"=")
+			print("self.dict_outgoing_edges:::",self.dict_outgoing_edges,"=")
+			print("other.dict_outgoing_edges:::",other.dict_outgoing_edges,"=")
+			print("self.dict_incoming_edges:::",self.dict_incoming_edges,"=")
+			print("other.dict_incoming_edges:::",other.dict_incoming_edges,"=")
 			"""
-			return (self.id == other.id) and (self.list_outgoing_edges == other.list_outgoing_edges) and (self.list_incoming_edges == other.list_incoming_edges)
+			return (self.id == other.id) and (self.dict_outgoing_edges == other.dict_outgoing_edges) and (self.dict_incoming_edges == other.dict_incoming_edges)
 		return False
 
 	# ============================================================
+
+	# ============================================================
+
+	#	Accessor methods of the vertex class.
+
+	##	Method to access the ID of a vertex instance object.
+	#	@param - None.
+	#	@return the ID belonging to the vertex instance object.
+	#	O(1) .
+	def get_id(self):
+		return self.id
+
+	# ------------------------------------------------------------
+
+	#	Mutator methods of the vertex class.
+
+	##	Method to set the ID of a vertex instance object as
+	#		"identity".
+	#	@param identity - The new/replacement ID of the vertex
+	#		instance object.
+	#	@return the ID belonging to the vertex instance object.
+	#	O(1) .
