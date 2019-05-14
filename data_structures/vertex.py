@@ -86,6 +86,8 @@ class vertex:
 	# Default constructor of a vertex.
 	def __init__(self):
 		self.id = sys.maxsize
+		#self.id = float("inf")
+		#self.id  = -9999999999999999
 
 	"""
 		Standard constructor of a vertex.
@@ -94,11 +96,11 @@ class vertex:
 			be passed in to the standard constructor.
 		def __init__(self, initialized_id):
 
-		Assigning "initialized_id" to None in the standard
+		Assigning "initialized_id" to sys.maxsize in the standard
 			constructor makes the input argument "initialized_id"
 			optional.
 	"""
-	def __init__(self, initialized_id = None):
+	def __init__(self, initialized_id = sys.maxsize):
 		self.id = initialized_id
 
 	# ============================================================
@@ -119,8 +121,8 @@ class vertex:
 	#	@param - None.
 	#	@return the ID belonging to the vertex instance object.
 	#	O(1) .
-	def get_id():
-		return id
+	def get_id(self):
+		return self.id
 
 	# ------------------------------------------------------------
 
@@ -132,5 +134,5 @@ class vertex:
 	#		instance object.
 	#	@return the ID belonging to the vertex instance object.
 	#	O(1) .
-	def set_id(identity):
-		id = identity
+	def set_id(self, identity):
+		self.id = identity

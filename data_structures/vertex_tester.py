@@ -36,8 +36,31 @@ __date__ = 'August 1, 2018'
 
 
 ###############################################################
+"""
+	Import modules from The Python Standard Library.
+	sys			Get access to any command-line arguments.
+	os			Use any operating system dependent functionality.
+	os.path		For pathname manipulations.
 
-#	Import modules from The Python Standard Library.
+	subprocess -> call
+				To make system calls.
+	time		To measure elapsed time.
+	warnings	Raise warnings.
+	re			Use regular expressions.
+	filecmp		For file comparison.
+	calendar	For calendar-related functions.
+"""
+
+import sys
+import os
+import os.path
+from subprocess import call
+import time
+import warnings
+import re
+import filecmp
+import calendar
+
 
 ###############################################################
 #	Import Custom Python Modules
@@ -139,4 +162,36 @@ class vertex_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_pairs_of_accessor_mutator_methods():
-		print("")
+		a = vertex()
+		#print("a.get_id():::",a.get_id(),"=")
+		prompt = "	... Test: get_id(), vertex()			 	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		#if (a.get_id()) == sys.maxsize:
+		#if sys.maxsize == a.get_id():
+		if sys.maxsize == a.get_id():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		b = 72342787
+		a = vertex(b)
+		prompt = "	... Test: get_id(), vertex(72342787) 			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		#if (a.get_id()) == sys.maxsize:
+		#if sys.maxsize == a.get_id():
+		if b == a.get_id():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		b = 234
+		a.set_id(b)
+		prompt = "	... Test: set_id(234)		 			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		#if (a.get_id()) == sys.maxsize:
+		#if sys.maxsize == a.get_id():
+		if b == a.get_id():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
