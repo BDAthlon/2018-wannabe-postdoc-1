@@ -15,9 +15,12 @@
 
 	Only hashable/"mutable" objects can have a hash key, and be used with
 		sets and dictionaries.
-	Hence, objects of the vertex class and its child/derivative classes
+	Hence, objects of the vertex_ug class and its child/derivative classes
 		cannot be hased, since Python does not provide a default hash
 		function for these classes.
+	However, by overriding the __hash__() function, I can make the
+		objects of the vertex_ug class and its child/derivative classes
+		hashable.
 
 
 	References:
@@ -154,7 +157,7 @@ class vertex_ug(vertex):
 	##	Method to access the ID of a vertex instance object.
 	#	@param - None.
 	#	@return the ID belonging to the vertex instance object.
-	#	O(1) .
+	#	O(1).
 	def get_id(self):
 		return self.id
 
@@ -167,4 +170,5 @@ class vertex_ug(vertex):
 	#	@param identity - The new/replacement ID of the vertex
 	#		instance object.
 	#	@return the ID belonging to the vertex instance object.
-	#	O(1) .
+	#	O(1).
+	

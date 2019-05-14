@@ -1,8 +1,10 @@
-#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
+#!/Users/zhiyang/anaconda3/bin/python3
+###!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 ###	/usr/bin/python
 ###	/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 ###	#!/usr/bin/python -mtimeit
-
+#	/Library/Frameworks/Python.framework/Versions/3.6/bin/python3 ./incremental_test.py ./benchmarks/majority_netlist.json	./output/output-results
+#	/Library/Frameworks/Python.framework/Versions/3.6/bin/python3 -mtimeit ./incremental_test.py ./benchmarks/majority_netlist.json	./output/output-results
 
 """
 	This Python script is written by Zhiyang Ong to incrementally
@@ -146,6 +148,10 @@ from parsers.config_file_parser_tester import config_parser_tester
 from data_structures.vertex import vertex
 # Module to test the vertex of a generic graph.
 from data_structures.vertex_tester import vertex_tester
+# Module to model a generic graph.
+from data_structures.graph import graph
+# Module to test a generic graph.
+from data_structures.graph_tester import graph_tester
 # Module to model the vertex of a directed graph.
 from data_structures.directed_graph.vertex_dg import *
 # Module to test the vertex of a directed graph.
@@ -307,6 +313,7 @@ if __name__ == "__main__":
 	print("=	Testing the data_structures package.")
 	print("")
 	vertex_tester.test_generic_vertex()
+	graph_tester.test_graph()
 	vertex_dg_tester.test_vertex_dg()
 	vertex_ug_tester.test_vertex_ug()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")

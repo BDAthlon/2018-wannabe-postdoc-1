@@ -3,25 +3,21 @@
 ###	/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 
 """
-	This Python script is written by Zhiyang Ong to model a vertex/node
-		of a directed graph.
+	This Python script is written by Zhiyang Ong to model an edge
+		of an undirected graph.
 
 
 
-	Notes/Assumptions:
-	A vertex_dg object can share the same dictionaries of outgoing edges and
-		incoming edges as another vertex_dg object, and be different/unique
-		vertex_dg objects as long as their IDs are different/unique.
+	#### IMPORTANT NOTES:
+	A edge_ug object can share the same dictionaries of outgoing edges and
+		incoming edges as another vertex_ug object, and be different/unique
+		vertex_ug objects as long as their IDs are different/unique.
 
 	Only hashable/"mutable" objects can have a hash key, and be used with
 		sets and dictionaries.
-	Hence, objects of the vertex_dg class and its child/derivative classes
+	Hence, objects of the vertex class and its child/derivative classes
 		cannot be hased, since Python does not provide a default hash
 		function for these classes.
-	However, by overriding the __hash__() function, I can make the
-		objects of the vertex_dg class and its child/derivative classes
-		hashable.
-
 
 
 	References:
@@ -105,17 +101,15 @@ from data_structures.vertex import vertex
 
 
 ###############################################################
-#	Module with attributes and methods to model a vertex in a
-#		directed graph.
-class vertex_dg(vertex):
-	# Properties of the vertex_dg objects.
+#	Module with attributes and methods to model a vertex in an
+#		undirected graph.
+class vertex_ug(vertex):
+	# Properties of the vertex_ug objects.
 	# Unique ID of the instance object.
 	#	No other instance object of vertex shares this ID.
 	id = "Unknown ID of this vertex."
-	# A dictionary of outgoing edges.
-	dict_outgoing_edges = {}
-	# A dictionary of incoming edges.
-	dict_incoming_edges = {}
+	# A dictionary of adjacent edges.
+	dict_adjacent_edges = {}
 	"""
 		Override the constructor of the parent/super class.
 		Accepts a dictionary of outgoing edges and a dictionary of
@@ -124,12 +118,11 @@ class vertex_dg(vertex):
 		Assign the input parameters to values/"None" by default,
 			so that these input parameters would be optional.
 	"""
-	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = {}, incoming_edges = {}):
+	def __init__(self, initialized_id = sys.maxsize, adjacent_edges = {}):
 		if initialized_id is None:
 			initialized_id = sys.maxsize
 		self.id = initialized_id
-		self.dict_outgoing_edges = outgoing_edges
-		self.dict_incoming_edges = incoming_edges
+		self.dict_adjacent_edges = adjacent_edges
 
 	# ============================================================
 
@@ -137,7 +130,7 @@ class vertex_dg(vertex):
 
 	# Comparison of two vertex objects.
 	def __eq__(self, other):
-		if isinstance(other, vertex_dg):
+		if isinstance(other, vertex_ug):
 			"""
 			print("self.id:::",self.id,"=")
 			print("other.id:::",other.id,"=")
@@ -146,15 +139,13 @@ class vertex_dg(vertex):
 			print("self.dict_incoming_edges:::",self.dict_incoming_edges,"=")
 			print("other.dict_incoming_edges:::",other.dict_incoming_edges,"=")
 			"""
-			return (self.id == other.id) and (self.dict_outgoing_edges == other.dict_outgoing_edges) and (self.dict_incoming_edges == other.dict_incoming_edges)
+			return (self.id == other.id) and (self.dict_adjacent_edges == other.dict_adjacent_edges)
 		return False
 
-	# Hashing the unhashable/immutable vertex_dg
+	# Hashing the unhashable/immutable vertex_ug
 	def __hash__(self):
 		#return hash(tuple(self))
 		return hash(self.id)
-
-	# ============================================================
 
 	# ============================================================
 
@@ -163,7 +154,7 @@ class vertex_dg(vertex):
 	##	Method to access the ID of a vertex instance object.
 	#	@param - None.
 	#	@return the ID belonging to the vertex instance object.
-	#	O(1).
+	#	O(1) .
 	def get_id(self):
 		return self.id
 
@@ -176,4 +167,4 @@ class vertex_dg(vertex):
 	#	@param identity - The new/replacement ID of the vertex
 	#		instance object.
 	#	@return the ID belonging to the vertex instance object.
-	#	O(1).
+	#	O(1) .
