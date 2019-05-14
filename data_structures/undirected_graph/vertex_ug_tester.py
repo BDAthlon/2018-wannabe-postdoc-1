@@ -122,29 +122,27 @@ class vertex_ug_tester:
 			print(prompt .format("FAIL!!!"))
 		a = vertex_ug(1)
 		b = vertex_ug(2)
-		f_in_edges = [a, b]
 		c = vertex_ug(3)
-		d = vertex_ug(4)
-		e = vertex_ug(5)
-		f_out_edges = [c, d, e]
-		f_id = 6
-		f = vertex_ug(f_id, f_in_edges, f_out_edges)
-		prompt = "	... Test standard constructor of vertex: 3 parameters	{}."
+		d_adj_edges = {a:"Object a", b:"Object b", c:"Object c"}
+		#d_adj_edges = dict([(a,"Object a"), (b,"Object b"), (c,"Object c")])
+		d_id = 6
+		d = vertex_ug(d_id, d_adj_edges)
+		prompt = "	... Test standard constructor of vertex: 2 parameters	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if (f is not None) and (f_id == f.get_id()):
+		if (d is not None) and (d_id == d.get_id()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		f = vertex_ug(None, f_in_edges, f_out_edges)
-		prompt = "	... Test standard constructor of vertex: last 2 params	{}."
+		d = vertex_ug(None, d_adj_edges)
+		prompt = "	... Test standard constructor of vertex: last param	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if (f is not None) and (sys.maxsize == f.get_id()):
+		if (d is not None) and (sys.maxsize == d.get_id()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-			print("f.get_id():::",f.get_id(),"=")
+			print("d.get_id():::",d.get_id(),"=")
 		prompt = "	... Test instances of default constructor		{}."
 		statistical_analysis.increment_number_test_cases_used()
 		a = vertex_ug()
@@ -171,17 +169,15 @@ class vertex_ug_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		a = vertex_ug(1)
 		b = vertex_ug(2)
-		f_in_edges = [a, b]
+		f_adj_edges = [a, b]
 		c = vertex_ug(3)
 		d = vertex_ug(4)
 		e = vertex_ug(5)
-		f_out_edges = [c, d, e]
 		f_id = 6
-		f = vertex_ug(f_id, f_in_edges, f_out_edges)
-		g_in_edges = [a]
-		g_out_edges = [c, e]
+		f = vertex_ug(f_id, f_adj_edges)
+		g_adj_edges = [c, d, e]
 		g_id = 7
-		g = vertex_ug(g_id, g_in_edges, g_out_edges)
+		g = vertex_ug(g_id, g_adj_edges)
 		# Compare the object identities and object values.
 		if (f is not g) and (f != g):
 			print(prompt .format("OK"))
@@ -203,14 +199,11 @@ class vertex_ug_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		a = vertex_ug(1)
 		b = vertex_ug(2)
-		f_in_edges = [a, b]
 		c = vertex_ug(3)
-		d = vertex_ug(4)
-		e = vertex_ug(5)
-		f_out_edges = [c, d, e]
+		f_adj_edges = {a, b, c}
 		f_id = 6
-		f = vertex_ug(f_id, f_in_edges, f_out_edges)
-		g = vertex_ug(f_id, f_in_edges, f_out_edges)
+		f = vertex_ug(f_id, f_adj_edges)
+		g = vertex_ug(f_id, f_adj_edges)
 		# Compare the object identities and object values.
 		if (f is not g) and (f == g):
 			print(prompt .format("OK"))
@@ -229,16 +222,13 @@ class vertex_ug_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test instances of different constructors (2)	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		a = vertex_ug(1)
-		b = vertex_ug(2)
-		g_in_edges = [a, b]
 		c = vertex_ug(3)
 		d = vertex_ug(4)
 		e = vertex_ug(5)
-		g_out_edges = [c, d, e]
+		g_adj_edges = [c, d, e]
 		f_id = 6
 		f = vertex_ug(f_id)
-		g = vertex_ug(f_id, g_in_edges, g_out_edges)
+		g = vertex_ug(f_id, g_adj_edges)
 		# Compare the object identities and object values.
 		if (f is not g) and (f != g):
 			print(prompt .format("OK"))

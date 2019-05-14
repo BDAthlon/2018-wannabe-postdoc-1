@@ -104,9 +104,9 @@ class vertex_dg(vertex):
 	#	No other instance object of vertex shares this ID.
 	id = "Unknown ID of this vertex."
 	# A dictionary of outgoing edges.
-	dict_outgoing_edges = []
+	dict_outgoing_edges = {}
 	# A dictionary of incoming edges.
-	dict_incoming_edges = []
+	dict_incoming_edges = {}
 	"""
 		Override the constructor of the parent/super class.
 		Accepts a dictionary of outgoing edges and a dictionary of
@@ -139,6 +139,11 @@ class vertex_dg(vertex):
 			"""
 			return (self.id == other.id) and (self.dict_outgoing_edges == other.dict_outgoing_edges) and (self.dict_incoming_edges == other.dict_incoming_edges)
 		return False
+
+	# Hashing the unhashable/immutable vertex_dg
+	def __hash__(self):
+		#return hash(tuple(self))
+		return hash(self.id)
 
 	# ============================================================
 

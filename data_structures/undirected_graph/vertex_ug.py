@@ -8,11 +8,16 @@
 
 
 
-	Notes/Assumptions:
+	#### IMPORTANT NOTES:
 	A vertex_ug object can share the same dictionaries of outgoing edges and
 		incoming edges as another vertex_ug object, and be different/unique
 		vertex_ug objects as long as their IDs are different/unique.
 
+	Only hashable/"mutable" objects can have a hash key, and be used with
+		sets and dictionaries.
+	Hence, objects of the vertex class and its child/derivative classes
+		cannot be hased, since Python does not provide a default hash
+		function for these classes.
 
 
 	References:
@@ -103,10 +108,8 @@ class vertex_ug(vertex):
 	# Unique ID of the instance object.
 	#	No other instance object of vertex shares this ID.
 	id = "Unknown ID of this vertex."
-	# A dictionary of outgoing edges.
-	dict_outgoing_edges = []
-	# A dictionary of incoming edges.
-	dict_incoming_edges = []
+	# A dictionary of adjacent edges.
+	dict_adjacent_edges = {}
 	"""
 		Override the constructor of the parent/super class.
 		Accepts a dictionary of outgoing edges and a dictionary of
@@ -115,12 +118,11 @@ class vertex_ug(vertex):
 		Assign the input parameters to values/"None" by default,
 			so that these input parameters would be optional.
 	"""
-	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = {}, incoming_edges = {}):
+	def __init__(self, initialized_id = sys.maxsize, adjacent_edges = {}):
 		if initialized_id is None:
 			initialized_id = sys.maxsize
 		self.id = initialized_id
-		self.dict_outgoing_edges = outgoing_edges
-		self.dict_incoming_edges = incoming_edges
+		self.dict_adjacent_edges = adjacent_edges
 
 	# ============================================================
 
@@ -137,10 +139,13 @@ class vertex_ug(vertex):
 			print("self.dict_incoming_edges:::",self.dict_incoming_edges,"=")
 			print("other.dict_incoming_edges:::",other.dict_incoming_edges,"=")
 			"""
-			return (self.id == other.id) and (self.dict_outgoing_edges == other.dict_outgoing_edges) and (self.dict_incoming_edges == other.dict_incoming_edges)
+			return (self.id == other.id) and (self.dict_adjacent_edges == other.dict_adjacent_edges)
 		return False
 
-	# ============================================================
+	# Hashing the unhashable/immutable vertex_ug
+	def __hash__(self):
+		#return hash(tuple(self))
+		return hash(self.id)
 
 	# ============================================================
 
