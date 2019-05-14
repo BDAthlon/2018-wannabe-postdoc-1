@@ -102,16 +102,31 @@ class vertex_dg_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_constructors_and_equality_comparison():
-		prompt = "	... Test default constructor of vertex_dg	 		{}."
+		prompt = "	... Test default constructor of vertex_dg	 	{}."
 		statistical_analysis.increment_number_test_cases_used()
 		if vertex_dg() is not None:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test standard constructor of vertex			{}."
+		prompt = "	... Test standard constructor of vertex: id		{}."
 		statistical_analysis.increment_number_test_cases_used()
 		if vertex_dg(45678) is not None:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		a = vertex_dg(1)
+		b = vertex_dg(2)
+		f_in_edges = [a, b]
+		c = vertex_dg(3)
+		d = vertex_dg(4)
+		e = vertex_dg(5)
+		f_out_edges = [c, d, e]
+		f = vertex_dg(6, f_in_edges, f_out_edges)
+		prompt = "	... Test standard constructor of vertex: 3 parameters	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if f is not None:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -165,9 +180,9 @@ class vertex_dg_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_pairs_of_accessor_mutator_methods():
-		a = vertex()
+		a = vertex_dg()
 		#print("a.get_id():::",a.get_id(),"=")
-		prompt = "	... Test: get_id(), vertex()			 	{}."
+		prompt = "	... Test: get_id(), vertex_dg()			 	{}."
 		statistical_analysis.increment_number_test_cases_used()
 		#if (a.get_id()) == sys.maxsize:
 		#if sys.maxsize == a.get_id():
@@ -177,8 +192,8 @@ class vertex_dg_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		b = 72342787
-		a = vertex(b)
-		prompt = "	... Test: get_id(), vertex(72342787) 			{}."
+		a = vertex_dg(b)
+		prompt = "	... Test: get_id(), vertex_dg(72342787) 		{}."
 		statistical_analysis.increment_number_test_cases_used()
 		#if (a.get_id()) == sys.maxsize:
 		#if sys.maxsize == a.get_id():

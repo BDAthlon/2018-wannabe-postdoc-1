@@ -78,6 +78,10 @@ from data_structures.vertex import vertex
 #	Module with attributes and methods to model a vertex in a
 #		directed graph.
 class vertex_dg(vertex):
+	# Properties of the vertex_dg objects.
+	# Unique ID of the instance object.
+	#	No other instance object of vertex shares this ID.
+	id = "Unknown ID of this vertex."
 	# List of outgoing edges.
 	list_outgoing_edges = []
 	# List of incoming edges.
@@ -86,10 +90,22 @@ class vertex_dg(vertex):
 		Override the constructor of the parent/super class.
 		Accepts a list of outgoing edges and a list of incoming
 			edges as input parameters of the standard constructor.
-		Assign the input parameters to "None" by default, so that
-			these input parameters would be optional.
+		Assign the input parameters to values/"None" by default,
+			so that these input parameters would be optional.
 	"""
 	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = None, incoming_edges = None):
 		self.id = initialized_id
 		self.list_outgoing_edges = outgoing_edges
 		self.list_incoming_edges = incoming_edges
+
+	# ============================================================
+
+	# Overriding methods... Override the default implementation.
+
+	# Comparison of two vertex objects.
+	def __eq__(self, other):
+		if isinstance(other, vertex_dg):
+			return (self.id == other.id) and (self.list_outgoing_edges == other.list_outgoing_edges) and (self.list_incoming_edges == other.list_incoming_edges)
+		return False
+
+	# ============================================================

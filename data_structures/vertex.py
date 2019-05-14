@@ -78,6 +78,7 @@ import calendar
 ###############################################################
 #	Module with accessor and mutator method(s) for its attributes.
 class vertex:
+	# Properties of the vertex_dg objects.
 	# Unique ID of the instance object.
 	#	No other instance object of vertex shares this ID.
 	id = "Unknown ID of this vertex."
