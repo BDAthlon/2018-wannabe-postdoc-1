@@ -116,7 +116,15 @@ class vertex_dg(vertex):
 	# Comparison of two vertex objects.
 	def __eq__(self, other):
 		if isinstance(other, vertex_dg):
+			"""
+			print("self.id:::",self.id,"=")
+			print("other.id:::",other.id,"=")
+			print("self.list_outgoing_edges:::",self.list_outgoing_edges,"=")
+			print("other.list_outgoing_edges:::",other.list_outgoing_edges,"=")
+			print("self.list_incoming_edges:::",self.list_incoming_edges,"=")
+			print("other.list_incoming_edges:::",other.list_incoming_edges,"=")
 			return (self.id == other.id) and (self.list_outgoing_edges == other.list_outgoing_edges) and (self.list_incoming_edges == other.list_incoming_edges)
+			"""
 		return False
 
 	# ============================================================
