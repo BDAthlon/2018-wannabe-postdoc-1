@@ -4,7 +4,16 @@
 
 """
 	This Python script is written by Zhiyang Ong to model a vertex/node
-		of an undirected (mathematical) graph/network.
+		of an undirected graph.
+
+
+
+	Notes/Assumptions:
+	A vertex_ug object can share the same dictionaries of outgoing edges and
+		incoming edges as another vertex_ug object, and be different/unique
+		vertex_ug objects as long as their IDs are different/unique.
+
+
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
@@ -12,6 +21,18 @@
 
 	\cite[\S14.2,\S14.2.3]{Goodrich2013} is the primary source of reference
 		about adjacency map.
+		Note that in \cite[\S14.2,\S14.2.3]{Goodrich2013}, map is used
+			synonymously/interchangeably with dictionary and asssociative
+			arrays \cite[\S10.1]{Goodrich2013}.
+		Specifically, in \cite[\S10.1]{Goodrich2013}, dictionary refers
+			to Python's "dict" class, and map refers to the abstract
+			data type of dictionaries.
+		Note that the map(function f, list of inputs) function applies
+			the function f to the list of inputs;
+			f and the list of inputs are passed as input parameters to
+				the map() function.
+		Hence, do not confuse dictionaries/maps with the map() function.
+
 
 	From \cite[\S14.2,pp.627]{Goodrich2013}:
 		"In an adjacency list, we maintain, for each vertex, a separate list containing those edges that are incident to the vertex. The complete set of edges can be determined by taking the union of the smaller sets, while the organization allows us to more efficiently find all edges incident to a given vertex."
@@ -20,6 +41,10 @@
 	[DrakeJr2016b]
 		Section 11 File and Directory Access, Subsection 11.2 os.path - Common pathname manipulations
 
+	\cite[\S2.3.3]{Ong2017} provides a list of methods that shall be
+		implemented.
+
+#### TO BE COMPLETED
 
 """
 
@@ -66,24 +91,75 @@ import calendar
 
 ###############################################################
 #	Import Custom Python Modules
+# Package and module to representing the vertex class of the graph.
+from data_structures.vertex import vertex
 
 
 ###############################################################
-#	Module with methods that perform file I/O operations.
-class vertex:
+#	Module with attributes and methods to model a vertex in an
+#		undirected graph.
+class vertex_ug(vertex):
+	# Properties of the vertex_ug objects.
+	# Unique ID of the instance object.
+	#	No other instance object of vertex shares this ID.
+	id = "Unknown ID of this vertex."
+	# A dictionary of outgoing edges.
+	dict_outgoing_edges = []
+	# A dictionary of incoming edges.
+	dict_incoming_edges = []
+	"""
+		Override the constructor of the parent/super class.
+		Accepts a dictionary of outgoing edges and a dictionary of
+			incoming edges as input parameters of the standard
+			constructor.
+		Assign the input parameters to values/"None" by default,
+			so that these input parameters would be optional.
+	"""
+	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = {}, incoming_edges = {}):
+		if initialized_id is None:
+			initialized_id = sys.maxsize
+		self.id = initialized_id
+		self.dict_outgoing_edges = outgoing_edges
+		self.dict_incoming_edges = incoming_edges
+
 	# ============================================================
-	##	Method to determine if an edge e_i is an incident edge
-	#		to this vertex.
+
+	# Overriding methods... Override the default implementation.
+
+	# Comparison of two vertex objects.
+	def __eq__(self, other):
+		if isinstance(other, vertex_ug):
+			"""
+			print("self.id:::",self.id,"=")
+			print("other.id:::",other.id,"=")
+			print("self.dict_outgoing_edges:::",self.dict_outgoing_edges,"=")
+			print("other.dict_outgoing_edges:::",other.dict_outgoing_edges,"=")
+			print("self.dict_incoming_edges:::",self.dict_incoming_edges,"=")
+			print("other.dict_incoming_edges:::",other.dict_incoming_edges,"=")
+			"""
+			return (self.id == other.id) and (self.dict_outgoing_edges == other.dict_outgoing_edges) and (self.dict_incoming_edges == other.dict_incoming_edges)
+		return False
+
+	# ============================================================
+
+	# ============================================================
+
+	#	Accessor methods of the vertex class.
+
+	##	Method to access the ID of a vertex instance object.
 	#	@param - None.
-	#	@return boolean TRUE, if the location of the directory to
-	#		store simulation/experimental results has been
-	#		set/configured by the "configuration.json" file.
-	#		Else, return boolean FALSE.
-	#	O(n) method, where n is the number of fields in the
-	#		"configuration.json" file.
-	#	Reference:
-	#		\cite[\S13.1.1, pp. 599]{Goodrich2011}.
-	def is_incident_edge(e_i)
+	#	@return the ID belonging to the vertex instance object.
+	#	O(1) .
+	def get_id(self):
+		return self.id
 
+	# ------------------------------------------------------------
 
-Do I pass in an instance of the graph in these methods?
+	#	Mutator methods of the vertex class.
+
+	##	Method to set the ID of a vertex instance object as
+	#		"identity".
+	#	@param identity - The new/replacement ID of the vertex
+	#		instance object.
+	#	@return the ID belonging to the vertex instance object.
+	#	O(1) .

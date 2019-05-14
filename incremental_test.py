@@ -150,7 +150,10 @@ from data_structures.vertex_tester import vertex_tester
 from data_structures.directed_graph.vertex_dg import *
 # Module to test the vertex of a directed graph.
 from data_structures.directed_graph.vertex_dg_tester import *
-
+# Module to model the vertex of an undirected graph.
+from data_structures.undirected_graph.vertex_ug import *
+# Module to test the vertex of an undirected graph.
+from data_structures.undirected_graph.vertex_ug_tester import *
 
 ###############################################################
 
@@ -305,6 +308,7 @@ if __name__ == "__main__":
 	print("")
 	vertex_tester.test_generic_vertex()
 	vertex_dg_tester.test_vertex_dg()
+	vertex_ug_tester.test_vertex_ug()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	### TO-DO
 	#	Test expr_configuration
