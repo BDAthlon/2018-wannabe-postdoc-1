@@ -92,6 +92,7 @@ class vertex_dg_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_vertex_dg():
+		print("")
 		print("==	Testing class: vertex_dg.")
 		vertex_dg_tester.test_constructors_and_equality_comparison()
 		vertex_dg_tester.test_pairs_of_accessor_mutator_methods()
@@ -104,14 +105,17 @@ class vertex_dg_tester:
 	def test_constructors_and_equality_comparison():
 		prompt = "	... Test default constructor of vertex_dg	 	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if vertex_dg() is not None:
+		a = vertex_dg()
+		if (a is not None) and (sys.maxsize == a.get_id()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test standard constructor of vertex: id		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if vertex_dg(45678) is not None:
+		a_id = 45678
+		a = vertex_dg(a_id)
+		if (a is not None) and (a_id == a.get_id()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -123,14 +127,24 @@ class vertex_dg_tester:
 		d = vertex_dg(4)
 		e = vertex_dg(5)
 		f_out_edges = [c, d, e]
-		f = vertex_dg(6, f_in_edges, f_out_edges)
+		f_id = 6
+		f = vertex_dg(f_id, f_in_edges, f_out_edges)
 		prompt = "	... Test standard constructor of vertex: 3 parameters	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if f is not None:
+		if (f is not None) and (f_id == f.get_id()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		f = vertex_dg(None, f_in_edges, f_out_edges)
+		prompt = "	... Test standard constructor of vertex: last 2 params	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if (f is not None) and (sys.maxsize == f.get_id()):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("f.get_id():::",f.get_id(),"=")
 		prompt = "	... Test instances of default constructor		{}."
 		statistical_analysis.increment_number_test_cases_used()
 		a = vertex_dg()
@@ -143,12 +157,43 @@ class vertex_dg_tester:
 			print(prompt .format("FAIL!!!"))
 			print("	a is not b",a is not b,"=")
 			print("	a == b",a == b,"=")
-		prompt = "	... Test instances of standard constructor (!= values)	{}."
+		prompt = "	... Test instances of standard constructor (!= IDs)	{}."
 		statistical_analysis.increment_number_test_cases_used()
 		a = vertex_dg(45678)
 		b = vertex_dg(353453423)
 		# Compare the object identities and object values.
 		if (a is not b) and (a != b):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test instances of standard constructor (!= values)	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		a = vertex_dg(1)
+		b = vertex_dg(2)
+		f_in_edges = [a, b]
+		c = vertex_dg(3)
+		d = vertex_dg(4)
+		e = vertex_dg(5)
+		f_out_edges = [c, d, e]
+		f_id = 6
+		f = vertex_dg(f_id, f_in_edges, f_out_edges)
+		g_in_edges = [a]
+		g_out_edges = [c, e]
+		g_id = 7
+		g = vertex_dg(g_id, g_in_edges, g_out_edges)
+		# Compare the object identities and object values.
+		if (a is not b) and (a != b):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test instances of standard constructor (== IDs)	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		a = vertex_dg(45678)
+		b = vertex_dg(45678)
+		# Compare the object identities and object values.
+		if (a is not b) and (a == b):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:

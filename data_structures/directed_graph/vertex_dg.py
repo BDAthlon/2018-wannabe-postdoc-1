@@ -6,6 +6,15 @@
 	This Python script is written by Zhiyang Ong to model a vertex/node
 		of a directed graph.
 
+
+
+	Notes/Assumptions:
+	A vertex_dg object can share the same list of outgoing edges and
+		incoming edges as another vertex_dg object, and be different/unique
+		vertex_dg objects as long as their IDs are different/unique.
+
+
+
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
 		from my BibTeX database (set of BibTeX entries).
@@ -94,6 +103,8 @@ class vertex_dg(vertex):
 			so that these input parameters would be optional.
 	"""
 	def __init__(self, initialized_id = sys.maxsize, outgoing_edges = None, incoming_edges = None):
+		if initialized_id is None:
+			initialized_id = sys.maxsize
 		self.id = initialized_id
 		self.list_outgoing_edges = outgoing_edges
 		self.list_incoming_edges = incoming_edges
