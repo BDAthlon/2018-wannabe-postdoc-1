@@ -103,9 +103,9 @@ class graph_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_constructors_and_equality_comparison():
+		a = graph()
 		prompt = "	... Test default constructor of graph	 		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		a = graph()
 		if (a is not None) and (not a.is_self_loop_pseudograph()) and (not a.is_multigraph()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
@@ -152,10 +152,19 @@ class graph_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		flag = True
-		a.set_multigraph(flag)
-		prompt = "	... Test: is_self_loop_pseudograph()		 	{}."
+		a.set_self_loop_pseudograph(flag)
+		prompt = "	... Test: set_self_loop_pseudograph(True)	 	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if False == a.is_self_loop_pseudograph():
+		if flag == a.is_self_loop_pseudograph():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		flag = False
+		a.set_self_loop_pseudograph(flag)
+		prompt = "	... Test: set_self_loop_pseudograph(False)	 	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if flag == a.is_self_loop_pseudograph():
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:

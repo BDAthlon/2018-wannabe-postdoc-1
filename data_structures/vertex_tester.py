@@ -113,10 +113,10 @@ class vertex_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test instances of default constructor		{}."
-		statistical_analysis.increment_number_test_cases_used()
 		a = vertex()
 		b = vertex()
+		prompt = "	... Test instances of default constructor		{}."
+		statistical_analysis.increment_number_test_cases_used()
 		# Compare the object identities and object values.
 		if (a is not b) and (a == b):
 			print(prompt .format("OK"))
@@ -125,30 +125,30 @@ class vertex_tester:
 			print(prompt .format("FAIL!!!"))
 			print("	a is not b",a is not b,"=")
 			print("	a == b",a == b,"=")
-		prompt = "	... Test instances of standard constructor (!= values)	{}."
-		statistical_analysis.increment_number_test_cases_used()
 		a = vertex(45678)
 		b = vertex(353453423)
+		prompt = "	... Test instances of standard constructor (!= values)	{}."
+		statistical_analysis.increment_number_test_cases_used()
 		# Compare the object identities and object values.
 		if (a is not b) and (a != b):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test instances of standard constructor (== values)	{}."
-		statistical_analysis.increment_number_test_cases_used()
 		a = vertex(45678)
 		b = vertex(45678)
+		prompt = "	... Test instances of standard constructor (== values)	{}."
+		statistical_analysis.increment_number_test_cases_used()
 		# Compare the object identities and object values.
 		if (a is not b) and (a == b):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test instances of different constructors		{}."
-		statistical_analysis.increment_number_test_cases_used()
 		a = vertex(45678)
 		b = vertex()
+		prompt = "	... Test instances of different constructors		{}."
+		statistical_analysis.increment_number_test_cases_used()
 		# Compare the object identities and object values.
 		if (a is not b) and (a != b):
 			print(prompt .format("OK"))
