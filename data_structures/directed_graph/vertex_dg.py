@@ -123,8 +123,8 @@ class vertex_dg(vertex):
 			print("other.list_outgoing_edges:::",other.list_outgoing_edges,"=")
 			print("self.list_incoming_edges:::",self.list_incoming_edges,"=")
 			print("other.list_incoming_edges:::",other.list_incoming_edges,"=")
-			return (self.id == other.id) and (self.list_outgoing_edges == other.list_outgoing_edges) and (self.list_incoming_edges == other.list_incoming_edges)
 			"""
+			return (self.id == other.id) and (self.list_outgoing_edges == other.list_outgoing_edges) and (self.list_incoming_edges == other.list_incoming_edges)
 		return False
 
 	# ============================================================

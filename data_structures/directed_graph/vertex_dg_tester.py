@@ -183,15 +183,16 @@ class vertex_dg_tester:
 		g_id = 7
 		g = vertex_dg(g_id, g_in_edges, g_out_edges)
 		# Compare the object identities and object values.
-		if (a is not b) and (a != b):
+		if (f is not g) and (f != g):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test instances of standard constructor (== IDs)	{}."
 		statistical_analysis.increment_number_test_cases_used()
-		a = vertex_dg(45678)
-		b = vertex_dg(45678)
+		an_id = 45678
+		a = vertex_dg(an_id)
+		b = vertex_dg(an_id)
 		# Compare the object identities and object values.
 		if (a is not b) and (a == b):
 			print(prompt .format("OK"))
@@ -211,7 +212,7 @@ class vertex_dg_tester:
 		f = vertex_dg(f_id, f_in_edges, f_out_edges)
 		g = vertex_dg(f_id, f_in_edges, f_out_edges)
 		# Compare the object identities and object values.
-		if (a is not b) and (a == b):
+		if (f is not g) and (f == g):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -230,11 +231,11 @@ class vertex_dg_tester:
 		statistical_analysis.increment_number_test_cases_used()
 		a = vertex_dg(1)
 		b = vertex_dg(2)
-		f_in_edges = [a, b]
+		g_in_edges = [a, b]
 		c = vertex_dg(3)
 		d = vertex_dg(4)
 		e = vertex_dg(5)
-		f_out_edges = [c, d, e]
+		g_out_edges = [c, d, e]
 		f_id = 6
 		f = vertex_dg(f_id)
 		g = vertex_dg(f_id, g_in_edges, g_out_edges)
