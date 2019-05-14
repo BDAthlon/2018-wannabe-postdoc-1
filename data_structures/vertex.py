@@ -4,7 +4,7 @@
 
 """
 	This Python script is written by Zhiyang Ong to model a vertex/node
-		of an undirected (mathematical) graph/network.
+		of a generic (mathematical) graph/network.
 
 	References:
 	Citations/References that use the LaTeX/BibTeX notation are taken
@@ -18,6 +18,9 @@
 		"An adjacency map is very similar to an adjacency list, but the secondary container of all edges incident to a vertex is organized as a map, rather than as a list, with the adjacent vertex serving as a key. This allows for access to a specific edge (u,v) in O(1) expected time."
 
 	The attributes/properties/fields and methods of the vertex class are primarily described in my LaTeX report about data structures and algorithms (see https://github.com/eda-ricercatore/boilerplate-code/tree/master/notes/report), including a typeset PDF copy of the report (https://github.com/eda-ricercatore/boilerplate-code/blob/master/notes/report/data-structures_n_algor.pdf).
+
+	\cite{keyser2015} for the value of the largest integer (sys.maxsize)
+		and the largest floats, float("inf") and float("-inf"), in Python.
 
 	Revision History:
 	August 1, 2018			Version 0.1, initial build.
@@ -78,6 +81,36 @@ class vertex:
 	# Unique ID of the instance object.
 	#	No other instance object of vertex shares this ID.
 	id = "Unknown ID of this vertex."
+	# ============================================================
+
+	# Default constructor of a vertex.
+	def __init__(self):
+		self.id = sys.maxsize
+
+	"""
+		Standard constructor of a vertex.
+
+		The following line requires an ID ("initialized_id") to
+			be passed in to the standard constructor.
+		def __init__(self, initialized_id):
+
+		Assigning "initialized_id" to None in the standard
+			constructor makes the input argument "initialized_id"
+			optional.
+	"""
+	def __init__(self, initialized_id = None):
+		self.id = initialized_id
+
+	# ============================================================
+
+	# Overriding methods... Override the default implementation.
+
+	# Comparison of two vertex objects.
+	def __eq__(self, other):
+		if isinstance(other, vertex):
+			return self.id == other.id
+		return False
+
 	# ============================================================
 
 	#	Accessor methods of the vertex class.

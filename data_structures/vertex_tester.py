@@ -48,7 +48,7 @@ __date__ = 'August 1, 2018'
 """
 from statistics.test_statistics import statistical_analysis
 # Package and module to representing the vertex class of the graph.
-from data_structures.vertex import g_vertex
+from data_structures.vertex import vertex
 
 """
 	Module that tests the methods for accessing and modifying
@@ -66,3 +66,77 @@ class vertex_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_generic_vertex():
+		print("==	Testing class: vertex.")
+		vertex_tester.test_constructors_and_equality_comparison()
+		vertex_tester.test_pairs_of_accessor_mutator_methods()
+	# =========================================================
+	##	Method to test constructors and equality comparison method
+	#		for the vertex class.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_constructors_and_equality_comparison():
+		prompt = "	... Test default constructor of vertex	 		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if vertex() is not None:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test standard constructor of vertex			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if vertex(45678) is not None:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test instances of default constructor		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		a = vertex()
+		b = vertex()
+		# Compare the object identities and object values.
+		if (a is not b) and (a == b):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("	a is not b",a is not b,"=")
+			print("	a == b",a == b,"=")
+		prompt = "	... Test instances of standard constructor (!= values)	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		a = vertex(45678)
+		b = vertex(353453423)
+		# Compare the object identities and object values.
+		if (a is not b) and (a != b):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test instances of standard constructor (== values)	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		a = vertex(45678)
+		b = vertex(45678)
+		# Compare the object identities and object values.
+		if (a is not b) and (a == b):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test instances of different constructors		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		a = vertex(45678)
+		b = vertex()
+		# Compare the object identities and object values.
+		if (a is not b) and (a != b):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	# =========================================================
+	##	Method to test pairs of methods that for accessing and
+	#		modifying vertices of a generic graph.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_pairs_of_accessor_mutator_methods():
+		print("")

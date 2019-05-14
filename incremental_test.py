@@ -89,6 +89,7 @@ from statistics.test_statistics import statistical_analysis
 # Package and module to check the validation of statistical analysis.
 from statistics.test_statistics_tester import statistical_analysis_tester
 
+# Utilities package.
 # Package and module to process input arguments to the script/program.
 from utilities.queue_ip_arguments import queue_ip_args
 # Package and module to validate processing of input arguments.
@@ -132,13 +133,19 @@ from utilities.custom_exceptions.graph_error import *
 #import utilities.custom_exceptions.graph_error_tester as graph_err_t
 from utilities.custom_exceptions.graph_error_tester import *
 
-# Package and module to transform JSON objects to Python objects.
+# Package of parsers.
+# Module to transform JSON objects to Python objects.
 from parsers.json_object import json_obj
 from parsers.json_object_tester import json_obj_tester
-# Package and module to parse JSON configuration files.
+# Module to parse JSON configuration files.
 from parsers.config_file_parser import config_parser
 from parsers.config_file_parser_tester import config_parser_tester
 
+# Package for data structures.
+# Module to model the vertex of a generic graph.
+from data_structures.vertex import vertex
+# Module to test the vertex of a generic graph.
+from data_structures.vertex_tester import vertex_tester
 
 ###############################################################
 
@@ -287,7 +294,12 @@ if __name__ == "__main__":
 	json_obj_tester.test_json_object_accessibility()
 	config_parser_tester.test_json_config_file_parser()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	# Insert test cases for testing the parsers package.
+	# Insert test cases for testing the data_structures package.
+	print("")
+	print("=	Testing the data_structures package.")
+	print("")
+	vertex_tester.test_generic_vertex()
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	### TO-DO
 	#	Test expr_configuration
 #	incremental_test_automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
