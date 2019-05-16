@@ -1,6 +1,4 @@
-#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
-###	/usr/bin/python
-###	/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
+#!/Users/zhiyang/anaconda3/bin/python3
 
 """
 	This Python script is written by Zhiyang Ong to model an edge
@@ -10,12 +8,12 @@
 
 	#### IMPORTANT NOTES:
 	A edge_ug object can share the same dictionaries of outgoing edges and
-		incoming edges as another vertex_ug object, and be different/unique
-		vertex_ug objects as long as their IDs are different/unique.
+		incoming edges as another edge_ug object, and be different/unique
+		edge_ug objects as long as their IDs are different/unique.
 
 	Only hashable/"mutable" objects can have a hash key, and be used with
 		sets and dictionaries.
-	Hence, objects of the vertex class and its child/derivative classes
+	Hence, objects of the edge class and its child/derivative classes
 		cannot be hased, since Python does not provide a default hash
 		function for these classes.
 
@@ -98,18 +96,15 @@ import calendar
 #	Import Custom Python Modules
 # Package and module to representing the vertex class of the graph.
 from data_structures.vertex import vertex
-
+from data_structures.undirected_graph.vertex_ug import *
 
 ###############################################################
-#	Module with attributes and methods to model a vertex in an
+#	Module with attributes and methods to model a edge in an
 #		undirected graph.
-class vertex_ug(vertex):
-	# Properties of the vertex_ug objects.
-	# Unique ID of the instance object.
-	#	No other instance object of vertex shares this ID.
-	id = "Unknown ID of this vertex."
-	# A dictionary of adjacent edges.
-	dict_adjacent_edges = {}
+class edge_ug:
+	# Properties of the edge_ug objects.
+	# A list of end vertices.
+	list_end_vertices = []
 	"""
 		Override the constructor of the parent/super class.
 		Accepts a dictionary of outgoing edges and a dictionary of
@@ -128,9 +123,9 @@ class vertex_ug(vertex):
 
 	# Overriding methods... Override the default implementation.
 
-	# Comparison of two vertex objects.
+	# Comparison of two edge objects.
 	def __eq__(self, other):
-		if isinstance(other, vertex_ug):
+		if isinstance(other, edge_ug):
 			"""
 			print("self.id:::",self.id,"=")
 			print("other.id:::",other.id,"=")
@@ -142,29 +137,29 @@ class vertex_ug(vertex):
 			return (self.id == other.id) and (self.dict_adjacent_edges == other.dict_adjacent_edges)
 		return False
 
-	# Hashing the unhashable/immutable vertex_ug
+	# Hashing the unhashable/immutable edge_ug
 	def __hash__(self):
 		#return hash(tuple(self))
 		return hash(self.id)
 
 	# ============================================================
 
-	#	Accessor methods of the vertex class.
+	#	Accessor methods of the edge class.
 
-	##	Method to access the ID of a vertex instance object.
+	##	Method to access the ID of a edge instance object.
 	#	@param - None.
-	#	@return the ID belonging to the vertex instance object.
+	#	@return the ID belonging to the edge instance object.
 	#	O(1) .
 	def get_id(self):
 		return self.id
 
 	# ------------------------------------------------------------
 
-	#	Mutator methods of the vertex class.
+	#	Mutator methods of the edge class.
 
-	##	Method to set the ID of a vertex instance object as
+	##	Method to set the ID of a edge instance object as
 	#		"identity".
-	#	@param identity - The new/replacement ID of the vertex
+	#	@param identity - The new/replacement ID of the edge
 	#		instance object.
-	#	@return the ID belonging to the vertex instance object.
+	#	@return the ID belonging to the edge instance object.
 	#	O(1) .

@@ -1,5 +1,4 @@
-#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
-###	/usr/bin/python
+#!/Users/zhiyang/anaconda3/bin/python3
 
 """
 	Check for no usage of the term "error".

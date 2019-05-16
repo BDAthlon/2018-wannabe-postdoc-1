@@ -1,4 +1,4 @@
-#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
+#!/Users/zhiyang/anaconda3/bin/python3
 
 """
 	This is written by Zhiyang Ong to test the automatically generated

@@ -7,7 +7,9 @@
 
 
 	#### IMPORTANT NOTES:
-
+	Properties of graphs and their suggested references:
+	+ multigraphs \cite{Wallis2012}
+	+ hypergraphs \cite{Bretto2013,Cong2003a,Alpert1996,Berge1989,Johnson2013b}
 
 
 	References:
@@ -95,10 +97,12 @@ class graph:
 	multigraph = False
 	# Flag to indicate if the graph can contain self-loops.
 	self_loop_pseudograph = False
+	# Flag to indicate if the graph is a hypergraph
+	hypergraph = False
 
 	# ============================================================
 
-	# Default constructor: Overridden.
+	# Default constructor: Overridden???
 
 	# ============================================================
 
@@ -112,7 +116,7 @@ class graph:
 				object of interest.
 		"""
 		if isinstance(other, graph):
-			return (self.multigraph == other.multigraph) and (self.self_loop_pseudograph == other.self_loop_pseudograph)
+			return (self.multigraph == other.multigraph) and (self.self_loop_pseudograph == other.self_loop_pseudograph) and (self.hypergraph == other.hypergraph)
 		else:
 			return False
 
@@ -134,6 +138,13 @@ class graph:
 	#	O(1).
 	def is_self_loop_pseudograph(self):
 		return self.self_loop_pseudograph
+	# ============================================================
+	##	Method to determine if this graph object is a hypergraph.
+	#	@param - None.
+	#	@return the boolean value of the hypergraph attribute.
+	#	O(1).
+	def is_hypergraph(self):
+		return self.hypergraph
 
 	# ============================================================
 
@@ -156,3 +167,12 @@ class graph:
 	#	O(1).
 	def set_self_loop_pseudograph(self, flag):
 		self.self_loop_pseudograph = flag
+	# =========================================================
+	##	Method to set the hypergraph attribute of a graph instance
+	#		object to a particular boolean value.
+	#	@param flag - The new boolean value of the hypergraph
+	#		attribute.
+	#	@return Nothing.
+	#	O(1).
+	def set_hypergraph(self, flag):
+		self.hypergraph = flag

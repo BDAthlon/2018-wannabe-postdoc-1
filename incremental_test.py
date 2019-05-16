@@ -160,6 +160,10 @@ from data_structures.directed_graph.vertex_dg_tester import *
 from data_structures.undirected_graph.vertex_ug import *
 # Module to test the vertex of an undirected graph.
 from data_structures.undirected_graph.vertex_ug_tester import *
+# Module to model the edge of an undirected graph.
+from data_structures.undirected_graph.edge_ug import *
+# Module to test the edge of an undirected graph.
+from data_structures.undirected_graph.edge_ug_tester import *
 
 ###############################################################
 
@@ -316,6 +320,7 @@ if __name__ == "__main__":
 	graph_tester.test_graph()
 	vertex_dg_tester.test_vertex_dg()
 	vertex_ug_tester.test_vertex_ug()
+	edge_ug_tester.test_edge_ug()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	### TO-DO
 	#	Test expr_configuration
