@@ -37,12 +37,33 @@ For each class, implement the following:
 	- Test each constructor.
 	- Test each method.
 
+##	Notes (and Assumptions)
+
+###	Graph Implementations With Other Data Structures
+
+As noted in \cite[\S2.3.3, pp. 13, points 1(a) and 1(e) about required data structures supporting the implementation of graphs]{Ong2017}, faster implementations of graph common algorithms (e.g., Dijkstra's single-source shortest path algorithm and Prim’s/Prim-Jarnik algorithm to find the minimum spanning tree) use a priority queue (specifically a Fibonacci heap implementation) to perform certain steps faster.
+
+In *Python*, I can use the *heapq* module to use a heap without implementing my own Fibonacci heap.
+
+Also, I can use sets to store collections of vertices and edges of a graph, rather than a list, so that I do not have to implement a set-like data structure myself. The default set data structure in *Python* is a fast implementation \cite{PythonWikiContributors2017}.
+
+***Determine if there exists default implementations of circular arrays and queues (FIFOs).***
+
+Similarly, determine how to implement open addressing in *Python* \cite[\S2.3.3, pp. 14, points 2 and 3 about required data structures supporting the implementation of graphs]{Ong2017}.
 
 
 
 
 
 
+
+
+
+
+#	References
+
+Citations/References that use the *LaTeX/BibTeX* notation are taken
+	from my *BibTeX* database (set of *BibTeX* entries).
 
 
 
