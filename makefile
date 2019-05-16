@@ -168,7 +168,7 @@ TEMPLATEPATH=	classes/simple_template.cpp
 
 
 # UNIX commands/utilities that are used
-TIME=			time -p
+TIME=			time #-p
 DATE=			date
 
 
@@ -273,8 +273,7 @@ test:
 	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
 	$(DATE)
 	@echo === Executing the software...
-	#$(TIME) $(EXECUTABLE) $(BENCHMARKS)$(MAJORITYCELL)	$(OPRESULTS)
-	$(EXECUTABLE) $(BENCHMARKS)$(MAJORITYCELL)	$(OUTPUTDIR)$(OPRESULTS)
+	$(TIME) $(EXECUTABLE) $(BENCHMARKS)$(MAJORITYCELL)	$(OPRESULTS)
 	@echo
 	@echo
 	@echo
@@ -289,8 +288,8 @@ test:
 	@echo
 	@echo
 	@echo
-	more $(NORMALTXT)
-	more $(ERRORTXT)
+	#more $(NORMALTXT)
+	#more $(ERRORTXT)
 
 
 
