@@ -104,7 +104,7 @@ class graph_tester:
 		a = graph()
 		prompt = "	... Test default constructor of graph	 		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if (a is not None) and (not a.is_self_loop_pseudograph()) and (not a.is_multigraph()) and (not a.is_hypergraph()):
+		if (a is not None) and (not a.is_self_loop_pseudograph()) and (not a.is_multigraph()) and (not a.is_hypergraph()) and (not a.is_cyclic()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -191,6 +191,33 @@ class graph_tester:
 		prompt = "	... Test: set_hypergraph(False)			 	{}."
 		statistical_analysis.increment_number_test_cases_used()
 		if flag == a.is_hypergraph():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		# -------------------------------------------------------
+		a = graph()
+		prompt = "	... Test: is_cyclic()		 		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if False == a.is_cyclic():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		flag = True
+		a.set_cyclic(flag)
+		prompt = "	... Test: set_cyclic(True)			 	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if flag == a.is_cyclic():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		flag = False
+		a.set_cyclic(flag)
+		prompt = "	... Test: set_cyclic(False)			 	{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if flag == a.is_cyclic():
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:

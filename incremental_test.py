@@ -320,7 +320,7 @@ if __name__ == "__main__":
 	graph_tester.test_graph()
 	vertex_dg_tester.test_vertex_dg()
 	vertex_ug_tester.test_vertex_ug()
-	edge_ug_tester.test_edge_ug()
+#	edge_ug_tester.test_edge_ug()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	### TO-DO
 	#	Test expr_configuration

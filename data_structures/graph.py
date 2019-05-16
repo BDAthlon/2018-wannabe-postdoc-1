@@ -99,6 +99,8 @@ class graph:
 	self_loop_pseudograph = False
 	# Flag to indicate if the graph is a hypergraph
 	hypergraph = False
+	# Flag to indicate if the graph is cyclic
+	cyclic = False
 
 	# ============================================================
 
@@ -116,7 +118,7 @@ class graph:
 				object of interest.
 		"""
 		if isinstance(other, graph):
-			return (self.multigraph == other.multigraph) and (self.self_loop_pseudograph == other.self_loop_pseudograph) and (self.hypergraph == other.hypergraph)
+			return (self.multigraph == other.multigraph) and (self.self_loop_pseudograph == other.self_loop_pseudograph) and (self.hypergraph == other.hypergraph) and (self.cyclic == other.cyclic)
 		else:
 			return False
 
@@ -145,6 +147,13 @@ class graph:
 	#	O(1).
 	def is_hypergraph(self):
 		return self.hypergraph
+	# ============================================================
+	##	Method to determine if this graph object is cyclic.
+	#	@param - None.
+	#	@return the boolean value of the cyclic attribute.
+	#	O(1).
+	def is_cyclic(self):
+		return self.cyclic
 
 	# ============================================================
 
@@ -176,3 +185,12 @@ class graph:
 	#	O(1).
 	def set_hypergraph(self, flag):
 		self.hypergraph = flag
+	# =========================================================
+	##	Method to set the cyclic attribute of a graph instance
+	#		object to a particular boolean value.
+	#	@param flag - The new boolean value of the cyclic
+	#		attribute.
+	#	@return Nothing.
+	#	O(1).
+	def set_cyclic(self, flag):
+		self.cyclic = flag
