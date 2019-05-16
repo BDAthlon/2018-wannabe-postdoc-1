@@ -49,6 +49,16 @@ Also, I can use sets to store collections of vertices and edges of a graph, rath
 
 ***Determine if there exists default implementations of circular arrays and queues (FIFOs).***
 
+*Python*'s default implementations of:
++ queues (FIFOs):
+	- [Use a deque](https://en.wikipedia.org/wiki/Double-ended_queue), since "a double-ended queue (abbreviated to deque) is an abstract data type that generalizes a queue".
+		* Wikipedia contributors, ``Double-ended queue,'' in *Wikipedia, The Free Encyclopedia: Abstract data types*, Wikimedia Foundation, San Francisco, CA, May 15, 2019. Available online at: \url{https://en.wikipedia.org/wiki/Double-ended_queue}; last accessed on May 16, 2019.
+	- Use [synchronized queues](https://docs.python.org/3/library/queue.html).
++ circular arrays
+	- [use collections.deque with a maxlen arg](https://stackoverflow.com/questions/4151320/efficient-circular-buffer)
+	- [NumPy's ringbuffer](https://pypi.org/project/numpy_ringbuffer/)
+
+
 Similarly, determine how to implement open addressing in *Python* \cite[\S2.3.3, pp. 14, points 2 and 3 about required data structures supporting the implementation of graphs]{Ong2017}.
 
 
