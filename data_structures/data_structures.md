@@ -4,20 +4,20 @@ See my *LaTeX* report about [data structures and algorithms](https://github.com/
 
 ##	To-Do List
 
-+ Implement a generic graph.
-	- Implement *vertex class.
-	- Test *vertex class.
-	- Implement *edge* class.
-	- Test *edge* class.
-	- Implement *graph* class.
-	- Test *graph* class.
-+ Implement an undirected graph, which extends a generic graph.
-	- Implement vertex_ug class.
-	- Test vertex_ug class.
-	- Implement edge_ug class.
-	- Test edge_ug class.
-	- Implement graph_ug class.
-	- Test graph_ug class.
++ [ ] Implement a generic graph.
+	- [ ] Implement *vertex class.
+	- [ ] Test *vertex class.
+	- [ ] Implement *edge* class.
+	- [ ] Test *edge* class.
+	- [ ] Implement *graph* class.
+	- [ ] Test *graph* class.
++ [ ] Implement an undirected graph, which extends a generic graph.
+	- [ ] Implement vertex_ug class.
+	- [ ] Test vertex_ug class.
+	- [ ] Implement edge_ug class.
+	- [ ] Test edge_ug class.
+	- [ ] Implement graph_ug class.
+	- [ ] Test graph_ug class.
 + Implement a directed graph, which extends a generic graph.
 	- Implement vertex_dg class.
 	- Test vertex_dg class.
@@ -62,9 +62,46 @@ Also, I can use sets to store collections of vertices and edges of a graph, rath
 Similarly, determine how to implement open addressing in *Python* \cite[\S2.3.3, pp. 14, points 2 and 3 about required data structures supporting the implementation of graphs]{Ong2017}.
 
 
+###	Miscellaneous Comments
+
+####	*generic graph* class
+
+For the *generic graph* class, use sets instead of lists to store its vertices and edges, so that I don't have to implement the set-like features to manipulate these vertices and edges.
++ *set_of_vertices*
++ *set_of_edges*
+
+####	*undirected graph* classes
+
++ **graph_ug** class:
+	- When implementing the **graph_ug** class, ignore the following for now.
+		* *set_of_connected_components*
+		* *set_of_cycles*
++ **vertex_ug** class:
+	- variables:
+		* dict *adjacent_vertices*
+			+ Use a dictionary to implement the adjacency map representation of graphs.
++ **edge_ug** class:
+	- variables:
+		* *set_of_endpoints*
 
 
 
+####	*directed graph* class
+
++ **graph_dg** class:
+	- When implementing the **graph_dg** class, ignore the following for now.
+		* *set_of_strongly_connected_components*
+		* *set_of_directed_cycles*
++ **vertex_dg** class:
+	- variables:
+		* dict *source_vertices*
+			+ Use a dictionary to implement the adjacency map representation of graphs.
+		* dict *dstn_vertices*
+			+ Use a dictionary to implement the adjacency map representation of graphs.
++ **edge_dg** class:
+	- variables:
+		* *set_of_source_vertices*
+		* *set_of_dstn_vertices*
 
 
 
