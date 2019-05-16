@@ -7,8 +7,9 @@ See my *LaTeX* report about [data structures and algorithms](https://github.com/
 + [ ] Implement a generic graph.
 	- [ ] Implement *vertex class.
 	- [ ] Test *vertex class.
-	- [ ] Implement *edge* class.
-	- [ ] Test *edge* class.
+	- [x] Implement *edge* class.
+		* Ignored, because it is hard to find similarities between edges of directed and undirected graphs.
+	- [x] Test *edge* class.
 	- [ ] Implement *graph* class.
 	- [ ] Test *graph* class.
 + [ ] Implement an undirected graph, which extends a generic graph.
@@ -18,13 +19,13 @@ See my *LaTeX* report about [data structures and algorithms](https://github.com/
 	- [ ] Test edge_ug class.
 	- [ ] Implement graph_ug class.
 	- [ ] Test graph_ug class.
-+ Implement a directed graph, which extends a generic graph.
-	- Implement vertex_dg class.
-	- Test vertex_dg class.
-	- Implement edge_dg class.
-	- Test edge_dg class.
-	- Implement graph_dg class.
-	- Test graph_dg class.
++ [ ] Implement a directed graph, which extends a generic graph.
+	- [ ] Implement vertex_dg class.
+	- [ ] Test vertex_dg class.
+	- [ ] Implement edge_dg class.
+	- [ ] Test edge_dg class.
+	- [ ] Implement graph_dg class.
+	- [ ] Test graph_dg class.
 
 For each class, implement the following:
 	- Constructor:
