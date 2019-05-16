@@ -10,6 +10,7 @@ See my *LaTeX* report about [data structures and algorithms](https://github.com/
 	- [x] Implement *edge* class.
 		* Ignored, because it is hard to find similarities between edges of directed and undirected graphs.
 	- [x] Test *edge* class.
+		* Ignored, because it is hard to find similarities between edges of directed and undirected graphs.
 	- [ ] Implement *graph* class.
 	- [ ] Test *graph* class.
 + [ ] Implement an undirected graph, which extends a generic graph.
