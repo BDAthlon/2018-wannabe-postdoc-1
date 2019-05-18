@@ -1,4 +1,4 @@
-#!/Users/zhiyang/anaconda3/bin/python3
+#!/Users/zhiyang/anaconda3/bin/python3 #-m timeit
 ###!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 ###	/usr/bin/python
 ###	/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
