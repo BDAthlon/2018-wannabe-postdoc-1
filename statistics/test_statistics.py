@@ -77,7 +77,7 @@ import warnings
 		during software test automation.
 """
 class statistical_analysis:
-	#	Variable declaration.
+	#	Static variable declaration.
 	#
 	#	Number of test cases used.
 	number_test_cases_used = 0
