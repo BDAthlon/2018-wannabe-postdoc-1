@@ -142,10 +142,13 @@ class statistical_analysis:
 	#	O(1) method.
 	@staticmethod
 	def get_test_cases_passed_average():
-		if (statistical_analysis.number_test_cases_used > statistical_analysis.number_test_cases_passed):
-			print("	Problem: number_test_cases_used > number_test_cases_passed")
-			raise Exception("	Precondition failed (1): see number_test_cases_used or number_test_cases_passed.")
-		return (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used)
+		if 0 == statistical_analysis.number_test_cases_used:
+			return 0
+		else:
+			if (statistical_analysis.number_test_cases_used > statistical_analysis.number_test_cases_passed):
+				print("	Problem: number_test_cases_used > number_test_cases_passed")
+				raise Exception("	Precondition failed (1): see number_test_cases_used or number_test_cases_passed.")
+			return (statistical_analysis.number_test_cases_passed*100 / statistical_analysis.number_test_cases_used)
 	# =========================================================
 	#	Method to print statistics of software testing results.
 	#	@return - Nothing
