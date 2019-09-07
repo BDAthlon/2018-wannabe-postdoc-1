@@ -161,7 +161,7 @@ class statistical_analysis:
 			raise Exception("	Precondition failed (2): see number_test_cases_used or number_test_cases_passed.")
 		print("*	Number of test cases passed:		{}" .format(statistical_analysis.number_test_cases_passed))
 		print("*	Number of test cases used:		{}" .format(statistical_analysis.number_test_cases_used))
-		print("*	Percentage of test cases passed:	{}%." .format(get_test_cases_passed_average()))
+		print("*	Percentage of test cases passed:	{}%." .format(statistical_analysis.get_test_cases_passed_average()))
 		#print "*	Percentage of test cases passed:	",statistical_analysis.get_test_cases_passed_average(),"%."
 		#	Format printing of the statistics as follows.
 		#print "*	Percentage of test cases passed:	",(13*100/19),"%."
