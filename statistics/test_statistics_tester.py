@@ -91,8 +91,8 @@ class statistical_analysis_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_statistical_analysis():
-		print("1) Number of test cases passed:	{}" .format(statistical_analysis.number_test_cases_passed))
-		print("2) Number of test cases used:	{}" .format(statistical_analysis.number_test_cases_used))
+		print("1) Number of test cases passed:		{}" .format(statistical_analysis.number_test_cases_passed))
+		print("2) Number of test cases used:		{}" .format(statistical_analysis.number_test_cases_used))
 		print("Proportion of test cases passed:	{}" .format(statistical_analysis.get_test_cases_passed_average()))
 		for x in range(1,7):
 			statistical_analysis.increment_number_test_cases_used()
