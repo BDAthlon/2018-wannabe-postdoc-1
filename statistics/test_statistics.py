@@ -145,7 +145,7 @@ class statistical_analysis:
 		if 0 == statistical_analysis.number_test_cases_used:
 			return 0
 		else:
-			if (statistical_analysis.get_number_test_cases_used() > statistical_analysis.get_number_test_cases_passed()):
+			if (statistical_analysis.get_number_test_cases_used() < statistical_analysis.get_number_test_cases_passed()):
 				print("	Problem: number_test_cases_used < number_test_cases_passed")
 				raise Exception("	Precondition failed (1): see number_test_cases_used or number_test_cases_passed.")
 			return (statistical_analysis.get_number_test_cases_passed()*100 / statistical_analysis.get_number_test_cases_used())
