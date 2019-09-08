@@ -84,9 +84,20 @@ NORMALTXT=			./output/normal_output.txt
 ERRORTXT=			./output/error_output.txt
 #	Used when testing and debugging.
 COVERAGE=			-coverage
-CPP11=				-std=c++11
-CPP14=				-std=c++14
-CPP17=				-std=c++17
+STD=				-std=
+CPP11STD=			c++11
+CPP14STD=			c++14
+CPP17STD=			c++17
+CPP2ASTD=			c++2a
+GNUPP11STD=			gnu++11
+GNUPP14STD=			gnu++14
+GNUPP17STD=			gnu++17
+GNUPP2ASTD=			gnu++2a
+
+
+
+
+
 
 
 
@@ -337,6 +348,33 @@ template:
 #	Resolving linking problems during compilation.
 #	g++ -v -o ./test-boilerplate-code *.o
 #	g++ -o ./test-boilerplate-code *.o -v
+
+
+
+
+
+
+
+
+########################################################################
+# TEST THE PROBLEM 1.
+########################################################################
+# Test Problem 1 of Programming Assignment 1.
+prob1:
+	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
+	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
+	@echo + + + + + + + + + + + + + + + + + + + + + + + + + + +
+	$(DATE)
+	@echo === No input argument.
+	./pa_1_prob_1.py
+	@echo === Input argument: path (and filename) of README file.
+	@echo 	= Good README file.
+	./pa_1_prob_1.py README
+	@echo 	= Lousy README file.
+	./pa_1_prob_1.py README_lousy_filename
+	@echo === Test with all problems of Programming Assignment 1.
+	prog_assign_1_test_automation.py
+
 
 
 
