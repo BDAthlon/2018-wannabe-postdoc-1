@@ -1,4 +1,5 @@
-#!/Users/zhiyang/anaconda3/bin/python3
+#!/usr/local/bin/python3
+###!/Users/zhiyang/anaconda3/bin/python3
 
 """
 	This is written by Zhiyang Ong to generate a filename to store
