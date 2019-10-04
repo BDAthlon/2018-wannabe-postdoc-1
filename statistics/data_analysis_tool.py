@@ -113,7 +113,7 @@ class data_analysis:
 	#	O(1) method.
 	@staticmethod
 	def get_reference_value(property="c"):
-		return statistical_analysis.dict_of_reference_values[property]
+		return data_analysis.dict_of_reference_values[property]
 	# =========================================================
 	#	Method to determine the actual change between quantity1 and
 	#		quantity2.
@@ -145,7 +145,7 @@ class data_analysis:
 	def get_absolute_difference(quantity1=0,quantity2=0):
 		absolute_difference = abs(quantity1 - quantity2)
 		if (0 > absolute_difference):
-			raise Exception("	Absolute difference must be non-negative.")
+			raise Exception("	get_absolute_difference(): Absolute difference must be non-negative.")
 		return absolute_difference
 	# =========================================================
 	#	Method to determine the relative change between quantity
@@ -163,7 +163,39 @@ class data_analysis:
 	def get_relative_change(quantity1=1,ref_qty=1):
 		if 0 == ref_qty:
 			raise Exception("	ref_qty cannot be zero.")
-		return (get_actual_change(quantity1,ref_qty)/ref_qty)
+		return (data_analysis.get_actual_change(quantity1,ref_qty)/ref_qty)
+	# =========================================================
+	#	Method to determine the percentage change between quantity
+	#		quantity1 and ref_qty (the reference quantity).
+	#	\cite{WikipediaContributors2019g}
+	#	@param quantity1 - A quantity that I want to find the
+	#		percentage change of.
+	#	@param ref_qty - A reference quantity that I want to find
+	#		the percentage change of.
+	#	@return - The percentage change.
+	#	@precondition - ref_qty != 0.
+	#	@postcondition - 0 <= percentage change <= 1.
+	#	O(1) method.
+	@staticmethod
+	def get_percentage_change(quantity1=1,ref_qty=1):
+		if 0 == ref_qty:
+			raise Exception("	ref_qty cannot be zero.")
+		relative_change = data_analysis.get_relative_change(quantity1,ref_qty)
+		return (relative_change*100)
+	# =========================================================
+	#	Method to determine the relative error between experimental
+	#		(measured) and theoretical (accepted) values:
+	#		experimental_value and theoretical_value.
+	#	\cite{WikipediaContributors2019g}
+	#	@param experimental_value - The experimental (measured) value.
+	#	@param theoretical_value - The theoretical (accepted) value.
+	#	@return - The relative error.
+	#	O(1) method.
+	#	Reference:
+	#		https://en.wikipedia.org/wiki/Relative_change_and_difference
+	@staticmethod
+	def get_relative_error(experimental_value=1,theoretical_value=1):
+		return (data_analysis.get_absolute_difference(experimental_value,theoretical_value)/abs(theoretical_value))
 	# =========================================================
 	#	Method to determine the percent error between experimental
 	#		(measured) and theoretical (accepted) values:
@@ -173,60 +205,39 @@ class data_analysis:
 	#	@param theoretical_value - The theoretical (accepted) value.
 	#	@return - The relative change.
 	#	O(1) method.
-	@staticmethod
-	def get_percent_error(experimental_value=1,experimental_value=1):
-		return (get_actual_change(quantity1,ref_qty)/ref_qty)
-	# =========================================================
-	#	Method to determine the relative difference between
-	#		quantity quantity1 and quantity quantity2.
-	#	\cite{WikipediaContributors2019g}
-	#	@param quantity1 - A quantity that I want to find the
-	#		relative difference of.
-	#	@param quantity2 - Another quantity that I want to find
-	#		the relative difference of.
-	#	@return - The relative difference.
-	#	@postcondition - absolute difference |quantity1 - quantity2| >= 0.
-	#	O(1) method.
 	#	Reference:
-	#		https://en.wikipedia.org/wiki/Absolute_difference
+	#		https://en.wikipedia.org/wiki/Relative_change_and_difference
 	@staticmethod
-	def get_relative_difference(quantity1=1,ref_qty=1):
-		sw
-	
-	
-	
-	
-	
-	
-	
-		return (get_actual_change(quantity1,ref_qty)/ref_qty)
+	def get_percent_error(experimental_value=1,theoretical_value=1):
+		return (data_analysis.get_relative_error(experimental_value,theoretical_value)*100)
 	# =========================================================
-	#	Method to determine the mean, or arithmetic average, of
+	#	Method to determine the arithmetic mean, or average, of
 	#		a list of absolute values of numbers, which can be
 	#		negative or otherwise.
 	#	The list of numbers, which can be negative or otherwise,
 	#		are copied into another list as their absolute values.
-	#	This method computes the arithmetic average for this new
+	#	This method computes the arithmetic mean for this new
 	#		list of absolute values.
 	#	
 	#	@param list_of_numbers - A list of numbers that I want
-	#		to find the arithmetic average, or mean, of.
-	#	@return - The arithmetic average, or mean, of the list of
+	#		to find the arithmetic mean, or average, of.
+	#	@return - The arithmetic mean, or average, of the list of
 	#		absolute values.
+	#	@precondition - list_of_numbers is not a None object.
 	#	@postcondition - mean of absolute values of numbers >= 0.
 	#	O(n) method, where n is the number of elements in the list.
-	#	Reference:
+	#	References:
 	#		https://en.wikipedia.org/wiki/Arithmetic_mean
 	#		https://en.wikipedia.org/wiki/Absolute_value
+	#		https://en.wikipedia.org/wiki/Average
 	@staticmethod
 	def get_arithmetic_average_of_absolute_values(list_of_numbers=[]):
+		# Check precondition: list_of_numbers is not a None object.
 		if list_of_numbers is None:
 			raise Exception("	A 'None' object is passed to the get_arithmetic_average_of_absolute_values() method.")
-		elif 0 > len(list_of_numbers):
-			raise Exception("	Input argument list_of_numbers has a size < 0.")
 		# Else, is list_of_numbers an empty list?
 		#elif 0 == len(list_of_numbers):
-		elif not list_of_numbers:
+		elif not list_of_numbers:	# More Pythonic solution.
 			return 0
 		else:
 			"""
@@ -243,4 +254,30 @@ class data_analysis:
 			if 0 > mean_absolute_list_of_numbers:
 				raise Exception("	mean of the list of absolute values. < 0.")
 			return mean_absolute_list_of_numbers
-
+	# =========================================================
+	#	Method to determine the relative difference between
+	#		quantity quantity1 and quantity quantity2.
+	#	relative difference = |quantity1 - quantity2|/(0.5 * (abs(quantity1) + abs(quantity1)))
+	#	\cite{WikipediaContributors2019g}
+	#	@param quantity1 - A quantity that I want to find the
+	#		relative difference of.
+	#	@param quantity2 - Another quantity that I want to find
+	#		the relative difference of.
+	#	@return - The relative difference.
+	#	@postcondition - absolute difference |quantity1 - quantity2| >= 0.
+	#	O(1) method.
+	#	Reference:
+	#		https://en.wikipedia.org/wiki/Absolute_difference
+	@staticmethod
+	def get_relative_difference(quantity1=1,quantity2=1):
+		if (0 == quantity1) and (0 == quantity2):
+			raise Exception("	relative difference does not exist for quantity1 == quantity2.")
+		absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
+		if 0 > absolute_diff:
+			raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
+		list_of_values = [quantity1, quantity2]
+		average_of_absolute_values = get_arithmetic_average_of_absolute_values(list_of_numbers)
+		if 0 >= average_of_absolute_values:
+			raise Exception("	0 >= arithmetic mean of absolute values.")
+		return (absolute_diff/average_of_absolute_values)
+	
