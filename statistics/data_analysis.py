@@ -1,7 +1,6 @@
 #!/usr/local/bin/python3
 ###!/Users/zhiyang/anaconda3/bin/python3
 
-
 """
 	This Python script is written by Zhiyang Ong to perform
 		miscellaneous tasks in analyzing data.
@@ -27,6 +26,8 @@
 			Title = {Relative change and difference},
 			Url = {https://en.wikipedia.org/wiki/Relative_change_and_difference},
 			Year = {2019}}
+	\cite[statistics package from Python Standard Library for Python 3.7.5rc1]{DrakeJr2016b}
+		https://docs.python.org/3/library/statistics.html
 """
 
 __author__ = 'Zhiyang Ong'
@@ -61,9 +62,11 @@ __date__ = 'December 15, 2017'
 
 	collections -> namedtuple
 				To use named tuples.
-	operator -> attrgetter
+	operator	attrgetter
 				To manipulate attributes of a named tuple as callable
 					objects.
+	statistics	Module with functions for mathematical statistics
+					functions. 
 """
 
 #import sys
@@ -75,6 +78,7 @@ import warnings
 #import re
 #from collections import namedtuple
 #from operator import attrgetter
+import statistics as s
 
 ###############################################################
 #	Import Custom Python Modules
@@ -119,6 +123,7 @@ class data_analysis:
 	#	@param quantity2 - Another quantity that I want to find the
 	#		actual change of.
 	#	@return - The actual change.
+	#	Note that the actual change can be negative.
 	#	O(1) method.
 	@staticmethod
 	def get_actual_change(quantity1=0,quantity2=0):
@@ -151,9 +156,25 @@ class data_analysis:
 	#	@param ref_qty - A reference quantity that I want to find
 	#		the relative change of.
 	#	@return - The relative change.
+	#	Note that the relative change can be negative.
+	#	@precondition - ref_qty != 0.
 	#	O(1) method.
 	@staticmethod
 	def get_relative_change(quantity1=1,ref_qty=1):
+		if 0 == ref_qty:
+			raise Exception("	ref_qty cannot be zero.")
+		return (get_actual_change(quantity1,ref_qty)/ref_qty)
+	# =========================================================
+	#	Method to determine the percent error between experimental
+	#		(measured) and theoretical (accepted) values:
+	#		experimental_value and theoretical_value.
+	#	\cite{WikipediaContributors2019g}
+	#	@param experimental_value - The experimental (measured) value.
+	#	@param theoretical_value - The theoretical (accepted) value.
+	#	@return - The relative change.
+	#	O(1) method.
+	@staticmethod
+	def get_percent_error(experimental_value=1,experimental_value=1):
 		return (get_actual_change(quantity1,ref_qty)/ref_qty)
 	# =========================================================
 	#	Method to determine the relative difference between
@@ -180,71 +201,46 @@ class data_analysis:
 	
 		return (get_actual_change(quantity1,ref_qty)/ref_qty)
 	# =========================================================
-	#	Mutator methods.
-	# =========================================================
-	#	Method to increment the number of test cases used.
-	#	@return - Nothing.
-	#	@postcondition - number_test_cases_used < number_test_cases_passed.
-	#	O(1) method.
+	#	Method to determine the mean, or arithmetic average, of
+	#		a list of absolute values of numbers, which can be
+	#		negative or otherwise.
+	#	The list of numbers, which can be negative or otherwise,
+	#		are copied into another list as their absolute values.
+	#	This method computes the arithmetic average for this new
+	#		list of absolute values.
+	#	
+	#	@param list_of_numbers - A list of numbers that I want
+	#		to find the arithmetic average, or mean, of.
+	#	@return - The arithmetic average, or mean, of the list of
+	#		absolute values.
+	#	@postcondition - mean of absolute values of numbers >= 0.
+	#	O(n) method, where n is the number of elements in the list.
+	#	Reference:
+	#		https://en.wikipedia.org/wiki/Arithmetic_mean
+	#		https://en.wikipedia.org/wiki/Absolute_value
 	@staticmethod
-	def increment_number_test_cases_used():
-		if 0 == statistical_analysis.get_number_test_cases_used():
-			statistical_analysis.number_test_cases_used = 1
-		else:
-			statistical_analysis.number_test_cases_used = statistical_analysis.number_test_cases_used + 1
-		if (statistical_analysis.get_number_test_cases_used() < statistical_analysis.number_test_cases_passed):
-			print("	Problem: number_test_cases_used < number_test_cases_passed")
-			raise Exception("	Error in incrementing number_test_cases_used")
-	# =========================================================
-	#	Method to increment the number of test cases passed.
-	#	@return - Nothing.
-	#	@postcondition - number_test_cases_used < number_test_cases_passed.
-	#	O(1) method.
-	@staticmethod
-	def increment_number_test_cases_passed():
-		if 0 == statistical_analysis.number_test_cases_passed:
-			statistical_analysis.number_test_cases_passed = 1
-		else:
-			statistical_analysis.number_test_cases_passed = statistical_analysis.number_test_cases_passed + 1
-		if (statistical_analysis.get_number_test_cases_used() < statistical_analysis.get_number_test_cases_passed()):
-			print("Number of test cases passed:	{}" .format(statistical_analysis.get_number_test_cases_passed()))
-			print("Number of test cases used:	{}" .format(statistical_analysis.get_number_test_cases_used()))
-			print("	Problem: number_test_cases_used < number_test_cases_passed")
-			raise Exception("	Error with number_test_cases_used.")
-	# =========================================================
-	#	Other methods.
-	# =========================================================
-	#	Method to determine percentage of test cases passed.
-	#	@return - percentage of test cases passed.
-	#	@precondition - number_test_cases_used < number_test_cases_passed.
-	#	O(1) method.
-	@staticmethod
-	def get_test_cases_passed_average():
-		if 0 == statistical_analysis.number_test_cases_used:
+	def get_arithmetic_average_of_absolute_values(list_of_numbers=[]):
+		if list_of_numbers is None:
+			raise Exception("	A 'None' object is passed to the get_arithmetic_average_of_absolute_values() method.")
+		elif 0 > len(list_of_numbers):
+			raise Exception("	Input argument list_of_numbers has a size < 0.")
+		# Else, is list_of_numbers an empty list?
+		#elif 0 == len(list_of_numbers):
+		elif not list_of_numbers:
 			return 0
 		else:
-			if (statistical_analysis.get_number_test_cases_used() < statistical_analysis.get_number_test_cases_passed()):
-				print("	Problem: number_test_cases_used < number_test_cases_passed")
-				raise Exception("	Precondition failed (1): see number_test_cases_used or number_test_cases_passed.")
-			return (statistical_analysis.get_number_test_cases_passed()*100 / statistical_analysis.get_number_test_cases_used())
-	# =========================================================
-	#	Method to print statistics of software testing results.
-	#	@return - Nothing
-	#	@precondition - number_test_cases_used < number_test_cases_passed.
-	#	O(1) method.
-	@staticmethod
-	def print_statistics_of_software_testing():
-		if (statistical_analysis.get_number_test_cases_used() < statistical_analysis.get_number_test_cases_passed()):
-			print("	Problem: number_test_cases_used < number_test_cases_passed")
-			raise Exception("	Precondition failed (2): see number_test_cases_used or number_test_cases_passed.")
-		print("*	Number of test cases passed:		{}" .format(statistical_analysis.get_number_test_cases_passed()))
-		print("*	Number of test cases used:		{}" .format(statistical_analysis.get_number_test_cases_used()))
-		print("*	Percentage of test cases passed:	{}%." .format(statistical_analysis.get_test_cases_passed_average()))
-		#print "*	Percentage of test cases passed:	",statistical_analysis.get_test_cases_passed_average(),"%."
-		#	Format printing of the statistics as follows.
-		#print "*	Percentage of test cases passed:	",(13*100/19),"%."
-		#	Most of the following cannot calculate the percentage properly.
-		#print "*	Percentage of test cases passed:	",(13/19)*100,"%."
-		#print "*	Percentage of test cases passed:	",(13/19)*(10000/100),"%."
-		#print "*	Percentage of test cases passed:	",(10000/100)*(13/19),"%."
-		#print "*	Percentage of test cases passed:	",(13*10000)/(19*100),"%."
+			"""
+				Copy the absolute values of numbers in the list to
+					another list, absolute_list_of_numbers.
+			"""
+			absolute_list_of_numbers = []
+			for elem in list_of_numbers:
+				absolute_list_of_numbers.append(abs(elem))
+			#print("absolute_list_of_numbers:",absolute_list_of_numbers,"=")
+			# Determine the arithmetic mean of these absolute values.
+			mean_absolute_list_of_numbers = s.mean(absolute_list_of_numbers)
+			# Check postcondition: mean of absolute values of numbers >= 0.
+			if 0 > mean_absolute_list_of_numbers:
+				raise Exception("	mean of the list of absolute values. < 0.")
+			return mean_absolute_list_of_numbers
+
