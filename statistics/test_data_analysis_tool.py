@@ -96,7 +96,7 @@ from statistics.data_analysis_tool import data_analysis
 """
 class data_analysis_tester:
 	## =========================================================
-	#	Method to test the methods that access reference values
+	#	Method to test the method that accesses reference values
 	#		for a corresponding particular attribute/property,
 	#		using the Python dictionary containing pairs/2-tuples
 	#		of attributes/properties and values.
@@ -115,23 +115,162 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: method with default option == "
+		prompt = prompt + str(speed_of_light) + "	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if speed_of_light == data_analysis.get_reference_value():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		standard_acceleration_due_to_gravity = 9.80665
-		prompt = "	... Test: get_reference_value(c) == "
+		prompt = "	... Test: get_reference_value(g) == "
 		prompt = prompt + str(standard_acceleration_due_to_gravity) + "		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if standard_acceleration_due_to_gravity == data_analysis.get_reference_value("c"):
+		if standard_acceleration_due_to_gravity == data_analysis.get_reference_value("standard acceleration due to gravity"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
 		standard_atmosphere = 101325
-		prompt = "	... Test: get_reference_value(c) == "
-		prompt = prompt + str(standard_atmosphere) + "		{}"
+		prompt = "	... Test: get_reference_value(std atm) == "
+		prompt = prompt + str(standard_atmosphere) + "	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if standard_atmosphere == data_analysis.get_reference_value("c"):
+		if standard_atmosphere == data_analysis.get_reference_value("standard atmosphere"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the method that determines the actual
+	#		change between quantity1 and quantity2.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_actual_change():
+		print("	Testing get_actual_change() method.")
+		prompt = "	... Test: default option, get_actual_change(0,0) == 0	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_actual_change():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_actual_change(19,13) == 6			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 6 == data_analysis.get_actual_change(19,13):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_actual_change(10,14) == -4		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if -4 == data_analysis.get_actual_change(10, 14):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_actual_change(-20,27) == -47		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if -47 == data_analysis.get_actual_change(-20,27):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_actual_change(-7,-3) == -4		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if -4 == data_analysis.get_actual_change(-7,-3):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_actual_change(-4,-9) == 5			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 5 == data_analysis.get_actual_change(-4,-9):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the method that determines the absolute
+	#		difference between quantity1 and quantity2.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_absolute_difference():
+		print("	Testing get_absolute_difference() method.")
+		prompt = "	... Test: default, get_absolute_difference(0,0) == 0	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_absolute_difference():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_absolute_difference(19,13) == 6		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 6 == data_analysis.get_absolute_difference(19,13):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_absolute_difference(10,14) == 4		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 4 == data_analysis.get_absolute_difference(10, 14):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_absolute_difference(-20,27) == 47		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 47 == data_analysis.get_absolute_difference(-20,27):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_absolute_difference(-7,-3) == 4		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 4 == data_analysis.get_absolute_difference(-7,-3):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_absolute_difference(-4,-9) == 5		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 5 == data_analysis.get_absolute_difference(-4,-9):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the method that determines the relative change
+	#		between quantity1 and quantity2.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_relative_change():
+		print("	Testing get_relative_change() method.")
+		prompt = "	... Test: default, get_relative_change(1,1) == 0	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_change():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_change(15,12) == 0.25		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0.25 == data_analysis.get_relative_change(15,12):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print("data_analysis.get_relative_change(15,12):",data_analysis.get_relative_change(15,12),"=")
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_change(18,20) == -0.10		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if -0.10 == data_analysis.get_relative_change(18,20):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
@@ -142,6 +281,13 @@ class data_analysis_tester:
 	def test_data_analysis():
 		print("")
 		print("")
+		print("-------------------------------------------------")
 		print("==	Testing class: data_analysis.")
 		data_analysis_tester.test_get_reference_value()
+		print("")
+		data_analysis_tester.test_get_actual_change()
+		print("")
+		data_analysis_tester.test_get_absolute_difference()
+		print("")
+		data_analysis_tester.test_get_relative_change()
 		# TEST ALL METHODS!!!

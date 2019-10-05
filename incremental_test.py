@@ -297,12 +297,16 @@ if __name__ == "__main__":
 	ip_file_obj = file_io_operations.open_file_object_read(ip_filename)
 	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	# The real stuff begins here...
+	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	print("=	Testing the statistical analysis package.")
 	#	Insert test cases for statistical analysis package
 	statistical_analysis_tester.test_statistical_analysis()
 	# Test the miscellaneous tasks in analyzing data.
 	data_analysis_tester.test_data_analysis()
+	print("")
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the utilities package.
+	print("")
 	print("=	Testing the utilities package.")
 	file_io_operations_tester.test_file_io_operations()
 	queue_ip_args_tester.test_queue_ip_args()
