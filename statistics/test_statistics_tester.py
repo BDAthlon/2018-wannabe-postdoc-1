@@ -9,8 +9,8 @@
 
 
 	Synopsis:
-	Perform test the support software for statistical analysis
-		during software test automation.
+	Test the support software for statistical analysis during
+		software test automation.
 
 
 	Revision History:

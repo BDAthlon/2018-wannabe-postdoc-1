@@ -16,27 +16,27 @@
 
 
 	Reference:
-	\cite{WikipediaContributors2019g}
-		@misc{WikipediaContributors2019g,
-			Address = {San Francisco, {CA}},
-			Author = {{Wikipedia contributors}},
-			Howpublished = {Available online from {\it Wikipedia, The Free Encyclopedia: Measurement} at: \url{https://en.wikipedia.org/wiki/Relative_change_and_difference}; October 1, 2019 was the last accessed date},
-			Month = {September 25},
-			Publisher = {Wikimedia Foundation},
-			Title = {Relative change and difference},
-			Url = {https://en.wikipedia.org/wiki/Relative_change_and_difference},
-			Year = {2019}}
-	\cite[statistics package from Python Standard Library for Python 3.7.5rc1]{DrakeJr2016b}
+	[WikipediaContributors2019g]
+		Address = San Francisco, CA
+		Author = Wikipedia contributors
+		Howpublished = Available online from Wikipedia, The Free Encyclopedia: Measurement at: https://en.wikipedia.org/wiki/Relative_change_and_difference; October 1, 2019 was the last accessed date
+		Month = September 25
+		Publisher = Wikimedia Foundation
+		Title = Relative change and difference
+		Url = https://en.wikipedia.org/wiki/Relative_change_and_difference
+		Year = 2019
+	[DrakeJr2016b]
+		statistics package from Python Standard Library for Python 3.7.5rc1
 		https://docs.python.org/3/library/statistics.html
 """
 
 __author__ = 'Zhiyang Ong'
 __version__ = '1.0'
-__date__ = 'December 15, 2017'
+__date__ = 'August 1, 2018'
 
 #	The MIT License (MIT)
 
-#	Copyright (c) <2014-2018> <Zhiyang Ong>
+#	Copyright (c) <2018> <Zhiyang Ong>
 
 #	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -66,7 +66,7 @@ __date__ = 'December 15, 2017'
 				To manipulate attributes of a named tuple as callable
 					objects.
 	statistics	Module with functions for mathematical statistics
-					functions. 
+					functions.
 """
 
 #import sys
@@ -90,8 +90,8 @@ import statistics as s
 
 ###############################################################
 """
-	Module with methods that perform basic statistical analysis
-		during software test automation.
+	Module with methods that perform miscellaneous tasks in
+		data analysis.
 """
 class data_analysis:
 	#	Static variable declaration.

@@ -84,6 +84,7 @@ import re
 ###############################################################
 #	Import Custom Python Packages and Modules
 
+# Statistics package.
 """
 	Package and module to print statistics of software testing
 		results.
@@ -91,6 +92,19 @@ import re
 from statistics.test_statistics import statistical_analysis
 # Package and module to check the validation of statistical analysis.
 from statistics.test_statistics_tester import statistical_analysis_tester
+
+"""
+	Package and module to perform miscellaneous tasks in data
+		analysis.
+"""
+from statistics.data_analysis_tool import data_analysis
+"""
+	Package and module to test the miscellaneous tasks in
+		analyzing data. 
+"""
+from statistics.test_data_analysis_tool import data_analysis_tester
+
+
 
 # Utilities package.
 # Package and module to process input arguments to the script/program.
@@ -285,6 +299,8 @@ if __name__ == "__main__":
 	# The real stuff begins here...
 	#	Insert test cases for statistical analysis package
 	statistical_analysis_tester.test_statistical_analysis()
+	# Test the miscellaneous tasks in analyzing data.
+	data_analysis_tester.test_data_analysis()
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the utilities package.
 	print("=	Testing the utilities package.")

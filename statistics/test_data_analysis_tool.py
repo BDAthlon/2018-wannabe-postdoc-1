@@ -3,14 +3,12 @@
 
 
 """
-	This Python script is written by Zhiyang Ong to test support
-		functions for basic statistical analysis during software
-		test automation.
+	This Python script is written by Zhiyang Ong to test
+		miscellaneous tasks in analyzing data.
 
 
 	Synopsis:
-	Perform test the support software for statistical analysis
-		during software test automation.
+	Test the miscellaneous tasks in analyzing data.
 
 
 	Revision History:
@@ -52,6 +50,8 @@ __date__ = 'December 15, 2017'
 	operator -> attrgetter
 				To manipulate attributes of a named tuple as callable
 					objects.
+	statistics	Module with functions for mathematical statistics
+					functions.
 """
 
 #import sys
@@ -63,6 +63,7 @@ import warnings
 #import re
 #from collections import namedtuple
 #from operator import attrgetter
+import statistics as s
 
 ###############################################################
 #	Import Custom Python Modules
@@ -72,33 +73,57 @@ import warnings
 		results.
 """
 from statistics.test_statistics import statistical_analysis
+"""
+	Package and module to perform miscellaneous tasks in data
+		analysis.
+"""
+from statistics.data_analysis_tool import data_analysis
+
+
+
+
 
 ###############################################################
 """
-	Module that tests the methods for statistically analyzing
-		test results of software test automation.
+	Module that tests the methods for performing miscellaneous
+		tasks in data analysis.
 
 	Support for class instantiation is not provided, to avoid
 		acquiring a collection of useless "statistical_analysis"
 		objects.
 
-	Test each static method of the "statistical_analysis" class.
+	Test each static method of the "data_analysis" class.
 """
 class data_analysis_tester:
-	# =========================================================
-	##	Method to test the methods that support software test
-	#		automation.
+	## =========================================================
+	#	Method to test the methods that access reference values
+	#		for a corresponding particular attribute/property,
+	#		using the Python dictionary containing pairs/2-tuples
+	#		of attributes/properties and values.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_statistical_analysis():
-		print("1) Number of test cases passed:		{}" .format(statistical_analysis.number_test_cases_passed))
-		print("2) Number of test cases used:		{}" .format(statistical_analysis.number_test_cases_used))
-		print("Proportion of test cases passed:	{}" .format(statistical_analysis.get_test_cases_passed_average()))
-		for x in range(1,7):
-			statistical_analysis.increment_number_test_cases_used()
+	def test_get_reference_value():
+		print("	Testing get_reference_value() method.")
+		speed_of_light = 299792458
+		#prompt = "	... Test: get_reference_value(c) == 299792458		{}"
+		prompt = "	... Test: get_reference_value(c) == "
+		prompt = prompt + str(speed_of_light) + "		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if speed_of_light == data_analysis.get_reference_value("c"):
+			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-			print("Value of x is: {}." .format(x))
-			print("Number of test cases passed:	{}" .format(statistical_analysis.number_test_cases_passed))
-			print("Number of test cases used:	{}" .format(statistical_analysis.number_test_cases_used))
-			print("Proportion of test cases passed:	{}" .format(statistical_analysis.get_test_cases_passed_average()))
+		else:
+			print(prompt .format("FAIL!!!"))
+	# =========================================================
+	##	Method to test the methods that perform miscellaneous
+	#		tasks in data analysis.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_data_analysis():
+		print("")
+		print("")
+		print("==	Testing class: data_analysis.")
+		data_analysis_tester.test_get_reference_value()
+		# TEST ALL METHODS!!!
