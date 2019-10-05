@@ -84,7 +84,7 @@ from statistics.test_statistics import statistical_analysis
 
 	Test each static method of the "statistical_analysis" class.
 """
-class statistical_analysis_tester:
+class data_analysis_tester:
 	# =========================================================
 	##	Method to test the methods that support software test
 	#		automation.
