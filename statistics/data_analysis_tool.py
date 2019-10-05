@@ -99,6 +99,9 @@ class data_analysis:
 	"""
 		Dictionary of reference values.
 		
+		Note that "standard atmosphere" refers to standard
+			atmospheric pressure.
+		
 		References:
 			https://en.wikipedia.org/wiki/List_of_physical_constants
 			https://en.wikipedia.org/wiki/Physical_constant

@@ -115,6 +115,24 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		standard_acceleration_due_to_gravity = 9.80665
+		prompt = "	... Test: get_reference_value(c) == "
+		prompt = prompt + str(standard_acceleration_due_to_gravity) + "		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if standard_acceleration_due_to_gravity == data_analysis.get_reference_value("c"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		standard_atmosphere = 101325
+		prompt = "	... Test: get_reference_value(c) == "
+		prompt = prompt + str(standard_atmosphere) + "		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if standard_atmosphere == data_analysis.get_reference_value("c"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
