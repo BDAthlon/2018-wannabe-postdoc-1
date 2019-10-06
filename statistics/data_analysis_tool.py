@@ -15,6 +15,12 @@
 
 
 
+
+	Additional resources:
+	+ https://stackoverflow.com/questions/9039961/finding-the-average-of-a-list
+		- use of 
+
+
 	Reference:
 	[WikipediaContributors2019g]
 		Address = San Francisco, CA
