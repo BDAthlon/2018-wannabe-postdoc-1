@@ -272,6 +272,14 @@ class data_analysis_tester:
 		else:
 			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_change(-97,-100) == -0.10		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if -0.10 == data_analysis.get_relative_change(18,20):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
+			print(prompt .format("FAIL!!!"))
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
