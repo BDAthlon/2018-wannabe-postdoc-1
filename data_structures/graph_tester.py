@@ -198,7 +198,7 @@ class graph_tester:
 			print(prompt .format("FAIL!!!"))
 		# -------------------------------------------------------
 		a = graph()
-		prompt = "	... Test: is_cyclic()		 		{}."
+		prompt = "	... Test: is_cyclic()		 			{}."
 		statistical_analysis.increment_number_test_cases_used()
 		if False == a.is_cyclic():
 			print(prompt .format("OK"))
