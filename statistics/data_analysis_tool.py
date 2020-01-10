@@ -9,6 +9,12 @@
 	Synopsis:
 	Perform miscellaneous tasks in data analysis.
 
+	To-Do List:
+	+ Add information for statistics regarding:
+		- accuracy
+		- precision
+
+
 
 	Revision History:
 	December 15, 2017			Version 0.1, initial build.
@@ -18,8 +24,25 @@
 
 	Additional resources:
 	+ https://stackoverflow.com/questions/9039961/finding-the-average-of-a-list
-		- use of 
-
+		- use of functional programming features to calculate the
+			average of a list/array/container/series of numbers.
+			* reduce(lambda x, y: x + y, l) / len(l)
+	+ import itertools,operator
+		list(itertools.accumulate(l,operator.add)).pop(-1) / len(l)
+		https://stackoverflow.com/questions/9039961/finding-the-average-of-a-list
+		https://docs.python.org/3/library/itertools.html
+		https://docs.python.org/3/library/functional.html
+	+ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html
+	+ https://acadgild.com/blog/python-mean-median-mode
+	+ https://learnandlearn.com/python-programming/python-reference/find-calculate-arithmetic-mean-python-using-mean-function
+	+ https://www.quora.com/How-do-I-get-the-average-value-in-Python-of-a-list-containing-NAN-value
+		- Processing NANs in the data sets 
+	+ https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html#Scalar%20mean(InputArray%20src,%20InputArray%20mask)
+	+ https://rails.devcamp.com/38/274/get-average-list-python
+	+ from numpy
+		- https://pythontic.com/numpy/ndarray/mean_std_var
+	+ https://pytorch.org/docs/stable/torch.html#torch.mean
+	
 
 	Reference:
 	[WikipediaContributors2019g]
@@ -73,6 +96,17 @@ __date__ = 'August 1, 2018'
 					objects.
 	statistics	Module with functions for mathematical statistics
 					functions.
+					+ reduce(lambda aggr, elem: (aggr[0] + elem, aggr[1]+1), l, (0.0,0))
+					+ print reduce(lambda x, y: x + y, l) / len(l)
+	pandas		Machine learning library
+					https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.mean.html
+					For the whole documentation:
+					https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.mean.html
+
+					And the whole documentation:
+						https://pandas.pydata.org/pandas-docs/stable/10min.html
+						https://pandas.pydata.org/pandas-docs/stable/10min.html
+	NumPy		Numerical computing and machine learning library
 """
 
 #import sys
@@ -85,6 +119,7 @@ import warnings
 #from collections import namedtuple
 #from operator import attrgetter
 import statistics as s
+#import pandas as pd
 
 ###############################################################
 #	Import Custom Python Modules
@@ -146,12 +181,16 @@ class data_analysis:
 	#	@param quantity2 - Another quantity that I want to find the
 	#		absolute difference of.
 	#	@return - The absolute difference.
-	#	@postcondition - absolute difference |quantity1 - quantity2| >= 0.
+	#	@postcondition - absolute difference, |quantity1 - quantity2| >= 0.
 	#	O(1) method.
 	#	Reference:
 	#		https://en.wikipedia.org/wiki/Absolute_difference
 	@staticmethod
 	def get_absolute_difference(quantity1=0,quantity2=0):
+		"""
+			Check postcondition:
+				absolute difference, |quantity1 - quantity2| >= 0.
+		"""
 		absolute_difference = abs(quantity1 - quantity2)
 		if (0 > absolute_difference):
 			raise Exception("	get_absolute_difference(): Absolute difference must be non-negative.")
@@ -170,6 +209,7 @@ class data_analysis:
 	#	O(1) method.
 	@staticmethod
 	def get_relative_change(quantity1=1,ref_qty=1):
+		# Check precondition: ref_qty != 0.
 		if 0 == ref_qty:
 			raise Exception("	ref_qty cannot be zero.")
 		return (data_analysis.get_actual_change(quantity1,ref_qty)/ref_qty)
@@ -187,6 +227,7 @@ class data_analysis:
 	#	O(1) method.
 	@staticmethod
 	def get_percentage_change(quantity1=1,ref_qty=1):
+		# Check precondition: ref_qty != 0.
 		if 0 == ref_qty:
 			raise Exception("	ref_qty cannot be zero.")
 		relative_change = data_analysis.get_relative_change(quantity1,ref_qty)
@@ -209,7 +250,7 @@ class data_analysis:
 	#	Method to determine the percent error between experimental
 	#		(measured) and theoretical (accepted) values:
 	#		experimental_value and theoretical_value.
-	#	\cite{WikipediaContributors2019g}
+	#	\cite{WikipediaContributors2019g,Wenning2014a}
 	#	@param experimental_value - The experimental (measured) value.
 	#	@param theoretical_value - The theoretical (accepted) value.
 	#	@return - The relative change.
@@ -273,19 +314,24 @@ class data_analysis:
 	#	@param quantity2 - Another quantity that I want to find
 	#		the relative difference of.
 	#	@return - The relative difference.
-	#	@postcondition - absolute difference |quantity1 - quantity2| >= 0.
+	#	@precondition - (quantity1 != 0) or (quantity2 != 0).
+	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
+	#	@postcondition - average_of_absolute_values > 0.
 	#	O(1) method.
 	#	Reference:
 	#		https://en.wikipedia.org/wiki/Absolute_difference
 	@staticmethod
 	def get_relative_difference(quantity1=1,quantity2=1):
+		# Check for precondition: (quantity1 != 0) or (quantity2 != 0).
 		if (0 == quantity1) and (0 == quantity2):
 			raise Exception("	relative difference does not exist for quantity1 == quantity2.")
 		absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
+		# Check assertion: absolute difference, |quantity1 - quantity2| >= 0.
 		if 0 > absolute_diff:
 			raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
 		list_of_values = [quantity1, quantity2]
 		average_of_absolute_values = get_arithmetic_average_of_absolute_values(list_of_numbers)
+		# Check postcondition: average_of_absolute_values > 0.
 		if 0 >= average_of_absolute_values:
 			raise Exception("	0 >= arithmetic mean of absolute values.")
 		return (absolute_diff/average_of_absolute_values)

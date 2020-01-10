@@ -199,6 +199,7 @@ from data_structures.undirected_graph.edge_ug_tester import *
 		- Brute force algorithm
 """
 class incremental_test_automation:
+	# (Static) variables.
 	# List of BibTeX keys
 	set_of_BibTeX_keys = []
 	num_of_bibtex_entries = 0
