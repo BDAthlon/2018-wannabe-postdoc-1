@@ -288,4 +288,4 @@ class date_time_operations:
 		if not isinstance(current_date_time, str):
 			# No. Raise an exception to inform user of the error.
 			raise Exception("= current_date_time is not a string instance!")
-		return 
+		return current_date_time
