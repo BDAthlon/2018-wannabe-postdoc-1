@@ -283,8 +283,9 @@ class date_time_operations:
 	@staticmethod
 	def get_current_date_time():
 		# Get the current date & time in the aforementioned format.
-		currentTime = datetime.datetime.now().strftime("%m-%d-%y-%H-%M-%S")
+		current_date_time = datetime.datetime.now().strftime("%m-%d-%y-%H-%M-%S")
 		# Check if this output is an instance of the string class. 
-		if not isinstance(currentTime, str):
+		if not isinstance(current_date_time, str):
 			# No. Raise an exception to inform user of the error.
-			raise Exception("= currentTime is not a string instance!")
+			raise Exception("= current_date_time is not a string instance!")
+		return 
