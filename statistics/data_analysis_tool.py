@@ -259,7 +259,7 @@ class data_analysis:
 	#		https://en.wikipedia.org/wiki/Relative_change_and_difference
 	@staticmethod
 	def get_percent_error(experimental_value=1,theoretical_value=1):
-		return (data_analysis.get_relative_error(experimental_value,theoretical_value)*100)
+		return (100*data_analysis.get_relative_error(experimental_value,theoretical_value))
 	# =========================================================
 	#	Method to determine the arithmetic mean, or average, of
 	#		a list of absolute values of numbers, which can be
@@ -335,4 +335,22 @@ class data_analysis:
 		if 0 >= average_of_absolute_values:
 			raise Exception("	0 >= arithmetic mean of absolute values.")
 		return (absolute_diff/average_of_absolute_values)
-	
+	# =========================================================
+	#	Method to determine the relative percentage difference
+	#		between quantity quantity1 and quantity quantity2.
+	#	relative percentage difference = |quantity1 - quantity2|/(0.5 * (abs(quantity1) + abs(quantity1))) * 100%
+	#	\cite{WikipediaContributors2019g}
+	#	@param quantity1 - A quantity that I want to find the
+	#		relative difference of.
+	#	@param quantity2 - Another quantity that I want to find
+	#		the relative difference of.
+	#	@return - The relative difference.
+	#	@precondition - (quantity1 != 0) or (quantity2 != 0).
+	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
+	#	@postcondition - average_of_absolute_values > 0.
+	#	O(1) method.
+	#	Reference:
+	#		https://en.wikipedia.org/wiki/Absolute_difference
+	@staticmethod
+	def get_relative_percentage_difference(quantity1=1,quantity2=1):
+		return (100*data_analysis.get_relative_difference(quantity1,quantity2))
