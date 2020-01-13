@@ -330,7 +330,7 @@ class data_analysis:
 		if 0 > absolute_diff:
 			raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
 		list_of_values = [quantity1, quantity2]
-		average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_numbers)
+		average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_values)
 		# Check postcondition: average_of_absolute_values > 0.
 		if 0 >= average_of_absolute_values:
 			raise Exception("	0 >= arithmetic mean of absolute values.")
