@@ -321,54 +321,61 @@ class data_analysis_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_get_percentage_change():
-		print("	Testing get_relative_change() method.")
-		prompt = "	... Test: default, get_relative_change(1,1) == 0	{}"
+		print("	Testing get_percentage_change() method.")
+		prompt = "	... Test: default, get_percentage_change(1,1) == 0	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if 0 == data_analysis.get_percentage_change():
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_relative_change(15,12) == 0.25		{}"
+		prompt = "	... Test: get_percentage_change(15,12) == 0.25		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if 25 == data_analysis.get_percentage_change(15,12):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
-			print("data_analysis.get_relative_change(15,12):",data_analysis.get_relative_change(15,12),"=")
+			print("data_analysis.get_percentage_change(15,12):",data_analysis.get_percentage_change(15,12),"=")
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_relative_change(18,20) == -0.10		{}"
+		prompt = "	... Test: get_percentage_change(18,20) == -0.10		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if -10 == data_analysis.get_percentage_change(18,20):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
-			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
+			#print("data_analysis.get_percentage_change(18,20):",data_analysis.get_percentage_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_relative_change(-97,-100) == -0.03	{}"
+		prompt = "	... Test: get_percentage_change(-97,-100) == -0.03	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if -0.03 == data_analysis.get_relative_change(-97,-100):
+		if -3 == data_analysis.get_percentage_change(-97,-100):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
-			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
+			#print("data_analysis.get_percentage_change(18,20):",data_analysis.get_percentage_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
-		prompt = "	...Test: get_relative_change(-100,-110) ~ -0.0909090909 {}"
+		prompt = "	..Test:get_percentage_change(-100,-110) ~ -0.0909090909 {}"
 		statistical_analysis.increment_number_test_cases_used()
-		if math.isclose(-0.0909090909, data_analysis.get_relative_change(-100,-110)):
+		if math.isclose(-9.09090909, data_analysis.get_percentage_change(-100,-110)):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
-			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
+			#print("data_analysis.get_percentage_change(18,20):",data_analysis.get_percentage_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
-		prompt = "	...Test: get_relative_change(-98,-105) ~ -0.06666666666 {}"
+		prompt = "	..Test:get_percentage_change(-98,-105) ~ -0.06666666666 {}"
 		statistical_analysis.increment_number_test_cases_used()
-		if math.isclose(-0.06666666666, data_analysis.get_relative_change(-98,-105)):
+		if math.isclose(-6.666666666, data_analysis.get_percentage_change(-98,-105)):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
-			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
+			#print("data_analysis.get_percentage_change(18,20):",data_analysis.get_percentage_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the method that determines the percentage change
+	#		between quantity1 and quantity2.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_percentage_change():
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
@@ -387,4 +394,6 @@ class data_analysis_tester:
 		data_analysis_tester.test_get_absolute_difference()
 		print("")
 		data_analysis_tester.test_get_relative_change()
+		print("")
+		data_analysis_tester.test_get_percentage_change()
 		# TEST ALL METHODS!!!
