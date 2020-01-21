@@ -210,7 +210,7 @@ class data_analysis_tester:
 	@staticmethod
 	def test_get_absolute_difference():
 		print("	Testing get_absolute_difference() method.")
-		prompt = "	... Test: default, get_absolute_difference(0,0) == 0	{}"
+		prompt = "	...Test:default,get_absolute_difference(0,0) == 0	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if 0 == data_analysis.get_absolute_difference():
 			print(prompt .format("OK"))
@@ -298,6 +298,14 @@ class data_analysis_tester:
 		else:
 			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_change(3,0) can't compute	{}"
+		try:
+			statistical_analysis.increment_number_test_cases_used()
+			relative_change_error = data_analysis.get_relative_change(3,0)
+			print(prompt .format("FAIL!!!"))
+		except:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
 		prompt = "	...Test: get_relative_change(-100,-110) ~ -0.0909090909 {}"
 		statistical_analysis.increment_number_test_cases_used()
 		if math.isclose(-0.0909090909, data_analysis.get_relative_change(-100,-110)):
@@ -353,6 +361,14 @@ class data_analysis_tester:
 		else:
 			#print("data_analysis.get_percentage_change(18,20):",data_analysis.get_percentage_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_percentage_change(3,0) can't compute	{}"
+		try:
+			statistical_analysis.increment_number_test_cases_used()
+			relative_change_error = data_analysis.get_percentage_change(3,0)
+			print(prompt .format("FAIL!!!"))
+		except:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
 		prompt = "	..Test:get_percentage_change(-100,-110) ~ -0.0909090909 {}"
 		statistical_analysis.increment_number_test_cases_used()
 		if math.isclose(-9.09090909, data_analysis.get_percentage_change(-100,-110)):
@@ -370,12 +386,85 @@ class data_analysis_tester:
 			#print("data_analysis.get_percentage_change(18,20):",data_analysis.get_percentage_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
-	#	Method to test the method that determines the percentage change
-	#		between quantity1 and quantity2.
+	#	Method to test the method that determines the relative
+	#		error between experimental_value and theoretical_value.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_get_percentage_change():
+	def test_get_relative_error():
+		print("	Testing get_relative_error() method.")
+		prompt = "	... Test: default, get_relative_error(1,1) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_error():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_error(15,12) == 0.25		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0.25 == data_analysis.get_relative_error(15,12):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_error(16,20) == 0.2		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0.2 == data_analysis.get_relative_error(16,20):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_error(-9,-10) == 0.1		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0.1 == data_analysis.get_relative_error(-9,-10):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_error(-13,-10) == 0.3		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0.3 == data_analysis.get_relative_error(-13,-10):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_error(-3,-2) == 0.5		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0.5 == data_analysis.get_relative_error(-3,-2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_relative_error(3,0) can't compute		{}"
+		try:
+			statistical_analysis.increment_number_test_cases_used()
+			relative_change_error = data_analysis.get_relative_error(3,0)
+			print(prompt .format("FAIL!!!"))
+		except:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+	## =========================================================
+	#	Method to test the method that determines the percent
+	#		error between experimental_value and theoretical_value.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_percent_error():
+		print("	Testing get_percent_error() method.")
+		prompt = "	... Test: default, get_percent_error(1,1) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_percent_error():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_percent_error(15,12) == 25		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 25 == data_analysis.get_percent_error(15,12):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
@@ -396,4 +485,8 @@ class data_analysis_tester:
 		data_analysis_tester.test_get_relative_change()
 		print("")
 		data_analysis_tester.test_get_percentage_change()
+		print("")
+		data_analysis_tester.test_get_relative_error()
+		print("")
+		data_analysis_tester.test_get_percent_error()
 		# TEST ALL METHODS!!!
