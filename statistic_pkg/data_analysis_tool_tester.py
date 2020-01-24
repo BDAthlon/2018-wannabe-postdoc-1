@@ -314,7 +314,8 @@ class data_analysis_tester:
 		else:
 			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
-		prompt = "	...Test: get_relative_change(-98,-105) ~ -0.06666666666 {}"
+			print("data_analysis.get_relative_change(-100,-110) is:",data_analysis.get_relative_change(-100,-110),".")
+		prompt = "	...Test: get_relative_change(-98,-105) ~ -0.06666666666	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if math.isclose(-0.06666666666, data_analysis.get_relative_change(-98,-105)):
 			print(prompt .format("OK"))
