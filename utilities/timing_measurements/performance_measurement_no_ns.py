@@ -112,7 +112,7 @@ from utilities.timing_measurements.get_factorial import calculate_factorial
 			specifically, so that this Python module can be kept
 			simple and short.
 """
-class execution_time_measurement:
+class execution_time_measurement_no_ns:
 	# Invalid timestamp.
 	invalid_timestamp = -123456789012345678901234567890
 	# Initial timestamp.
@@ -148,23 +148,23 @@ class execution_time_measurement:
 		"""
 		if ("perf_counter" == type_timestamp):
 			# Yes. Use perf_counter() to measure performance/time.
-			execution_time_measurement.initial_timestamp = pc_timestamp()
+			execution_time_measurement_no_ns.initial_timestamp = pc_timestamp()
 		elif ("process_time" == type_timestamp):
 			# Yes. Use process_time() to measure performance/time.
-			execution_time_measurement.initial_timestamp = pt_timestamp()
+			execution_time_measurement_no_ns.initial_timestamp = pt_timestamp()
 		elif ("time" == type_timestamp):
 			# Yes. Use time() to measure performance/time.
-			execution_time_measurement.initial_timestamp = time.time()
+			execution_time_measurement_no_ns.initial_timestamp = time.time()
 		else:
 			# The default option is: "monotonic()"
-			execution_time_measurement.initial_timestamp = pm_monotonic()
+			execution_time_measurement_no_ns.initial_timestamp = pm_monotonic()
 	# ============================================================
 	##	Method to get the initial timestamp.
 	#	@return the initial timestamp.
 	#	O(1) method.
 	@staticmethod
 	def get_initial_timestamp():
-		return execution_time_measurement.initial_timestamp
+		return execution_time_measurement_no_ns.initial_timestamp
 	# ============================================================
 	##	Method to determine the elapsed time from the initial
 	#		timestamp.
@@ -201,7 +201,7 @@ class execution_time_measurement:
 				Use monotonic() to measure performance/time.
 			"""
 			current_timestamp = pm_monotonic()
-		return (current_timestamp - execution_time_measurement.get_initial_timestamp())
+		return (current_timestamp - execution_time_measurement_no_ns.get_initial_timestamp())
 	# ============================================================
 	##	Method to convert seconds to days, hours, minutes, and
 	#		seconds.
@@ -234,37 +234,37 @@ class execution_time_measurement:
 				the performance of recursive and iterative methods.
 		"""
 		with open("compare_different_methods_to_measure_elapsed_periods.csv","a+") as op_f_obj:
-			for perf_measurement_technique in execution_time_measurement.types_of_performance_measurement_technique:
+			for perf_measurement_technique in execution_time_measurement_no_ns.types_of_performance_measurement_technique:
 				print("The technique used is:",perf_measurement_technique,"=")
 				"""
 					Set the initial timestamp for calculating the
 						factorial of numbers via recursion.
 				"""
-				execution_time_measurement.set_initial_timestamp(perf_measurement_technique)
+				execution_time_measurement_no_ns.set_initial_timestamp(perf_measurement_technique)
 				print("	Calculate the factorial using recursion.")
-				print("	= current timestamp:",execution_time_measurement.get_initial_timestamp(),"=")
+				print("	= current timestamp:",execution_time_measurement_no_ns.get_initial_timestamp(),"=")
 				for x in range(0,20+1):
 					print("		factorial of",x," is:",calculate_factorial.get_factorial_recursion(x),"=")
 				"""
 					Get the elapsed time for calculating the factorial of
 						numbers via recursion.
 				"""
-				elapsed_time_recursion = execution_time_measurement.get_elapsed_time(perf_measurement_technique)
+				elapsed_time_recursion = execution_time_measurement_no_ns.get_elapsed_time(perf_measurement_technique)
 				print("	= elapsed_time_recursion:",elapsed_time_recursion,"=")
 				"""
 					Set the initial timestamp for calculating the
 						factorial of numbers via iteration.
 				"""
-				execution_time_measurement.set_initial_timestamp(perf_measurement_technique)
+				execution_time_measurement_no_ns.set_initial_timestamp(perf_measurement_technique)
 				print("	Calculate the factorial using iteration.")
-				print("	= current timestamp:",execution_time_measurement.get_initial_timestamp(),"=")
+				print("	= current timestamp:",execution_time_measurement_no_ns.get_initial_timestamp(),"=")
 				for x in range(0,20+1):
 					print("		factorial of",x," is:",calculate_factorial.get_factorial_iteration(x),"=")
 				"""
 					Get the elapsed time for calculating the factorial of
 						numbers via iteration.
 				"""
-				elapsed_time_iteration = execution_time_measurement.get_elapsed_time(perf_measurement_technique)
+				elapsed_time_iteration = execution_time_measurement_no_ns.get_elapsed_time(perf_measurement_technique)
 				print("	= elapsed_time_iteration:",elapsed_time_iteration,"=")
 				"""
 					The timeit.timeit() method can result in negative elapsed time.
@@ -282,4 +282,4 @@ if __name__ == "__main__":
 	print("==================================================")
 	print("Compare techniques for measuring elapsed periods.")
 	print("")
-	execution_time_measurement.compare_different_methods_to_measure_elapsed_periods()
+	execution_time_measurement_no_ns.compare_different_methods_to_measure_elapsed_periods()

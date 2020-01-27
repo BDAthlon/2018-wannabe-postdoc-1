@@ -177,6 +177,17 @@ TEMPLATEPATH=	classes/simple_template.cpp
 
 
 
+# Modules for testing the "timing_measurements" Python package
+#	for current timing measurements.
+# Module that calculates the factorial of a given number.
+FACTORIAL=		./utilities/timing_measurements/get_factorial.py
+# Module for measuring the current time without nanosecond accuracy.
+MEASUREMENT=	./utilities/timing_measurements/performance_measurement_no_ns.py
+# Module for measuring the current time with nanosecond accuracy.
+NANOSECOND=		./utilities/timing_measurements/performance_measurement.py
+
+
+
 
 # UNIX commands/utilities that are used
 TIME=			time #-p
@@ -301,6 +312,24 @@ test:
 	@echo
 	#more $(NORMALTXT)
 	#more $(ERRORTXT)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

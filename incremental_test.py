@@ -149,6 +149,20 @@ from utilities.custom_exceptions.graph_error import *
 # Module to test user-defined errors/exceptions.
 #import utilities.custom_exceptions.graph_error_tester as graph_err_t
 from utilities.custom_exceptions.graph_error_tester import *
+"""
+	Module to calculate the factorial of numbers, used to test
+		modules for current timing measurements. 
+"""
+from utilities.timing_measurements.get_factorial import calculate_factorial
+# Modules to perform timing measurements.
+from utilities.timing_measurements.performance_measurement import performance_measurement.py
+from utilities.timing_measurements.performance_measurement_no_ns import performance_measurement.py
+
+
+
+
+
+
 
 
 
