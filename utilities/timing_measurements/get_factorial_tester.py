@@ -34,6 +34,10 @@
 			Rod Pierce, "Factorial Function," from Maths Is Fun, 2019. Available online from "Maths Is Fun: Numbers" at: https://www.mathsisfun.com/numbers/factorial.html; September 19, 2019 is the last access date.
 				[No address]
 				https://www.mathsisfun.com/citation.php
+		[niekas2016]
+			niekas and Acumenus, Answer to "In Python, how does one catch warnings as if they were exceptions?," Stack Exchange Inc., New York, NY, June 20, 2016.
+			Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/30368735; January 28, 2019 was the last accessed date.
+			\cite{niekas2016} in my BibTeX database.
 """
 
 __author__ = 'Zhiyang Ong'
@@ -197,7 +201,10 @@ class calculate_factorial_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		# Catch warnings, so that they show up on the command line.
+		"""
+			Catch warnings, so that they show up on the command line.
+			\cite{niekas2016}
+		"""
 		with warnings.catch_warnings(record=True) as w:
 			# ValueError: invalid literal for int() with base 10: 'my string'
 			prompt = "	... Test: get_factorial_iteration('my string')		{}."
@@ -315,7 +322,10 @@ class calculate_factorial_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		# Catch warnings, so that they show up on the command line.
+		"""
+			Catch warnings, so that they show up on the command line.
+			\cite{niekas2016}
+		"""
 		with warnings.catch_warnings(record=True) as w:
 			# ValueError: invalid literal for int() with base 10: 'my string'
 			prompt = "	... Test: get_factorial_recursion('my string')		{}."
@@ -367,6 +377,7 @@ class calculate_factorial_tester:
 			Reference:
 			+ niekas and Acumenus, Answer to "In Python, how does one catch warnings as if they were exceptions?," Stack Exchange Inc., New York, NY, June 20, 2016.
 				Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/30368735; January 28, 2019 was the last accessed date.
+				\cite{niekas2016} in my BibTeX database.
 		"""
 		calculate_factorial_tester.test_get_factorial_iteration()
 		"""
