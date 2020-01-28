@@ -150,15 +150,23 @@ from utilities.custom_exceptions.graph_error import *
 #import utilities.custom_exceptions.graph_error_tester as graph_err_t
 from utilities.custom_exceptions.graph_error_tester import *
 """
-	Module to calculate the factorial of numbers, used to test
-		modules for current timing measurements. 
+	Module with methods to calculate the factorial of numbers,
+		used to test modules for current timing measurements.
+	
+	This is because the methods to get current time measurements
+		use these get_factorial() methods.
 """
 from utilities.timing_measurements.get_factorial import calculate_factorial
 # Modules to perform timing measurements.
 from utilities.timing_measurements.performance_measurement import execution_time_measurement
 from utilities.timing_measurements.performance_measurement_no_ns import execution_time_measurement_no_ns
+"""
+	Modules to test methods to:
+	+ determine factorials, via iteration and recursion.
+	+ perform current timing/time measurements.
+"""
 from utilities.timing_measurements.get_factorial_tester import calculate_factorial_tester 
-
+from utilities.timing_measurements.performance_measurement_tester import execution_time_measurement_tester
 
 
 
@@ -326,9 +334,9 @@ if __name__ == "__main__":
 	print("")
 	print("=	Testing the utilities package.")
 	"""
-		Test the get_factorial() methods, so that I can test
-			methods to get current time measurements that use
-			these get_factorial() methods.
+		Test the get_factorial() methods first, so that I can
+			test methods to get current time measurements
+			that/which use these get_factorial() methods.
 	"""
 	calculate_factorial_tester.test_get_factorial_methods()
 	file_io_operations_tester.test_file_io_operations()
