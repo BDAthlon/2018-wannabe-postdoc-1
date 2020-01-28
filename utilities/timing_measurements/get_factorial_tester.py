@@ -1,30 +1,36 @@
 #!/usr/local/bin/python3
 
 """
-	This Python script is written by Zhiyang Ong to calculate
-		the factorial of a number.
+	This Python script is written by Zhiyang Ong to test the
+		module to calculate the factorial of a number.
 
 	The results for this script are compared to the table of
-		factorials in \cite{Pierce2019}, and validated/verified
+		factorials in \cite{Pierce2019a}, and validated/verified
 		for factorials from 0.
-	This script 
+	 
 
 	Synopsis:
-	Calculate the factorial of a number.
+	Test module that calculates the factorial of a number.
 
-	This script can be executed as follows:
-	./get_factorial.py [a number]
 
-	Parameters:
-	[a number]:		A number that the user wants to determine the
-						factorial of.
+
+	Notes/Assumptions:
+	+ Only the factorials of non-negative integers can be computed.
+	+ If the input to the iterative or recursive factorial function
+		is a negative number, not an integer (e.g., floating-point
+		number), not a number (e.g., a string), return the "None"
+		object for the method caller to process.
+		- This avoids having to raise exceptions when users try
+			to determine the factorial of anything that is not a
+			non-negative integer.
+		- See references on exception safety \cite{Abrahams1998,Abrahams2001,WikipediaContributors2016f} \cite[Subsection 4.4 on ``Writing exception safe code'']{WikibooksContributors2016}.
 
 
 	Revision History:
 	September 6, 2019			Version 0.1	Script.
 
 	References:
-		[Pierce2019]
+		[Pierce2019a]
 			Rod Pierce, "Factorial Function," from Maths Is Fun, 2019. Available online from "Maths Is Fun: Numbers" at: https://www.mathsisfun.com/numbers/factorial.html; September 19, 2019 is the last access date.
 				[No address]
 				https://www.mathsisfun.com/citation.php
@@ -81,122 +87,292 @@ import time
 import warnings
 
 ###############################################################
+#	Import Custom Python Modules
+
+# Utilities package.
+# Package and module that compute the factorial of a number.
+from utilities.timing_measurements.get_factorial import calculate_factorial
+
+
+# Statistics package.
 """
-	Module with methods that determine the factorial of a number.
+	Package and module to print statistics of software testing
+		results.
 """
-class calculate_factorial:
-	# Number to determine the factorial of.
-	default_number = 10
-	# Number to compute the factorial of.
-	number_to_compute = 10
-	"""
-		Number to indicate that the factorial for the given input
-			does not exist.
-	"""
-	does_not_exist = -1234567890
-	# ============================================================
-	##	Method to process the optional input argument.
-	#	If the number is not provided, use the value of "default_number".
-	#	@return - Nothing.
-	#	O(1) method.
-	@staticmethod
-	def process_optional_input_argument():
-		# If the path to the README file is not specified
-		if (2 > len(sys.argv)):
-			"""
-				The optional input argument is not provided by the
-					user.
-				We assume that the default number to determine the
-					factorial of is indicated by the value of
-					"default_number".
-			"""
-			calculate_factorial.number_to_compute = calculate_factorial.default_number
-		else:
-			calculate_factorial.number_to_compute = sys.argv[1]
-	# ============================================================
-	##	Method to determine the factorial of "number_to_compute"
-	#		by recursion.
-	#	@param given_number - Number to determine the factorial of.
-	#	@return the factorial of given_number (if it is a non-negative
-	#		integer);
-	#		else, return 'None'.
-	#	O(n) method, where n is the number of test cases used.
-	@staticmethod
-	def get_factorial_recursion(given_number):
-		if isinstance(given_number, int):
-			if (0 == (given_number) or (1 == given_number)):
-				return 1
-			elif (0 > given_number):
-				warnings.warn("The factorial of a negative number cannot be determined.")
-				return None
-			else:
-				return given_number * calculate_factorial.get_factorial_recursion(given_number - 1)
-		elif isinstance(given_number, float):
-			warnings.warn("The factorial of a floating-point number cannot be determined.")
-			return None
-		else:
-			warnings.warn("The factorial of a non-integer cannot be determined.")
-			return None
-	# ============================================================
-	##	Method to determine the factorial of "number_to_compute"
-	#		by iteration.
-	#	@param given_number - Number to determine the factorial of.
-	#	@return the factorial of given_number (if it is a non-negative
-	#		integer);
-	#		else, return 'None'.
-	#	O(n) method, where n is the number of test cases used.
-	@staticmethod
-	def get_factorial_iteration(given_number):
-		if isinstance(given_number, int):
-			if (0 == (given_number) or (1 == given_number)):
-				return 1
-			elif (0 > given_number):
-				warnings.warn("The factorial of a negative number cannot be determined.")
-				return None
-			else:
-				result = 1
-				while (1 < given_number):
-					result = result * given_number
-					given_number = given_number - 1
-				return result
-		elif isinstance(given_number, float):
-			warnings.warn("The factorial of a floating-point number cannot be determined.")
-			return None
-		else:
-			warnings.warn("The factorial of a non-integer cannot be determined.")
-			return None
+from statistic_pkg.test_statistics import statistical_analysis
+# Package and module to check the validation of statistical analysis.
+from statistic_pkg.test_statistics_tester import statistical_analysis_tester
+
 
 ###############################################################
-# Main method for the program.
-
-#	If this is executed as a Python script,
-if __name__ == "__main__":
-	print("==================================================")
-	print("Calculate the factorial of a given number.")
-	# get_factorial_iteration() requires and only accepts 1 input value.
-	#calculate_factorial.process_optional_input_argument()
-	#calculate_factorial.process_optional_input_argument(324324 23r23 4e5678 56789)
-	# Change process_optional_input_argument() to accept no input.
-	calculate_factorial.process_optional_input_argument()
-	#print("get_factorial_iteration() for default value of 10:",calculate_factorial.get_factorial_iteration(4),"=")
-	print("=	Test the factorial computation method using iteration.")
-	print("get_factorial_iteration(4):",calculate_factorial.get_factorial_iteration(4),"=")
-	# ValueError: invalid literal for int() with base 10: 'my string'
-	print("get_factorial_iteration('my string'):",calculate_factorial.get_factorial_iteration("my string"),"=")
-	print("get_factorial_iteration(125.23429):",calculate_factorial.get_factorial_iteration(125.23429),"=")
-	print("get_factorial_iteration(None):",calculate_factorial.get_factorial_iteration(None),"=")
-	print("get_factorial_iteration(-345):",calculate_factorial.get_factorial_iteration(-345),"=")
-	"""
-		Add whitespace before testing the factorial computation
-			method using recursion.
-	"""
-	print("\n\n")
-	#print("")
-	print("=	Test the factorial computation method using recursion.")
-	print("get_factorial_recursion(4):",calculate_factorial.get_factorial_recursion(4),"=")
-	# ValueError: invalid literal for int() with base 10: 'my string'
-	print("get_factorial_recursion('my string'):",calculate_factorial.get_factorial_recursion("my string"),"=")
-	print("get_factorial_recursion(125.23429):",calculate_factorial.get_factorial_recursion(125.23429),"=")
-	print("get_factorial_recursion(None):",calculate_factorial.get_factorial_recursion(None),"=")
-	print("get_factorial_recursion(-345):",calculate_factorial.get_factorial_recursion(-345),"=")
-	
+"""
+	Module that tests methods that determine the factorial of
+		a number.
+"""
+class calculate_factorial_tester:
+	# ============================================================
+	##	Method to test the method to calculate the factorial of
+	#		a number by iteration.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(n!) method, because it calls functions that calculate
+	#		the factorial of numbers, which is O(n!).
+	@staticmethod
+	def test_get_factorial_iteration():
+		print("	Testing calculate_factorial.get_factorial_iteration() method.")
+		prompt = "	... Test: get_factorial_iteration(0)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 1 == calculate_factorial.get_factorial_iteration(0):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(1)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 1 == calculate_factorial.get_factorial_iteration(1):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(2)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 2 == calculate_factorial.get_factorial_iteration(2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(3)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 6 == calculate_factorial.get_factorial_iteration(3):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(4)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 24 == calculate_factorial.get_factorial_iteration(4):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(5)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 120 == calculate_factorial.get_factorial_iteration(5):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(6)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 720 == calculate_factorial.get_factorial_iteration(6):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(7)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 5040 == calculate_factorial.get_factorial_iteration(7):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(8)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 40320 == calculate_factorial.get_factorial_iteration(8):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(9)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 362880 == calculate_factorial.get_factorial_iteration(9):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_iteration(10)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 3628800 == calculate_factorial.get_factorial_iteration(10):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		# Catch warnings, so that they show up on the command line.
+		with warnings.catch_warnings(record=True) as w:
+			# ValueError: invalid literal for int() with base 10: 'my string'
+			prompt = "	... Test: get_factorial_iteration('my string')		{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_iteration('my string'):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+			prompt = "	... Test: get_factorial_iteration('125.23429')		{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_iteration('125.23429'):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+			prompt = "	... Test: get_factorial_iteration(None)			{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_iteration(None):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+			prompt = "	... Test: get_factorial_iteration(-345)			{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_iteration(-345):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+	# ============================================================
+	##	Method to test the method to calculate the factorial of
+	#		a number by recursion.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(n!) method, because it calls functions that calculate
+	#		the factorial of numbers, which is O(n!).
+	@staticmethod
+	def test_get_factorial_recursion():
+		print("	Testing calculate_factorial.get_factorial_recursion() method.")
+		prompt = "	... Test: get_factorial_recursion(0)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 1 == calculate_factorial.get_factorial_recursion(0):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(1)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 1 == calculate_factorial.get_factorial_recursion(1):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(2)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 2 == calculate_factorial.get_factorial_recursion(2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(3)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 6 == calculate_factorial.get_factorial_recursion(3):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(4)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 24 == calculate_factorial.get_factorial_recursion(4):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(5)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 120 == calculate_factorial.get_factorial_recursion(5):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(6)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 720 == calculate_factorial.get_factorial_recursion(6):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(7)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 5040 == calculate_factorial.get_factorial_recursion(7):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(8)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 40320 == calculate_factorial.get_factorial_recursion(8):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(9)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 362880 == calculate_factorial.get_factorial_recursion(9):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_factorial_recursion(10)			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if 3628800 == calculate_factorial.get_factorial_recursion(10):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		# Catch warnings, so that they show up on the command line.
+		with warnings.catch_warnings(record=True) as w:
+			# ValueError: invalid literal for int() with base 10: 'my string'
+			prompt = "	... Test: get_factorial_recursion('my string')		{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_recursion('my string'):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+			prompt = "	... Test: get_factorial_recursion('125.23429')		{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_recursion('125.23429'):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+			prompt = "	... Test: get_factorial_recursion(None)			{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_recursion(None):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+			prompt = "	... Test: get_factorial_recursion(-345)			{}."
+			statistical_analysis.increment_number_test_cases_used()
+			if None == calculate_factorial.get_factorial_recursion(-345):
+				print(prompt .format("OK"))
+				statistical_analysis.increment_number_test_cases_passed()
+			else:
+				print(prompt .format("FAIL!!!"))
+	# =========================================================
+	#	Method to test methods that determine the factorial of a
+	#		number.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(n!) method, because it calls functions that calculate
+	#		the factorial of numbers, which is O(n!).
+	#
+	#	To search for the (specific) test results for this Python
+	#		module, search for:
+	#	==	Testing class: calculate_factorial. 
+	@staticmethod
+	def test_get_factorial_methods():
+		print("")
+		print("")
+		print("==	Testing class: calculate_factorial.")
+		"""
+			"Handle warnings as errors"
+			Reference:
+			+ niekas and Acumenus, Answer to "In Python, how does one catch warnings as if they were exceptions?," Stack Exchange Inc., New York, NY, June 20, 2016.
+				Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/30368735; January 28, 2019 was the last accessed date.
+		"""
+		calculate_factorial_tester.test_get_factorial_iteration()
+		"""
+			Add whitespace before testing the factorial computation
+				method using recursion.
+		"""
+		print("\n")
+		calculate_factorial_tester.test_get_factorial_recursion()
+		print("\n")

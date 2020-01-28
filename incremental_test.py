@@ -155,9 +155,9 @@ from utilities.custom_exceptions.graph_error_tester import *
 """
 from utilities.timing_measurements.get_factorial import calculate_factorial
 # Modules to perform timing measurements.
-from utilities.timing_measurements.performance_measurement import performance_measurement.py
-from utilities.timing_measurements.performance_measurement_no_ns import performance_measurement.py
-
+from utilities.timing_measurements.performance_measurement import execution_time_measurement
+from utilities.timing_measurements.performance_measurement_no_ns import execution_time_measurement_no_ns
+from utilities.timing_measurements.get_factorial_tester import calculate_factorial_tester 
 
 
 
@@ -325,6 +325,12 @@ if __name__ == "__main__":
 	# Insert test cases for testing the utilities package.
 	print("")
 	print("=	Testing the utilities package.")
+	"""
+		Test the get_factorial() methods, so that I can test
+			methods to get current time measurements that use
+			these get_factorial() methods.
+	"""
+	calculate_factorial_tester.test_get_factorial_methods()
 	file_io_operations_tester.test_file_io_operations()
 	queue_ip_args_tester.test_queue_ip_args()
 	config_manager_tester.test_configure_sw_application_parameters()
