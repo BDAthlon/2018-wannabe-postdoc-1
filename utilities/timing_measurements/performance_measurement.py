@@ -198,6 +198,9 @@ class execution_time_measurement:
 	#				* monotonic, monotonic(): pm_monotonic()
 	#				* monotonic_ns, monotonic_ns(): pm_monotonic_ns()
 	#	@return the elapsed time from the initial timestamp.
+	#	@postcondition - (elapsed time > 0) shall always be true.
+	#		Since methods can have microsecond, or even
+	#			nanosecond precision,
 	#	O(1) method.
 	@staticmethod
 	def get_elapsed_time(type_timestamp="monotonic_ns"):
