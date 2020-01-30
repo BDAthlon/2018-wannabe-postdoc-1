@@ -128,7 +128,7 @@ class execution_time_measurement_no_ns_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_set_reset_and_get_initial_timestamp():
-		print("	Testing execution_time_measurement_no_ns.set_initial_timestamp() method.")
+		print("	Testing set, reset, get initial timestamp methods.")
 		prompt = "	... Test: get_initial_timestamp() is invalid		{}."
 		statistical_analysis.increment_number_test_cases_used()
 		if execution_time_measurement_no_ns.invalid_timestamp == execution_time_measurement_no_ns.get_initial_timestamp():
@@ -200,6 +200,21 @@ class execution_time_measurement_no_ns_tester:
 		prompt = "	... Test: set_initial_timestamp('time')			{}."
 		statistical_analysis.increment_number_test_cases_used()
 		execution_time_measurement_no_ns.set_initial_timestamp("time")
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+			"""
+				Reset initial time stamp to test for other input
+					parameters.
+			"""
+			execution_time_measurement_no_ns.reset_initial_timestamp()
+		else:
+			print(prompt .format("FAIL!!!"))
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			warnings.warn("Initial time stamp not reset between test cases.")
+		prompt = "	... Test: set_initial_timestamp('monotonic')		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		execution_time_measurement_no_ns.set_initial_timestamp("monotonic")
 		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()

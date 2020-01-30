@@ -341,6 +341,7 @@ if __name__ == "__main__":
 	"""
 	calculate_factorial_tester.test_get_factorial_methods()
 	execution_time_measurement_no_ns_tester.test_current_time_measurement_methods()
+	execution_time_measurement_tester.test_current_time_measurement_methods()
 	file_io_operations_tester.test_file_io_operations()
 	queue_ip_args_tester.test_queue_ip_args()
 	config_manager_tester.test_configure_sw_application_parameters()
