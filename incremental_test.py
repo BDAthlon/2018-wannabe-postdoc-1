@@ -165,7 +165,8 @@ from utilities.timing_measurements.performance_measurement_no_ns import executio
 	+ determine factorials, via iteration and recursion.
 	+ perform current timing/time measurements.
 """
-from utilities.timing_measurements.get_factorial_tester import calculate_factorial_tester 
+from utilities.timing_measurements.get_factorial_tester import calculate_factorial_tester
+from utilities.timing_measurements.performance_measurement_no_ns_tester import execution_time_measurement_no_ns_tester 
 from utilities.timing_measurements.performance_measurement_tester import execution_time_measurement_tester
 
 

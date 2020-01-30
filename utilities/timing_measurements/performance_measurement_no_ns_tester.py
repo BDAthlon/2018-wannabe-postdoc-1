@@ -2,18 +2,12 @@
 ###	#!/usr/local/bin/python3
 
 """
-	This Python script is written by Zhiyang Ong to measure the
-		execution time of functions and programs in Python, and
-		other processes and programs called from Python scripts
-		or programs.
+	This Python script is written by Zhiyang Ong to test methods
+		that measure the current time.
 
 
 	Synopsis:
-	Measure the execution time of functions and programs in Python.
-
-	This script can be executed as follows:
-	./performance_measurement.py
-
+	Test methods that measure the current time.
 
 
 	Revision History:
@@ -94,70 +88,38 @@ from time import monotonic as pm_monotonic
 
 ###############################################################
 #	Import Custom Python Packages and Modules
+
 """
-	Module to calculate the factorial of a number.
+	Package and module to calculate the factorial of a number.
 """
 #from get_factorial import calculate_factorial
 from utilities.timing_measurements.get_factorial import calculate_factorial
+# Package and module with methods to measure the current time.
+from utilities.timing_measurements.performance_measurement_no_ns import execution_time_measurement_no_ns
 
 ###############################################################
 """
-	Module with methods that measure the execution time of functions
-		and programs in Python.
-
-	Support is not provided for storing multiple initial timestamps,
-		so that we can measure elapsed times from different initial
-		timestamps.
-		User have to call the functions (such as monotonic_ns())
-			specifically, so that this Python module can be kept
-			simple and short.
+	Module to test methods that measure the current time.
 """
 class execution_time_measurement_no_ns_tester:
-	# Invalid timestamp.
-	invalid_timestamp = -123456789012345678901234567890
-	# Initial timestamp.
-	initial_timestamp = invalid_timestamp
 	# Types of performance measurement technique available.
-	#types_of_performance_measurement_technique = ("perf_counter","perf_counter_ns","process_time","process_time_ns","time","time_ns","monotonic","monotonic_ns")
 	types_of_performance_measurement_technique = ("perf_counter","process_time","time","monotonic")
 	# ============================================================
-	##	Method to set the initial timestamp.
+	##	Method to test setting the initial timestamp.
 	#
-	#	Use techniques for measuring performance (i.e., user
-	#		execution time) and timestamps.
-	#
-	#
-	#
-	#	@param type_timestamp - Indicates if either of the following
-	#				methods of performance measurement is preferred.
-	#				* perf_counter, perf_counter(): pc_timestamp()
-	#				* process_time, process_time(): pt_timestamp()
-	#				* time, time.time(): time()
-	#				* monotonic, monotonic(): pm_monotonic()
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def set_initial_timestamp(type_timestamp="monotonic"):
-		"""
-			Is the option for one of the following methods to measure
-				time?
-				* perf_counter, perf_counter(): pc_timestamp()
-				* process_time, process_time(): pt_timestamp()
-				* time, time.time(): time.time()
-				* monotonic, monotonic(): pm_monotonic()
-		"""
-		if ("perf_counter" == type_timestamp):
-			# Yes. Use perf_counter() to measure performance/time.
-			execution_time_measurement_no_ns.initial_timestamp = pc_timestamp()
-		elif ("process_time" == type_timestamp):
-			# Yes. Use process_time() to measure performance/time.
-			execution_time_measurement_no_ns.initial_timestamp = pt_timestamp()
-		elif ("time" == type_timestamp):
-			# Yes. Use time() to measure performance/time.
-			execution_time_measurement_no_ns.initial_timestamp = time.time()
+	def test_set_initial_timestamp():
+		print("	Testing execution_time_measurement_no_ns.set_initial_timestamp() method.")
+		prompt = "	... Test: set_initial_timestamp() not invalid		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.set_initial_timestamp("perf_counter"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
 		else:
-			# The default option is: "monotonic()"
-			execution_time_measurement_no_ns.initial_timestamp = pm_monotonic()
+			print(prompt .format("FAIL!!!"))
 	# ============================================================
 	##	Method to get the initial timestamp.
 	#	@return the initial timestamp.
@@ -273,8 +235,7 @@ class execution_time_measurement_no_ns_tester:
 				op_f_obj.write(text)
 				#op_f_obj.write("\n")
 	# =========================================================
-	#	Method to test methods that determine the factorial of a
-	#		number.
+	#	Method to test methods that measure the current time.
 	#	@param - None.
 	#	@return - Nothing.
 	#	O(n!) method, because it calls functions that calculate
@@ -287,7 +248,7 @@ class execution_time_measurement_no_ns_tester:
 	def test_current_time_measurement_methods():
 		print("")
 		print("")
-		print("==	Testing class: calculate_factorial.")
+		print("==	Testing class: execution_time_measurement_no_ns.")
 		"""
 			"Handle warnings as errors"
 			Reference:
@@ -295,5 +256,5 @@ class execution_time_measurement_no_ns_tester:
 				Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/30368735; January 28, 2019 was the last accessed date.
 				\cite{niekas2016} in my BibTeX database.
 		"""
-		calculate_factorial_tester.test_get_factorial_iteration()
+		execution_time_measurement_no_ns_tester.test_set_initial_timestamp()()
 		#execution_time_measurement_no_ns.compare_different_methods_to_measure_elapsed_periods()
