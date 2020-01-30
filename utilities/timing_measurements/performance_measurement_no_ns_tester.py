@@ -112,7 +112,7 @@ from utilities.timing_measurements.get_factorial import calculate_factorial
 			specifically, so that this Python module can be kept
 			simple and short.
 """
-class execution_time_measurement_no_ns:
+class execution_time_measurement_no_ns_tester:
 	# Invalid timestamp.
 	invalid_timestamp = -123456789012345678901234567890
 	# Initial timestamp.
@@ -272,14 +272,28 @@ class execution_time_measurement_no_ns:
 				text = perf_measurement_technique + "," + str(elapsed_time_recursion) + "," + str(elapsed_time_iteration) + "\n"
 				op_f_obj.write(text)
 				#op_f_obj.write("\n")
-
-
-###############################################################
-# Main method for the program.
-
-#	If this is executed as a Python script,
-if __name__ == "__main__":
-	print("==================================================")
-	print("Compare techniques for measuring elapsed periods.")
-	print("")
-	execution_time_measurement_no_ns.compare_different_methods_to_measure_elapsed_periods()
+	# =========================================================
+	#	Method to test methods that determine the factorial of a
+	#		number.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(n!) method, because it calls functions that calculate
+	#		the factorial of numbers, which is O(n!).
+	#
+	#	To search for the (specific) test results for this Python
+	#		module, search for:
+	#	==	Testing class: calculate_factorial. 
+	@staticmethod
+	def test_current_time_measurement_methods():
+		print("")
+		print("")
+		print("==	Testing class: calculate_factorial.")
+		"""
+			"Handle warnings as errors"
+			Reference:
+			+ niekas and Acumenus, Answer to "In Python, how does one catch warnings as if they were exceptions?," Stack Exchange Inc., New York, NY, June 20, 2016.
+				Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/30368735; January 28, 2019 was the last accessed date.
+				\cite{niekas2016} in my BibTeX database.
+		"""
+		calculate_factorial_tester.test_get_factorial_iteration()
+		#execution_time_measurement_no_ns.compare_different_methods_to_measure_elapsed_periods()
