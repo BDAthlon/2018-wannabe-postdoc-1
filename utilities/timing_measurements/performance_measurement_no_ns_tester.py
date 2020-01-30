@@ -89,6 +89,16 @@ from time import monotonic as pm_monotonic
 ###############################################################
 #	Import Custom Python Packages and Modules
 
+# Statistics package.
+"""
+	Package and module to print statistics of software testing
+		results.
+"""
+from statistic_pkg.test_statistics import statistical_analysis
+# Package and module to check the validation of statistical analysis.
+from statistic_pkg.test_statistics_tester import statistical_analysis_tester
+
+
 """
 	Package and module to calculate the factorial of a number.
 """
@@ -105,19 +115,93 @@ class execution_time_measurement_no_ns_tester:
 	# Types of performance measurement technique available.
 	types_of_performance_measurement_technique = ("perf_counter","process_time","time","monotonic")
 	# ============================================================
-	##	Method to test setting the initial timestamp.
+	##	Method to test setting and resetting the initial timestamp.
 	#
 	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_set_initial_timestamp():
+	def test_set_and_reset_initial_timestamp():
 		print("	Testing execution_time_measurement_no_ns.set_initial_timestamp() method.")
-		prompt = "	... Test: set_initial_timestamp() not invalid		{}."
+		prompt = "	... Test: get_initial_timestamp() is invalid		{}."
 		statistical_analysis.increment_number_test_cases_used()
-		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.set_initial_timestamp("perf_counter"):
+		if execution_time_measurement_no_ns.invalid_timestamp == execution_time_measurement_no_ns.get_initial_timestamp():
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: set_initial_timestamp() not invalid		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		execution_time_measurement_no_ns.set_initial_timestamp()
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: reset_initial_timestamp() is invalid		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		execution_time_measurement_no_ns.reset_initial_timestamp()
+		if execution_time_measurement_no_ns.invalid_timestamp == execution_time_measurement_no_ns.get_initial_timestamp():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: set_initial_timestamp("") not invalid		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		execution_time_measurement_no_ns.set_initial_timestamp("")
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+			"""
+				Reset initial time stamp to test for other input
+					parameters.
+			"""
+			execution_time_measurement_no_ns.reset_initial_timestamp()
+		else:
+			print(prompt .format("FAIL!!!"))
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			warnings.warn("Initial time stamp not reset between test cases.")
+		prompt = "	... Test: set_initial_timestamp('perf_counter')		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		execution_time_measurement_no_ns.set_initial_timestamp("perf_counter")
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+			"""
+				Reset initial time stamp to test for other input
+					parameters.
+			"""
+			execution_time_measurement_no_ns.reset_initial_timestamp()
+		else:
+			print(prompt .format("FAIL!!!"))
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			warnings.warn("Initial time stamp not reset between test cases.")
+		prompt = "	... Test: set_initial_timestamp('process_time')		{}."
+		statistical_analysis.increment_number_test_cases_used()
+		execution_time_measurement_no_ns.set_initial_timestamp("process_time")
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+			"""
+				Reset initial time stamp to test for other input
+					parameters.
+			"""
+			execution_time_measurement_no_ns.reset_initial_timestamp()
+		else:
+			print(prompt .format("FAIL!!!"))
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			warnings.warn("Initial time stamp not reset between test cases.")
+		prompt = "	... Test: set_initial_timestamp('time')			{}."
+		statistical_analysis.increment_number_test_cases_used()
+		execution_time_measurement_no_ns.set_initial_timestamp("time")
+		if execution_time_measurement_no_ns.invalid_timestamp != execution_time_measurement_no_ns.get_initial_timestamp():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+			"""
+				Reset initial time stamp to test for other input
+					parameters.
+			"""
+			execution_time_measurement_no_ns.reset_initial_timestamp()
 		else:
 			print(prompt .format("FAIL!!!"))
 	# ============================================================
@@ -243,7 +327,7 @@ class execution_time_measurement_no_ns_tester:
 	#
 	#	To search for the (specific) test results for this Python
 	#		module, search for:
-	#	==	Testing class: calculate_factorial. 
+	#	==	Testing class: execution_time_measurement_no_ns. 
 	@staticmethod
 	def test_current_time_measurement_methods():
 		print("")
@@ -256,5 +340,6 @@ class execution_time_measurement_no_ns_tester:
 				Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/30368735; January 28, 2019 was the last accessed date.
 				\cite{niekas2016} in my BibTeX database.
 		"""
-		execution_time_measurement_no_ns_tester.test_set_initial_timestamp()()
+		execution_time_measurement_no_ns_tester.test_set_and_reset_initial_timestamp()
 		#execution_time_measurement_no_ns.compare_different_methods_to_measure_elapsed_periods()
+		print("")
