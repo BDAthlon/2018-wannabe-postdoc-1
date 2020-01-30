@@ -121,7 +121,7 @@ class execution_time_measurement_no_ns_tester:
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_set_and_reset_initial_timestamp():
+	def test_set_reset__and_get_initial_timestamp():
 		print("	Testing execution_time_measurement_no_ns.set_initial_timestamp() method.")
 		prompt = "	... Test: get_initial_timestamp() is invalid		{}."
 		statistical_analysis.increment_number_test_cases_used()
@@ -340,6 +340,6 @@ class execution_time_measurement_no_ns_tester:
 				Available online from Stack Exchange Inc.: Stack Overflow: Questions at: https://stackoverflow.com/a/30368735; January 28, 2019 was the last accessed date.
 				\cite{niekas2016} in my BibTeX database.
 		"""
-		execution_time_measurement_no_ns_tester.test_set_and_reset_initial_timestamp()
+		execution_time_measurement_no_ns_tester.test_set_reset__and_get_initial_timestamp()
 		#execution_time_measurement_no_ns.compare_different_methods_to_measure_elapsed_periods()
 		print("")
