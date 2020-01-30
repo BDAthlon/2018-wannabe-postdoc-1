@@ -124,14 +124,12 @@ class execution_time_measurement_no_ns:
 		Type of current time measurement.
 		Default option is: monotonic.
 	"""
-	type_current_time_measurement = monotonic
+	type_current_time_measurement = "monotonic"
 	# ============================================================
 	##	Method to set the initial timestamp.
 	#
 	#	Use techniques for measuring performance (i.e., user
 	#		execution time) and timestamps.
-	#
-	#
 	#
 	#	@param type_timestamp - Indicates if either of the following
 	#				methods of performance measurement is preferred.
@@ -143,6 +141,7 @@ class execution_time_measurement_no_ns:
 	#	O(1) method.
 	@staticmethod
 	def set_initial_timestamp(type_timestamp="monotonic"):
+		execution_time_measurement_no_ns.type_current_time_measurement = type_timestamp
 		"""
 			Is the option for one of the following methods to measure
 				time?
@@ -171,21 +170,22 @@ class execution_time_measurement_no_ns:
 	def get_initial_timestamp():
 		return execution_time_measurement_no_ns.initial_timestamp
 	# ============================================================
-	##	Method to determine the elapsed time from the initial
-	#		timestamp.
-	#	@param type_timestamp - Indicates if either of the following
-	#				methods of performance measurement is preferred.
-	#				* perf_counter, perf_counter(): pc_timestamp()
-	#				* process_time, process_time(): pt_timestamp()
-	#				* time, time.time_ns(): time_ns()
-	#				* monotonic, monotonic(): pm_monotonic()
-	#	@return the elapsed time from the initial timestamp.
-	#	@postcondition - (elapsed time > 0) shall always be true.
-	#		Since methods can have microsecond, or even
-	#			nanosecond precision, I would just compare this to 0.
+	##	Method to get the type/method of current time measurement.
+	#	@return the type/method of current time measurement.
 	#	O(1) method.
 	@staticmethod
-	def get_elapsed_time(type_timestamp="monotonic"):
+	def get_type_current_time_measurement():
+		return execution_time_measurement_no_ns.type_current_time_measurement
+	# ============================================================
+	##	Method to determine the elapsed time from the initial
+	#		timestamp.
+	#	@return the elapsed time from the initial timestamp.
+	#	@postcondition - (elapsed time > 0.0) shall always be true.
+	#		Since methods can have microsecond precision (or better),
+	#			I would just compare this to 0.0.
+	#	O(1) method.
+	@staticmethod
+	def get_elapsed_time():
 		"""
 			Is the option for one of the following methods to measure
 				time?
@@ -194,13 +194,13 @@ class execution_time_measurement_no_ns:
 				* time, time.time_ns(): time_ns()
 				* monotonic, monotonic(): pm_monotonic()
 		"""
-		if ("perf_counter" == execution_time_measurement_no_ns.type_current_time_measurement):
+		if ("perf_counter" == execution_time_measurement_no_ns.get_type_current_time_measurement()):
 			# Yes. Use perf_counter() to measure performance/time.
 			current_timestamp = pc_timestamp()
-		elif ("process_time" == execution_time_measurement_no_ns.type_current_time_measurement):
+		elif ("process_time" == execution_time_measurement_no_ns.get_type_current_time_measurement()):
 			# Yes. Use process_time() to measure performance/time.
 			current_timestamp = pt_timestamp()
-		elif ("time" == execution_time_measurement_no_ns.type_current_time_measurement):
+		elif ("time" == execution_time_measurement_no_ns.get_type_current_time_measurement()):
 			# Yes. Use time.time() to measure performance/time.
 			current_timestamp = time.time()
 		else:
@@ -261,7 +261,7 @@ class execution_time_measurement_no_ns:
 					Get the elapsed time for calculating the factorial of
 						numbers via recursion.
 				"""
-				elapsed_time_recursion = execution_time_measurement_no_ns.get_elapsed_time(perf_measurement_technique)
+				elapsed_time_recursion = execution_time_measurement_no_ns.get_elapsed_time()
 				print("	= elapsed_time_recursion:",elapsed_time_recursion,"=")
 				"""
 					Set the initial timestamp for calculating the
@@ -276,7 +276,7 @@ class execution_time_measurement_no_ns:
 					Get the elapsed time for calculating the factorial of
 						numbers via iteration.
 				"""
-				elapsed_time_iteration = execution_time_measurement_no_ns.get_elapsed_time(perf_measurement_technique)
+				elapsed_time_iteration = execution_time_measurement_no_ns.get_elapsed_time()
 				print("	= elapsed_time_iteration:",elapsed_time_iteration,"=")
 				"""
 					The timeit.timeit() method can result in negative elapsed time.
