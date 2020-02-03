@@ -153,12 +153,29 @@ class data_analysis:
 	#	Method to access the reference value for a particular
 	#		attribute/property.
 	#	\cite{WikipediaContributors2019g}
-	#	@return - The reference value for a particular attribute/property.
+	#	@param property - Used as a dictionary key for dict_of_reference_values.
+	#				If 'property' is not a valid dictionary key,
+	#					return the 'None' object.
+	#				Else, return the value associated with the
+	#					dictionary key 'property'.
+	#				Avoid throwing a KeyError for invalid dictionary
+	#					keys, which requires the method caller to
+	#					catch and process to avoid immediate/abrupt
+	#					program termination.
+	#	@return - The reference value for a particular attribute
+	#				property.
 	#	O(1) method.
 	#	Tested.
 	@staticmethod
 	def get_reference_value(property="c"):
-		return data_analysis.dict_of_reference_values[property]
+		try:
+			"""
+				'property' is a valid dictionary key for the
+					dictionary 'dict_of_reference_values'
+			"""
+			return data_analysis.dict_of_reference_values[property]
+		except KeyError:
+			return None
 	# =========================================================
 	#	Method to determine the actual change between quantity1 and
 	#		quantity2.
@@ -171,11 +188,20 @@ class data_analysis:
 	#		actual change of.
 	#	@return - The actual change.
 	#	Note that the actual change can be negative.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction operation would result in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	#	Tested.
 	@staticmethod
 	def get_actual_change(quantity_x=0,quantity_reference=0):
-		return (quantity_x - quantity_reference)
+		try:
+			return (quantity_x - quantity_reference)
+		except TypeError:
+			return None
 	# =========================================================
 	#	Method to determine the absolute difference between quantity1
 	#		and quantity2.
@@ -282,12 +308,16 @@ class data_analysis:
 	#		are copied into another list as their absolute values.
 	#	This method computes the arithmetic mean for this new
 	#		list of absolute values.
-	#	
+	#
+	#	That is, this method calculates the arithmetic mean for
+	#		the absolute values of a given list of numbers.
+	#
 	#	@param list_of_numbers - A list of numbers that I want
 	#		to find the arithmetic mean, or average, of.
 	#	@return - The arithmetic mean, or average, of the list of
 	#		absolute values.
 	#	@precondition - list_of_numbers is not a None object.
+	#	@precondition - list_of_numbers is a list object.
 	#	@postcondition - mean of absolute values of numbers >= 0.
 	#	O(n) method, where n is the number of elements in the list.
 	#	References:
@@ -299,6 +329,9 @@ class data_analysis:
 		# Check precondition: list_of_numbers is not a None object.
 		if list_of_numbers is None:
 			raise Exception("	A 'None' object is passed to the get_arithmetic_average_of_absolute_values() method.")
+		# Is "list_of_numbers" not a list?
+		elif not isinstance(list_of_numbers, list):
+			raise Exception("	The get arithmetic mean of absolute numbers function only works with an input list, and not other input parameters (or lack thereof).")
 		# Else, is list_of_numbers an empty list?
 		#elif 0 == len(list_of_numbers):
 		elif not list_of_numbers:	# More Pythonic solution.

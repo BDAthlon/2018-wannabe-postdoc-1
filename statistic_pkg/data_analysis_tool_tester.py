@@ -145,6 +145,15 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		standard_atmosphere = 101325
+		prompt = "	... Test: get_ref..._val('random string') == "
+		prompt = prompt + str(standard_atmosphere) + "	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_reference_value("random string"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method that determines the actual
 	#		change between quantity1 and quantity2.
@@ -466,11 +475,99 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		
+		prompt = "	... Test: get_percent_error(16,20) == 0.2		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 20 == data_analysis.get_percent_error(16,20):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_percent_error(-9,-10) == 0.1		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 10 == data_analysis.get_percent_error(-9,-10):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_percent_error(-13,-10) == 0.3		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 30 == data_analysis.get_percent_error(-13,-10):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_percent_error(-3,-2) == 0.5		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 50 == data_analysis.get_percent_error(-3,-2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_percent_error(3,0) can't compute		{}"
+		try:
+			statistical_analysis.increment_number_test_cases_used()
+			relative_change_error = data_analysis.get_percent_error(3,0)
+			print(prompt .format("FAIL!!!"))
+		except:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+	## =========================================================
+	#	Method to test the method that calculates the arithmetic
+	#		mean for the absolute values of a given list of numbers.
+	#	@return - Nothing.
+	#	O(n) method, where n is the number of elements in the lists
+	#		used to test the specified method.
+	@staticmethod
+	def test_get_arithmetic_average_of_absolute_values():
+		print("	Testing get_arithmetic_average_of_absolute_values() method.")
+		prompt = "	... Test: list_of_numbers is None			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			if 0 == data_analysis.get_arithmetic_average_of_absolute_values(None):
+				print(prompt .format("FAIL!!!"))
+			else:
+				warnings.warn("None objects and empty lists should be processed, with an exception or a return value of 0.")
+				raise Exception("Found implementation error in get_arithmetic_average_of_absolute_values()!")
+		except Exception:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: list_of_numbers is '', empty string		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			if 0 == data_analysis.get_arithmetic_average_of_absolute_values(""):
+				print(prompt .format("FAIL!!!"))
+			else:
+				warnings.warn("Non-list objects (objects that aren't lists) should be processed, with an exception.")
+				raise Exception("Found implementation error in get_arithmetic_average_of_absolute_values()!")
+		except Exception:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: list_of_numbers is 'Ciao mondo!', a string	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		try:
+			if 0 == data_analysis.get_arithmetic_average_of_absolute_values("Ciao mondo!"):
+				print(prompt .format("FAIL!!!"))
+			else:
+				warnings.warn("Non-list objects (objects that aren't lists) should be processed, with an exception.")
+				raise Exception("Found implementation error in get_arithmetic_average_of_absolute_values()!")
+		except Exception:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: list_of_numbers is []				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_arithmetic_average_of_absolute_values([]):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
 	#	@return - Nothing.
 	#	O(1) method.
+	#	Test cases for this module end before the following string:
+	#	=	Testing the utilities package.
 	@staticmethod
 	def test_data_analysis():
 		print("")
@@ -490,4 +587,6 @@ class data_analysis_tester:
 		data_analysis_tester.test_get_relative_error()
 		print("")
 		data_analysis_tester.test_get_percent_error()
+		print("")
+		data_analysis_tester.test_get_arithmetic_average_of_absolute_values()
 		# TEST ALL METHODS!!!
