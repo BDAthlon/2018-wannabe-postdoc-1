@@ -211,6 +211,22 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_act...(object,569) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_actual_change(a,569):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_act...(865.12,'Buona serata!') == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_actual_change(865.12,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method that determines the absolute
 	#		difference between quantity1 and quantity2.
@@ -264,6 +280,22 @@ class data_analysis_tester:
 		prompt = "	... Test: get_absolute_difference(3,-4) == 7		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if 7 == data_analysis.get_absolute_difference(3,-4):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_abs..._diff(object,569) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_absolute_difference(a,569):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_abs..._diff(865.12,'Buona...') == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_absolute_difference(865.12,"Buona serata!"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -331,6 +363,22 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			#print("data_analysis.get_relative_change(18,20):",data_analysis.get_relative_change(18,20),"=")
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._change(object,569) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_relative_change(a,569):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._change(865.12,'Buona...') == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_relative_change(865.12,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method that determines the percentage change

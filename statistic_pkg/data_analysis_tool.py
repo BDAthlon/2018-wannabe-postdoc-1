@@ -212,6 +212,12 @@ class data_analysis:
 	#		absolute difference of.
 	#	@return - The absolute difference.
 	#	@postcondition - absolute difference, |quantity1 - quantity2| >= 0.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction operation would result in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	#	Reference:
 	#		https://en.wikipedia.org/wiki/Absolute_difference
@@ -222,7 +228,10 @@ class data_analysis:
 			Check postcondition:
 				absolute difference, |quantity1 - quantity2| >= 0.
 		"""
-		absolute_difference = abs(quantity1 - quantity2)
+		try:
+			absolute_difference = abs(quantity1 - quantity2)
+		except TypeError:
+			return None
 		if (0 > absolute_difference):
 			raise Exception("	get_absolute_difference(): Absolute difference must be non-negative.")
 		return absolute_difference
@@ -237,6 +246,13 @@ class data_analysis:
 	#	@return - The relative change.
 	#	Note that the relative change can be negative.
 	#	@precondition - ref_qty != 0.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction and division operations would result
+	#		in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	#	Tested.
 	@staticmethod
@@ -244,7 +260,10 @@ class data_analysis:
 		# Check precondition: ref_qty != 0.
 		if 0 == ref_qty:
 			raise Exception("	ref_qty cannot be zero.")
-		return (data_analysis.get_actual_change(quantity1,ref_qty)/ref_qty)
+		try:
+			return (data_analysis.get_actual_change(quantity1,ref_qty)/ref_qty)
+		except TypeError:
+			return None
 	# =========================================================
 	#	Method to determine the percentage change between quantity
 	#		quantity1 and ref_qty (the reference quantity).
