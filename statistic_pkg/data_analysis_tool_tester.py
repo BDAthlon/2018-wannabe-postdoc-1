@@ -221,8 +221,14 @@ class data_analysis_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: get_act...(865.12,'Buona serata!') == None	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		a = data_analysis()
 		if None == data_analysis.get_actual_change(865.12,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_act...(97623.23,None) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_actual_change(97623.23,None):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -294,8 +300,14 @@ class data_analysis_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: get_abs..._diff(865.12,'Buona...') == None	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		a = data_analysis()
 		if None == data_analysis.get_absolute_difference(865.12,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_abs..._diff(112.08723,None) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_absolute_difference(112.08723,None):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -374,8 +386,14 @@ class data_analysis_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: get_rel..._change(865.12,'Buona...') == None	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		a = data_analysis()
 		if None == data_analysis.get_relative_change(865.12,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._change(232,None) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_change(232,None):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -443,6 +461,28 @@ class data_analysis_tester:
 		else:
 			#print("data_analysis.get_percentage_change(18,20):",data_analysis.get_percentage_change(18,20),"=")
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_pct_change(object,569) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_percentage_change(a,569):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_pct_change(865.12,'Buona...') == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_percentage_change(865.12,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_pct_change(232,None) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_percentage_change(232,None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method that determines the relative
 	#		error between experimental_value and theoretical_value.
@@ -501,6 +541,28 @@ class data_analysis_tester:
 		except:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: get_pct_change(object,7643) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_relative_error(a,7643):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_pct_change(865.12,'Buona...') == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_error(67923.23,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_pct_change(232,None) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_error(232,None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method that determines the percent
 	#		error between experimental_value and theoretical_value.

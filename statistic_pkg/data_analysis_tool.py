@@ -275,14 +275,24 @@ class data_analysis:
 	#	@return - The percentage change.
 	#	@precondition - ref_qty != 0.
 	#	@postcondition - 0 <= percentage change <= 1.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction and division operations would result
+	#		in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	@staticmethod
 	def get_percentage_change(quantity1=1,ref_qty=1):
 		# Check precondition: ref_qty != 0.
 		if 0 == ref_qty:
 			raise Exception("	ref_qty cannot be zero.")
-		relative_change = data_analysis.get_relative_change(quantity1,ref_qty)
-		return (relative_change*100)
+		try:
+			relative_change = data_analysis.get_relative_change(quantity1,ref_qty)
+			return (relative_change*100)
+		except TypeError:
+			return None
 	# =========================================================
 	#	Method to determine the relative error between experimental
 	#		(measured) and theoretical (accepted) values:
@@ -292,6 +302,13 @@ class data_analysis:
 	#	@param theoretical_value - The theoretical (accepted) value.
 	#	@return - The relative error.
 	#	@precondition - theoretical_value != 0.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction and division operations would result
+	#		in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	#	Reference:
 	#		https://en.wikipedia.org/wiki/Relative_change_and_difference
@@ -300,7 +317,10 @@ class data_analysis:
 		# Check precondition: theoretical_value != 0.
 		if 0 == theoretical_value:
 			raise Exception("	theoretical_value cannot be zero.")
-		return (data_analysis.get_absolute_difference(experimental_value,theoretical_value)/abs(theoretical_value))
+		try:
+			return (data_analysis.get_absolute_difference(experimental_value,theoretical_value)/abs(theoretical_value))
+		except TypeError:
+			return None
 	# =========================================================
 	#	Method to determine the percent error between experimental
 	#		(measured) and theoretical (accepted) values:
