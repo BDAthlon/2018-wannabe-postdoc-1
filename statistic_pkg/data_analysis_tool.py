@@ -330,6 +330,13 @@ class data_analysis:
 	#	@param theoretical_value - The theoretical (accepted) value.
 	#	@return - The relative change.
 	#	@precondition - theoretical_value != 0.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction and division operations would result
+	#		in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	#	Reference:
 	#		https://en.wikipedia.org/wiki/Relative_change_and_difference
@@ -338,7 +345,10 @@ class data_analysis:
 		# Check precondition: theoretical_value != 0.
 		if 0 == theoretical_value:
 			raise Exception("	theoretical_value cannot be zero.")
-		return (100*data_analysis.get_relative_error(experimental_value,theoretical_value))
+		try:
+			return (100*data_analysis.get_relative_error(experimental_value,theoretical_value))
+		except TypeError:
+			return None
 	# =========================================================
 	#	Method to determine the arithmetic mean, or average, of
 	#		a list of absolute values of numbers, which can be

@@ -541,7 +541,7 @@ class data_analysis_tester:
 		except:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: get_pct_change(object,7643) == None		{}"
+		prompt = "	... Test: get_rel..._err(object,7643) == None		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		a = data_analysis()
 		if None == data_analysis.get_relative_error(a,7643):
@@ -549,16 +549,16 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_pct_change(865.12,'Buona...') == None	{}"
+		prompt = "	... Test: get_rel..._err(67923.23,'Buona...') == None	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if None == data_analysis.get_relative_error(67923.23,"Buona serata!"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_pct_change(232,None) == None		{}"
+		prompt = "	... Test: get_rel..._err(8346,None) == None		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if None == data_analysis.get_relative_error(232,None):
+		if None == data_analysis.get_relative_error(8346,None):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -622,6 +622,28 @@ class data_analysis_tester:
 		except:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: get_pct_err(object,6325) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		a = data_analysis()
+		if None == data_analysis.get_percent_error(a,6325):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_pct_err(8.212,'Buona...') == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_percent_error(8.212,"Buona serata!"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_pct_err(362,None) == None			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_percent_error(362,None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method that calculates the arithmetic
 	#		mean for the absolute values of a given list of numbers.
