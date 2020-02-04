@@ -838,16 +838,36 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: list_of_numbers is [], empty list	{}"
+		not_a_list_obj = data_analysis()
+		prompt = "	... Test: list_of_numbers is 'not_a_list_obj'		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_arithmetic_average_of_absolute_values(not_a_list_obj):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: list_of_numbers is [], empty list		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if None == data_analysis.get_arithmetic_average_of_absolute_values([]):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: list_of_numbers is []				{}"
+		a = data_analysis()
+		b = data_analysis()
+		c = data_analysis()
+		list_not_pure_numbers = [2247, 273805, 0.23423, 9234.2347832, "network science", a, 785398, 0.23423, b, 45678, c, "data science", 5623]
+		prompt = "	... Test: list_of_numbers is 'list_not_pure_numbers'	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if 0 == data_analysis.get_arithmetic_average_of_absolute_values([]):
+		if None == data_analysis.get_arithmetic_average_of_absolute_values(list_not_pure_numbers):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers = [23, -46, 12, 13, 65, -75, 10, 0.23423, b, 45678, c, "data science", 5623]
+		prompt = "	... Test: list_of_numbers is 'list_not_pure_numbers'	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_arithmetic_average_of_absolute_values(list_not_pure_numbers):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
