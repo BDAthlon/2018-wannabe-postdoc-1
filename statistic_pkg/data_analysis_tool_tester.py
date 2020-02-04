@@ -100,10 +100,119 @@ from statistic_pkg.data_analysis_tool import data_analysis
 """
 class data_analysis_tester:
 	## =========================================================
+	#	Method to test the method determining if each object
+	#		in a list is an integer or a floating-point number.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(n) method, where "n" is the maximum size of the lists
+	#		being tested.
+	@staticmethod
+	def test_is_list_of_numbers():
+		print("	Testing is_list_of_numbers() method.")
+		list_of_objs = None
+		prompt = "	... Test: is_list_of_numbers(None) == False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers(None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		not_a_list_obj = data_analysis()
+		prompt = "	... Test: is_list_of_numbers(not_a_list_obj) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers(not_a_list_obj):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_list_of_numbers([]) == False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers([]):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_not_pure_numbers_1 = [-221, 247, 0, "Ciao tutti!", 576372.32604]
+		prompt = "	... Test: is_list...numb(lst_not_pure_numb_1) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers(list_not_pure_numbers_1):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_not_pure_numbers_2 = ["Buona serata!"]
+		prompt = "	... Test: is_list...numb(lst_not_pure_numb_2) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers(list_not_pure_numbers_2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_not_pure_numbers_3 = ["Laszlo Tabori is a world record holder!", 2673, 92.23, 7823, 10129, 478334]
+		prompt = "	... Test: is_list...numb(lst_not_pure_numb_3) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers(list_not_pure_numbers_3):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_not_pure_numbers_4 = [54.2, 0.232, 2439, 1392849, "Albert-László Barabási"]
+		prompt = "	... Test: is_list...numb(lst_not_pure_numb_4) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers(list_not_pure_numbers_4):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		a = data_analysis()
+		b = data_analysis()
+		c = data_analysis()
+		list_not_pure_numbers_5 = [2247, 273805, 0.23423, 9234.2347832, "network science", a, 785398, 0.23423, b, 45678, c, "data science", 5623]
+		prompt = "	... Test: is_list...numb(lst_not_pure_numb_5) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_analysis.is_list_of_numbers(list_not_pure_numbers_5):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_1 = [4567809, 67890, 5678090, 1, 9, 436790]
+		prompt = "	... Test: is_list...numb(lst_pure_pos_integers) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_1):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_2 = [-2569, -1, -62739, 0, -93, -864]
+		prompt = "	... Test: is_list...numb(lst_integers_not_pos) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_2 = [-2569, -1, -62739, -0, -93, -864]
+		prompt = "	... Test: is_list...numb(lst_integers_neg_0) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_3 = [0.437693, 1.3224, 346973.5679, -0.34367, -242.235623]
+		prompt = "	... Test: is_list...numb(lst_pure_fp_num) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_3):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
 	#	Method to test the method that accesses reference values
 	#		for a corresponding particular attribute/property,
 	#		using the Python dictionary containing pairs/2-tuples
 	#		of attributes/properties and values.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
@@ -157,6 +266,7 @@ class data_analysis_tester:
 	## =========================================================
 	#	Method to test the method that determines the actual
 	#		change between quantity1 and quantity2.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
@@ -236,6 +346,7 @@ class data_analysis_tester:
 	## =========================================================
 	#	Method to test the method that determines the absolute
 	#		difference between quantity1 and quantity2.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
@@ -315,6 +426,7 @@ class data_analysis_tester:
 	## =========================================================
 	#	Method to test the method that determines the relative change
 	#		between quantity1 and quantity2.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
@@ -401,6 +513,7 @@ class data_analysis_tester:
 	## =========================================================
 	#	Method to test the method that determines the percentage change
 	#		between quantity1 and quantity2.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
@@ -486,6 +599,7 @@ class data_analysis_tester:
 	## =========================================================
 	#	Method to test the method that determines the relative
 	#		error between experimental_value and theoretical_value.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
@@ -566,6 +680,7 @@ class data_analysis_tester:
 	## =========================================================
 	#	Method to test the method that determines the percent
 	#		error between experimental_value and theoretical_value.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
@@ -647,6 +762,7 @@ class data_analysis_tester:
 	## =========================================================
 	#	Method to test the method that calculates the arithmetic
 	#		mean for the absolute values of a given list of numbers.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(n) method, where n is the number of elements in the lists
 	#		used to test the specified method.
@@ -696,6 +812,7 @@ class data_analysis_tester:
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	#	Test cases for this module end before the following string:
@@ -706,6 +823,8 @@ class data_analysis_tester:
 		print("")
 		print("-------------------------------------------------")
 		print("==	Testing class: data_analysis.")
+		data_analysis_tester.test_is_list_of_numbers()
+		print("")
 		data_analysis_tester.test_get_reference_value()
 		print("")
 		data_analysis_tester.test_get_actual_change()
