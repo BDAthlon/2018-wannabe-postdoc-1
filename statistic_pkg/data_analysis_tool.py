@@ -368,6 +368,13 @@ class data_analysis:
 	#	@precondition - list_of_numbers is not a None object.
 	#	@precondition - list_of_numbers is a list object.
 	#	@postcondition - mean of absolute values of numbers >= 0.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction and division operations would result
+	#		in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(n) method, where n is the number of elements in the list.
 	#	References:
 	#		https://en.wikipedia.org/wiki/Arithmetic_mean
