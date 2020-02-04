@@ -191,18 +191,66 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		list_pure_numbers_2 = [-2569, -1, -62739, -0, -93, -864]
+		list_pure_numbers_3 = [-2569, -1, -62739, -0, -93, -864]
 		prompt = "	... Test: is_list...numb(lst_integers_neg_0) == True	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if True == data_analysis.is_list_of_numbers(list_pure_numbers_2):
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_3):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		list_pure_numbers_3 = [0.437693, 1.3224, 346973.5679, -0.34367, -242.235623]
+		list_pure_numbers_4 = [0.437693, 1.3224, 346973.5679, -0.34367, -242.235623]
 		prompt = "	... Test: is_list...numb(lst_pure_fp_num) == True	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if True == data_analysis.is_list_of_numbers(list_pure_numbers_3):
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_4):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_5 = [-210.437693, -56971.3224, -9.5679, -0.45634367, -32242.235623]
+		prompt = "	... Test: is_list...numb(lst_pure_neg_fp_num) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_5):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_6 = [0, 0, 0, 0, 0, 0 , 0]
+		prompt = "	... Test: is_list...numb(lst_pure_0s) == True		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_6):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_7 = [0]
+		prompt = "	... Test: is_list...numb([0]) == True			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_7):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_8 = [-56970]
+		prompt = "	... Test: is_list...numb([-56970]) == True		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_8):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_9 = [723]
+		prompt = "	... Test: is_list...numb([723]) == True			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_9):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		list_pure_numbers_10 = [54869, 2.23, 0.2345, 8203, 102.23, 12, 7.23, 923]
+		prompt = "	... Test: is_list...numb(lst_fp_int_only) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_analysis.is_list_of_numbers(list_pure_numbers_10):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
