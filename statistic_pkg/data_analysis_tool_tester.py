@@ -819,37 +819,32 @@ class data_analysis_tester:
 		print("	Testing get_arithmetic_average_of_absolute_values() method.")
 		prompt = "	... Test: list_of_numbers is None			{}"
 		statistical_analysis.increment_number_test_cases_used()
-		try:
-			if 0 == data_analysis.get_arithmetic_average_of_absolute_values(None):
-				print(prompt .format("FAIL!!!"))
-			else:
-				warnings.warn("None objects and empty lists should be processed, with an exception or a return value of 0.")
-				raise Exception("Found implementation error in get_arithmetic_average_of_absolute_values()!")
-		except Exception:
+		if None == data_analysis.get_arithmetic_average_of_absolute_values(None):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: list_of_numbers is '', empty string		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		try:
-			if 0 == data_analysis.get_arithmetic_average_of_absolute_values(""):
-				print(prompt .format("FAIL!!!"))
-			else:
-				warnings.warn("Non-list objects (objects that aren't lists) should be processed, with an exception.")
-				raise Exception("Found implementation error in get_arithmetic_average_of_absolute_values()!")
-		except Exception:
+		if None == data_analysis.get_arithmetic_average_of_absolute_values(""):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: list_of_numbers is 'Ciao mondo!', a string	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		try:
-			if 0 == data_analysis.get_arithmetic_average_of_absolute_values("Ciao mondo!"):
-				print(prompt .format("FAIL!!!"))
-			else:
-				warnings.warn("Non-list objects (objects that aren't lists) should be processed, with an exception.")
-				raise Exception("Found implementation error in get_arithmetic_average_of_absolute_values()!")
-		except Exception:
+		if None == data_analysis.get_arithmetic_average_of_absolute_values("Ciao mondo!"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: list_of_numbers is [], empty list	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_arithmetic_average_of_absolute_values([]):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: list_of_numbers is []				{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if 0 == data_analysis.get_arithmetic_average_of_absolute_values([]):

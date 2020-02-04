@@ -158,7 +158,7 @@ class data_analysis:
 	#	@return - Boolean true if each element of the list is an
 	#				integer or a floating-point number.
 	#	O(n) method, where "n" is the size of the list.
-	#	Not Tested.
+	#	Tested.
 	@staticmethod
 	def is_list_of_numbers(list_of_objects=[]):
 		# Is "list_of_numbers" a None object?
@@ -400,7 +400,13 @@ class data_analysis:
 	#	@return - The arithmetic mean, or average, of the list of
 	#		absolute values.
 	#	@precondition - list_of_numbers is not a None object.
+	#		If None == list_of_numbers, return None.
 	#	@precondition - list_of_numbers is a list object.
+	#		If list_of_numbers isn't a list, return None.
+	#	@precondition - list_of_numbers only contains integers
+	#						and floating-point numbers.
+	#		If list_of_numbers contains objects that are not
+	#			integers nor floating-point numbers, return None.
 	#	@postcondition - mean of absolute values of numbers >= 0.
 	#
 	#	Also, note that if any of the parameters are not numbers,
@@ -417,15 +423,8 @@ class data_analysis:
 	@staticmethod
 	def get_arithmetic_average_of_absolute_values(list_of_numbers=[]):
 		# Check precondition: list_of_numbers is not a None object.
-		if list_of_numbers is None:
-			raise Exception("	A 'None' object is passed to the get_arithmetic_average_of_absolute_values() method.")
-		# Is "list_of_numbers" not a list?
-		elif not isinstance(list_of_numbers, list):
-			raise Exception("	The get arithmetic mean of absolute numbers function only works with an input list, and not other input parameters (or lack thereof).")
-		# Else, is list_of_numbers an empty list?
-		#elif 0 == len(list_of_numbers):
-		elif not list_of_numbers:	# More Pythonic solution.
-			return 0
+		if not data_analysis.is_list_of_numbers(list_of_numbers):
+			return None
 		else:
 			"""
 				Copy the absolute values of numbers in the list to
