@@ -1,4 +1,5 @@
-#!/usr/local/bin/python3
+#!/Users/zhiyang/anaconda3/bin/python3
+###!/usr/local/bin/python3
 ###!/Users/zhiyang/anaconda3/bin/python3
 
 
@@ -55,6 +56,9 @@ __date__ = 'December 15, 2017'
 	math		Use the math.isclose(number_1,number_2) function
 					to determine if the numbers "number_1" and
 					"number_2" are approximately equal.
+	numpy.testing
+				To use numpy.testing.assert_almost_equal() function.
+				+ To compare if two numbers are approximately the same.
 """
 
 #import sys
@@ -68,6 +72,14 @@ import warnings
 #from operator import attrgetter
 import statistics as s
 import math
+import numpy as np
+"""
+	To use the npt.assert_approx_equal() function.
+		Or, np.testing.assert_almost_equal() function.
+		Or, numpy.testing.assert_almost_equal() function.
+"""
+#import np.testing as npt
+import numpy.testing as npt
 
 ###############################################################
 #	Import Custom Python Modules
@@ -864,14 +876,17 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		list_pure_numbers = [23, -46, 12, 13, 65, -75, 10, 0.23423, b, 45678, c, "data science", 5623]
-		prompt = "	... Test: list_of_numbers is 'list_not_pure_numbers'	{}"
+		list_pure_numbers = [23, -46, 12, 13, 65, -75, 10, 0.23423, -56, 38]
+		prompt = "	... Test: [23,-46,12,13,65,-75,10,0.23423,-56,38]	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if None == data_analysis.get_arithmetic_average_of_absolute_values(list_not_pure_numbers):
+		arith_mean_abs = data_analysis.get_arithmetic_average_of_absolute_values(list_pure_numbers)
+		if math.isclose(33.823423, arith_mean_abs):
+		#if npt.assert_approx_equal(33.823423, arith_mean_abs):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+			print("	results is:",arith_mean_abs,".")
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
