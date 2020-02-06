@@ -888,11 +888,40 @@ class data_analysis_tester:
 			print(prompt .format("FAIL!!!"))
 			print("	results is:",arith_mean_abs,".")
 		list_pure_numbers = [2,5,7,9,1,4,8]
-		prompt = "	... Test: [2,5,7,9,1,4,8]	{}"
+		prompt = "	... Test: [2,5,7,9,1,4,8]				{}"
 		statistical_analysis.increment_number_test_cases_used()
 		arith_mean_abs = data_analysis.get_arithmetic_average_of_absolute_values(list_pure_numbers)
-		if math.isclose(33.823423, arith_mean_abs):
-		#if npt.assert_approx_equal(33.823423, arith_mean_abs):
+		if math.isclose(5.14285714286, arith_mean_abs):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("	results is:",arith_mean_abs,".")
+		list_pure_numbers = [0,-5,-235,-345.346346,-34534.67239,-23408,-0.242]
+		prompt = "	Test:[0,-5,-235,-345.346346,-34534.67239,-23408,-0.242]	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		arith_mean_abs = data_analysis.get_arithmetic_average_of_absolute_values(list_pure_numbers)
+		if math.isclose(8361.18010514, arith_mean_abs):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("	results is:",arith_mean_abs,".")
+		list_pure_numbers = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		prompt = "	... Test: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		arith_mean_abs = data_analysis.get_arithmetic_average_of_absolute_values(list_pure_numbers)
+		if math.isclose(0.0, arith_mean_abs):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("	results is:",arith_mean_abs,".")
+		list_pure_numbers = [-743024.367935]
+		prompt = "	... Test: [-743024.367935]				{}"
+		statistical_analysis.increment_number_test_cases_used()
+		arith_mean_abs = data_analysis.get_arithmetic_average_of_absolute_values(list_pure_numbers)
+		if math.isclose(743024.367935, arith_mean_abs):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
