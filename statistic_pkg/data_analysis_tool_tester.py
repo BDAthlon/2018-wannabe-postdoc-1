@@ -887,6 +887,17 @@ class data_analysis_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 			print("	results is:",arith_mean_abs,".")
+		list_pure_numbers = [2,5,7,9,1,4,8]
+		prompt = "	... Test: [2,5,7,9,1,4,8]	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		arith_mean_abs = data_analysis.get_arithmetic_average_of_absolute_values(list_pure_numbers)
+		if math.isclose(33.823423, arith_mean_abs):
+		#if npt.assert_approx_equal(33.823423, arith_mean_abs):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("	results is:",arith_mean_abs,".")
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
