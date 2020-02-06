@@ -339,6 +339,23 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		"""
+		non_number_object = data_analysis()
+		prompt = "	Test:get_act..._change(non-number_object,13.23) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_actual_change(non_number_object,13.23):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	Test:get_act..._change(-7692,non-number_object) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_actual_change(-7692,non_number_object):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		"""
 		prompt = "	... Test: get_actual_change(19,13) == 6			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if 6 == data_analysis.get_actual_change(19,13):
@@ -927,6 +944,22 @@ class data_analysis_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 			print("	results is:",arith_mean_abs,".")
+	## =========================================================
+	#	Method to test the method that calculates the relative
+	#		difference.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_relative_difference():
+		print("	Testing get_relative_difference() method.")
+		prompt = "	... Test: list_of_numbers is None			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_arithmetic_average_of_absolute_values(None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
@@ -958,4 +991,6 @@ class data_analysis_tester:
 		data_analysis_tester.test_get_percent_error()
 		print("")
 		data_analysis_tester.test_get_arithmetic_average_of_absolute_values()
+		print("")
+		data_analysis_tester.test_get_relative_difference()
 		# TEST ALL METHODS!!!

@@ -412,8 +412,11 @@ class data_analysis:
 	#	Also, note that if any of the parameters are not numbers,
 	#		the subtraction and division operations would result
 	#		in a TypeError.
-	#	In such circumstances, this TypeError would be caught and
+	#	In such circumstances, this TypeError should be caught and
 	#		return a 'None' object.
+	#	However, since the is_list_of_numbers() method is used to
+	#		check the preconditions of this method, I am not
+	#		setting up the try-catch
 	#
 	#	O(n) method, where n is the number of elements in the list.
 	#	References:
@@ -453,24 +456,48 @@ class data_analysis:
 	#	@precondition - (quantity1 != 0) and (quantity2 != 0).
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
 	#	@postcondition - average_of_absolute_values > 0.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction and division operations would result
+	#		in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	#	Reference:
 	#		https://en.wikipedia.org/wiki/Absolute_difference
 	@staticmethod
 	def get_relative_difference(quantity1=1,quantity2=1):
+		# Is "quantity1" an integer or floating-point number?
+		if not isinstance(quantity1, (int, float)):
+			# No. Relative difference cannot be calculated.
+			return None
+		# Is "quantity2" an integer or floating-point number?
+		if not isinstance(quantity2, (int, float)):
+			# No. Relative difference cannot be calculated.
+			return None
 		# Check for precondition: (quantity1 != 0) or (quantity2 != 0).
 		if (0 == quantity1) and (0 == quantity2):
 			raise Exception("	relative difference does not exist for quantity1 == quantity2.")
-		absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
+		try:
+			absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
+		except TypeError:
+			return None
 		# Check assertion: absolute difference, |quantity1 - quantity2| >= 0.
 		if 0 > absolute_diff:
 			raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
 		list_of_values = [quantity1, quantity2]
-		average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_values)
+		try:
+			average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_values)
+		except TypeError:
+			return None
 		# Check postcondition: average_of_absolute_values > 0.
 		if 0 >= average_of_absolute_values:
 			raise Exception("	0 >= arithmetic mean of absolute values.")
-		return (absolute_diff/average_of_absolute_values)
+		try:
+			return (absolute_diff/average_of_absolute_values)
+		except ZeroDivisionError:
+			return None
 	# =========================================================
 	#	Method to determine the relative difference between
 	#		quantity quantity1 and quantity quantity2.
