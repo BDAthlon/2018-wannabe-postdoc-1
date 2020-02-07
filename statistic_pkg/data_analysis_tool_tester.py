@@ -1122,10 +1122,10 @@ class data_analysis_tester:
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_get_relative_difference_friendly_version():
+	def test_get_relative_percentage_difference():
 	# =========================================================
-	##	Method to test the methods that perform miscellaneous
-	#		tasks in data analysis.
+	#	Method to test the method that calculates the relative
+	#		percentage difference.
 	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
@@ -1157,5 +1157,5 @@ class data_analysis_tester:
 		print("")
 		data_analysis_tester.test_get_relative_difference()
 		print("")
-		data_analysis_tester.test_get_relative_difference_friendly_version()
+		data_analysis_tester.test_get_relative_percentage_difference()
 		# TEST ALL METHODS!!!

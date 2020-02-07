@@ -471,6 +471,7 @@ class data_analysis:
 	#			 0.5 * (|quantity1| + |quantity1|) != 0.
 	#		Else, a ZeroDivisionError would occur.
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
+	#		If assertion fails, throw an Exception.
 	#	@postcondition - average_of_absolute_values > 0.0.
 	#		Else, a divide by zero operation would be performed.
 	#		Return None in such cases.
@@ -528,21 +529,17 @@ class data_analysis:
 		except ZeroDivisionError:
 			return None
 	# =========================================================
-	#	Method to determine the relative difference between
-	#		quantity quantity1 and quantity quantity2.
-	#
-	#	relative difference = |quantity1 - quantity2|/(0.5 * (abs(quantity1) + abs(quantity1)))
+	#	Method to determine the relative percentage difference
+	#		between quantity quantity1 and quantity quantity2.
+	#	relative percentage difference = |quantity1 - quantity2|/(0.5 * (abs(quantity1) + abs(quantity1))) * 100%
 	#	\cite{WikipediaContributors2019g}
-	#
-	#	This is the friendly version for:
-	#		quantity1 = 0 and quantity2 = 0
 	#	@param quantity1 - A quantity that I want to find the
 	#		relative difference of.
 	#	@param quantity2 - Another quantity that I want to find
 	#		the relative difference of.
 	#	@return - The relative difference.
 	#	@precondition - (quantity1 != 0) or (quantity2 != 0).
-	#						If both of them are zero, return None.
+	#		If quantity1 = quantity2 = 0, return None.
 	#		This also prevents having zero average mean of the
 	#			absolute values of quantity1 and quantity2.
 	#		That is, this guarantees the following:
@@ -558,73 +555,6 @@ class data_analysis:
 	#		This is also important to ensure that the denominator
 	#			 0.5 * (|quantity1| + |quantity1|) != 0.
 	#		Else, a ZeroDivisionError would occur.
-	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
-	#	@postcondition - average_of_absolute_values > 0.
-	#		Else, a divide by zero operation would be performed.
-	#		Return None in such cases.
-	#
-	#	Also, note that if any of the parameters are not numbers,
-	#		the subtraction and division operations would result
-	#		in a TypeError.
-	#	In such circumstances, this TypeError would be caught and
-	#		return a 'None' object.
-	#
-	#	O(1) method.
-	#	Reference:
-	#		https://en.wikipedia.org/wiki/Absolute_difference
-	@staticmethod
-	def get_relative_difference_friendly_version(quantity1=1,quantity2=1):
-		# Is "quantity1" an integer or floating-point number?
-		if not isinstance(quantity1, (int, float)):
-			# No. Relative difference cannot be calculated.
-			return None
-		# Is "quantity2" an integer or floating-point number?
-		if not isinstance(quantity2, (int, float)):
-			# No. Relative difference cannot be calculated.
-			return None
-		# Check for precondition: (quantity1 != 0) or (quantity2 != 0).
-		if (0 == quantity1) and (0 == quantity2):
-			return None
-		absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
-		# Check assertion: absolute difference, |quantity1 - quantity2| >= 0.
-		if 0 > absolute_diff:
-			raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
-		list_of_values = [quantity1, quantity2]
-		average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_values)
-		# Check postcondition: average_of_absolute_values > 0.
-		if 0 >= average_of_absolute_values:
-			raise Exception("	0 >= arithmetic mean of absolute values.")
-		return (absolute_diff/average_of_absolute_values)
-	# =========================================================
-	#	Method to determine the relative percentage difference
-	#		between quantity quantity1 and quantity quantity2.
-	#	relative percentage difference = |quantity1 - quantity2|/(0.5 * (abs(quantity1) + abs(quantity1))) * 100%
-	#	\cite{WikipediaContributors2019g}
-	#	@param quantity1 - A quantity that I want to find the
-	#		relative difference of.
-	#	@param quantity2 - Another quantity that I want to find
-	#		the relative difference of.
-	#	@return - The relative difference.
-	#	@precondition - (quantity1 != 0) or (quantity2 != 0).
-	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
-	#	@postcondition - average_of_absolute_values > 0.
-	#	O(1) method.
-	#	Reference:
-	#		https://en.wikipedia.org/wiki/Absolute_difference
-	@staticmethod
-	def get_relative_percentage_difference_friendly_version(quantity1=1,quantity2=1):
-		return (100*data_analysis.get_relative_difference_friendly_version(quantity1,quantity2))
-	# =========================================================
-	#	Method to determine the relative percentage difference
-	#		between quantity quantity1 and quantity quantity2.
-	#	relative percentage difference = |quantity1 - quantity2|/(0.5 * (abs(quantity1) + abs(quantity1))) * 100%
-	#	\cite{WikipediaContributors2019g}
-	#	@param quantity1 - A quantity that I want to find the
-	#		relative difference of.
-	#	@param quantity2 - Another quantity that I want to find
-	#		the relative difference of.
-	#	@return - The relative difference.
-	#	@precondition - (quantity1 != 0) or (quantity2 != 0).
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
 	#	@postcondition - average_of_absolute_values > 0.
 	#	O(1) method.
