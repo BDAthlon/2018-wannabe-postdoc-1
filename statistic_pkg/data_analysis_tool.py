@@ -498,7 +498,7 @@ class data_analysis:
 		if (0 == quantity1) and (0 == quantity2):
 			#raise Exception("	relative difference does not exist for quantity1 == quantity2.")
 			#warnings.warn("	relative difference does not exist for quantity1 == quantity2.")
-			return None
+			#return None
 		try:
 			absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
 		except TypeError:
@@ -543,16 +543,48 @@ class data_analysis:
 	#	@return - The relative difference.
 	#	@precondition - (quantity1 != 0) or (quantity2 != 0).
 	#						If both of them are zero, return None.
+	#		This also prevents having zero average mean of the
+	#			absolute values of quantity1 and quantity2.
+	#		That is, this guarantees the following:
+	#			0 < 0.5 * (|quantity1| + |quantity1|)
+	#			Or, 0 < 0.5 * (abs(quantity1) + abs(quantity1)).
+	#		Mathematically, 0 <= (|quantity1| + |quantity1|)
+	#			is guaranteed.
+	#		Since (quantity1 = quantity2 = 0) is not true,
+	#			0 < (|quantity1| + |quantity1|) and
+	#			0 < 0.5 * (|quantity1| + |quantity1|).
+	#		Hence, when both quantity1 and quantity2 are 0,
+	#			return None.
+	#		This is also important to ensure that the denominator
+	#			 0.5 * (|quantity1| + |quantity1|) != 0.
+	#		Else, a ZeroDivisionError would occur.
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
 	#	@postcondition - average_of_absolute_values > 0.
+	#		Else, a divide by zero operation would be performed.
+	#		Return None in such cases.
+	#
+	#	Also, note that if any of the parameters are not numbers,
+	#		the subtraction and division operations would result
+	#		in a TypeError.
+	#	In such circumstances, this TypeError would be caught and
+	#		return a 'None' object.
+	#
 	#	O(1) method.
 	#	Reference:
 	#		https://en.wikipedia.org/wiki/Absolute_difference
 	@staticmethod
 	def get_relative_difference_friendly_version(quantity1=1,quantity2=1):
+		# Is "quantity1" an integer or floating-point number?
+		if not isinstance(quantity1, (int, float)):
+			# No. Relative difference cannot be calculated.
+			return None
+		# Is "quantity2" an integer or floating-point number?
+		if not isinstance(quantity2, (int, float)):
+			# No. Relative difference cannot be calculated.
+			return None
 		# Check for precondition: (quantity1 != 0) or (quantity2 != 0).
 		if (0 == quantity1) and (0 == quantity2):
-			return 0
+			return None
 		absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
 		# Check assertion: absolute difference, |quantity1 - quantity2| >= 0.
 		if 0 > absolute_diff:

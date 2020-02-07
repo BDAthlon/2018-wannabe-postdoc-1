@@ -1115,6 +1115,14 @@ class data_analysis_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 			#print("data_analysis.get_relative_difference(1.5,-2):",data_analysis.get_relative_difference(1.5,-2),"=")
+	## =========================================================
+	#	Method to test the method that calculates the relative
+	#		difference.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_relative_difference_friendly_version():
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
@@ -1148,4 +1156,6 @@ class data_analysis_tester:
 		data_analysis_tester.test_get_arithmetic_average_of_absolute_values()
 		print("")
 		data_analysis_tester.test_get_relative_difference()
+		print("")
+		data_analysis_tester.test_get_relative_difference_friendly_version()
 		# TEST ALL METHODS!!!
