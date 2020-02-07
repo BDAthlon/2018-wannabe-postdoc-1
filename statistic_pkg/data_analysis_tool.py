@@ -459,7 +459,17 @@ class data_analysis:
 	#			absolute values of quantity1 and quantity2.
 	#		That is, this guarantees the following:
 	#			0 < 0.5 * (|quantity1| + |quantity1|)
-	#		0 < 0.5 * (|quantity1| + |quantity1|)
+	#			Or, 0 < 0.5 * (abs(quantity1) + abs(quantity1)).
+	#		Mathematically, 0 <= (|quantity1| + |quantity1|)
+	#			is guaranteed.
+	#		Since (quantity1 = quantity2 = 0) is not true,
+	#			0 < (|quantity1| + |quantity1|) and
+	#			0 < 0.5 * (|quantity1| + |quantity1|).
+	#		Hence, when both quantity1 and quantity2 are 0,
+	#			return None.
+	#		This is also important to ensure that the denominator
+	#			 0.5 * (|quantity1| + |quantity1|) != 0.
+	#		Else, a ZeroDivisionError would occur.
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
 	#	@postcondition - average_of_absolute_values > 0.0.
 	#		Else, a divide by zero operation would be performed.
@@ -501,7 +511,15 @@ class data_analysis:
 			average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_values)
 		except TypeError:
 			return None
-		# Check postcondition: average_of_absolute_values > 0.
+		"""
+			Check postcondition: average_of_absolute_values >= 0.
+			Aggressively test for average_of_absolute_values = 0,
+				since this can only be true when both quantity1
+				and quantity2 are 0.
+			Since I would return None when both quantity1 and
+				quantity2 are 0, I can test for the case
+				average_of_absolute_values = 0.
+		"""
 		if 0.0 >= average_of_absolute_values:
 			#raise Exception("	0.0 >= arithmetic mean of absolute values.")
 			return None

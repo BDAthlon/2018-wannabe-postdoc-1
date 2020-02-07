@@ -982,6 +982,13 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(972, [623, 2032]) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_difference(972, [623, 2032]):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: get_rel..._diff('Hola', 96) == None		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if None == data_analysis.get_relative_difference("Hola", 96):
@@ -989,6 +996,15 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		"""
+			Testing for cases |quantity1 - quantity2| = 0.
+			
+			Cases |quantity1 - quantity2| < 0 cannot be tested,
+				since this is mathematically impossible.
+			If such cases occur, it is because there are bugs
+				with implementing the method to determine
+				|quantity1 - quantity2|.
+		"""
 		prompt = "	... Test: get_rel..._diff(0, 0) == None			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if None == data_analysis.get_relative_difference(0, 0):
@@ -1020,6 +1036,69 @@ class data_analysis_tester:
 		prompt = "	... Test: get_rel..._diff(9.23, 9.23) == 0		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if 0 == data_analysis.get_relative_difference(9.23, 9.23):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		"""
+			We cannot test for:
+			+ 0 <= (|quantity1| + |quantity1|)
+			+ 0 <= 0.5 * (|quantity1| + |quantity1|)
+			
+			This is because both quantity1 and quantity2 cannot
+				be zero.
+			+ Our implementation would return None if the following
+				is true: quantity1 = quantity2 = 0.
+			
+			Hence, we cannot test for the folowing:
+			+ 0 = (|quantity1| + |quantity1|)
+			+ 0 = 0.5 * (|quantity1| + |quantity1|)
+			
+			As for the following cases,
+			+ 0 < (|quantity1| + |quantity1|)
+			+ 0 < 0.5 * (|quantity1| + |quantity1|)
+			they are mathematically impossible to test.
+			If these cases occur, it is because the functions
+				to implement these have (software) bugs/errors.
+		"""
+		prompt = "	... Test: get_rel..._diff(15, 12) == 0.22222222222	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_difference(15, 12),0.22222222222):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(45, 50) == 0.10526315789	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_difference(45, 50),0.10526315789):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(-30,-35) == 0.15384615384	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_difference(-30, -35),0.15384615384):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(-2.8,-2.41) == 0.14971209213	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_difference(-2.8, -2.41),0.14971209213):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(8.1,8.73) == 0.07486631016	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_difference(8.1,8.73),0.07486631016):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(1.5,-2) == 0.28571428571	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_difference(8.1,8.73),0.28571428571):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
