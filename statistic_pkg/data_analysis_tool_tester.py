@@ -953,9 +953,45 @@ class data_analysis_tester:
 	@staticmethod
 	def test_get_relative_difference():
 		print("	Testing get_relative_difference() method.")
-		prompt = "	... Test: list_of_numbers is None			{}"
+		prompt = "	... Test: default get_relative_difference(1,1) == 0	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if None == data_analysis.get_arithmetic_average_of_absolute_values(None):
+		if 0 == data_analysis.get_relative_difference():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		not_number_obj = data_analysis()
+		prompt = "	...Test:get_rel..._diff(not_number_obj,56897) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_difference(not_number_obj,56897):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	...Test:get_rel..._diff(-32.15, not_number_obj)==None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_difference(-32.15, not_number_obj):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(-32.15, []) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_difference(-32.15, []):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff('Hola', 96) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_difference("Hola", 96):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff('Hola', 96) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_difference("Hola", 96):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:

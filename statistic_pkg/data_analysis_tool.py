@@ -455,7 +455,7 @@ class data_analysis:
 	#	@return - The relative difference.
 	#	@precondition - (quantity1 != 0) and (quantity2 != 0).
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
-	#	@postcondition - average_of_absolute_values > 0.
+	#	@postcondition - average_of_absolute_values > 0.0.
 	#
 	#	Also, note that if any of the parameters are not numbers,
 	#		the subtraction and division operations would result
@@ -492,8 +492,8 @@ class data_analysis:
 		except TypeError:
 			return None
 		# Check postcondition: average_of_absolute_values > 0.
-		if 0 >= average_of_absolute_values:
-			raise Exception("	0 >= arithmetic mean of absolute values.")
+		if 0.0 >= average_of_absolute_values:
+			raise Exception("	0.0 >= arithmetic mean of absolute values.")
 		try:
 			return (absolute_diff/average_of_absolute_values)
 		except ZeroDivisionError:
