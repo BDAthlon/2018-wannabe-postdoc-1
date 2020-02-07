@@ -458,7 +458,8 @@ class data_analysis:
 	#		This also prevents having zero average mean of the
 	#			absolute values of quantity1 and quantity2.
 	#		That is, this guarantees the following:
-	#			0.5 |quantity1| + |quantity1|
+	#			0 < 0.5 * (|quantity1| + |quantity1|)
+	#		0 < 0.5 * (|quantity1| + |quantity1|)
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
 	#	@postcondition - average_of_absolute_values > 0.0.
 	#		Else, a divide by zero operation would be performed.
