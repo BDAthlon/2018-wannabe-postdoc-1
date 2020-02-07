@@ -454,8 +454,15 @@ class data_analysis:
 	#		the relative difference of.
 	#	@return - The relative difference.
 	#	@precondition - (quantity1 != 0) and (quantity2 != 0).
+	#		If quantity1 = quantity2 = 0, return None.
+	#		This also prevents having zero average mean of the
+	#			absolute values of quantity1 and quantity2.
+	#		That is, this guarantees the following:
+	#			0.5 |quantity1| + |quantity1|
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
 	#	@postcondition - average_of_absolute_values > 0.0.
+	#		Else, a divide by zero operation would be performed.
+	#		Return None in such cases.
 	#
 	#	Also, note that if any of the parameters are not numbers,
 	#		the subtraction and division operations would result
@@ -478,7 +485,9 @@ class data_analysis:
 			return None
 		# Check for precondition: (quantity1 != 0) or (quantity2 != 0).
 		if (0 == quantity1) and (0 == quantity2):
-			raise Exception("	relative difference does not exist for quantity1 == quantity2.")
+			#raise Exception("	relative difference does not exist for quantity1 == quantity2.")
+			#warnings.warn("	relative difference does not exist for quantity1 == quantity2.")
+			return None
 		try:
 			absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
 		except TypeError:
@@ -493,7 +502,8 @@ class data_analysis:
 			return None
 		# Check postcondition: average_of_absolute_values > 0.
 		if 0.0 >= average_of_absolute_values:
-			raise Exception("	0.0 >= arithmetic mean of absolute values.")
+			#raise Exception("	0.0 >= arithmetic mean of absolute values.")
+			return None
 		try:
 			return (absolute_diff/average_of_absolute_values)
 		except ZeroDivisionError:
@@ -527,9 +537,7 @@ class data_analysis:
 		absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
 		# Check assertion: absolute difference, |quantity1 - quantity2| >= 0.
 		if 0 > absolute_diff:
-			#raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
-			#warnings.warn("	get_relative_difference(): Absolute difference must be non-negative.")
-			return None
+			raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
 		list_of_values = [quantity1, quantity2]
 		average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_values)
 		# Check postcondition: average_of_absolute_values > 0.

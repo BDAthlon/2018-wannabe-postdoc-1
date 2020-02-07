@@ -989,9 +989,37 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_rel..._diff(0, 0) == None		{}"
+		prompt = "	... Test: get_rel..._diff(0, 0) == None			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if None == data_analysis.get_relative_difference(0, 0):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(5, 5) == 0			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_difference(5, 5):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(-1.23, -1.23) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_difference(-1.23, -1.23):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(-48, -48) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_difference(-48, -48):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel..._diff(9.23, 9.23) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_difference(9.23, 9.23):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
