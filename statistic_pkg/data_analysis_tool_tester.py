@@ -989,9 +989,9 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_rel..._diff('Hola', 96) == None		{}"
+		prompt = "	... Test: get_rel..._diff(0, 0) == None		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if None == data_analysis.get_relative_difference("Hola", 96):
+		if None == data_analysis.get_relative_difference(0, 0):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:

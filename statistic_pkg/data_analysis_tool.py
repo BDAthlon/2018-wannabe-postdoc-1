@@ -513,7 +513,7 @@ class data_analysis:
 	#		the relative difference of.
 	#	@return - The relative difference.
 	#	@precondition - (quantity1 != 0) or (quantity2 != 0).
-	#						If both of them are zero, return zero
+	#						If both of them are zero, return None.
 	#	@assertion - absolute difference, |quantity1 - quantity2| >= 0.
 	#	@postcondition - average_of_absolute_values > 0.
 	#	O(1) method.
@@ -527,7 +527,9 @@ class data_analysis:
 		absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
 		# Check assertion: absolute difference, |quantity1 - quantity2| >= 0.
 		if 0 > absolute_diff:
-			raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
+			#raise Exception("	get_relative_difference(): Absolute difference must be non-negative.")
+			#warnings.warn("	get_relative_difference(): Absolute difference must be non-negative.")
+			return None
 		list_of_values = [quantity1, quantity2]
 		average_of_absolute_values = data_analysis.get_arithmetic_average_of_absolute_values(list_of_values)
 		# Check postcondition: average_of_absolute_values > 0.
