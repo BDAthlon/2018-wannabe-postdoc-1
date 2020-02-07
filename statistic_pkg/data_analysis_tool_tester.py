@@ -1096,13 +1096,25 @@ class data_analysis_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: get_rel..._diff(1.5,-2) == 0.28571428571	{}"
+		prompt = "	... Test: get_rel..._diff(-2,1.5) == 2			{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if math.isclose(data_analysis.get_relative_difference(8.1,8.73),0.28571428571):
+		if math.isclose(data_analysis.get_relative_difference(-2,1.5),2):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+			"""
+			print("data_analysis.get_relative_difference(-2,1.5):",data_analysis.get_relative_difference(-2,1.5),"=")
+			print("data_analysis.get_absolute_difference(-2,1.5):",data_analysis.get_absolute_difference(-2,1.5),"=")
+			"""
+		prompt = "	... Test: get_rel..._diff(1.5,-2) == 2			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_difference(1.5,-2),2):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			#print("data_analysis.get_relative_difference(1.5,-2):",data_analysis.get_relative_difference(1.5,-2),"=")
 	# =========================================================
 	##	Method to test the methods that perform miscellaneous
 	#		tasks in data analysis.
