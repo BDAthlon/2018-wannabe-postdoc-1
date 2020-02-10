@@ -984,7 +984,7 @@ class data_analysis_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: get_rel..._diff(972, [623, 2032]) == None	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if None == data_analysis.get_relative_difference(972, [623, 2032]):
+		if None == data_analysis.get_relative_difference(972, [623, 2032, 12.087623]):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -1117,12 +1117,175 @@ class data_analysis_tester:
 			#print("data_analysis.get_relative_difference(1.5,-2):",data_analysis.get_relative_difference(1.5,-2),"=")
 	## =========================================================
 	#	Method to test the method that calculates the relative
-	#		difference.
+	#		percentage difference.
 	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_get_relative_percentage_difference():
+		print("	Testing get_relative_percentage_difference() method.")
+		prompt = "	... Test: default get_rel_pct_diff(1,1) == 0	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_percentage_difference():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		not_number_obj = data_analysis()
+		prompt = "	...Test:get_rel_pct_diff(not_number_obj,56897) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_percentage_difference(not_number_obj,56897):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	...Test:get_rel_pct_diff(-32.15, not_number_obj)==None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_percentage_difference(-32.15, not_number_obj):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(-32.15, []) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_percentage_difference(-32.15, []):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(972, [623, 2032]) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_percentage_difference(972, [623, 2032, 12.087623]):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff('Hola', 96) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_percentage_difference("Hola", 96):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		"""
+			Testing for cases |quantity1 - quantity2| = 0.
+			
+			Cases |quantity1 - quantity2| < 0 cannot be tested,
+				since this is mathematically impossible.
+			If such cases occur, it is because there are bugs
+				with implementing the method to determine
+				|quantity1 - quantity2|.
+		"""
+		prompt = "	... Test: get_rel_pct_diff(0, 0) == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_analysis.get_relative_percentage_difference(0, 0):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(5, 5) == 0			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_percentage_difference(5, 5):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(-1.23, -1.23) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_percentage_difference(-1.23, -1.23):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(-48, -48) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_percentage_difference(-48, -48):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(9.23, 9.23) == 0		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if 0 == data_analysis.get_relative_percentage_difference(9.23, 9.23):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		"""
+			We cannot test for:
+			+ 0 <= (|quantity1| + |quantity1|)
+			+ 0 <= 0.5 * (|quantity1| + |quantity1|)
+			
+			This is because both quantity1 and quantity2 cannot
+				be zero.
+			+ Our implementation would return None if the following
+				is true: quantity1 = quantity2 = 0.
+			
+			Hence, we cannot test for the folowing:
+			+ 0 = (|quantity1| + |quantity1|)
+			+ 0 = 0.5 * (|quantity1| + |quantity1|)
+			
+			As for the following cases,
+			+ 0 < (|quantity1| + |quantity1|)
+			+ 0 < 0.5 * (|quantity1| + |quantity1|)
+			they are mathematically impossible to test.
+			If these cases occur, it is because the functions
+				to implement these have (software) bugs/errors.
+		"""
+		prompt = "	... Test: get_rel_pct_diff(15, 12) == 22.2222222222	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_percentage_difference(15, 12),22.222222222):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			print("answer=",data_analysis.get_relative_percentage_difference(15, 12),".")
+		prompt = "	... Test: get_rel_pct_diff(45, 50) == 10.526315789	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_percentage_difference(45, 50),10.526315789):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(-30,-35) == 15.384615384	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_percentage_difference(-30, -35),15.384615384):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(-2.8,-2.41) == 14.971209213	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_percentage_difference(-2.8, -2.41),14.971209213):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(8.1,8.73) == 7.486631016	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_percentage_difference(8.1,8.73),7.486631016):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: get_rel_pct_diff(-2,1.5) == 200		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_percentage_difference(-2,1.5),200):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+			"""
+			print("data_analysis.get_relative_difference(-2,1.5):",data_analysis.get_relative_difference(-2,1.5),"=")
+			print("data_analysis.get_absolute_difference(-2,1.5):",data_analysis.get_absolute_difference(-2,1.5),"=")
+			"""
+		prompt = "	... Test: get_rel_pct_diff(1.5,-2) == 200		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if math.isclose(data_analysis.get_relative_percentage_difference(1.5,-2),200):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	# =========================================================
 	#	Method to test the method that calculates the relative
 	#		percentage difference.

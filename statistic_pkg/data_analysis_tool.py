@@ -499,7 +499,7 @@ class data_analysis:
 		if (0 == quantity1) and (0 == quantity2):
 			#raise Exception("	relative difference does not exist for quantity1 == quantity2.")
 			#warnings.warn("	relative difference does not exist for quantity1 == quantity2.")
-			#return None
+			return None
 		try:
 			absolute_diff = data_analysis.get_absolute_difference(quantity1,quantity2)
 		except TypeError:
@@ -562,4 +562,8 @@ class data_analysis:
 	#		https://en.wikipedia.org/wiki/Absolute_difference
 	@staticmethod
 	def get_relative_percentage_difference(quantity1=1,quantity2=1):
-		return (100*data_analysis.get_relative_difference(quantity1,quantity2))
+		relative_difference = data_analysis.get_relative_difference(quantity1,quantity2)
+		if None == relative_difference:
+			return None
+		else:
+			return 100*relative_difference
