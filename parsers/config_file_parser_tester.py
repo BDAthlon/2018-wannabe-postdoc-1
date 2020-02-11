@@ -75,7 +75,7 @@ import json
 	Package and module to print statistics of software testing
 		results.
 """
-from statistic_pkg.test_statistics import statistical_analysis
+from statistics_pkg.test_statistics import statistical_analysis
 """
 	Package and module to configure the software application's
 		parameters.

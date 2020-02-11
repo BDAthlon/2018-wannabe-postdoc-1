@@ -70,7 +70,7 @@ import calendar
 	Package and module to print statistics of software testing
 		results.
 """
-from statistic_pkg.test_statistics import statistical_analysis
+from statistics_pkg.test_statistics import statistical_analysis
 # Package and module to representing the vertex class of the graph.
 from data_structures.vertex import vertex
 from data_structures.directed_graph.vertex_dg import *
