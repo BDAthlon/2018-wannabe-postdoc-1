@@ -526,6 +526,25 @@ class misc_tester:
 		f_obj.write("Storage of experimental, simulation, verification, and testing results work.")
 		file_io_operations.close_file_object(f_obj)
 	## =========================================================
+	#	Method to test the run-Git-operations method that adds
+	#		and commits changes to the local working version/build
+	#		of the Git repository, and pushes these changes to
+	#		the cloud.
+	#	It performs the Git operations of: add, commit, and push.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_add_commit_push_updates_to_git_repository():
+		print("=	Testing add_commit_push_updates_to_git_repository() method.")
+		prompt = "	... Test if Git add, commit, push operations are carried out.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.add_commit_push_updates_to_git_repository("Update build via Python script"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
 	#	Method to test the miscellaneous methods.
 	#	@param - Nothing
 	#	@return - Nothing.
@@ -539,4 +558,5 @@ class misc_tester:
 		misc_tester.test_check_absolute_path_to_store_results()
 		misc_tester.test_check_filename_format()
 		misc_tester.test_find_desired_location_for_results()
+		misc_tester.test_add_commit_push_updates_to_git_repository()
 

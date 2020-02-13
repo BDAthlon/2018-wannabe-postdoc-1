@@ -252,6 +252,15 @@ class misc:
 	#	fails, a git process may have crashed in this repository
 	#	earlier:
 	#	remove the file manually to continue."
+	#
+	#	Refactored method to implement Git operations (add,
+	#		commit, and push) via the os.system() method, so
+	#		that these Git operations can be performed
+	#		successfully.
+	#	To port the code from using the os.system() method
+	#		to the safer and faster methods from the "subprocess"
+	#		module, see https://docs.python.org/3/library/subprocess.html#subprocess-replacements.
+	#	Or, see \cite[From section "Concurrent Execution", subsection "subprocess — Subprocess management"]{DrakeJr2016b}
 	@staticmethod
 	def add_commit_push_updates_to_git_repository(comment):
 		try:
@@ -281,7 +290,9 @@ class misc:
 			os.system(go_to_new_working_dir)
 			os.system("git add -A")
 			print("-	Added. Commit now.")
-			os.system("git commit -m \"Update build via Python script.\"")
+			git_commit_cmd = "git commit -m \"" + comment + "\""
+			#os.system("git commit -m \"Update build via Python script.\"")
+			os.system(git_commit_cmd)
 			os.system("git push")
 			go_to_original_working_dir = "cd " + current_wking_dir
 			os.system(go_to_new_working_dir)
