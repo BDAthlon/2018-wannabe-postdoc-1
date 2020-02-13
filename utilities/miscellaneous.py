@@ -248,8 +248,9 @@ class misc:
 	#			February 13, 2020 was the last accessed date.
 	@staticmethod
 	def squelch_std_n_std_err_output():
-		sys.stdout = sys.__stdout__
-		sys.stderr = sys.__stderr__
+		sys.stdout = open(os.devnull, "w")
+		sys.stderr = open(os.devnull, "w")
+		return sys.stdout, sys.stderr
 	# ============================================================
 	##	Method to restore standard output and standard error output.
 	#	This method allows information sent to standard output
@@ -268,9 +269,14 @@ class misc:
 	#			Overflow: Questions at: https://stackoverflow.com/a/2125776/1531728 and https://stackoverflow.com/questions/2125702/how-to-suppress-console-output-in-python/2125776#2125776;
 	#			February 13, 2020 was the last accessed date.
 	@staticmethod
-	def restore_std_n_std_err_output():
+	def restore_std_n_std_err_output(std_op, std_err):
+		"""
+			The following statements do not work.
 		sys.stdout = sys.__stdout__
 		sys.stderr = sys.__stderr__
+		"""
+		sys.stdout = std_op
+		sys.stderr = std_err
 	# ============================================================
 	##	Method to add, commit, and push additions and updates
 	#		to a Git repository.
