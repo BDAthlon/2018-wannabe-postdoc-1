@@ -136,6 +136,11 @@ class misc_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		"""
+			Alternatively, instead of the Makefile, use:
+			+ README.md
+			+ doxygen.config
+		"""
 		valid_filename = "makefile"
 		prompt = "	... Test: valid path, valid filename			{}"
 		statistical_analysis.increment_number_test_cases_used()
