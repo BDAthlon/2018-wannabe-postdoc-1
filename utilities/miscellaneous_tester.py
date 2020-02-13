@@ -536,6 +536,8 @@ class misc_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_add_commit_push_updates_to_git_repository():
+		print("")
+		print("")
 		print("=	Testing add_commit_push_updates_to_git_repository() method.")
 		prompt = "	... Test if Git add, commit, push operations are carried out.	{}"
 		statistical_analysis.increment_number_test_cases_used()
