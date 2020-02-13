@@ -63,7 +63,7 @@ __date__ = 'July 31, 2018'
 """
 
 import sys
-#import os
+import os
 import os.path
 #from subprocess import call
 import subprocess
@@ -102,7 +102,10 @@ class misc:
 	#	O(1) method.
 	@staticmethod
 	def get_absolute_path_to_store_results():
-		return misc.absolute_path_to_store_results
+		if os.path.exists(misc.absolute_path_to_store_results) and os.path.isdir(misc.absolute_path_to_store_results):
+			return misc.absolute_path_to_store_results
+		else:
+			return None
 	# ============================================================
 	##	Method to validate the absolute path to store results.
 	#	It is an query method
@@ -225,7 +228,7 @@ class misc:
 	#	Not tested.
 	@staticmethod
 	def store_results(path_to_file):
-		if path_to_file is not None:
+		if (path_to_file is not None) and os.path.exists(misc.absolute_path_to_store_results) and os.path.isfile(path_to_file):
 			return open(path_to_file, 'w+')
 		else:
 			return None
@@ -238,16 +241,30 @@ class misc:
 	#		and push additions to a Git repository;
 	#		Else, return boolean False.
 	#	O(1) method.
-	#	Not tested.
+	#	Not tested, since this method can fail when it shouldn't.
+	#	It may complain that another Git process is running
+	#		in this directory, and report the following error
+	#		message.
+	#	fatal: Unable to create '/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/.git/index.lock': File exists.
+	#	"Another git process seems to be running in this repository,
+	#	e.g., an editor opened by 'git commit'. Please make sure
+	#	all processes are terminated then try again. If it still
+	#	fails, a git process may have crashed in this repository
+	#	earlier:
+	#	remove the file manually to continue."
 	@staticmethod
 	def add_commit_push_updates_to_git_repository(comment):
 		try:
 			print("-------------------------------------------------")
-			cmd = ['git', 'add', "-A"]
+			cmd = ['git', 'add', '-A']
 			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
 			#p = subprocess.call(cmd, cwd=config_manager.result_repository)
 			print("-	Added. Commit now.")
-			comment = "Update build via Python."
+			print("Precautionary removal of Git's '.git/index.lock'.")
+			cmd = ["rm", "-rf", "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/.git/index.lock"]
+			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
+			print("Git's '.git/index.lock' should no longer be there.")
+			comment = "Update build via Python script."
 			cmd = ["git", "commit", "-m", comment]
 			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
 			p.wait()
@@ -255,6 +272,17 @@ class misc:
 			cmd = ["git", "push"]
 			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
 			p.wait()
+			print("-------------------------------------------------")
+			current_wking_dir = os.getcwd()
+			new_working_dir = config_manager.result_repository
+			go_to_new_working_dir = "cd " + new_working_dir
+			os.system(go_to_new_working_dir)
+			os.system("git add -A")
+			print("-	Added. Commit now.")
+			os.system("git commit -m \"Update build via Python script.\"")
+			os.system("git push")
+			go_to_original_working_dir = "cd " + current_wking_dir
+			os.system(go_to_new_working_dir)
 			print("-------------------------------------------------")
 			return True
 		except:

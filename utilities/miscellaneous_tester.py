@@ -109,6 +109,21 @@ class misc_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		"""
+			Temporarily reassign the path to test if invalid
+				paths are processed correctly.
+		"""
+		temp_path = misc.get_absolute_path_to_store_results()
+		misc.absolute_path_to_store_results = "/not/a/real/path"
+		prompt = "	... Test if return value = 'None' for invalid path	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.get_absolute_path_to_store_results() is None:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		# Reassign correct path back to (static) variable.
+		misc.absolute_path_to_store_results = temp_path
 	## =========================================================
 	#	Method to test the miscellaneous method that checks the
 	#		absolute path to store results.
@@ -127,7 +142,7 @@ class misc_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		valid_path = os.path.expanduser("./")
-		print("valid_path is:",valid_path,"=")
+		#print("valid_path is:",valid_path,"=")
 		prompt = "	... Test: valid path, invalid filename			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		#print("misc.check_absolute_path_to_store_results() is:",misc.check_absolute_path_to_store_results("/invalid/path/to/file","a_filename"),"=")
@@ -488,7 +503,7 @@ class misc_tester:
 			print(prompt .format("FAIL!!!"))
 		test_filename = "25-3-2010-5-8-51-9407.txt"
 		results_location = misc.find_desired_location_for_results(test_filename)
-		prompt = "	... Test: filename 25-3-2010-5-8-51-9407.txt.	{}"
+		prompt = "	... Test: filename 25-3-2010-5-8-51-9407.txt.		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_absolute_path_to_store_results(results_location,test_filename):
 			print(prompt .format("OK"))
