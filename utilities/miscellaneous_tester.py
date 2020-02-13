@@ -94,14 +94,66 @@ from utilities.generate_results_filename_tester import generate_filename_tester
 ##	Module that tests methods that perform miscellaneous tasks.
 class misc_tester:
 	## =========================================================
+	#	Method to test the miscellaneous method that accesses
+	#		the absolute path to store results.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_get_absolute_path_to_store_results():
+		print("=	Testing get_absolute_path_to_store_results() method.")
+		prompt = "	... Test if static variable = return value		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.absolute_path_to_store_results == misc.get_absolute_path_to_store_results():
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the miscellaneous method that checks the
+	#		absolute path to store results.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_check_absolute_path_to_store_results():
+		print("=	Testing check_absolute_path_to_store_results() method.")
+		prompt = "	... Test: invalid path, invalid filename		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		#print("misc.check_absolute_path_to_store_results() is:",misc.check_absolute_path_to_store_results("/invalid/path/to/file","a_filename"),"=")
+		if not misc.check_absolute_path_to_store_results("/invalid/path/to/file","a_filename"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		valid_path = os.path.expanduser("./")
+		print("valid_path is:",valid_path,"=")
+		prompt = "	... Test: valid path, invalid filename			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		#print("misc.check_absolute_path_to_store_results() is:",misc.check_absolute_path_to_store_results("/invalid/path/to/file","a_filename"),"=")
+		if not misc.check_absolute_path_to_store_results(valid_path,"a_filename"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		valid_filename = "makefile"
+		prompt = "	... Test: valid path, valid filename			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		#print("misc.check_absolute_path_to_store_results() is:",misc.check_absolute_path_to_store_results("/invalid/path/to/file","a_filename"),"=")
+		if misc.check_absolute_path_to_store_results(valid_path,valid_filename):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
 	#	Method to test the methods that perform file I/O operations
 	#		with an invalid file.
-	#	@param - Nothing
+	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_check_filename_format():
-		print("	Testing the filename format checker.")
+		print("=	Testing the filename format checker.")
 		prompt = "	... Test: incorrect file extension is '.txt'.		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("tyuw.iew"):
@@ -409,13 +461,12 @@ class misc_tester:
 	#	Method to test the miscellaneous method that determines
 	#		where to store the results of experimental, simulation,
 	#		verification, and testing runs.
-	#	This does not correct check if the results file is placed
+	#	This does not correctly check if the results file is placed
 	#		in the correct subdirectory of the results repository.
 	#	#### TO BE COMPLETED
 	#		Test if the subdirectory is correct. This is busywork.
 	#	@param - Nothing
-	#	@return a string representing the location to store the
-	#		aforementioned results.
+	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
 	def test_find_desired_location_for_results():
@@ -430,10 +481,9 @@ class misc_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		print("==	Test: test_find_desired_location_for_results().")
 		test_filename = "25-3-2010-5-8-51-9407.txt"
 		results_location = misc.find_desired_location_for_results(test_filename)
-		prompt = "	... Test: filename 25-3-2010-5-8-51-9407.txt included.	{}"
+		prompt = "	... Test: filename 25-3-2010-5-8-51-9407.txt.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_absolute_path_to_store_results(results_location,test_filename):
 			print(prompt .format("OK"))
@@ -465,5 +515,8 @@ class misc_tester:
 		print("")
 		print("")
 		print("==	Testing class: misc.")
+		misc_tester.test_get_absolute_path_to_store_results()
+		misc_tester.test_check_absolute_path_to_store_results()
 		misc_tester.test_check_filename_format()
 		misc_tester.test_find_desired_location_for_results()
+

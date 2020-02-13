@@ -107,15 +107,21 @@ class misc:
 	##	Method to validate the absolute path to store results.
 	#	It is an query method
 	#	@param path_to_file - A path to store the results file.
+	#		Assumes that the path ends with the character '/'
+	#			for UNIX-like operating systems.
+	#		Else, when it is concatenated with the filename, it
+	#			can result in an invalid path.
 	#	@param filename - A filename.
 	#	@return boolean True, if the path to the desired location can
-	#		be contains the value in "misc.absolute_path_to_store_results"
+	#		contain the value in "misc.absolute_path_to_store_results"
 	#		and the filename of the results file.
 	#		Else, return boolean False.
 	#	O(1) method.
 	@staticmethod
 	def check_absolute_path_to_store_results(path_to_file,filename):
-		if path_to_file.find(filename):
+		# Complete path to the file named 'filename'.
+		complete_path = path_to_file + filename
+		if os.path.exists(complete_path) and os.path.isdir(path_to_file) and os.path.isfile(complete_path):
 			return True
 		else:
 			return False
@@ -216,6 +222,7 @@ class misc:
 	#	@param path_to_file - A path to store the results file.
 	#	@return a file object for the results file.
 	#	O(1) method.
+	#	Not tested.
 	@staticmethod
 	def store_results(path_to_file):
 		if path_to_file is not None:
@@ -231,6 +238,7 @@ class misc:
 	#		and push additions to a Git repository;
 	#		Else, return boolean False.
 	#	O(1) method.
+	#	Not tested.
 	@staticmethod
 	def add_commit_push_updates_to_git_repository(comment):
 		try:
