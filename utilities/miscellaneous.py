@@ -255,6 +255,7 @@ class misc:
 	@staticmethod
 	def add_commit_push_updates_to_git_repository(comment):
 		try:
+			"""
 			print("-------------------------------------------------")
 			cmd = ['git', 'add', '-A']
 			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
@@ -272,6 +273,7 @@ class misc:
 			cmd = ["git", "push"]
 			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
 			p.wait()
+			"""
 			print("-------------------------------------------------")
 			current_wking_dir = os.getcwd()
 			new_working_dir = config_manager.result_repository
