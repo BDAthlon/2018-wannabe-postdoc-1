@@ -526,6 +526,30 @@ class misc_tester:
 		f_obj.write("Storage of experimental, simulation, verification, and testing results work.")
 		file_io_operations.close_file_object(f_obj)
 	## =========================================================
+	#	Method to test the method that squelches standard output
+	#		and standard error output.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	#
+	#	Reference:
+	#	+ [Irelan2019] Robert Irelan and Sam Arthur Gillam, Answer
+	#		to "How to suppress console output in Python?", Stack
+	#		Exchange Inc., New York, NY, May 18, 2019.
+	#		Available online from Stack Exchange Inc.: Stack
+	#			Overflow: Questions at: https://stackoverflow.com/a/2125776/1531728 and https://stackoverflow.com/questions/2125702/how-to-suppress-console-output-in-python/2125776#2125776;
+	#			February 13, 2020 was the last accessed date.
+	@staticmethod
+	def test_squelch_n_restore_std_n_std_err_output():
+		print("=	Testing squelch_std_n_std_err_output() method.")
+		prompt = "	... Test if we can print to standard output.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.add_commit_push_updates_to_git_repository("Update build via Python script"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
 	#	Method to test the run-Git-operations method that adds
 	#		and commits changes to the local working version/build
 	#		of the Git repository, and pushes these changes to
@@ -560,5 +584,6 @@ class misc_tester:
 		misc_tester.test_check_absolute_path_to_store_results()
 		misc_tester.test_check_filename_format()
 		misc_tester.test_find_desired_location_for_results()
+		misc_tester.test_squelch_n_restore_std_n_std_err_output()
 		misc_tester.test_add_commit_push_updates_to_git_repository()
 

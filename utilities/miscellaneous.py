@@ -233,6 +233,45 @@ class misc:
 		else:
 			return None
 	# ============================================================
+	##	Method to squelch standard output and standard error output.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	#	Not tested.
+	#
+	#	Reference:
+	#	+ [Irelan2019] Robert Irelan and Sam Arthur Gillam, Answer
+	#		to "How to suppress console output in Python?", Stack
+	#		Exchange Inc., New York, NY, May 18, 2019.
+	#		Available online from Stack Exchange Inc.: Stack
+	#			Overflow: Questions at: https://stackoverflow.com/a/2125776/1531728 and https://stackoverflow.com/questions/2125702/how-to-suppress-console-output-in-python/2125776#2125776;
+	#			February 13, 2020 was the last accessed date.
+	@staticmethod
+	def squelch_std_n_std_err_output():
+		sys.stdout = sys.__stdout__
+		sys.stderr = sys.__stderr__
+	# ============================================================
+	##	Method to restore standard output and standard error output.
+	#	This method allows information sent to standard output
+	#		and standard error output to be displayed again,
+	#		without being squelched.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	#	Not tested.
+	#
+	#	Reference:
+	#	+ [Irelan2019] Robert Irelan and Sam Arthur Gillam, Answer
+	#		to "How to suppress console output in Python?", Stack
+	#		Exchange Inc., New York, NY, May 18, 2019.
+	#		Available online from Stack Exchange Inc.: Stack
+	#			Overflow: Questions at: https://stackoverflow.com/a/2125776/1531728 and https://stackoverflow.com/questions/2125702/how-to-suppress-console-output-in-python/2125776#2125776;
+	#			February 13, 2020 was the last accessed date.
+	@staticmethod
+	def restore_std_n_std_err_output():
+		sys.stdout = sys.__stdout__
+		sys.stderr = sys.__stderr__
+	# ============================================================
 	##	Method to add, commit, and push additions and updates
 	#		to a Git repository.
 	#	@param comment - A comment for this commit/build [to the
@@ -283,13 +322,14 @@ class misc:
 			p = subprocess.Popen(cmd, cwd=config_manager.result_repository)
 			p.wait()
 			"""
-			print("-------------------------------------------------")
+			#print("-------------------------------------------------")
+			# Squelch standard output and standard error output.
 			current_wking_dir = os.getcwd()
 			new_working_dir = config_manager.result_repository
 			go_to_new_working_dir = "cd " + new_working_dir
 			os.system(go_to_new_working_dir)
 			os.system("git add -A")
-			print("-	Added. Commit now.")
+			#print("-	Added. Commit now.")
 			git_commit_cmd = "git commit -m \"" + comment + "\""
 			#os.system("git commit -m \"Update build via Python script.\"")
 			os.system(git_commit_cmd)
