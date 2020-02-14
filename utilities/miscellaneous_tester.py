@@ -561,6 +561,20 @@ class misc_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test with valid path to file, existent file.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.store_results("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/february/7-2-2020-9-56-54-334414.txt") is None:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test with invalid path to file, non-existent file.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.store_results("/invalid/path/to/file/february/7-2-2020-9-56-54-334414.txt") is None:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 
 	## =========================================================
 	#	Method to test the miscellaneous methods.
