@@ -551,6 +551,17 @@ class misc_tester:
 	#	@param - None.
 	#	@return - Nothing.
 	#	O(1) method.
+	#
+	#	The methods to delete/remove a file or directory from the
+	#		computer system are \cite{DrakeJr2016b}:
+	#	+ os.remove()
+	#	+ os.unlink()
+	#
+	#
+	#	Reference:
+	#	+ \cite[From section "Generic Operating System Services",
+	#		subsection "os — Miscellaneous operating system
+	#		interfaces"]{DrakeJr2016b}
 	@staticmethod
 	def test_store_results():
 		print("=	Testing store_results() method.")
