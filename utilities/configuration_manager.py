@@ -130,7 +130,7 @@ class config_manager:
 					before proceeding.
 		"""
 		location = config_manager.relative_path_from_user_home_directory_to_absolute_path(location)
-		print(";;;~current location:::",location,"=")
+		#print(";;;~current location:::",location,"=")
 		if not os.path.isabs(location):
 			#print("	location is a relative path.")
 			# Change the relative path to an absolute path.
