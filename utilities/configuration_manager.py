@@ -151,7 +151,7 @@ class config_manager:
 			#if "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization" == location.strip():
 			if "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization" == location:
 				print("location value is WRONG!!!")
-			print("	'location':::",location,"=")
+			#print("	'location':::",location,"=")
 			#print("	'copy_of_location':::",copy_of_location,"=")
 			return False
 	# ============================================================
