@@ -136,8 +136,8 @@ class config_manager:
 			# Change the relative path to an absolute path.
 			location = os.path.expanduser(location)
 			#print("	location made abs:::",location,"=")
-		print("	location should be abs:::",location,"=")
-		print("os.path.isdir(location)",os.path.isdir(location),"=")
+		#print("	location should be abs:::",location,"=")
+		#print("os.path.isdir(location)",os.path.isdir(location),"=")
 		if os.path.isdir(location):
 			config_manager.result_repository = location
 			#print("config_manager.result_repository:::",config_manager.result_repository,"=")
