@@ -131,10 +131,11 @@ class config_manager_tester:
 			Set "result_repository" to a relative path that is equivalent
 				absolute path, "absolute_path".
 		"""
-		if config_manager.set_result_repository("~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"):
-			print("	result_repository is changed to an relative path.")
-		else:
+		if not config_manager.set_result_repository("~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"):
 			print("	result_repository is NOT changed to an relative path.")
+		else:
+			#print("	result_repository is changed to an relative path.")
+			pass
 		"""
 			"result_repository" is changed to an relative path.
 			However, compare "result_repository" to the equivalent
@@ -155,10 +156,11 @@ class config_manager_tester:
 		"""
 			Set "result_repository" to an invalid path.
 		"""
-		if not config_manager.set_result_repository("~/This/is/an/invalid/path"):
-			print("	result_repository is not changed to an invalid path.")
-		else:
+		if config_manager.set_result_repository("~/This/is/an/invalid/path"):
 			print("	result_repository is CHANGED to an INVALID path.")
+		else:
+			#print("	result_repository is not changed to an invalid path.")
+			pass
 		"""
 			"result_repository" should not be changed to an invalid path.
 			Hence, it shall still refer to "absolute_path".
