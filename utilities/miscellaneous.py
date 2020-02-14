@@ -334,12 +334,12 @@ class misc:
 			new_working_dir = config_manager.result_repository
 			go_to_new_working_dir = "cd " + new_working_dir
 			os.system(go_to_new_working_dir)
-			os.system("git add -A")
+			os.system("git add -A -f")
 			#print("-	Added. Commit now.")
-			git_commit_cmd = "git commit -m \"" + comment + "\""
+			git_commit_cmd = "git commit -m \"" + comment + "\" --quiet"
 			#os.system("git commit -m \"Update build via Python script.\"")
 			os.system(git_commit_cmd)
-			os.system("git push")
+			os.system("git push --quiet")
 			go_to_original_working_dir = "cd " + current_wking_dir
 			os.system(go_to_new_working_dir)
 			print("-------------------------------------------------")
