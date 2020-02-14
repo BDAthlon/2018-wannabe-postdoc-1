@@ -190,7 +190,9 @@ class file_io_operations:
 					print("Encountered error in making directory.", file=sys.stderr)
 					logging.error("Determine why directory for month cannot be created.")
 			else:
-				print(current_path,"=works= ... From: file_io.py, line 146.")
+				#print(current_path,"=works= ... From: file_io.py, line 146.")
+				# \cite[From section 7 on "Simple statements", subsection 7.4, "The pass statement"]{DrakeJr2016a}
+				pass
 		else:
 			print("	... Creating directory for year at:",current_path)
 			try:
