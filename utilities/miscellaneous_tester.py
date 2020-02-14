@@ -568,7 +568,9 @@ class misc_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test with valid path to file, existent file.	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if misc.store_results("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/february/7-2-2020-9-56-54-334414.txt") is None:
+		#if misc.store_results("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/february/7-2-2020-9-56-54-334414.txt") is None:
+		f_obj = misc.store_results("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/february/7-2-2020-9-56-54-334414.txt")
+		if f_obj is not None:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
