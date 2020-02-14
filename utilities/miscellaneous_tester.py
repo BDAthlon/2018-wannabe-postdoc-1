@@ -554,14 +554,24 @@ class misc_tester:
 	@staticmethod
 	def test_store_results():
 		print("=	Testing store_results() method.")
+		"""
 		f_obj = open("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/random.rnd", 'w+')
 		if f_obj is not None:
 			print("f_obj is not None object.")
 		else:
 			print("f_obj is None object.")
+		"""
 		prompt = "	... Test with valid path to file, non-existent file.	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if misc.store_results("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/random.rnd") is not None:
+		valid_path_non_existent_file = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/random.rnd"
+		"""
+			If a file for this path exists, delete the file to ensure
+				reproducibility of regression test results.
+		"""
+		if os.path.exists(valid_path_non_existent_file):
+			os.remove(valid_path_non_existent_file)
+		f_obj = misc.store_results(valid_path_non_existent_file)
+		if f_obj is not None:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
