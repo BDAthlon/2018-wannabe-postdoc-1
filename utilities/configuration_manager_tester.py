@@ -113,10 +113,11 @@ class config_manager_tester:
 		absolute_path = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 		prompt = "	... Test: result_repository, check change to abs. path.	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if config_manager.set_result_repository(absolute_path):
-			print("	result_repository is changed to an absolute path.")
+		if not config_manager.set_result_repository(absolute_path):
+			stderr.write("	Error!!! result_repository is NOT changed to an absolute path.")
 		else:
-			print("	result_repository is NOT changed to an absolute path.")
+			#print("	result_repository is changed to an absolute path.")
+			pass
 		if (config_manager.get_result_repository() == absolute_path):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
