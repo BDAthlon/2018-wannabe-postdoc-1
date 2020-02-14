@@ -233,6 +233,14 @@ class misc:
 	#	Not tested.
 	@staticmethod
 	def store_results(path_to_file):
+		if path_to_file is not None:
+			print("= path_to_file is not None")
+		if os.path.exists(path_to_file):
+			print("= os.path.exists(path_to_file)")
+		if os.path.isfile(path_to_file):
+			print("= os.path.isfile(path_to_file)")
+		if path_to_file.startswith(misc.absolute_path_to_store_results):
+			print("= path_to_file.startswith(misc.absolute_path_to_store_results)")
 		if (path_to_file is not None) and (not os.path.exists(path_to_file)) and (not os.path.isfile(path_to_file)) and path_to_file.startswith(misc.absolute_path_to_store_results):
 			return open(path_to_file, 'w+')
 		else:
