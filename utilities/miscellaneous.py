@@ -262,10 +262,26 @@ class misc:
 	#		module, see https://docs.python.org/3/library/subprocess.html#subprocess-replacements.
 	#	Or, see \cite[From section "Concurrent Execution", subsection "subprocess — Subprocess management"]{DrakeJr2016b}
 	#
+	# Use \cite{Barbu2015,Brandon2017} to squelch the output from
+	#	running the Git operations to make the output of the automated
+	#	regression testing easier to read, skim, and comprehend.
+	#
 	#
 	#	References:
-	#	+ 
-	#		https://stackoverflow.com/questions/8943693/can-git-operate-in-silent-mode#comment81367451_8943761
+	#	+ [Barbu2015]
+	#		- Paul-Gheorghe Barbu, Answer to "Silence git (no errors,
+	#			no output, don't say a word)," Stack Exchange Inc.,
+	#			New York, NY, May 21, 2015.
+	#			Available online from Stack Exchange Inc.: Stack Overflow:
+	#				Questions at: https://stackoverflow.com/a/30379171/1531728;
+	#				February 14, 2020 was the last accessed date.
+	#	+ [Brandon2017]
+	#		- Brandon, Comment to Thomas Edwards's answer for
+	#			"Can git operate in 'silent mode'?", Stack Exchange Inc.,
+	#			New York, NY, November 9, 2017.
+	#			Available online from Stack Exchange Inc.: Stack Overflow:
+	#				Questions at: https://stackoverflow.com/questions/8943693/can-git-operate-in-silent-mode#comment81367451_8943761; 
+	#				February 14, 2020 was the last accessed date.
 	@staticmethod
 	def add_commit_push_updates_to_git_repository(comment):
 		try:
@@ -305,7 +321,7 @@ class misc:
 			os.system("git push &> /dev/null")
 			go_to_original_working_dir = "cd " + current_wking_dir
 			os.system(go_to_new_working_dir)
-			print("-------------------------------------------------")
+			#print("-------------------------------------------------")
 			return True
 		except:
 			return False
