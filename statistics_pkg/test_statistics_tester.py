@@ -96,7 +96,7 @@ class statistical_analysis_tester:
 		print("==	Testing class: statistical_analysis")
 		print("	Number of initial test cases passed: {}		{}" .format(statistical_analysis.number_test_cases_passed,"OK"))
 		print("	Number of initial test cases used: {}		{}" .format(statistical_analysis.number_test_cases_used,"OK"))
-		print("	Proportion of initial test cases passed: {}		{}" .format(statistical_analysis.get_test_cases_passed_average(),"OK"))
+		print("	Proportion of initial test cases passed: {}	{}" .format(statistical_analysis.get_test_cases_passed_average(),"OK"))
 		for x in range(1,7):
 			statistical_analysis.increment_number_test_cases_used()
 			statistical_analysis.increment_number_test_cases_passed()
