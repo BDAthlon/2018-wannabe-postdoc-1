@@ -192,12 +192,17 @@ class misc:
 	#		experimental, simulation, verification, or testing runs
 	#	@param filename - A filename that has the DD-MM-YY-HH-MM-SS-uS.txt.
 	#	@return a string representing the absolute path of the location.
+	#	@precondition - If the filename does not follow the format
+	#		specified in "DD-MM-YY-HH-MM-SS-uS.txt", return a None
+	#		object to indicate that no valid location exists for
+	#		this filename.
 	#	O(1) method.
 	@staticmethod
 	def find_desired_location_for_results(filename):
 		# Does filename have the DD-MM-YY-HH-MM-SS-uS.txt format?
 		if not misc.check_filename_format(filename):
-			return "'filename' needs to have the format: DD-MM-YY-HH-MM-SS-uS.txt."
+			#stderr.write("=	'filename' needs to have the format: DD-MM-YY-HH-MM-SS-uS.txt.")
+			return None
 		# Remove file extension, and tokenize the filename.
 		filename_wo_extn, file_extn = os.path.splitext(filename)
 		tokens = filename_wo_extn.split("-")
@@ -228,7 +233,7 @@ class misc:
 	#	Not tested.
 	@staticmethod
 	def store_results(path_to_file):
-		if (path_to_file is not None) and os.path.exists(misc.absolute_path_to_store_results) and os.path.isfile(path_to_file):
+		if (path_to_file is not None) and (not os.path.exists(path_to_file)) and (not os.path.isfile(path_to_file)) and path_to_file.startswith(misc.absolute_path_to_store_results):
 			return open(path_to_file, 'w+')
 		else:
 			return None

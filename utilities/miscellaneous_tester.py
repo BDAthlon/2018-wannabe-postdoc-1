@@ -490,13 +490,13 @@ class misc_tester:
 	#	O(1) method.
 	@staticmethod
 	def test_find_desired_location_for_results():
-		incorrect_format_result = "'filename' needs to have the format: DD-MM-YY-HH-MM-SS-uS.txt."
+		#incorrect_format_result = "'filename' needs to have the format: DD-MM-YY-HH-MM-SS-uS.txt."
 		print("==	Test: test_find_desired_location_for_results().")
 		test_filename = "25-3-2010-5-8-51-9994073289.dwq"
 		results_location = misc.find_desired_location_for_results(test_filename)
 		prompt = "	... Test: filename is 25-3-2010-5-8-51-9994073289.dwq.	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if misc.find_desired_location_for_results(test_filename) == incorrect_format_result:
+		if misc.find_desired_location_for_results(test_filename) is None:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -510,9 +510,9 @@ class misc_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: 25-3-2010-5-8-51-9407.txt, correct path.	{}"
+		prompt = "	... Test: 25-3-2010-5-8-51-9407.txt, correct base path?	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if misc.get_absolute_path_to_store_results() in results_location:
+		if results_location.startswith(misc.get_absolute_path_to_store_results()):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -523,8 +523,9 @@ class misc_tester:
 			print(results_location.find(misc.get_absolute_path_to_store_results()))
 			"""
 		f_obj = misc.store_results(results_location)
-		f_obj.write("Storage of experimental, simulation, verification, and testing results work.")
-		file_io_operations.close_file_object(f_obj)
+		if f_obj is not None:
+			f_obj.write("Storage of experimental, simulation, verification, and testing results work.")
+			file_io_operations.close_file_object(f_obj)
 	## =========================================================
 	#	Method to test the run-Git-operations method that adds
 	#		and commits changes to the local working version/build
@@ -545,6 +546,23 @@ class misc_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
+	#	Method to test the method to store the results file in the
+	#		specified absolute path.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def test_store_results():
+		print("=	Testing store_results() method.")
+		prompt = "	... Test with valid path to file, non-existent file.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.store_results("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization/2020/random.rnd") is not None:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+
+	## =========================================================
 	#	Method to test the miscellaneous methods.
 	#	@param - Nothing
 	#	@return - Nothing.
@@ -559,4 +577,4 @@ class misc_tester:
 		misc_tester.test_check_filename_format()
 		misc_tester.test_find_desired_location_for_results()
 		misc_tester.test_add_commit_push_updates_to_git_repository()
-
+		misc_tester.test_store_results()
