@@ -233,51 +233,6 @@ class misc:
 		else:
 			return None
 	# ============================================================
-	##	Method to squelch standard output and standard error output.
-	#	@param - None.
-	#	@return - Nothing.
-	#	O(1) method.
-	#	Not tested.
-	#
-	#	Reference:
-	#	+ [Irelan2019] Robert Irelan and Sam Arthur Gillam, Answer
-	#		to "How to suppress console output in Python?", Stack
-	#		Exchange Inc., New York, NY, May 18, 2019.
-	#		Available online from Stack Exchange Inc.: Stack
-	#			Overflow: Questions at: https://stackoverflow.com/a/2125776/1531728 and https://stackoverflow.com/questions/2125702/how-to-suppress-console-output-in-python/2125776#2125776;
-	#			February 13, 2020 was the last accessed date.
-	@staticmethod
-	def squelch_std_n_std_err_output():
-		sys.stdout = open(os.devnull, "w")
-		sys.stderr = open(os.devnull, "w")
-		return sys.stdout, sys.stderr
-	# ============================================================
-	##	Method to restore standard output and standard error output.
-	#	This method allows information sent to standard output
-	#		and standard error output to be displayed again,
-	#		without being squelched.
-	#	@param - None.
-	#	@return - Nothing.
-	#	O(1) method.
-	#	Not tested.
-	#
-	#	Reference:
-	#	+ [Irelan2019] Robert Irelan and Sam Arthur Gillam, Answer
-	#		to "How to suppress console output in Python?", Stack
-	#		Exchange Inc., New York, NY, May 18, 2019.
-	#		Available online from Stack Exchange Inc.: Stack
-	#			Overflow: Questions at: https://stackoverflow.com/a/2125776/1531728 and https://stackoverflow.com/questions/2125702/how-to-suppress-console-output-in-python/2125776#2125776;
-	#			February 13, 2020 was the last accessed date.
-	@staticmethod
-	def restore_std_n_std_err_output(std_op, std_err):
-		"""
-			The following statements do not work.
-		sys.stdout = sys.__stdout__
-		sys.stderr = sys.__stderr__
-		"""
-		sys.stdout = std_op
-		sys.stderr = std_err
-	# ============================================================
 	##	Method to add, commit, and push additions and updates
 	#		to a Git repository.
 	#	@param comment - A comment for this commit/build [to the
@@ -306,6 +261,11 @@ class misc:
 	#		to the safer and faster methods from the "subprocess"
 	#		module, see https://docs.python.org/3/library/subprocess.html#subprocess-replacements.
 	#	Or, see \cite[From section "Concurrent Execution", subsection "subprocess — Subprocess management"]{DrakeJr2016b}
+	#
+	#
+	#	References:
+	#	+ 
+	#		https://stackoverflow.com/questions/8943693/can-git-operate-in-silent-mode#comment81367451_8943761
 	@staticmethod
 	def add_commit_push_updates_to_git_repository(comment):
 		try:
@@ -334,12 +294,15 @@ class misc:
 			new_working_dir = config_manager.result_repository
 			go_to_new_working_dir = "cd " + new_working_dir
 			os.system(go_to_new_working_dir)
-			os.system("git add -A -f >/dev/null 2>&1")
+			#os.system("git add -A -f >/dev/null 2>&1")
+			os.system("git add -A -f &> /dev/null")
 			#print("-	Added. Commit now.")
-			git_commit_cmd = "git commit -m \"" + comment + "\" >/dev/null 2>&1"
+			#git_commit_cmd = "git commit -m \"" + comment + "\" >/dev/null 2>&1"
+			git_commit_cmd = "git commit -m \"" + comment + "\" &> /dev/null"
 			#os.system("git commit -m \"Update build via Python script.\"")
 			os.system(git_commit_cmd)
-			os.system("git push >/dev/null 2>&1")
+			#os.system("git push >/dev/null 2>&1")
+			os.system("git push &> /dev/null")
 			go_to_original_working_dir = "cd " + current_wking_dir
 			os.system(go_to_new_working_dir)
 			print("-------------------------------------------------")
