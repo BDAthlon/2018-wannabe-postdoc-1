@@ -556,6 +556,10 @@ class misc_tester:
 	#		computer system are \cite{DrakeJr2016b}:
 	#	+ os.remove()
 	#	+ os.unlink()
+	#	+ The methods "os.remove()" and "os.unlink()" are effectively
+	#		the same.
+	#		- Use the former Python method, since it reminds me of
+	#			the UNIX/Linux command "rm" to remove files.
 	#
 	#
 	#	Reference:
