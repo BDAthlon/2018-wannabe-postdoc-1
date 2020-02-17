@@ -148,9 +148,13 @@ class misc:
 	@staticmethod
 	def check_filename_format(filename):
 		if filename is None:
+			print("'filename is None' is:",(filename is None),"=")
+			return False
+		if not isinstance(filename, str):
 			return False
 		filename_wo_extn, file_extn = os.path.splitext(filename)
 		if ".txt" != file_extn:
+			print(".txt != file_extn is:",(".txt" != file_extn),"=")
 			return False
 		tokens = filename_wo_extn.split("-")
 		"""
@@ -162,40 +166,54 @@ class misc:
 			tokens[4] = MM/Minute
 			tokens[5] = [SS/Second]
 			tokens[6] = [uS/Microsecond]
+
+			Are there 7 tokens?
 		"""
-		if 7 != len(tokens):
+		if (7 != len(tokens)):
+			print("7 != len(tokens)",(7 != len(tokens)),"=")
 			return False
-		if 1 > int(tokens[0]):
+		# Is the DD token
+		if (not isinstance(tokens[0], int)) or (1 > int(tokens[0])):
+			print("isinstance(tokens[0], int) is:",isinstance(tokens[0], int),"=")
+			print("isinstance(tokens[1], int) is:",isinstance(tokens[1], int),"=")
+			print("2 == int(tokens[1]) is:",(2 == int(tokens[1])),"=")
+			print("28 < int(tokens[0]) is:",(28 < int(tokens[0])),"=")
+			print("calendar.isleap(int(tokens[2])) is:",calendar.isleap(int(tokens[2])),"=")
 			return False
-		if 2 == int(tokens[1]) and 29 < int(tokens[0]) and calendar.isleap(int(tokens[2])):
+		if (not isinstance(tokens[0], int)) or (not isinstance(tokens[1], int)) and 2 == int(tokens[1]) and (29 < int(tokens[0])) and calendar.isleap(int(tokens[2])):
+			print("isinstance(tokens[0], int) is:",isinstance(tokens[0], int),"=")
+			print("isinstance(tokens[1], int) is:",isinstance(tokens[1], int),"=")
+			print("2 == int(tokens[1]) is:",(2 == int(tokens[1])),"=")
+			print("28 < int(tokens[0]) is:",(28 < int(tokens[0])),"=")
+			print("calendar.isleap(int(tokens[2])) is:",calendar.isleap(int(tokens[2])),"=")
 			return False
-		if 2 == int(tokens[1]) and 28 < int(tokens[0]) and not calendar.isleap(int(tokens[2])):
+		if (not isinstance(tokens[0], int)) or (not isinstance(tokens[1], int)) and (2 == int(tokens[1])) and (28 < int(tokens[0])) and (not calendar.isleap(int(tokens[2]))):
 			return False
-		if generate_filename_tester.is_30_day_month(tokens[1]) and 30 < int(tokens[0]):
+		if (not isinstance(tokens[0], int)) or (not isinstance(tokens[1], int)) and generate_filename_tester.is_30_day_month(tokens[1]) and 30 < int(tokens[0]):
 			return False
-		if generate_filename_tester.is_31_day_month(tokens[1]) and 31 < int(tokens[0]):
+		if (not isinstance(tokens[0], int)) or (not isinstance(tokens[1], int)) and generate_filename_tester.is_31_day_month(tokens[1]) and 31 < int(tokens[0]):
 			return False
-		if 1 > int(tokens[1]):
+		if (not isinstance(tokens[1], int)) or (1 > int(tokens[1])):
 			return False
-		if 12 < int(tokens[1]):
+		if (not isinstance(tokens[1], int)) or (12 < int(tokens[1])):
 			return False
-		if 2000 > int(tokens[2]):
+		if (not isinstance(tokens[2], int)) or (2000 > int(tokens[2])):
 			return False
-		if 0 > int(tokens[3]):
+		if (not isinstance(tokens[3], int)) or (0 > int(tokens[3])):
 			return False
-		if 23 < int(tokens[3]):
+		if (not isinstance(tokens[3], int)) or (23 < int(tokens[3])):
 			return False
-		if 0 > int(tokens[4]):
+		if (not isinstance(tokens[4], int)) or (0 > int(tokens[4])):
 			return False
-		if 59 < int(tokens[4]):
+		if (not isinstance(tokens[4], int)) or (59 < int(tokens[4])):
 			return False
-		if 0 > int(tokens[5]):
+		if (not isinstance(tokens[5], int)) or (0 > int(tokens[5])):
 			return False
-		if 59 < int(tokens[5]):
+		if (not isinstance(tokens[5], int)) or (59 < int(tokens[5])):
 			return False
-		if 0 > int(tokens[6]):
+		if (not isinstance(tokens[6], int)) or (0 > int(tokens[6])):
 			return False
-		if 999999 < int(tokens[6]):
+		if (not isinstance(tokens[6], int)) or (999999 < int(tokens[6])):
 			return False
 		return True
 	# ============================================================

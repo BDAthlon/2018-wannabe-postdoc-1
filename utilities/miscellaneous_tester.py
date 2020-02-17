@@ -195,6 +195,20 @@ class misc_tester:
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: filename is integer '78'.			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.check_filename_format(78):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: filename is floating-pt number '12.32321'.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.check_filename_format(12.32321):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
 		prompt = "	... Test: incorrect file extension, string version.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("tyuw.iew"):
@@ -216,7 +230,7 @@ class misc_tester:
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: filename doesn' have has 6 tokens, numbers.	{}"
+		prompt = "	... Test: filename doesn't have 6 tokens, numbers.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("13-31-2-324432.txt"):
 			print(prompt .format("FAIL!!!"))
@@ -512,7 +526,7 @@ class misc_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: filename with correct format, wrong file extension.	{}"
+		prompt = "	... Test: filename, correct format, wrong file extn.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		"""
 			All fields/tokens need to be numbers, else an exception
@@ -666,7 +680,7 @@ class misc_tester:
 		print("==	Testing class: misc.")
 		misc_tester.test_get_absolute_path_to_store_results()
 		misc_tester.test_check_absolute_path_to_store_results()
-		misc_tester.test_check_filename_format()
-		misc_tester.test_find_desired_location_for_results()
+		#misc_tester.test_check_filename_format()
+		#misc_tester.test_find_desired_location_for_results()
 		misc_tester.test_add_commit_push_updates_to_git_repository()
 		misc_tester.test_store_results()
