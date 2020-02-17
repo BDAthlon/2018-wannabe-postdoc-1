@@ -202,9 +202,16 @@ class misc_tester:
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: filename no file extension has 6 tokens.	{}"
+		prompt = "	... Test: filename does not have 6 tokens, not numbers.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("HH-MM-SS-uS.txt"):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: filename does not have has 6 tokens, number version.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.check_filename_format("13-31-2-324432.txt"):
 			print(prompt .format("FAIL!!!"))
 		else:
 			print(prompt .format("OK"))
@@ -494,6 +501,17 @@ class misc_tester:
 				would be thrown.
 		"""
 		if misc.check_filename_format("25-1-2020-5-8-51-999999.txt"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: filename with correct format, wrong file extension.	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		"""
+			All fields/tokens need to be numbers, else an exception
+				would be thrown.
+		"""
+		if not misc.check_filename_format("15-12-2030-23-59-58-999999.ewq"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
