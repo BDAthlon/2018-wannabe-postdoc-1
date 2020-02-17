@@ -195,7 +195,14 @@ class misc_tester:
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: incorrect file extension is '.txt'.		{}"
+		prompt = "	... Test: incorrect file extension is '.iew', string version.		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.check_filename_format("tyuw.iew"):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		prompt = "	... Test: incorrect file extension is '.iew', string version.		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("tyuw.iew"):
 			print(prompt .format("FAIL!!!"))
