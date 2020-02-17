@@ -94,6 +94,7 @@ from utilities.generate_results_filename_tester import generate_filename_tester
 ##	Module with methods that perform miscellaneous tasks.
 class misc:
 	absolute_path_to_store_results = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
+	months_of_the_year = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 	# ============================================================
 	##	Method to get the absolute path to store results.
 	#	It is an accessor method.
@@ -119,9 +120,17 @@ class misc:
 	#		contain the value in "misc.absolute_path_to_store_results"
 	#		and the filename of the results file.
 	#		Else, return boolean False.
+	#	@precondition - If path_to_file is equivalent to the None
+	#		object, return False to indicate this method cannot
+	#		be carried out to successful completion.
+	#	@precondition - If filename is equivalent to the None
+	#		object, return False to indicate this method cannot
+	#		be carried out to successful completion.
 	#	O(1) method.
 	@staticmethod
 	def check_absolute_path_to_store_results(path_to_file,filename):
+		if (path_to_file is None) and (filename is None):
+			return False
 		# Complete path to the file named 'filename'.
 		complete_path = path_to_file + filename
 		if os.path.exists(complete_path) and os.path.isdir(path_to_file) and os.path.isfile(complete_path):
@@ -138,6 +147,8 @@ class misc:
 	#	O(1) method.
 	@staticmethod
 	def check_filename_format(filename):
+		if filename is None:
+			return False
 		filename_wo_extn, file_extn = os.path.splitext(filename)
 		if ".txt" != file_extn:
 			return False
