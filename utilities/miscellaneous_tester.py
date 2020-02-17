@@ -195,16 +195,16 @@ class misc_tester:
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: incorrect file extension, string version.		{}"
+		prompt = "	... Test: incorrect file extension, string version.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("tyuw.iew"):
 			print(prompt .format("FAIL!!!"))
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: incorrect file extension, string version.		{}"
+		prompt = "	... Test: incorrect file extension, number version.	{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if misc.check_filename_format("tyuw.iew"):
+		if misc.check_filename_format("30-11-2040-14-2-14-782312.iew"):
 			print(prompt .format("FAIL!!!"))
 		else:
 			print(prompt .format("OK"))
