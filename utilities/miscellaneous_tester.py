@@ -209,14 +209,14 @@ class misc_tester:
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: filename does not have 6 tokens, not numbers.	{}"
+		prompt = "	... Test: filename doesn't have 6 tokens, not numbers.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("HH-MM-SS-uS.txt"):
 			print(prompt .format("FAIL!!!"))
 		else:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
-		prompt = "	... Test: filename does not have has 6 tokens, number version.	{}"
+		prompt = "	... Test: filename doesn' have has 6 tokens, numbers.	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("13-31-2-324432.txt"):
 			print(prompt .format("FAIL!!!"))
