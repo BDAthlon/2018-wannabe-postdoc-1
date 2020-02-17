@@ -683,4 +683,4 @@ class misc_tester:
 		#misc_tester.test_check_filename_format()
 		#misc_tester.test_find_desired_location_for_results()
 		misc_tester.test_add_commit_push_updates_to_git_repository()
-		misc_tester.test_store_results()
+		#misc_tester.test_store_results()
