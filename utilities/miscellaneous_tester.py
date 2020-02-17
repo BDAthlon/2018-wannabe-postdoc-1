@@ -188,6 +188,13 @@ class misc_tester:
 	@staticmethod
 	def test_check_filename_format():
 		print("=	Testing the filename format checker.")
+		prompt = "	... Test: filename is 'None' object.			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if misc.check_filename_format(None):
+			print(prompt .format("FAIL!!!"))
+		else:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
 		prompt = "	... Test: incorrect file extension is '.txt'.		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if misc.check_filename_format("tyuw.iew"):
