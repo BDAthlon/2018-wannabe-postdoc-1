@@ -133,6 +133,20 @@ class misc_tester:
 	@staticmethod
 	def test_check_absolute_path_to_store_results():
 		print("=	Testing check_absolute_path_to_store_results() method.")
+		prompt = "	... Test: invalid path=None, invalid filename	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not misc.check_absolute_path_to_store_results(None,"a_filename"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: invalid path, invalid filename=None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not misc.check_absolute_path_to_store_results("/invalid/path/to/file", None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: invalid path, invalid filename		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		#print("misc.check_absolute_path_to_store_results() is:",misc.check_absolute_path_to_store_results("/invalid/path/to/file","a_filename"),"=")

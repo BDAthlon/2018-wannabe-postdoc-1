@@ -129,7 +129,7 @@ class misc:
 	#	O(1) method.
 	@staticmethod
 	def check_absolute_path_to_store_results(path_to_file,filename):
-		if (path_to_file is None) and (filename is None):
+		if (path_to_file is None) or (filename is None):
 			return False
 		# Complete path to the file named 'filename'.
 		complete_path = path_to_file + filename
