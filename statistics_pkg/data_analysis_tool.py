@@ -125,6 +125,11 @@ import statistics as s
 #	Import Custom Python Modules
 
 
+"""
+	Package and module to perform operations on basic data types
+		and numbers.
+"""
+from utilities.data_types_and_numbers.data_type_and_number_operations import data_type_n_number_ops
 
 
 
@@ -149,40 +154,6 @@ class data_analysis:
 			https://en.wikipedia.org/wiki/List_of_common_physics_notations
 	"""
 	dict_of_reference_values = {"c":299792458, "standard acceleration due to gravity":9.80665, "standard atmosphere":101325}
-	# =========================================================
-	#	Method to determine if each object in a list is an integer
-	#		or a floating-point number.
-	#	@param list - A list of objects, for which we want to
-	#					determine if each of its elements is an
-	#					integer or a floating-point number.
-	#	@return - Boolean true if each element of the list is an
-	#				integer or a floating-point number.
-	#	O(n) method, where "n" is the size of the list.
-	#	Tested.
-	@staticmethod
-	def is_list_of_numbers(list_of_objects=[]):
-		# Is "list_of_numbers" a None object?
-		if list_of_objects is None:
-			# Yes. "list_of_numbers" is a None object.
-			return False
-		# Is "list_of_objects" not a list?
-		elif not isinstance(list_of_objects, list):
-			# Yes. "list_of_objects" is not a list.
-			return False
-		# Else, is list_of_objects an empty list?
-		#elif 0 == len(list_of_objects):
-		elif not list_of_objects:	# More Pythonic solution.
-			return False
-		else:
-			for elem in list_of_objects:
-				if not isinstance(elem, (int, float)):
-					return False
-				# Else, proceed to the next element.
-			"""
-				None of the elements in "list_of_objects"
-					is an integer or a floating-point number.
-			"""
-			return True
 	# =========================================================
 	#	Method to access the reference value for a particular
 	#		attribute/property.
@@ -426,7 +397,7 @@ class data_analysis:
 	@staticmethod
 	def get_arithmetic_average_of_absolute_values(list_of_numbers=[]):
 		# Check precondition: list_of_numbers is not a None object.
-		if not data_analysis.is_list_of_numbers(list_of_numbers):
+		if not data_type_n_number_ops.is_list_of_numbers(list_of_numbers):
 			return None
 		else:
 			"""

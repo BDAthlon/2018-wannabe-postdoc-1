@@ -168,7 +168,12 @@ from utilities.timing_measurements.performance_measurement_no_ns import executio
 from utilities.timing_measurements.get_factorial_tester import calculate_factorial_tester
 from utilities.timing_measurements.performance_measurement_no_ns_tester import execution_time_measurement_no_ns_tester 
 from utilities.timing_measurements.performance_measurement_tester import execution_time_measurement_tester
-
+"""
+	Module to perform operations regarding basic data types and numbers.
+	Test module for the aforementioned module.
+"""
+from utilities.data_types_and_numbers.data_type_and_number_operations import data_type_n_number_ops
+from utilities.data_types_and_numbers.data_type_and_number_operations_tester import data_type_n_number_ops_tester
 
 
 
@@ -325,8 +330,10 @@ if __name__ == "__main__":
 	# The real stuff begins here...
 	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	print("=	Testing the statistical analysis package.")
-	#	Insert test cases for statistical analysis package
+	# Insert test cases for statistical analysis package
 	statistical_analysis_tester.test_statistical_analysis()
+	# Test module performing operations on basic data types & numbers.
+	data_type_n_number_ops_tester.test_data_type_n_number_ops()
 	# Test the miscellaneous tasks in analyzing data.
 	data_analysis_tester.test_data_analysis()
 	print("")
