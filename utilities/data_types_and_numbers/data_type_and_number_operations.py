@@ -108,3 +108,16 @@ class data_type_n_number_ops:
 					is an integer or a floating-point number.
 			"""
 			return True
+	# =========================================================
+	#	Method to determine if each object in a list is an integer
+	#		or a floating-point number.
+	#	@param list - A list of objects, for which we want to
+	#					determine if each of its elements is an
+	#					integer or a floating-point number.
+	#	@return - Boolean true if each element of the list is an
+	#				integer or a floating-point number.
+	#	O(n) method, where "n" is the size of the list.
+	#	Tested.
+	@staticmethod
+	def is_list_of_numbers(list_of_objects=[]):
+		#convert binary strings to list of 0-1 integers.
