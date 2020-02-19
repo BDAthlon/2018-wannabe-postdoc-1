@@ -115,7 +115,7 @@ class data_type_n_number_ops:
 	#		a list of 0-1 integers.
 	#	@return - A list of 0-1 integers representing the binary
 	#		string.
-	#	@precondition - If the a_binary_string is not a string,
+	#	@precondition - If 'a_binary_string' is not a string,
 	#		including a None object, return a None object.
 	#	O(n) method, where "n" is the number of bits of the
 	#		binary string.
@@ -129,26 +129,38 @@ class data_type_n_number_ops:
 					list of 0-1 integers.
 			"""
 			return None
-		# Is the input argument not a string?
+		# Else, is the input argument not a string?
 		elif not isinstance(a_binary_string, str):
 			"""
 				Yes. Don't try to convert the input argument to a
 					list of 0-1 integers.
 			"""
 			return None
+		# Else, is this string empty? 
+		elif not a_binary_string:
+			# No.
+			return None
 		else:
 			# Else, the input argument is a string. Get its length.
 			number_of_bits_in_bin_str = len(a_binary_string)
 			# Does the string start with "0b"?
 			if a_binary_string.startswith("0b"):
-				# Yes. Reduce its length by 2.
-				number_of_bits_in_bin_str = number_of_bits_in_bin_str - 2
-				# Is the number of characters of the string less than 1?
-				if number_of_bits_in_bin_str < 1:
-					"""
-						Yes. Don't try to convert the input argument to a
-							list of 0-1 integers.
-					"""
+				# Yes. Trim/remove the 1st 2 chgaracters from it.
+				a_binary_string = a_binary_string[2:]
+			"""
+				Initialize list to store 0, 1 integers from the
+					binary string.
+			"""
+			list_of_int_representation_of_bv = []
+			# Enumerate each character in the binary string.
+			for current_character in a_binary_string:
+				# If the current character is not '1' and '0'?
+				if ('0' != current_character) and ('1' != current_character):
+					# 
 					return None
-				else:
-					
+				"""
+					Cast it into an integer and add it to the
+						list representation of the binary string.
+				"""
+				list_of_int_representation_of_bv.append(int(current_character))
+			return list_of_int_representation_of_bv

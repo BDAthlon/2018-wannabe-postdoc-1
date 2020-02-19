@@ -250,4 +250,5 @@ class data_type_n_number_ops_tester:
 		print("")
 		print("==	Testing class: data_type_n_number_ops.")
 		data_type_n_number_ops_tester.test_is_list_of_numbers()
-		
+		print("")
+		data_type_n_number_ops_tester.test_convert_binary_string_to_list_of_0_1_integers()
