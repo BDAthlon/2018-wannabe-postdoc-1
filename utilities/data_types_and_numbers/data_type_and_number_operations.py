@@ -109,15 +109,46 @@ class data_type_n_number_ops:
 			"""
 			return True
 	# =========================================================
-	#	Method to determine if each object in a list is an integer
-	#		or a floating-point number.
-	#	@param list - A list of objects, for which we want to
-	#					determine if each of its elements is an
-	#					integer or a floating-point number.
-	#	@return - Boolean true if each element of the list is an
-	#				integer or a floating-point number.
-	#	O(n) method, where "n" is the size of the list.
+	#	Method to convert a binary string to a list of 0-1
+	#		integers.
+	#	@param a_binary_string - binary string to be converted
+	#		a list of 0-1 integers.
+	#	@return - A list of 0-1 integers representing the binary
+	#		string.
+	#	@precondition - If the a_binary_string is not a string,
+	#		including a None object, return a None object.
+	#	O(n) method, where "n" is the number of bits of the
+	#		binary string.
 	#	Tested.
 	@staticmethod
-	def is_list_of_numbers(list_of_objects=[]):
-		#convert binary strings to list of 0-1 integers.
+	def convert_binary_string_to_list_of_0_1_integers(a_binary_string):
+		# Is the input argument a 'None' object?
+		if a_binary_string is None:
+			"""
+				Yes. Don't try to convert the input argument to a
+					list of 0-1 integers.
+			"""
+			return None
+		# Is the input argument not a string?
+		elif not isinstance(a_binary_string, str):
+			"""
+				Yes. Don't try to convert the input argument to a
+					list of 0-1 integers.
+			"""
+			return None
+		else:
+			# Else, the input argument is a string. Get its length.
+			number_of_bits_in_bin_str = len(a_binary_string)
+			# Does the string start with "0b"?
+			if a_binary_string.startswith("0b"):
+				# Yes. Reduce its length by 2.
+				number_of_bits_in_bin_str = number_of_bits_in_bin_str - 2
+				# Is the number of characters of the string less than 1?
+				if number_of_bits_in_bin_str < 1:
+					"""
+						Yes. Don't try to convert the input argument to a
+							list of 0-1 integers.
+					"""
+					return None
+				else:
+					

@@ -363,7 +363,7 @@ class misc:
 			#os.system("git push >/dev/null 2>&1")
 			os.system("git push &> /dev/null")
 			go_to_original_working_dir = "cd " + current_wking_dir
-			os.system(go_to_new_working_dir)
+			os.system(go_to_original_working_dir)
 			#print("-------------------------------------------------")
 			return True
 		except:
