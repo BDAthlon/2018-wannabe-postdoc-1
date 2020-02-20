@@ -294,9 +294,16 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: '00011011' == [0,0,0,1,1,0,1,1]			{}"
+		prompt = "	... Test: '00011011' == [0,0,0,1,1,0,1,1]		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if [0,0,0,1,1,0,1,1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("00011011"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: '0b01011' == [0,1,0,1,1]			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if [0,1,0,1,1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("0b01011"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
