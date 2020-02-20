@@ -287,7 +287,7 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: '0' == [0]			{}"
+		prompt = "	... Test: '0' == [0]					{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if [0] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("0"):
 			print(prompt .format("OK"))
@@ -308,7 +308,7 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: '0b0' == [0]			{}"
+		prompt = "	... Test: '0b0' == [0]					{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if [0] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("0b0"):
 			print(prompt .format("OK"))
@@ -329,21 +329,21 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: '1' == [1]			{}"
+		prompt = "	... Test: '1' == [1]					{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if [1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("1"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: '11' == [1,1]			{}"
+		prompt = "	... Test: '11' == [1,1]					{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if [1,1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("11"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: '0b1' == [1]				{}"
+		prompt = "	... Test: '0b1' == [1]					{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if [1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("0b1"):
 			print(prompt .format("OK"))
