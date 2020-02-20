@@ -109,6 +109,56 @@ class data_type_n_number_ops:
 			"""
 			return True
 	# =========================================================
+	#	Method to test if a string is a binary string.
+	#	@param a_string - A string to be checked if it is
+	#		a binary string.
+	#	@return - boolean True, if a_string is a binary string;
+	#		else, return boolean False.
+	#	@preconditions - If 'a_string' is not a string,
+	#		including a None object, return False.
+	#	O(n) method, where "n" is the number of characters in the
+	#		string, or is the number of bits of the binary string.
+	#	Not Tested.
+	@staticmethod
+	def is_string_a_binary_string(a_string):
+		# Is the input argument a 'None' object?
+		if a_binary_string is None:
+			# Yes.
+			return False
+		# Else, is the input argument not a string?
+		elif not isinstance(a_binary_string, str):
+			# Yes.
+			return False
+		# Else, is this string empty? 
+		elif not a_binary_string:
+			# Yes.
+			return False
+		else:
+			"""
+				Else, the input argument is a string.
+				Does the string start with "0b"?
+			"""
+			if a_binary_string.startswith("0b"):
+				# Yes. Trim/remove the 1st 2 chgaracters from it.
+				a_binary_string = a_binary_string[2:]
+			"""
+				Initialize list to store 0, 1 integers from the
+					binary string.
+			"""
+			list_of_int_representation_of_bv = []
+			# Enumerate each character in the binary string.
+			for current_character in a_binary_string:
+				# If the current character is not '1' and '0'?
+				if ('0' != current_character) and ('1' != current_character):
+					# 
+					return False
+				"""
+					Cast it into an integer and add it to the
+						list representation of the binary string.
+				"""
+				list_of_int_representation_of_bv.append(int(current_character))
+			return list_of_int_representation_of_bv
+	# =========================================================
 	#	Method to convert a binary string to a list of 0-1
 	#		integers.
 	#	@param a_binary_string - binary string to be converted
@@ -138,12 +188,13 @@ class data_type_n_number_ops:
 			return None
 		# Else, is this string empty? 
 		elif not a_binary_string:
-			# No.
+			# Yes.
 			return None
 		else:
-			# Else, the input argument is a string. Get its length.
-			number_of_bits_in_bin_str = len(a_binary_string)
-			# Does the string start with "0b"?
+			"""
+				Else, the input argument is a string.
+				Does the string start with "0b"?
+			"""
 			if a_binary_string.startswith("0b"):
 				# Yes. Trim/remove the 1st 2 chgaracters from it.
 				a_binary_string = a_binary_string[2:]
