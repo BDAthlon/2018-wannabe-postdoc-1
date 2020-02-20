@@ -246,9 +246,11 @@ class data_type_n_number_ops_tester:
 	#		being tested.
 	@staticmethod
 	def test_convert_binary_string_to_list_of_0_1_integers():
-		print("	Testing convert_bin...str...to_list_of_0_1_int...() method.")
+		#print("	Testing convert_bin...str...to_list_of_0_1_int...() method.")
+		print("	Testing convert_bin_str_to_list_of_0s_1s() method.")
 		binary_string = None
-		prompt = "	... Test: convert_bin_str_to_list_of_0_1_int(None) == None		{}"
+		#prompt = "	... Test: convert_bin_str_to_list_of_0_1_int(None) == None		{}"
+		prompt = "	... Test: convert_bin_str_to_0_1_list(None) == None		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if None == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers(binary_string):
 			print(prompt .format("OK"))
