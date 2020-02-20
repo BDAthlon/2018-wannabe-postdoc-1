@@ -287,6 +287,13 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: convert_bin_str_to_list('010011') == None		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if [0,1,0,0,1,1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("010011"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =================================================
 	## =========================================================
 	#	Method to test the methods that operate on basic data
