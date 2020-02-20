@@ -308,6 +308,20 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: '0b1101' == [1,1,0,1]			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if [1,1,0,1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("0b1101"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: '0b1000111' == [1,0,0,0,1,1,1]			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if [1,0,0,0,1,1,1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("0b1000111"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =================================================
 	## =========================================================
 	#	Method to test the methods that operate on basic data
