@@ -115,7 +115,7 @@ class data_type_n_number_ops:
 	#		a list of 0-1 integers.
 	#	@return - A list of 0-1 integers representing the binary
 	#		string.
-	#	@precondition - If 'a_binary_string' is not a string,
+	#	@preconditions - If 'a_binary_string' is not a binary string,
 	#		including a None object, return a None object.
 	#	O(n) method, where "n" is the number of bits of the
 	#		binary string.
