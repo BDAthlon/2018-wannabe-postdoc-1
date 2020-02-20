@@ -259,7 +259,7 @@ class data_type_n_number_ops_tester:
 			print(prompt .format("FAIL!!!"))
 		not_a_bin_str = data_type_n_number_ops()
 		#prompt = "	... Test: convert_bin_str_to_list_of_0_1_int(not_a_bin_str) == None	{}"
-		prompt = "	... Test: convert_bin_str_to_0_1_list(not_bin_str) == None	{}"
+		prompt = "	... Test: conv_binstr_to_0_1_list(not_bin_str) == None	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if None == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers(not_a_bin_str):
 			print(prompt .format("OK"))
