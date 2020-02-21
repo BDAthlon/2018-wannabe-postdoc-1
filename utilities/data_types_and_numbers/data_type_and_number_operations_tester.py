@@ -371,7 +371,48 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-	## =================================================
+	## =========================================================
+	#	Method to test the method to check if the input argument
+	#		is a binary string.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(n) method, where "n" is the maximum size of the lists
+	#		being tested.
+	@staticmethod
+	def test_is_binary_string():
+		#print("	Testing is_binary_string() method.")
+		print("	Testing is_binary_string() method.")
+		binary_string = None
+		#prompt = "	... Test: is_binary_string(None) == None		{}"
+		prompt = "	... Test: is_binary_string(None) == None	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string(binary_string):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		not_a_bin_str = data_type_n_number_ops()
+		prompt = "	... Test: is_binary_string(not_a_bin_str) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string(not_a_bin_str):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('') == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string(""):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string(23) == False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if None == data_type_n_number_ops.is_binary_string(23):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the methods that operate on basic data
 	#		types and numbers, which belong to the class
