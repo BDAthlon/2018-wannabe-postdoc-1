@@ -13,6 +13,27 @@
 	Perform operations on basic data types and numbers.
 
 
+
+	Important Notes:
+	+ From \cite{ReinstateMonicaZeta2020}, there exists no basic
+		data type for binary numbers.
+		- Binary representations of numbers that begin with "0b"
+			are integers;
+			when the values of these integers are printed/read,
+				the decimal (numeral system) values of these
+				integers are printed.
+		- To represent an integer as a binary number by default,
+			I need to do so via a custom-defined class.
+			* Since I do not want to extend the parent class
+				'integer' and am only supporting a small number
+				of functions, I am currently not defining a custom
+				class to represent binary numbers.
+		- Also, since I cannot easily obtain the binary representation
+			of a number and operate with it (e.g., determining
+			its base - that is, base 2), I am not providing a
+			method to test if this integer is in its binary
+			representation.
+
 	
 
 
@@ -77,9 +98,9 @@ class data_type_n_number_ops:
 	# =========================================================
 	#	Method to determine if each object in a list is an integer
 	#		or a floating-point number.
-	#	@param list - A list of objects, for which we want to
-	#					determine if each of its elements is an
-	#					integer or a floating-point number.
+	#	@param list_of_objects - A list of objects, for which we
+	#		want to determine if each of its elements is an
+	#		integer or a floating-point number.
 	#	@return - Boolean true if each element of the list is an
 	#				integer or a floating-point number.
 	#	O(n) method, where "n" is the size of the list.
@@ -103,6 +124,43 @@ class data_type_n_number_ops:
 				if not isinstance(elem, (int, float)):
 					return False
 				# Else, proceed to the next element.
+			"""
+				None of the elements in "list_of_objects"
+					is an integer or a floating-point number.
+			"""
+			return True
+	# =========================================================
+	#	Method to determine if each object in a list is an
+	#		integer or a floating-point number in its low or high
+	#		value for a RTW signal or a bit vector.
+	#	@param list - A list of objects, for which we want to
+	#		determine if each of its elements is a low or high
+	#		value of a RTW signal or a bit vector.
+	#	@return - Boolean true if each element of the list is a
+	#		low or high value of a RTW signal or a bit vector;
+	#		else, return boolean False.
+	#	O(n) method, where "n" is the size of the list.
+	#	Tested.
+	@staticmethod
+	def is_list_of_low_high_values(list_of_objects=[], low_high_values=(0,1)):
+		# Is "list_of_numbers" a None object?
+		if list_of_objects is None:
+			# Yes. "list_of_numbers" is a None object.
+			return False
+		# Is "list_of_objects" not a list?
+		elif not isinstance(list_of_objects, list):
+			# Yes. "list_of_objects" is not a list.
+			return False
+		# Else, is list_of_objects an empty list?
+		#elif 0 == len(list_of_objects):
+		elif not list_of_objects:	# More Pythonic solution.
+			return False
+		else:
+			for elem in list_of_objects:
+				if not isinstance(elem, (int, float)):
+					return False
+				# Else, proceed to the next element.
+				elif 
 			"""
 				None of the elements in "list_of_objects"
 					is an integer or a floating-point number.
