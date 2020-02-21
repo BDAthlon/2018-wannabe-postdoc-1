@@ -238,6 +238,68 @@ class data_type_n_number_ops_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
+	#	Method to test the method to check if the input argument
+	#		is a binary string.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(n) method, where "n" is the maximum size of the lists
+	#		being tested.
+	@staticmethod
+	def test_is_binary_string():
+		#print("	Testing is_binary_string() method.")
+		print("	Testing is_binary_string() method.")
+		binary_string = None
+		prompt = "	... Test: is_binary_string(None) == False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string(binary_string):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		not_a_bin_str = data_type_n_number_ops()
+		prompt = "	... Test: is_binary_string(not_a_bin_str) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string(not_a_bin_str):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('') == False			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string(""):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string(23) == False			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string(23):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('23') == False			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string("23"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('0101101') == False			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_binary_string("0101101"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('0b0001101') == False			{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_binary_string("0b0001101"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
 	#	Method to test the method to convert a binary string to a
 	#		list of 0-1 integers.
 	#	@param - None.
@@ -367,47 +429,6 @@ class data_type_n_number_ops_tester:
 		prompt = "	... Test: '0b1000111' == [1,0,0,0,1,1,1]		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if [1,0,0,0,1,1,1] == data_type_n_number_ops.convert_binary_string_to_list_of_0_1_integers("0b1000111"):
-			print(prompt .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt .format("FAIL!!!"))
-	## =========================================================
-	#	Method to test the method to check if the input argument
-	#		is a binary string.
-	#	@param - None.
-	#	@return - Nothing.
-	#	O(n) method, where "n" is the maximum size of the lists
-	#		being tested.
-	@staticmethod
-	def test_is_binary_string():
-		#print("	Testing is_binary_string() method.")
-		print("	Testing is_binary_string() method.")
-		binary_string = None
-		prompt = "	... Test: is_binary_string(None) == None		{}"
-		statistical_analysis.increment_number_test_cases_used()
-		if False == data_type_n_number_ops.is_binary_string(binary_string):
-			print(prompt .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt .format("FAIL!!!"))
-		not_a_bin_str = data_type_n_number_ops()
-		prompt = "	... Test: is_binary_string(not_a_bin_str) == False	{}"
-		statistical_analysis.increment_number_test_cases_used()
-		if False == data_type_n_number_ops.is_binary_string(not_a_bin_str):
-			print(prompt .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: is_binary_string('') == False			{}"
-		statistical_analysis.increment_number_test_cases_used()
-		if False == data_type_n_number_ops.is_binary_string(""):
-			print(prompt .format("OK"))
-			statistical_analysis.increment_number_test_cases_passed()
-		else:
-			print(prompt .format("FAIL!!!"))
-		prompt = "	... Test: is_binary_string(23) == False			{}"
-		statistical_analysis.increment_number_test_cases_used()
-		if False == data_type_n_number_ops.is_binary_string(23):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
