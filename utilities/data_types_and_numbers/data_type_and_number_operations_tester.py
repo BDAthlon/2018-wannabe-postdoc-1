@@ -383,8 +383,7 @@ class data_type_n_number_ops_tester:
 		#print("	Testing is_binary_string() method.")
 		print("	Testing is_binary_string() method.")
 		binary_string = None
-		#prompt = "	... Test: is_binary_string(None) == None		{}"
-		prompt = "	... Test: is_binary_string(None) == None	{}"
+		prompt = "	... Test: is_binary_string(None) == None		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_binary_string(binary_string):
 			print(prompt .format("OK"))
@@ -408,7 +407,7 @@ class data_type_n_number_ops_tester:
 			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: is_binary_string(23) == False		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if None == data_type_n_number_ops.is_binary_string(23):
+		if False == data_type_n_number_ops.is_binary_string(23):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
