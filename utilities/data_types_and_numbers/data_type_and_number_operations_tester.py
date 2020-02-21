@@ -285,6 +285,13 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('0b728346') == False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_binary_string("0b728346"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	... Test: is_binary_string('0101101') == True		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if True == data_type_n_number_ops.is_binary_string("0101101"):
@@ -295,6 +302,20 @@ class data_type_n_number_ops_tester:
 		prompt = "	... Test: is_binary_string('0b0001101') == True		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if True == data_type_n_number_ops.is_binary_string("0b0001101"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('1101') == True		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_binary_string("1101"):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_binary_string('0b10101011') == True		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_binary_string("0b10101011"):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
