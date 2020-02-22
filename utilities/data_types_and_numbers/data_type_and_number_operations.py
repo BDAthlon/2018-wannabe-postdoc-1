@@ -140,6 +140,10 @@ class data_type_n_number_ops:
 	#		low or high value of a RTW signal or a bit vector;
 	#		else, return boolean False.
 	#	O(n) method, where "n" is the size of the list.
+	#
+	#	Notes:
+	#	+ Use (low value, high value) as the 
+	#
 	#	Tested.
 	@staticmethod
 	def is_list_of_low_high_values(list_of_objects=[], low_high_values=(0,1)):
