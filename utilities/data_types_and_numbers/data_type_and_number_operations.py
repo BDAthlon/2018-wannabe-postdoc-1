@@ -37,6 +37,17 @@
 	
 
 
+
+	References:
+	+ [Wikipedia contributors2019]
+		- Wikipedia contributors, "CAR and CDR," in Wikipedia, The Free
+			Encyclopedia: Lisp (programming language), Wikimedia Foundation,
+			San Francisco, CA, August 28, 2019.
+			Available online from Wikipedia, The Free Encyclopedia:
+				Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR;
+				February 19, 2020 was the last accessed date.
+
+
 	Revision History:
 	July 31, 2018			Version 0.1, initial build.
 """
@@ -136,17 +147,40 @@ class data_type_n_number_ops:
 	#	@param list - A list of objects, for which we want to
 	#		determine if each of its elements is a low or high
 	#		value of a RTW signal or a bit vector.
+	#	@low_high_values_1 - A tuple of low value and high value,
+	#		for a random process/signal, specifically for a RTW
+	#		signal.
+	#	@low_high_values_2 - Another tuple of low value and high
+	#		value, for a random process/signal, specifically for
+	#		a RTW signal.
+	#	@low_high_values_3 - Another tuple of low value and high
+	#		value, for a random process/signal, specifically for
+	#		a RTW signal.
+	#	@low_high_values_4 - Another tuple of low value and high
+	#		value, for a random process/signal, specifically for
+	#		a RTW signal.
+	#	@low_high_values_5 - Another tuple of low value and high
+	#		value, for a random process/signal, specifically for
+	#		a bit vector.
 	#	@return - Boolean true if each element of the list is a
 	#		low or high value of a RTW signal or a bit vector;
 	#		else, return boolean False.
 	#	O(n) method, where "n" is the size of the list.
 	#
 	#	Notes:
-	#	+ Use (low value, high value) as the 
+	#	+ Use (low value, high value) as a tuple representing the
+	#		low and high values of a RTW signal \#1, \#2, \#3, and
+	#		\#4: low_high_values_1, low_high_values_2,
+	#		low_high_values_3, and low_high_values_4.
+	#	+ Use (low value, high value) as a tuple representing the
+	#		low and high values of a bit vector, low_high_values_5:
+	#		0 and 1.
+	#
+	#	[Wikipedia contributors2019]
 	#
 	#	Tested.
 	@staticmethod
-	def is_list_of_low_high_values(list_of_objects=[], low_high_values=(0,1)):
+	def is_list_of_low_high_values(list_of_objects=[], low_high_values_1=(-1,0.5),low_high_values_2=(-1,1),low_high_values_3=(-0.5,0.5),low_high_values_4=(-0.5,1),low_high_values_5=(0,1)):
 		# Is "list_of_numbers" a None object?
 		if list_of_objects is None:
 			# Yes. "list_of_numbers" is a None object.
