@@ -353,7 +353,8 @@ class misc:
 			new_working_dir = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 			go_to_new_working_dir = "cd " + new_working_dir
 			print(">>>	pwd is:",go_to_new_working_dir,"=")
-			os.system(go_to_new_working_dir)
+			#os.system(go_to_new_working_dir)
+			os.system("cd /Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization")
 			os.system("pwd")
 			#os.system("git add -A -f >/dev/null 2>&1")
 			os.system("git add -A -f &> /dev/null")
