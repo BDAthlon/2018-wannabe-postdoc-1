@@ -39,13 +39,14 @@
 
 
 	References:
-	+ [Wikipedia contributors2019]
+	+ \cite{WikipediaContributors2019i}
 		- Wikipedia contributors, "CAR and CDR," in Wikipedia, The Free
 			Encyclopedia: Lisp (programming language), Wikimedia Foundation,
 			San Francisco, CA, August 28, 2019.
 			Available online from Wikipedia, The Free Encyclopedia:
 				Lisp (programming language) at: https://en.wikipedia.org/wiki/CAR_and_CDR;
 				February 19, 2020 was the last accessed date.
+
 
 
 	Revision History:
@@ -118,9 +119,9 @@ class data_type_n_number_ops:
 	#	Tested.
 	@staticmethod
 	def is_list_of_numbers(list_of_objects=[]):
-		# Is "list_of_numbers" a None object?
+		# Is "list_of_objects" a None object?
 		if list_of_objects is None:
-			# Yes. "list_of_numbers" is a None object.
+			# Yes. "list_of_objects" is a None object.
 			return False
 		# Is "list_of_objects" not a list?
 		elif not isinstance(list_of_objects, list):
@@ -136,9 +137,46 @@ class data_type_n_number_ops:
 					return False
 				# Else, proceed to the next element.
 			"""
-				None of the elements in "list_of_objects"
-					is an integer or a floating-point number.
+				Each elements in "list_of_objects" is an integer
+					or a floating-point number.
 			"""
+			return True
+	# =========================================================
+	#	Method to determine if the input argument is a tuple,
+	#		and if each object in the tuple is a tuple.
+	#	@param tuple_of_tuples - A tuple of tuples, for which we
+	#		want to determine if each of its elements is a tuple.
+	#	@return - Boolean true if the input argument is a tuple,
+	#		and each element of the tuple is a tuple, too.
+	#	O(nm) method, where "n" is the size of the the tuple of
+	#		tuples, and m is the size of the largest tuple in
+	#		the tuple of tuples.
+	#	Tested.
+	@staticmethod
+	def is_tuple_of_tuples(tuple_of_tuples=()):
+		# Is "tuple_of_tuples" a None object?
+		if tuple_of_tuples is None:
+			# Yes. "tuple_of_tuples" is a None object.
+			return False
+		# Is "tuple_of_tuples" not a tuple?
+		elif not isinstance(tuple_of_tuples, tuple):
+			# Yes. "tuple_of_tuples" is not a tuple.
+			return False
+		# Else, is tuple_of_tuples an empty tuple?
+		#elif 0 == len(tuple_of_tuples):
+		elif not tuple_of_tuples:	# More Pythonic solution.
+			return False
+		else:
+			# For each element in the tuple of tuples...
+			for elem in tuple_of_tuples:
+				# Is this element a tuple?
+				if not isinstance(elem, tuple):
+					# No.
+					return False
+				# Else, proceed to the next element.
+				else:
+					continue
+			#Each element in "tuple_of_tuples" is a tuple.
 			return True
 	# =========================================================
 	#	Method to determine if each object in a list is an
@@ -147,40 +185,32 @@ class data_type_n_number_ops:
 	#	@param list - A list of objects, for which we want to
 	#		determine if each of its elements is a low or high
 	#		value of a RTW signal or a bit vector.
-	#	@low_high_values_1 - A tuple of low value and high value,
-	#		for a random process/signal, specifically for a RTW
-	#		signal.
-	#	@low_high_values_2 - Another tuple of low value and high
-	#		value, for a random process/signal, specifically for
-	#		a RTW signal.
-	#	@low_high_values_3 - Another tuple of low value and high
-	#		value, for a random process/signal, specifically for
-	#		a RTW signal.
-	#	@low_high_values_4 - Another tuple of low value and high
-	#		value, for a random process/signal, specifically for
-	#		a RTW signal.
-	#	@low_high_values_5 - Another tuple of low value and high
-	#		value, for a random process/signal, specifically for
-	#		a bit vector.
-	#	@return - Boolean true if each element of the list is a
+	#	@low_high_values - A tuple of tuples, such that each tuple
+	#		is a tuple of low value and high value for a random
+	#		process/signal, specifically for a RTW signal or bit
+	#		vector (or 0s and 1s).
+	#	@return - boolean True if each element of the list is a
 	#		low or high value of a RTW signal or a bit vector;
 	#		else, return boolean False.
 	#	O(n) method, where "n" is the size of the list.
 	#
 	#	Notes:
-	#	+ Use (low value, high value) as a tuple representing the
-	#		low and high values of a RTW signal \#1, \#2, \#3, and
-	#		\#4: low_high_values_1, low_high_values_2,
-	#		low_high_values_3, and low_high_values_4.
-	#	+ Use (low value, high value) as a tuple representing the
-	#		low and high values of a bit vector, low_high_values_5:
-	#		0 and 1.
+	#	+ Use low_high_values=(low value, high value) as a tuple,
+	#		or low_high_values = ((low value 1, high value 1),
+	#		(low value 2, high value 2), ...,
+	#		(low value n, high value n)) as a tuple of tuples,
+	#		representing the low and high values of a RTW signal
+	#		or a bit vector.
+	#		That way, (low value, high value) implies that the
+	#			random process/signal/string represents only a
+	#			random process/signal/string.
 	#
 	#	[Wikipedia contributors2019]
 	#
-	#	Tested.
+	#	Not Tested.
 	@staticmethod
-	def is_list_of_low_high_values(list_of_objects=[], low_high_values_1=(-1,0.5),low_high_values_2=(-1,1),low_high_values_3=(-0.5,0.5),low_high_values_4=(-0.5,1),low_high_values_5=(0,1)):
+	#def is_list_of_low_high_values(list_of_objects=[], low_high_values=((-1,0.5), (-1,1), (-0.5,0.5), (-0.5,1), (0,1)):
+	def is_list_of_low_high_values(list_of_objects=[], low_high_values=(-1,0.5)):
 		# Is "list_of_numbers" a None object?
 		if list_of_objects is None:
 			# Yes. "list_of_numbers" is a None object.
@@ -192,13 +222,23 @@ class data_type_n_number_ops:
 		# Else, is list_of_objects an empty list?
 		#elif 0 == len(list_of_objects):
 		elif not list_of_objects:	# More Pythonic solution.
+			# Yes.
 			return False
+		# Else, the list of objects is not an empty list.
 		else:
+			# For each object in the list.
 			for elem in list_of_objects:
+				# Is this object an integer or floating-point number?
 				if not isinstance(elem, (int, float)):
+					# No.
 					return False
 				# Else, proceed to the next element.
-				elif 
+				elif elem not in low_high_values:
+					return False
+				# Else, proceed to the next element.
+				else:
+					# Now, pass or continue.
+					continue
 			"""
 				None of the elements in "list_of_objects"
 					is an integer or a floating-point number.

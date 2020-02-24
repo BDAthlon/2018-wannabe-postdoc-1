@@ -353,6 +353,7 @@ class misc:
 			new_working_dir = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 			go_to_new_working_dir = "cd " + new_working_dir
 			os.system(go_to_new_working_dir)
+			os.system("pwd")
 			#os.system("git add -A -f >/dev/null 2>&1")
 			os.system("git add -A -f &> /dev/null")
 			#print("-	Added. Commit now.")
@@ -364,6 +365,7 @@ class misc:
 			os.system("git push &> /dev/null")
 			go_to_original_working_dir = "cd " + current_wking_dir
 			os.system(go_to_original_working_dir)
+			os.system("pwd")
 			#print("-------------------------------------------------")
 			return True
 		except:

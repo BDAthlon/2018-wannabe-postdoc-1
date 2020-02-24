@@ -238,6 +238,40 @@ class data_type_n_number_ops_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 	## =========================================================
+	#	Method to test the method determining if the input parameter
+	#		is a tuple and if each object of the tuple is a tuple, too.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(nm) method, where "n" is the size of the the tuple of
+	#		tuples, and m is the size of the largest tuple in
+	#		the tuple of tuples.
+	@staticmethod
+	def test_is_tuple_of_tuples():
+		print("	Testing is_tuple_of_tuples() method.")
+		tup_of_tups = None
+		prompt = "	... Test: is_tuple_of_tuples(None) == False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		not_a_tuple_obj = data_type_n_number_ops()
+		prompt = "	... Test: is_tuple_of_tuples(not_a_tuple_obj) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(not_a_tuple_obj):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	... Test: is_tuple_of_tuples(()) == False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(()):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
 	#	Method to test the method to check if the input argument
 	#		is a binary string.
 	#	@param - None.
@@ -467,6 +501,8 @@ class data_type_n_number_ops_tester:
 		print("")
 		print("==	Testing class: data_type_n_number_ops.")
 		data_type_n_number_ops_tester.test_is_list_of_numbers()
+		print("")
+		data_type_n_number_ops_tester.test_is_tuple_of_tuples()
 		print("")
 		data_type_n_number_ops_tester.test_is_binary_string()
 		print("")
