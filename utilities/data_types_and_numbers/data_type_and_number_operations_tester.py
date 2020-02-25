@@ -305,7 +305,7 @@ class data_type_n_number_ops_tester:
 		a = data_type_n_number_ops()
 		b = data_type_n_number_ops()
 		c = data_type_n_number_ops()
-		d = ((8,9.1,0.32),(a,b),("Hola todos!",23,95.3,"Ciao mondo!"),(c,))
+		d = ((8,9.1,0.32),(a,b),(7,4,8,9,5),("Hola todos!",23,95.3,"Ciao mondo!"),(c,))
 		prompt = "	... Test: is_t_of_ts(tuple of a tuple - 3) == True	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if True == data_type_n_number_ops.is_tuple_of_tuples(d):
@@ -321,7 +321,15 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		d = ((8,9.1,0.32),"Koszonom",("Hola todos!",23,95.3,"Ciao mondo!"),c)
+		d = ((8,9.1,0.32),"Koszonom",("Hola todos!",23,95.3,"Ciao mondo!"))
+		prompt = "	... Test: is_t_of_ts(tuple of tuples & object) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(d):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		d = ((8,9.1,0.32),586,("Hola todos!",23,95.3,"Ciao mondo!"))
 		prompt = "	... Test: is_t_of_ts(tuple of tuples & object) == False	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_tuple_of_tuples(d):
