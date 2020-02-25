@@ -242,9 +242,10 @@ class data_type_n_number_ops_tester:
 	#		is a tuple and if each object of the tuple is a tuple, too.
 	#	@param - None.
 	#	@return - Nothing.
-	#	O(nm) method, where "n" is the size of the the tuple of
-	#		tuples, and m is the size of the largest tuple in
-	#		the tuple of tuples.
+	#	O(nm) method, where 'n' is the size of the the tuple of
+	#		tuples (or number of subtuples/sub-tuples), and 'm' is
+	#		the size of the largest tuple (or subtuples/sub-tuples)
+	#		in the tuple of tuples.
 	@staticmethod
 	def test_is_tuple_of_tuples():
 		print("	Testing is_tuple_of_tuples() method.")
@@ -314,7 +315,7 @@ class data_type_n_number_ops_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		d = ((8,9.1,0.32),(a,b),("Hola todos!",23,95.3,"Ciao mondo!"),c)
-		prompt = "	... Test: is_t_of_ts(tuple of tuples & object) == False	{}"
+		prompt = "	... Test: is_t_of_ts(tup of tups & object) == False	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_tuple_of_tuples(d):
 			print(prompt .format("OK"))
@@ -322,7 +323,7 @@ class data_type_n_number_ops_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		d = ((8,9.1,0.32),"Koszonom",("Hola todos!",23,95.3,"Ciao mondo!"))
-		prompt = "	... Test: is_t_of_ts(tuple of tuples & object) == False	{}"
+		prompt = "	... Test: is_t_of_ts(tup of tups & string) == False	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_tuple_of_tuples(d):
 			print(prompt .format("OK"))
@@ -330,9 +331,37 @@ class data_type_n_number_ops_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		d = ((8,9.1,0.32),586,("Hola todos!",23,95.3,"Ciao mondo!"))
-		prompt = "	... Test: is_t_of_ts(tuple of tuples & object) == False	{}"
+		prompt = "	... Test: is_t_of_ts(tup of tups & number) == False	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_tuple_of_tuples(d):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+	## =========================================================
+	#	Method to test the method determining if an element 'elem'
+	#		is in the given input argument, which is a tuple of
+	#		tuples.
+	#	@param - None.
+	#	@return - Nothing.
+	#	O(nm) method, where 'n' is the size of the the tuple of
+	#		tuples (or number of subtuples/sub-tuples), and 'm' is
+	#		the size of the largest tuple (or subtuples/sub-tuples)
+	#		in the tuple of tuples.
+	@staticmethod
+	def test_is_elem_in_tuple_of_tuples():
+		print("	Testing is_elem_in_tuple_of_tuples() method.")
+		prompt = "	... i/p arguments: (None,None) => False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(None,None):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		not_a_tuple_obj = data_type_n_number_ops()
+		prompt = "	... i/p arguments: (None,None) => False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(not_a_tuple_obj,None):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -569,6 +598,8 @@ class data_type_n_number_ops_tester:
 		data_type_n_number_ops_tester.test_is_list_of_numbers()
 		print("")
 		data_type_n_number_ops_tester.test_is_tuple_of_tuples()
+		print("")
+		data_type_n_number_ops_tester.test_is_elem_in_tuple_of_tuples()
 		print("")
 		data_type_n_number_ops_tester.test_is_binary_string()
 		print("")

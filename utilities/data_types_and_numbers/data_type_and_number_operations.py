@@ -348,3 +348,38 @@ class data_type_n_number_ops:
 				"""
 				list_of_int_representation_of_bv.append(int(current_character))
 			return list_of_int_representation_of_bv
+	# =========================================================
+	#	Method to check if an element is in a tuple of tuples.
+	#	@param elem - An element that we want to check if it is in
+	#		the tuple of tuples, tuple_of_tuples.
+	#	@param tuple_of_tuples - A tuple of tuples to be converted
+	#		a list of 0-1 integers.
+	#	@return - boolean True, if 'elem' is in 'tuple_of_tuples';
+	#		else, return boolean False.
+	#	@preconditions - If 'tuple_of_tuples' is not a tuple of tuples,
+	#		return False.
+	#	O(nm) method, where 'n' is the number of subtuples/sub-tuple
+	#		of the tuple and 'm' is the number of elements in the
+	#		largest subtuples/sub-tuple.
+	#	Not Tested.
+	@staticmethod
+	def is_elem_in_tuple_of_tuples(elem,tuple_of_tuples):
+		"""
+		if elem is not None:
+			return False
+		"""
+		# Is 'tuple_of_tuples' a tuple of tuples?
+		if not data_type_n_number_ops.is_tuple_of_tuples(tuple_of_tuples):
+			# No.
+			return False
+		else:
+			# Yes. Enumerate each subtuple/sub-tuple in the tuple.
+			for index, cur_tuple in enumerate(tuple_of_tuples):
+				if elem in cur_tuple:
+					# 'elem' exists in 'tuple_of_tuples'.
+					return True
+				else:
+					# Or, continue
+					pass
+			# 'elem' does not exist in 'tuple_of_tuples'.
+			return False
