@@ -248,7 +248,6 @@ class data_type_n_number_ops_tester:
 	@staticmethod
 	def test_is_tuple_of_tuples():
 		print("	Testing is_tuple_of_tuples() method.")
-		tup_of_tups = None
 		prompt = "	... Test: is_tuple_of_tuples(None) == False		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_tuple_of_tuples(None):
@@ -267,6 +266,65 @@ class data_type_n_number_ops_tester:
 		prompt = "	... Test: is_tuple_of_tuples(()) == False		{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_tuple_of_tuples(()):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		tup_of_tups = (1.9,2.8,3,7,4,6,5.5)
+		prompt = "	... Test: is_tup_of_tups(tuple of numbers) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(tup_of_tups):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		tup_of_tups = (1.9,2.8,"Ciao mondo!",3,7,4,6,5.5,"Hola todos!")
+		prompt = "	... Test: is...(tuple of numbers & strings) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(tup_of_tups):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		tup_of_tups = ((1.9,2.8,"Ciao mondo!",3,7,4,6,5.5,"Hola todos!"),)
+		prompt = "	... Test: is_tup_of_tups(tuple of a tuple - 1) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_tuple_of_tuples(tup_of_tups):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		tup_of_tups = ((1.2,2.3,3.4),(9,8,7,6),(6,5))
+		prompt = "	... Test: is_t_of_ts(tuple of a tuple - 2) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_tuple_of_tuples(tup_of_tups):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		a = data_type_n_number_ops()
+		b = data_type_n_number_ops()
+		c = data_type_n_number_ops()
+		d = ((8,9.1,0.32),(a,b),("Hola todos!",23,95.3,"Ciao mondo!"),(c,))
+		prompt = "	... Test: is_t_of_ts(tuple of a tuple - 3) == True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_tuple_of_tuples(d):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		d = ((8,9.1,0.32),(a,b),("Hola todos!",23,95.3,"Ciao mondo!"),c)
+		prompt = "	... Test: is_t_of_ts(tuple of tuples & object) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(d):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		d = ((8,9.1,0.32),"Koszonom",("Hola todos!",23,95.3,"Ciao mondo!"),c)
+		prompt = "	... Test: is_t_of_ts(tuple of tuples & object) == False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_tuple_of_tuples(d):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:

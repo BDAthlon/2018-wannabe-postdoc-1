@@ -352,10 +352,10 @@ class misc:
 			#new_working_dir = config_manager.result_repository
 			new_working_dir = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 			go_to_new_working_dir = "cd " + new_working_dir
-			print(">>>	pwd is:",go_to_new_working_dir,"=")
+			#print(">>>	pwd is:",go_to_new_working_dir,"=")
 			#os.system(go_to_new_working_dir)
 			os.chdir("/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization")
-			os.system("pwd")
+			#os.system("pwd")
 			#os.system("ls -al")
 			#os.system("git add -A -f >/dev/null 2>&1")
 			os.system("git add -A -f &> /dev/null")
@@ -369,7 +369,7 @@ class misc:
 			go_to_original_working_dir = "cd " + current_wking_dir
 			os.system(go_to_original_working_dir)
 			os.chdir(current_wking_dir)
-			os.system("pwd")
+			#os.system("pwd")
 			#print("-------------------------------------------------")
 			return True
 		except:

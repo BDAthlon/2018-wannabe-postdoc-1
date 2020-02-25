@@ -450,7 +450,7 @@ class date_time_operations_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		# -----------------------------------------------------------------
-		print("	Testing date_time_operations.check_filename_date_time_format() method.")
+		print("	Testing date_time_operations.check_filename_date_time_format().")
 		prompt = "	... Test: single error, dd				{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if not date_time_operations.check_filename_date_time_format("54-9-2018-13-58-59-734507.txt"):
