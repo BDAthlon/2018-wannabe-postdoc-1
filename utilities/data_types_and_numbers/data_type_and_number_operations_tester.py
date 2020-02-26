@@ -371,6 +371,35 @@ class data_type_n_number_ops_tester:
 		b = data_type_n_number_ops()
 		c = data_type_n_number_ops()
 		tuple_of_subtuples = ((19,28,37,46,5.5),("Ciao mondo!", "Koszonom", "Hola todos"),(a,b,not_a_tuple_obj,c))
+		prompt = "	i/p args: ('not found',tuple_of_tuples) => False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples("not found",tuple_of_subtuples):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	i/p args: (21.3243,tuple_of_tuples) => False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(21.3243,tuple_of_subtuples):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		prompt = "	i/p args: (6734,tuple_of_tuples) => False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(6734,tuple_of_subtuples):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		d = data_type_n_number_ops()
+		prompt = "	i/p args: (21.3243,tuple_of_tuples) => False	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(21.3243,tuple_of_subtuples):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	i/p args: (not_a_tuple_obj,tuple_of_tuples) => True	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples(not_a_tuple_obj,tuple_of_subtuples):
