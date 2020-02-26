@@ -361,7 +361,7 @@ class data_type_n_number_ops:
 	#	O(nm) method, where 'n' is the number of subtuples/sub-tuple
 	#		of the tuple and 'm' is the number of elements in the
 	#		largest subtuples/sub-tuple.
-	#	Not Tested.
+	#	Tested.
 	@staticmethod
 	def is_elem_in_tuple_of_tuples(elem,tuple_of_tuples):
 		"""

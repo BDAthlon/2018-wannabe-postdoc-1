@@ -371,6 +371,13 @@ class data_type_n_number_ops_tester:
 		b = data_type_n_number_ops()
 		c = data_type_n_number_ops()
 		tuple_of_subtuples = ((19,28,37,46,5.5),("Ciao mondo!", "Koszonom", "Hola todos"),(a,b,not_a_tuple_obj,c))
+		prompt = "	i/p args: (None,tuple_of_tuples) => False		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(None,tuple_of_subtuples):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 		prompt = "	i/p args: ('not found',tuple_of_tuples) => False	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples("not found",tuple_of_subtuples):
@@ -407,7 +414,7 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	i/p args: (46,tuple_of_tuples) => True		{}"
+		prompt = "	i/p args: (46,tuple_of_tuples) => True			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples(46,tuple_of_subtuples):
 			print(prompt .format("OK"))
@@ -421,9 +428,17 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		prompt = "	i/p args: ('Hola todos',tuple_of_tuples) => True	{}"
+		prompt = "	i/p args: (object_b,tuple_of_tuples) => True		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples("Hola todos",tuple_of_subtuples):
+		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples(b,tuple_of_subtuples):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		e = (tuple_of_subtuples,("Laszlo Tabori","Albert-Laszlo Barabasi",12.239,None))
+		prompt = "	i/p args: (None,another_tuple_of_tuples) => True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples(None,e):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
