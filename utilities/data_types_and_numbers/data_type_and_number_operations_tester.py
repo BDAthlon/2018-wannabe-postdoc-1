@@ -347,7 +347,7 @@ class data_type_n_number_ops_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		e = ((8,9.1,0.32,834.21,4,21.1),(a,b,d),("Hola todos!",23,95.3,"Ciao mondo!"),("Laszlo Tabori","Albert-Laszlo Barabasi",12.239,None),(32,54,76,(9.1,8.2,3.8)))
-		prompt = "	... is_t_of_ts(tup of tups) == True, subtuple		{}"
+		prompt = "	... is_t_of_ts(t of ts) == True, subtup with tuple	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if True == data_type_n_number_ops.is_tuple_of_tuples(d):
 			print(prompt .format("OK"))
