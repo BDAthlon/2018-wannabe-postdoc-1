@@ -380,6 +380,10 @@ class data_type_n_number_ops:
 					return True
 				else:
 					# Or, continue
+					"""
+						print(">	elem is:", elem,"=")
+						print(">	cur_tuple is:", cur_tuple,"=")
+					"""
 					pass
 			# 'elem' does not exist in 'tuple_of_tuples'.
 			return False

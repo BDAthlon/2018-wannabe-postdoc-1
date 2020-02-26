@@ -367,8 +367,17 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		tuple_of_subtuples = ((19,28,37,46,5.5),(""))
-		tup_of_tups
+		a = data_type_n_number_ops()
+		b = data_type_n_number_ops()
+		c = data_type_n_number_ops()
+		tuple_of_subtuples = ((19,28,37,46,5.5),("Ciao mondo!", "Koszonom", "Hola todos"),(a,b,not_a_tuple_obj,c))
+		prompt = "	i/p args: (not_a_tuple_obj,tuple_of_tuples) => True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples(not_a_tuple_obj,tuple_of_subtuples):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method to check if the input argument
 	#		is a binary string.
