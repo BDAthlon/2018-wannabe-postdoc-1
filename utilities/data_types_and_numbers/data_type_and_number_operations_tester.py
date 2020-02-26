@@ -338,6 +338,22 @@ class data_type_n_number_ops_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		d = ((8,9.1,0.32,834.21,4,21.1),(a,b,d),("Hola todos!",23,95.3,"Ciao mondo!"))
+		prompt = "	... Test: is_t_of_ts(tup of tups) == True		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_tuple_of_tuples(d):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		e = ((8,9.1,0.32,834.21,4,21.1),(a,b,d),("Hola todos!",23,95.3,"Ciao mondo!"),("Laszlo Tabori","Albert-Laszlo Barabasi",12.239,None),(32,54,76,(9.1,8.2,3.8)))
+		prompt = "	... is_t_of_ts(tup of tups) == True, subtuple		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_tuple_of_tuples(d):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
 	## =========================================================
 	#	Method to test the method determining if an element 'elem'
 	#		is in the given input argument, which is a tuple of
@@ -439,6 +455,14 @@ class data_type_n_number_ops_tester:
 		prompt = "	i/p args: (None,another_tuple_of_tuples) => True	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples(None,e):
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		e = (tuple_of_subtuples,("Laszlo Tabori","Albert-Laszlo Barabasi",12.239,None),(32,54,76,(9.1,8.2,3.8)))
+		prompt = "	i/p args: (a_tuple,another_tuple_of_tuples) => True	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if True == data_type_n_number_ops.is_elem_in_tuple_of_tuples((9.1,8.2,3.8),e):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
@@ -672,6 +696,7 @@ class data_type_n_number_ops_tester:
 		print("")
 		print("")
 		print("==	Testing class: data_type_n_number_ops.")
+		print("")
 		data_type_n_number_ops_tester.test_is_list_of_numbers()
 		print("")
 		data_type_n_number_ops_tester.test_is_tuple_of_tuples()
