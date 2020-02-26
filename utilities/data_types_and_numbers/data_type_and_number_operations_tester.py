@@ -351,7 +351,7 @@ class data_type_n_number_ops_tester:
 	@staticmethod
 	def test_is_elem_in_tuple_of_tuples():
 		print("	Testing is_elem_in_tuple_of_tuples() method.")
-		prompt = "	... i/p arguments: (None,None) => False		{}"
+		prompt = "	... i/p arguments: (None,None) => False			{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(None,None):
 			print(prompt .format("OK"))
@@ -359,13 +359,16 @@ class data_type_n_number_ops_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		not_a_tuple_obj = data_type_n_number_ops()
-		prompt = "	... i/p arguments: (None,None) => False		{}"
+		a_tuple = (1234,56.789,"Ciao mondo")
+		prompt = "	... i/p args: (not_a_tuple_obj,tuple) => False		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(not_a_tuple_obj,None):
+		if False == data_type_n_number_ops.is_elem_in_tuple_of_tuples(not_a_tuple_obj,a_tuple):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
+		tuple_of_subtuples = ((19,28,37,46,5.5),(""))
+		tup_of_tups
 	## =========================================================
 	#	Method to test the method to check if the input argument
 	#		is a binary string.
