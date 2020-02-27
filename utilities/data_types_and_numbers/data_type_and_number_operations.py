@@ -185,6 +185,10 @@ class data_type_n_number_ops:
 	#	@param list - A list of objects, for which we want to
 	#		determine if each of its elements is a low or high
 	#		value of a RTW signal or a bit vector.
+	#		This list of objects can have low and/or high values
+	#			multiple random processes that is combined, superposed,
+	#			or superimposed by multiple RTW signals (or bit
+	#			vectors).
 	#	@low_high_values - A tuple of tuples, such that each tuple
 	#		is a tuple of low value and high value for a random
 	#		process/signal, specifically for a RTW signal or bit
