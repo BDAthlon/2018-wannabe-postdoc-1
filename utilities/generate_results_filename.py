@@ -108,10 +108,12 @@ class generate_filename:
 	#		experimental/simulation run, or execution of the
 	#		automated regression testing (for software) or
 	#		automated regression verification.
+	#	@param filename_suffix - suffix for filename, before the
+	#		file extension.
 	#	@return - List of input arguments to the program.
 	#	O(1) method.
 	@staticmethod
-	def create_filename():
+	def create_filename(filename_suffix="-simulation-experimental-results"):
 		"""
 			Generate filename to store experimental/simulation
 				results, from characterizing the standard cell
@@ -137,7 +139,7 @@ class generate_filename:
 		print(now.isoformat())
 		print("")
 		"""
-		current_time = str(now.day) + "-" + str(now.month) + "-" + str(now.year) + "-" + str(now.hour) + "-"  + str(now.minute) + "-"  + str(now.second) + "-"  + str(now.microsecond) + ".txt"
+		current_time = str(now.day) + "-" + str(now.month) + "-" + str(now.year) + "-" + str(now.hour) + "-"  + str(now.minute) + "-"  + str(now.second) + "-"  + str(now.microsecond) + filename_suffix + ".txt"
 		#print(current_time)
 		return current_time
 	# ============================================================

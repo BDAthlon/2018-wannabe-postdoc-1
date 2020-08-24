@@ -305,12 +305,12 @@ class incremental_test_automation:
 
 #	If this is executed as a Python script,
 if __name__ == "__main__":
-	"""
+	#"""
 	# Redirect standard output and standard error to an output file.
 	results_file_object = file_io_operations.open_file_object_write_results()
 	file_io_operations.redirect_std_op_to_file_obj(results_file_object)
 	file_io_operations.redirect_std_err_to_file_obj(results_file_object)
-	"""
+	#"""
 	print("==================================================")
 	print("Automating incremental regression testing of my software")
 	print("	solution for genetic technology mapping.")
@@ -393,12 +393,12 @@ if __name__ == "__main__":
 	# Close the file object for reading.
 	print("=	Close the file objects for reading (and writing).")
 	file_io_operations.close_file_object(ip_file_obj)
-	"""
+	#"""
 	file_io_operations.close_file_object(results_file_object)
 	# Stop redirecting standard output and standard to an output file.
 	file_io_operations.stop_redirecting_std_op()
 	file_io_operations.stop_redirecting_std_err()
-	"""
+	#"""
 #	print("<<	I can see this in standard output, printed in the Terminal.")
 	if misc.add_commit_push_updates_to_git_repository("Update build: Added access to Git repository"):
 		print("Update repository of simulation/experimental results.")
