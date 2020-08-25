@@ -94,6 +94,33 @@ class file_io_operations_tester:
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
+	def test_file_io_operations_get_filename_suffixes():
+		print("	... Testing method to access filename suffixes.")
+		set_of_suffixes = file_io_operations.get_filename_suffixes()
+		suffix_1 = file_io_operations.results_suffix
+		suffix_2 = file_io_operations.regression_testing_results_suffix
+		prompt = "	Test: is suffix_1 & suffix_1 in the set 	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if (suffix_1 in set_of_suffixes) and (suffix_2 in set_of_suffixes):
+			print(prompt .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("	FAIL!!!"))
+		suffix_ne = "non-existent filename suffix"
+		prompt = "	Test: is non-existent fname suffix in set	{}"
+		statistical_analysis.increment_number_test_cases_used()
+		if not (suffix_ne in set_of_suffixes):
+			print(prompt .format("	OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("	FAIL!!!"))
+	## =========================================================
+	#	Method to test the methods that perform file I/O operations
+	#		with an invalid file.
+	#	@param - Nothing
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
 	def test_file_io_operations_with_invalid_file():
 		print("	... Testing file operations with invalid file.")
 		filename = "nonsense"
@@ -165,7 +192,7 @@ class file_io_operations_tester:
 		prompt = "	Test: file_io_operations.open_file_object_write(...)	{}"
 		statistical_analysis.increment_number_test_cases_used()
 		try:
-			f_obj = file_io_operations.open_file_object_write(filename)
+			f_obj = file_io_operations.open_file_object_write(file_io_operations.result_repository, file_io_operations.results_suffix)
 			print(prompt .format("FAIL!!!"))
 		except:
 			print(prompt .format("OK"))
@@ -282,6 +309,7 @@ class file_io_operations_tester:
 	@staticmethod
 	def test_file_io_operations():
 		print("==	Testing class: file_io_operations.")
+		file_io_operations_tester.test_file_io_operations_get_filename_suffixes()
 		file_io_operations_tester.test_file_io_operations_with_invalid_file()
 		file_io_operations_tester.test_file_io_operations_with_valid_file()
 		file_io_operations_tester.test_file_io_operations_on_files_with_same_content()

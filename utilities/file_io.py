@@ -111,8 +111,7 @@ class file_io_operations:
 	# Automated regression software testing results.
 	regression_testing_results_location = "./output/"
 	# Filename suffix for automated regression software testing results.
-	regression_testing_results_suffix = "regression-testing-results"
-	#
+	regression_testing_results_suffix = "-regression-testing-results"
 	# ============================================================
 	##	Method to check if a path to file is valid.
 	#	@param filename - Path to a file.
@@ -144,18 +143,22 @@ class file_io_operations:
 	#	@return file object op_file_obj that enables writing to the
 	#		file named "filename".
 	#	@throws Exception for invalid path to the file.
+	#		Deprecated. Create the file object, even for invalid paths.
 	#	O(1) method.
 	@staticmethod
 	def open_file_object_write(filename):
+		"""
 		if not file_io_operations.is_path_valid(filename):
 			op_file_obj = open(filename, 'w')
 			return op_file_obj
 		else:
 			raise Exception("File Write Operation: Path to file is valid.")
+		"""
+		#
+		op_file_obj = open(filename, 'w')
+		return op_file_obj
 	# ============================================================
 	##	Method to open a new file object for write/output operations.
-	#	If a file exists with the name "filename", delete the file
-	#		and overwrite the file.
 	#	@param filename - Path to a file.
 	#	@return file object op_file_obj that enables writing to the
 	#		file named "filename".
@@ -181,20 +184,14 @@ class file_io_operations:
 	#	@return file object "results_file_obj" that writes data
 	#		containing simulation and/or experimental results.
 	#	O(1) method.
-	#
-	#	IMPORTANT NOTE:
-	#	Assigning default values to input arguments using static class
-	#		variables will cause the Python interpreter to fail.
-	#	Hence, I am assigning it to specific values, rather than variables.
 	@staticmethod
-	#def open_file_object_write_results(location=file_io_operations.result_repository, filname_suffix=file_io_operations.results_suffix):
 	def open_file_object_write_results(location="/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization", filname_suffix="-simulation-experimental-results"):
 		# Determine path to store simulation/experimental results.
-		results_filename = generate_filename.create_filename()
+		results_filename = generate_filename.create_filename(filname_suffix)
 		# Tokenize this filename (DD-MM-YY-HR-MN-SS-US format).
 		tokens = date_time_operations.get_date_time_tokens_of_filename(results_filename)
 		# Determine which year should the results file be placed in.
-		current_path = os.path.join(file_io_operations.result_repository,tokens[2])
+		current_path = os.path.join(location,tokens[2])
 		#if (os.path.exists(current_path) and os.path.isdir(current_path)):
 		if os.path.isdir(current_path):
 			# Determine which month should the results file be placed in.
@@ -210,9 +207,7 @@ class file_io_operations:
 					print("Encountered error in making directory.", file=sys.stderr)
 					logging.error("Determine why directory for month cannot be created.")
 			else:
-				#print(current_path,"=works= ... From: file_io.py, line 146.")
-				# \cite[From section 7 on "Simple statements", subsection 7.4, "The pass statement"]{DrakeJr2016a}
-				pass
+				print(current_path,"=works= ... From: file_io.py, line 146.")
 		else:
 			print("	... Creating directory for year at:",current_path)
 			try:
@@ -234,6 +229,14 @@ class file_io_operations:
 				logging.error("Determine why directory for month cannot be created.")
 		results_filename = os.path.join(current_path, results_filename)
 		return file_io_operations.open_file_object_write(results_filename)
+	# ============================================================
+	##	Method to access the set of filename suffixes.
+	#	@param - None.
+	#	@return set of filename suffixes as a set of strings.
+	#	O(1) method.
+	@staticmethod
+	def get_filename_suffixes():
+		return {file_io_operations.results_suffix, file_io_operations.regression_testing_results_suffix}
 	# ============================================================
 	##	Method to close a file object.
 	#	@param file_obj - A file object.

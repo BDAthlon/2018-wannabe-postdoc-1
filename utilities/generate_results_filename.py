@@ -150,7 +150,7 @@ class generate_filename:
 		return generate_filename.current_time
 	# ============================================================
 	##	Method to check if a filename contains certain substrings
-	#		as a suffix.
+	#		as a suffix; and if the suffix exists, remove it.
 	#	@param a_filename - filename for the output file.
 	#	@param filename_suffix - suffix for filename, before the
 	#		file extension.
@@ -158,20 +158,21 @@ class generate_filename:
 	#		whether the filename had the suffix
 	#	O(1) method.
 	@staticmethod
-	def check_filename_has_suffix(a_filename="11-11-2020-11-11-11-111111-simulation-experimental-results.txt",filename_suffix="-simulation-experimental-results"):
+	def get_filename_without_suffix(a_filename="11-11-2020-11-11-11-111111-simulation-experimental-results.txt",filename_suffix="-simulation-experimental-results"):
 		# The following should work.
-		#return a_filename.replace(filename_suffix,"")
+		return a_filename.replace(filename_suffix,"")
 		"""
 			Safe programming by checking preconditions.
 
 			Does a_filename contain the substring filename_suffix?
-		"""
+		
 		if search(filename_suffix, a_filename):
 			# Yes. Delete specified suffix from filename.
 			return a_filename.replace(filename_suffix,"")
 		else:
 			# Filename does not have specified suffix. Do nothing.
 			return a_filename
+		"""
 	# ============================================================
 	##	Method to determine if the user wants help, and conequently
 	#		display the user manual.

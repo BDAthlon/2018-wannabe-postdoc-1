@@ -100,6 +100,8 @@ import calendar
 """
 from statistics_pkg.test_statistics import statistical_analysis
 
+# Package and module to perform file I/O operations.
+from utilities.file_io import file_io_operations
 # Package and module to generate filename with time stamp.
 from utilities.generate_results_filename import generate_filename
 # Module to process input arguments to the script/program.
@@ -135,17 +137,27 @@ class generate_filename_tester:
 	#	O(1) method.
 	@staticmethod
 	def check_filename_format():
-		"""
+		#"""
 		print("	Testing if the filename has certain suffixes.")
-		prompt = "	... Test: filenames with such suffixes.		{}"
+		prompt = "	... Test: filename 1 with such suffixes.		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		fname = "DD-MM-YY-HH-MM-SS-uS.txt"
-		if ".txt" == file_extn:
+		fname = "DD-MM-YY-HH-MM-SS-uS-simulation-experimental-results.txt"
+		clean_fname = generate_filename.get_filename_without_suffix(fname,file_io_operations.results_suffix)
+		if not file_io_operations.results_suffix in clean_fname:
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
 		else:
 			print(prompt .format("FAIL!!!"))
-		"""
+		prompt = "	... Test: filename 2 with such suffixes.		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		fname = "DD-MM-YY-HH-MM-SS-uS-regression-testing-results.txt"
+		clean_fname = generate_filename.get_filename_without_suffix(fname,file_io_operations.regression_testing_results_suffix)
+		if not file_io_operations.regression_testing_results_suffix in clean_fname:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		#"""
 		print("	Generate a filename with the current time stamp.")
 		temp_op_filename = generate_filename.create_filename()
 		print("	Testing filename:",temp_op_filename,"=")
