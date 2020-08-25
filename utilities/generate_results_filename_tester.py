@@ -135,6 +135,17 @@ class generate_filename_tester:
 	#	O(1) method.
 	@staticmethod
 	def check_filename_format():
+		"""
+		print("	Testing if the filename has certain suffixes.")
+		prompt = "	... Test: filenames with such suffixes.		{}"
+		statistical_analysis.increment_number_test_cases_used()
+		fname = "DD-MM-YY-HH-MM-SS-uS.txt"
+		if ".txt" == file_extn:
+			print(prompt .format("OK"))
+			statistical_analysis.increment_number_test_cases_passed()
+		else:
+			print(prompt .format("FAIL!!!"))
+		"""
 		print("	Generate a filename with the current time stamp.")
 		temp_op_filename = generate_filename.create_filename()
 		print("	Testing filename:",temp_op_filename,"=")

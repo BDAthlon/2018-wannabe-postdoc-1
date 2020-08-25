@@ -305,42 +305,52 @@ class incremental_test_automation:
 
 #	If this is executed as a Python script,
 if __name__ == "__main__":
-	#"""
+	"""
+		Print results of automated regresstion testing to
+			output file.
+	
+		File object for output file containing automated regression
+			software testing results.
+	"""
+	regression_results_f_obj = file_io_operations.open_file_object_write_results(file_io_operations.regression_testing_results_location, file_io_operations.regression_testing_results_suffix)
+	#regression_results_f_obj = file_io_operations.open_file_object_write_results(file_io_operations.regression_testing_results_location, file_io_operations.regression_testing_results_suffix)
+	
+	"""
 	# Redirect standard output and standard error to an output file.
 	results_file_object = file_io_operations.open_file_object_write_results()
 	file_io_operations.redirect_std_op_to_file_obj(results_file_object)
 	file_io_operations.redirect_std_err_to_file_obj(results_file_object)
-	#"""
-	print("==================================================")
-	print("Automating incremental regression testing of my software")
-	print("	solution for genetic technology mapping.")
-	print("")
+	"""
+	regression_results_f_obj.write("==================================================")
+	regression_results_f_obj.write("Automating incremental regression testing of my software")
+	regression_results_f_obj.write("	solution for genetic technology mapping.")
+	regression_results_f_obj.write("")
 	# Assign input arguments to "queue_ip_args" for processing.
 	#queue_ip_args.set_input_arguments(sys.argv,queue_ip_args.INCREMENTAL_TEST)
 	queue_ip_args.set_input_arguments(sys.argv)
 	# Check if user wants to read the brief user manual.
 	queue_ip_args.check_if_help_wanted()
 	# Process the first input argument.
-	print("=	Process the first input argument.")
+	regression_results_f_obj.write("=	Process the first input argument.")
 	ip_filename = queue_ip_args.process_1st_ip_arg()
-	print("=	Create a file object for reading.")
+	regression_results_f_obj.write("=	Create a file object for reading.")
 	# Create a file object for input BibTeX file, in reading mode.
 	ip_file_obj = file_io_operations.open_file_object_read(ip_filename)
 	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	# The real stuff begins here...
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
-	print("=	Testing the statistical analysis package.")
+	regression_results_f_obj.write("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	regression_results_f_obj.write("=	Testing the statistical analysis package.")
 	# Insert test cases for statistical analysis package
 	statistical_analysis_tester.test_statistical_analysis()
 	# Test module performing operations on basic data types & numbers.
 	data_type_n_number_ops_tester.test_data_type_n_number_ops()
 	# Test the miscellaneous tasks in analyzing data.
 	data_analysis_tester.test_data_analysis()
-	print("")
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	regression_results_f_obj.write("")
+	regression_results_f_obj.write("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the utilities package.
-	print("")
-	print("=	Testing the utilities package.")
+	regression_results_f_obj.write("")
+	regression_results_f_obj.write("=	Testing the utilities package.")
 	"""
 		Test the get_factorial() methods first, so that I can
 			test methods to get current time measurements
@@ -356,9 +366,9 @@ if __name__ == "__main__":
 	generate_filename_tester.test_filename_generation_methods()
 	misc_tester.test_miscellaneous_methods()
 	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	print("")
-	print("=	Testing user-defined errors.")
-	print("")
+	regression_results_f_obj.write("")
+	regression_results_f_obj.write("=	Testing user-defined errors.")
+	regression_results_f_obj.write("")
 	graph_error_tester.test_raising_graph_error()
 	#utilities.custom_exceptions.graph_error_tester.test_raising_graph_error()
 	#utilities.custom_exceptions.graph_error_tester.helloworld()
@@ -366,41 +376,41 @@ if __name__ == "__main__":
 	#utilities.custom_exceptions.graph_error_tester.graph_error_tester.test_raising_graph_error()
 	#graph_err_t.test_raising_graph_error()
 #	check_bibtex_key_tester.test_check_bibtex_key()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	regression_results_f_obj.write("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the parsers package.
-	print("")
-	print("=	Testing the parsers package.")
-	print("")
+	regression_results_f_obj.write("")
+	regression_results_f_obj.write("=	Testing the parsers package.")
+	regression_results_f_obj.write("")
 	json_obj_tester.test_json_object_accessibility()
 	config_parser_tester.test_json_config_file_parser()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	regression_results_f_obj.write("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	# Insert test cases for testing the data_structures package.
-	print("")
-	print("=	Testing the data_structures package.")
-	print("")
+	regression_results_f_obj.write("")
+	regression_results_f_obj.write("=	Testing the data_structures package.")
+	regression_results_f_obj.write("")
 	vertex_tester.test_generic_vertex()
 	graph_tester.test_graph()
 	vertex_dg_tester.test_vertex_dg()
 	vertex_ug_tester.test_vertex_ug()
 #	edge_ug_tester.test_edge_ug()
-	print("-	-	-	-	-	-	-	-	-	-	-	-	-")
+	regression_results_f_obj.write("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	#	### TO-DO
 	#	Test expr_configuration
 #	incremental_test_automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
-	print("!	!	!	!	!	!	!	!	!	!	!")
-	print(">>	Get statistics of the software testing process.")
+	regression_results_f_obj.write("!	!	!	!	!	!	!	!	!	!	!")
+	regression_results_f_obj.write(">>	Get statistics of the software testing process.")
 	statistical_analysis.print_statistics_of_software_testing()
 	# Close the file object for reading.
-	print("=	Close the file objects for reading (and writing).")
+	regression_results_f_obj.write("=	Close the file objects for reading (and writing).")
 	file_io_operations.close_file_object(ip_file_obj)
-	#"""
+	"""
 	file_io_operations.close_file_object(results_file_object)
 	# Stop redirecting standard output and standard to an output file.
 	file_io_operations.stop_redirecting_std_op()
 	file_io_operations.stop_redirecting_std_err()
-	#"""
-#	print("<<	I can see this in standard output, printed in the Terminal.")
+	"""
+#	regression_results_f_obj.write("<<	I can see this in standard output, printed in the Terminal.")
 	if misc.add_commit_push_updates_to_git_repository("Update build: Added access to Git repository"):
-		print("Update repository of simulation/experimental results.")
+		regression_results_f_obj.write("Update repository of simulation/experimental results.")
 	else:
-		print("DID NOT update repository of simulation/experimental results.")
+		regression_results_f_obj.write("DID NOT update repository of simulation/experimental results.")

@@ -102,10 +102,16 @@ class file_io_operations:
 	"""
 	#result_repository = "~/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
 	result_repository = "/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization"
+	# Filename suffix for simulation/experimental results.
+	results_suffix = "-simulation-experimental-results"
 	# Backup of the standard output.
 	std_op_backup = None
 	# Backup of the standard error.
 	std_err_backup = None
+	# Automated regression software testing results.
+	regression_testing_results_location = "./output/"
+	# Filename suffix for automated regression software testing results.
+	regression_testing_results_suffix = "regression-testing-results"
 	#
 	# ============================================================
 	##	Method to check if a path to file is valid.
@@ -163,12 +169,26 @@ class file_io_operations:
 	# ============================================================
 	##	Method to open a new file object for write/output operations
 	#		to store simulation and/or experimental results.
-	#	@param - None.
+	#	@param location - location to store the simulation and/or
+	#		experimental results, or automated regression testing results.
+	#		By default, treat it as simulation/experimental results.
+	#		When specified, treat it as specified.
+	#	@param filname_suffix - suffix of filename to store
+	#		the simulation and/or experimental results, or automated
+	#		regression testing results.
+	#		By default, treat it as simulation/experimental results.
+	#		When specified, treat it as specified.
 	#	@return file object "results_file_obj" that writes data
 	#		containing simulation and/or experimental results.
 	#	O(1) method.
+	#
+	#	IMPORTANT NOTE:
+	#	Assigning default values to input arguments using static class
+	#		variables will cause the Python interpreter to fail.
+	#	Hence, I am assigning it to specific values, rather than variables.
 	@staticmethod
-	def open_file_object_write_results():
+	#def open_file_object_write_results(location=file_io_operations.result_repository, filname_suffix=file_io_operations.results_suffix):
+	def open_file_object_write_results(location="/Users/zhiyang/Documents/ricerca/risultati_sperimentali/std-cell-library-characterization", filname_suffix="-simulation-experimental-results"):
 		# Determine path to store simulation/experimental results.
 		results_filename = generate_filename.create_filename()
 		# Tokenize this filename (DD-MM-YY-HR-MN-SS-US format).

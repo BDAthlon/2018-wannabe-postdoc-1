@@ -81,6 +81,8 @@ __date__ = 'Apr 17, 2017'
 	warnings	Raise warnings.
 	re			Use regular expressions.
 	filecmp		For file comparison.
+	re.search	From the regular expressions module, use the
+					search function.
 """
 
 import sys
@@ -93,6 +95,7 @@ import re
 import filecmp
 from datetime import date
 import datetime
+from re import search
 
 ###############################################################
 
@@ -104,6 +107,9 @@ import datetime
 
 ###############################################################
 class generate_filename:
+	# The current time when creating the log file.
+	current_time = None
+	# ============================================================
 	##	Method to generate a filename for the results of the
 	#		experimental/simulation run, or execution of the
 	#		automated regression testing (for software) or
@@ -139,9 +145,33 @@ class generate_filename:
 		print(now.isoformat())
 		print("")
 		"""
-		current_time = str(now.day) + "-" + str(now.month) + "-" + str(now.year) + "-" + str(now.hour) + "-"  + str(now.minute) + "-"  + str(now.second) + "-"  + str(now.microsecond) + filename_suffix + ".txt"
-		#print(current_time)
-		return current_time
+		generate_filename.current_time = str(now.day) + "-" + str(now.month) + "-" + str(now.year) + "-" + str(now.hour) + "-"  + str(now.minute) + "-"  + str(now.second) + "-"  + str(now.microsecond) + filename_suffix + ".txt"
+		#print(generate_filename.current_time)
+		return generate_filename.current_time
+	# ============================================================
+	##	Method to check if a filename contains certain substrings
+	#		as a suffix.
+	#	@param a_filename - filename for the output file.
+	#	@param filename_suffix - suffix for filename, before the
+	#		file extension.
+	#	@return - filename without the suffice, regardless of
+	#		whether the filename had the suffix
+	#	O(1) method.
+	@staticmethod
+	def check_filename_has_suffix(a_filename="11-11-2020-11-11-11-111111-simulation-experimental-results.txt",filename_suffix="-simulation-experimental-results"):
+		# The following should work.
+		#return a_filename.replace(filename_suffix,"")
+		"""
+			Safe programming by checking preconditions.
+
+			Does a_filename contain the substring filename_suffix?
+		"""
+		if search(filename_suffix, a_filename):
+			# Yes. Delete specified suffix from filename.
+			return a_filename.replace(filename_suffix,"")
+		else:
+			# Filename does not have specified suffix. Do nothing.
+			return a_filename
 	# ============================================================
 	##	Method to determine if the user wants help, and conequently
 	#		display the user manual.
