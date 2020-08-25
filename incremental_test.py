@@ -407,6 +407,7 @@ if __name__ == "__main__":
 	# Close the file object for reading.
 	regression_results_f_obj.write("=	Close the file objects for reading (and writing).")
 	file_io_operations.close_file_object(ip_file_obj)
+	file_io_operations.close_file_object(regression_results_f_obj)
 	"""
 	file_io_operations.close_file_object(results_file_object)
 	# Stop redirecting standard output and standard to an output file.

@@ -90,7 +90,7 @@ class data_type_n_number_ops_tester:
 	#	O(n) method, where "n" is the maximum size of the lists
 	#		being tested.
 	@staticmethod
-	def test_is_list_of_numbers():
+	def test_is_list_of_numbers(op_f_obj):
 		op_f_obj.write("	Testing is_list_of_numbers() method.")
 		list_of_objs = None
 		prompt = "	... Test: is_list_of_numbers(None) == False		{}"
@@ -249,7 +249,7 @@ class data_type_n_number_ops_tester:
 	#		the size of the largest tuple (or subtuples/sub-tuples)
 	#		in the tuple of tuples.
 	@staticmethod
-	def test_is_tuple_of_tuples():
+	def test_is_tuple_of_tuples(op_f_obj):
 		op_f_obj.write("	Testing is_tuple_of_tuples() method.")
 		prompt = "	... Test: is_tuple_of_tuples(None) == False		{}"
 		statistical_analysis.increment_number_test_cases_used()
@@ -368,7 +368,7 @@ class data_type_n_number_ops_tester:
 	#		the size of the largest tuple (or subtuples/sub-tuples)
 	#		in the tuple of tuples.
 	@staticmethod
-	def test_is_elem_in_tuple_of_tuples():
+	def test_is_elem_in_tuple_of_tuples(op_f_obj):
 		op_f_obj.write("	Testing is_elem_in_tuple_of_tuples() method.")
 		prompt = "	... i/p arguments: (None,None) => False			{}"
 		statistical_analysis.increment_number_test_cases_used()
@@ -479,7 +479,7 @@ class data_type_n_number_ops_tester:
 	#	O(n) method, where "n" is the maximum size of the lists
 	#		being tested.
 	@staticmethod
-	def test_is_binary_string():
+	def test_is_binary_string(op_f_obj):
 		#op_f_obj.write("	Testing is_binary_string() method.")
 		op_f_obj.write("	Testing is_binary_string() method.")
 		binary_string = None
@@ -563,7 +563,7 @@ class data_type_n_number_ops_tester:
 	#	O(n) method, where "n" is the maximum size of the lists
 	#		being tested.
 	@staticmethod
-	def test_convert_binary_string_to_list_of_0_1_integers():
+	def test_convert_binary_string_to_list_of_0_1_integers(op_f_obj):
 		#op_f_obj.write("	Testing convert_bin...str...to_list_of_0_1_int...() method.")
 		op_f_obj.write("	Testing convert_bin_str_to_list_of_0s_1s() method.")
 		binary_string = None

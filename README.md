@@ -171,6 +171,15 @@ Instead of creating a file object for an output file storing the results from au
 The software test suite has multiple *Python* modules, such that each *Python* module in the software test suite corresponds to a *Python* module in the software design.
 
 
+The main reason for doing this is to use the facade pattern \cite{Gamma1995} to simplify our software architecture. This reduces the amount of parameters that functions and class constructors have to manage and update, as people refactor the code. Consequently, it reduces coupling/dependencies and function calls between *Python* modules.
+
+
+
+
+
+
+
+
 
 #	References
 
@@ -190,6 +199,15 @@ Additional references not found in the reference list shall be indicated below
 		School = {Boston University},
 		Title = {BDAthlon 2018},
 		Year = {2018}}
+...
+	@book{Gamma1995,
+		Address = {Upper Saddle River, {NJ}},
+		Author = {Gamma, Erich and Helm, Richard and Johnson, Ralph and Vlissides, John},
+		Keywords = {design patterns, GoF, Gang of 4, Gang of four},
+		Publisher = {Addison-Wesley},
+		Series = {Addison-Wesley Professional Computing Series},
+		Title = {Design Patterns: Elements of Reusable Object-Oriented Software},
+		Year = {1995}}
 
 
 

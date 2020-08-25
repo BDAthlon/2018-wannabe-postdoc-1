@@ -218,8 +218,11 @@ class file_io_operations:
 				except OSError:
 					print("Encountered error in making directory.", file=sys.stderr)
 					logging.error("Determine why directory for month cannot be created.")
+			"""
+				Do nothing.
 			else:
 				print(current_path,"=works= ... From: file_io.py, line 146.")
+			"""
 		else:
 			print("	... Creating directory for year at:",current_path)
 			try:
