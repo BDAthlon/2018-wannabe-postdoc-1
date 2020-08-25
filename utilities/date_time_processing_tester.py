@@ -67,6 +67,8 @@ import filecmp
 		results.
 """
 from statistics_pkg.test_statistics import statistical_analysis
+# Package and module to perform file I/O operations.
+from utilities.file_io import file_io_operations
 # Package and module to process input arguments to the script/program.
 from utilities.queue_ip_arguments import queue_ip_args
 # Package and module to perform date and time operations.
@@ -450,7 +452,7 @@ class date_time_operations_tester:
 		else:
 			print(prompt .format("FAIL!!!"))
 		# -----------------------------------------------------------------
-		print("	Testing date_time_operations.check_filename_date_time_format().")
+		print("	Testing date_time_operations.check_filename_date_time_format() method.")
 		prompt = "	... Test: single error, dd				{}"
 		statistical_analysis.increment_number_test_cases_used()
 		if not date_time_operations.check_filename_date_time_format("54-9-2018-13-58-59-734507.txt"):
@@ -536,7 +538,9 @@ class date_time_operations_tester:
 			statistical_analysis.increment_number_test_cases_passed()
 		prompt = "	... Test: valid DD-MM-YY-HR-MN-SS-US format		{}"
 		statistical_analysis.increment_number_test_cases_used()
-		tokens = date_time_operations.get_date_time_tokens_of_filename(generate_filename.create_filename())
+		temp_filename = generate_filename.create_filename()
+		temp_filename = generate_filename.get_filename_without_suffix(temp_filename,file_io_operations.results_suffix)
+		tokens = date_time_operations.get_date_time_tokens_of_filename(temp_filename)
 		if (None != tokens) and (number_of_tokens == len(tokens)):
 			print(prompt .format("OK"))
 			statistical_analysis.increment_number_test_cases_passed()
