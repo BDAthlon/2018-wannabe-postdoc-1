@@ -105,7 +105,11 @@ class file_io_operations:
 	# Filename suffix for simulation/experimental results.
 	results_suffix = "-simulation-experimental-results"
 	# File object for writing simulation/experimental results.
-	f_obj_sim_expr_res = None
+	"""
+		Deprecated, since the open_file_object_write_results() function
+			can be called multiple times, and overwrite this value.
+	#f_obj_sim_expr_res = None
+	"""
 	# Backup of the standard output.
 	std_op_backup = None
 	# Backup of the standard error.
@@ -115,7 +119,11 @@ class file_io_operations:
 	# Filename suffix for automated regression software testing results.
 	regression_testing_results_suffix = "-regression-testing-results"
 	# File object for writing automated regression software testing results.
-	f_obj_regression_res = None
+	"""
+		Deprecated, since the open_file_object_write_results() function
+			can be called multiple times, and overwrite this value.
+	#f_obj_regression_res = None
+	"""
 	# ============================================================
 	##	Method to check if a path to file is valid.
 	#	@param filename - Path to a file.
@@ -232,12 +240,15 @@ class file_io_operations:
 				print("Encountered error in making directory.", file=sys.stderr)
 				logging.error("Determine why directory for month cannot be created.")
 		results_filename = os.path.join(current_path, results_filename)
+		"""
 		op_f_obj = file_io_operations.open_file_object_write(results_filename)
 		if filname_suffix == file_io_operations.results_suffix:
 			f_obj_sim_expr_res = op_f_obj
 		if filname_suffix == file_io_operations.regression_testing_results_suffix:
 			f_obj_regression_res = op_f_obj
 		return op_f_obj
+		"""
+		return file_io_operations.open_file_object_write(results_filename)
 	# ============================================================
 	##	Method to access the set of filename suffixes.
 	#	@param - None.

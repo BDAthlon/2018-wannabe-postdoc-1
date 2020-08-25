@@ -158,6 +158,20 @@ References for generics programming for *Python*:
 + https://www.quora.com/How-can-I-use-generic-in-Python
 
 
+###	Refactoring attempt: Replace Print Statements with File Output
+
+Instead of printing results from automated regression testing of the software to standard output (and standard error) stream(s) (typically directed to the *Terminal* application), write the regression testing results to an output file.
+
+This allows us to avoid printing too much information (i.e., 5000 lines of text, as limited by *Google Colab*). When *Google Colab* detects that too much information has been printed to standard output (and standard error) stream(s), it stops printing to standard output (and standard error) stream(s).
+
+Similarly, we write the simulation/experiment results to an output file. This also allows us to track research progress, and note the parameters selected during decision making in the design process.
+
+Instead of creating a file object for an output file storing the results from automated regression testing and another file object for another output file storing the results from simulations and experiments, we choose to keep a copy of the file object in the main function and pass it to each called function in the test bench (or module in the software test suite).
+
+The software test suite has multiple *Python* modules, such that each *Python* module in the software test suite corresponds to a *Python* module in the software design.
+
+
+
 #	References
 
 Citations/References that use the LaTeX/BibTeX notation are taken from my

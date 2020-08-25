@@ -152,17 +152,23 @@ class statistical_analysis:
 			return (statistical_analysis.get_number_test_cases_passed()*100 / statistical_analysis.get_number_test_cases_used())
 	# =========================================================
 	#	Method to print statistics of software testing results.
+	#	@param op_f_obj - output file object to print software
+	#		testing results to.
 	#	@return - Nothing
 	#	@precondition - number_test_cases_used < number_test_cases_passed.
 	#	O(1) method.
 	@staticmethod
-	def print_statistics_of_software_testing():
+	def print_statistics_of_software_testing(op_f_obj = None):
 		if (statistical_analysis.get_number_test_cases_used() < statistical_analysis.get_number_test_cases_passed()):
 			print("	Problem: number_test_cases_used < number_test_cases_passed")
 			raise Exception("	Precondition failed (2): see number_test_cases_used or number_test_cases_passed.")
 		print("*	Number of test cases passed:		{}" .format(statistical_analysis.get_number_test_cases_passed()))
 		print("*	Number of test cases used:		{}" .format(statistical_analysis.get_number_test_cases_used()))
 		print("*	Percentage of test cases passed:	{}%." .format(statistical_analysis.get_test_cases_passed_average()))
+		if op_f_obj is not None:
+			op_f_obj.write("*	Number of test cases passed:		{}" .format(statistical_analysis.get_number_test_cases_passed()))
+			op_f_obj.write("*	Number of test cases used:		{}" .format(statistical_analysis.get_number_test_cases_used()))
+			op_f_obj.write("*	Percentage of test cases passed:	{}%." .format(statistical_analysis.get_test_cases_passed_average()))
 		#print "*	Percentage of test cases passed:	",statistical_analysis.get_test_cases_passed_average(),"%."
 		#	Format printing of the statistics as follows.
 		#print "*	Percentage of test cases passed:	",(13*100/19),"%."

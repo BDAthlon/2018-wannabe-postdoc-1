@@ -88,19 +88,21 @@ class statistical_analysis_tester:
 	# =========================================================
 	##	Method to test the methods that support software test
 	#		automation.
+	#	@param op_f_obj - output file object to print software
+	#		testing results to.
 	#	@return - Nothing.
 	#	O(1) method.
 	@staticmethod
-	def test_statistical_analysis():
-		print("")
-		print("==	Testing class: statistical_analysis")
-		print("	Number of initial test cases passed: {}			{}" .format(statistical_analysis.number_test_cases_passed,"OK"))
-		print("	Number of initial test cases used: {}			{}" .format(statistical_analysis.number_test_cases_used,"OK"))
-		print("	Proportion of initial test cases passed: {}		{}" .format(statistical_analysis.get_test_cases_passed_average(),"OK"))
+	def test_statistical_analysis(op_f_obj):
+		op_f_obj.write("")
+		op_f_obj.write("==	Testing class: statistical_analysis")
+		op_f_obj.write("	Number of initial test cases passed: {}			{}" .format(statistical_analysis.number_test_cases_passed,"OK"))
+		op_f_obj.write("	Number of initial test cases used: {}			{}" .format(statistical_analysis.number_test_cases_used,"OK"))
+		op_f_obj.write("	Proportion of initial test cases passed: {}		{}" .format(statistical_analysis.get_test_cases_passed_average(),"OK"))
 		for x in range(1,7):
 			statistical_analysis.increment_number_test_cases_used()
 			statistical_analysis.increment_number_test_cases_passed()
-			print("	Test case number is: {}					{}." .format(x,"OK"))
-			print("	Number of test cases passed: {}				{}" .format(statistical_analysis.number_test_cases_passed,"OK"))
-			print("	Number of test cases used: {}				{}" .format(statistical_analysis.number_test_cases_used,"OK"))
-			print("	Proportion of test cases passed: {}			{}" .format(statistical_analysis.get_test_cases_passed_average(),"OK"))
+			op_f_obj.write("	Test case number is: {}					{}." .format(x,"OK"))
+			op_f_obj.write("	Number of test cases passed: {}				{}" .format(statistical_analysis.number_test_cases_passed,"OK"))
+			op_f_obj.write("	Number of test cases used: {}				{}" .format(statistical_analysis.number_test_cases_used,"OK"))
+			op_f_obj.write("	Proportion of test cases passed: {}			{}" .format(statistical_analysis.get_test_cases_passed_average(),"OK"))

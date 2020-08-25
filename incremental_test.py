@@ -341,9 +341,9 @@ if __name__ == "__main__":
 	regression_results_f_obj.write("-	-	-	-	-	-	-	-	-	-	-	-	-")
 	regression_results_f_obj.write("=	Testing the statistical analysis package.")
 	# Insert test cases for statistical analysis package
-	statistical_analysis_tester.test_statistical_analysis()
+	statistical_analysis_tester.test_statistical_analysis(regression_results_f_obj)
 	# Test module performing operations on basic data types & numbers.
-	data_type_n_number_ops_tester.test_data_type_n_number_ops()
+	data_type_n_number_ops_tester.test_data_type_n_number_ops(regression_results_f_obj)
 	# Test the miscellaneous tasks in analyzing data.
 	data_analysis_tester.test_data_analysis()
 	regression_results_f_obj.write("")
@@ -397,9 +397,13 @@ if __name__ == "__main__":
 	#	### TO-DO
 	#	Test expr_configuration
 #	incremental_test_automation.read_input_BibTeX_file(ip_file_obj,ip_filename)
-	regression_results_f_obj.write("!	!	!	!	!	!	!	!	!	!	!")
-	regression_results_f_obj.write(">>	Get statistics of the software testing process.")
-	statistical_analysis.print_statistics_of_software_testing()
+	msg = "=================================================="
+	regression_results_f_obj.write(msg)
+	print(msg)
+	msg = ">>	Get statistics of the software testing process."
+	regression_results_f_obj.write(msg)
+	print(msg)
+	statistical_analysis.print_statistics_of_software_testing(regression_results_f_obj)
 	# Close the file object for reading.
 	regression_results_f_obj.write("=	Close the file objects for reading (and writing).")
 	file_io_operations.close_file_object(ip_file_obj)
