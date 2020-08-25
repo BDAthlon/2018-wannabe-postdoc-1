@@ -100,6 +100,9 @@ import calendar
 """
 from statistics_pkg.test_statistics import statistical_analysis
 
+
+# Package and module to perform date and time operations.
+from utilities.date_time_processing import date_time_operations
 # Package and module to perform file I/O operations.
 from utilities.file_io import file_io_operations
 # Package and module to generate filename with time stamp.
@@ -160,6 +163,8 @@ class generate_filename_tester:
 		#"""
 		print("	Generate a filename with the current time stamp.")
 		temp_op_filename = generate_filename.create_filename()
+		temp_op_filename = generate_filename.get_filename_without_suffix(temp_op_filename,file_io_operations.results_suffix)
+		tokens = date_time_operations.get_date_time_tokens_of_filename(temp_op_filename)
 		print("	Testing filename:",temp_op_filename,"=")
 		print("	Check against the format: DD-MM-YY-HH-MM-SS-uS.txt")
 		# https://stackoverflow.com/questions/678236/how-to-get-the-filename-without-the-extension-from-a-path-in-python
