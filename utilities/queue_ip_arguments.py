@@ -78,6 +78,8 @@ class queue_ip_args:
 	second_input_argument = "Second input argument."
 	#	File extension for JSON files.
 	json_f_ext = ".json"
+	#	Output file object for writing to output files.
+	op_file_obj = None
 	# ============================================================
 	#	Accessor methods.
 	# ============================================================
@@ -130,6 +132,14 @@ class queue_ip_args:
 	def get_number_of_input_arguments():
 		return len(queue_ip_args.set_of_input_arguments)
 	# ============================================================
+	##	Method to get/access the output file object.
+	#	@param - None.
+	#	@return - A file object for an output file.
+	#	O(1) method.
+	@staticmethod
+	def get_op_file_obj():
+		return queue_ip_args.op_file_obj
+	# ============================================================
 	#	Mutator methods.
 	# ============================================================
 	##	Method to set the input arguments.
@@ -148,6 +158,14 @@ class queue_ip_args:
 		queue_ip_args.set_of_input_arguments = list_of_ip_arguments
 		# Remove the name of the script from the list of input arguments.
 		queue_ip_args.set_of_input_arguments.pop(0)
+	# ============================================================
+	##	Method to set/assign the output file object.
+	#	@param op_fobj - A file object for an output file.
+	#	@return - Nothing.
+	#	O(1) method.
+	@staticmethod
+	def set_op_file_obj(op_fobj):
+		queue_ip_args.op_file_obj = op_fobj
 	# ============================================================
 	#	Other methods.
 	# ============================================================
@@ -264,3 +282,12 @@ class queue_ip_args:
 			ip_fname2 += queue_ip_args.json_f_ext
 			print("	New output filename is: {}" .format(ip_fname2))
 		return ip_fname2
+	# ============================================================
+	##	Method to check if precondition for file output, or writing
+	#		to an output file, has been met.
+	#	In this implementation, we choose to throw an exception
+	#		if the output file object is equal to the None
+	#	@param - None.
+	#	@return - Nothing.
+	@staticmethod
+	def check_precondition_for_file_output():
